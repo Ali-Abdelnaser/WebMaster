@@ -1,0 +1,212 @@
+ :root {
+      --light-blue: #3498db;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      margin: 0;
+      padding-top: 100px;
+    }
+
+    h3 {
+      color: #000;
+    }
+
+    /* ================= Form Layout ================= */
+    .form-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 40px auto;
+      max-width: 900px;
+    }
+
+    .form-container {
+      width: 500px;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ================= Progressbar Vertical ================= */
+    .progressbar-vertical {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 400px;
+      position: relative;
+      padding: 0;
+      margin: 0;
+      counter-reset: step;
+    }
+
+    .progressbar-vertical::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 15px;
+      width: 4px;
+      background: #ccc;
+      z-index: -1;
+    }
+
+    .progress-line {
+      position: absolute;
+      top: 0;
+      left: 15px;
+      width: 4px;
+      background: var(--light-blue);
+      height: 0;
+      transition: height 0.3s ease;
+      z-index: -1;
+    }
+
+    .progressbar-vertical li {
+      position: relative;
+      padding-left: 40px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    .progressbar-vertical li::before {
+      content: counter(step);
+      counter-increment: step;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      border: 2px solid var(--light-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      color: var(--light-blue);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .progressbar-vertical li.active {
+      color: #000;
+      font-weight: bold;
+    }
+
+    .progressbar-vertical li.active::before {
+      background: var(--light-blue);
+      color: #fff;
+    }
+
+    /* ================= Steps ================= */
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      display: block;
+    }
+
+    .form-step input[type='text'],
+    .form-step input[type='email'] {
+      width: 100%;
+      height: 40px;
+      border-radius: 30px;
+      border: 2px solid var(--light-blue);
+      padding-left: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      margin-top: 5px;
+    }
+
+    .form-step textarea {
+      resize: none;
+      height: 100px;
+      width: 100%;
+      border: 2px solid var(--light-blue);
+      margin-bottom: 15px;
+      margin-top: 10px;
+    }
+
+    .form-step textarea:focus,
+    .form-step input:focus {
+      border: 2px solid var(--light-blue) !important;
+      outline: none;
+      background-color: rgba(28, 136, 208, 0.1);
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid var(--light-blue);
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .form-step input[type='radio']:checked {
+      accent-color: var(--light-blue);
+    }
+
+    .btns {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background: var(--light-blue);
+      color: white;
+    }
+
+    button:disabled {
+      background: #ccc;
+    }
+
+    /* ================= Responsive ================= */
+    @media (max-width: 768px) {
+      .form-wrapper {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 15px;
+        gap: 20px;
+      }
+
+      .form-container {
+        width: 100%;
+        padding: 20px;
+      }
+
+      .progressbar-vertical {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        height: auto;
+      }
+
+      .progressbar-vertical::before,
+      .progress-line {
+        display: none;
+      }
+
+      .progressbar-vertical li {
+        padding-left: 0;
+        margin: 0;
+        text-align: center;
+        flex: 1;
+        font-size: 12px;
+      }
+
+      .progressbar-vertical li::before {
+        position: static;
+        margin: 0 auto 5px;
+        transform: none;
+      }
+    }
