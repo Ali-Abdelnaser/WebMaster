@@ -1,3 +1,4 @@
+/* ==================== ROOT VARIABLES ==================== */
 :root {
   --primary-color: #00629B;
   --background-dark: transparent;
@@ -6,6 +7,12 @@
   --nav-height: 70px;
   --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --transition-speed: 0.3s;
+}
+
+/* ==================== GLOBAL STYLES ==================== */
+html,
+body {
+  overflow-x: hidden;
 }
 
 body {
@@ -39,7 +46,12 @@ body::after {
   background-color: rgba(0, 0, 0, 0.65);
   z-index: -1;
 }
-/* الخط  */
+
+a {
+  text-decoration: none;
+}
+
+/* ==================== SECTION UNDERLINE ==================== */
 .section-underline {
   width: 60px;
   height: 4px;
@@ -49,40 +61,41 @@ body::after {
   border-radius: 2px;
 }
 
-
 /* ==================== NAVBAR ==================== */
+
 header {
   position: fixed;
-  top: 0; /* عشان يبقى فلووت مش لازق فوق */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: 1200px;
+  top: 0;
+  left: 0;
+  /* center via auto margins */
+  right: 0;
+  margin: 0 auto;
+  width: min(90%, 1200px);
   height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(255, 255, 255, 0.014);
   backdrop-filter: blur(10px);
-  border-radius: 0 0  16px 16px;
+  border-radius: 0 0 16px 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.336);
   z-index: 1000;
   transition: background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* لما نسكرول */
 header.scrolled {
   background: rgba(255, 255, 255, 0.555);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
+
 
 header.scrolled .nav-links li a,
 header.scrolled .nav-button a {
   color: var(--accent-color);
 }
 
-header.scrolled .menu-toggle {
-  color: var(--accent-color);
+header.scrolled .menu-toggle span {
+  background: var(--accent-color);
 }
 
 .navbar {
@@ -93,13 +106,13 @@ header.scrolled .menu-toggle {
   align-items: center;
 }
 
-/* LOGO */
+/* Logo */
 .logo img {
   width: 180px;
   transition: opacity 0.3s ease;
 }
 
-/* LINKS */
+/* Links (Desktop default) */
 .nav-links {
   list-style: none;
   display: flex;
@@ -116,14 +129,16 @@ header.scrolled .menu-toggle {
   transition: color var(--transition-speed);
   padding: 5px 0;
 }
+
 header.scrolled .nav-links li a {
-  color: var(--accent-color); /* اللينك نفسه يبقى أزرق */
+  color: var(--accent-color);
 }
 
 header.scrolled .nav-links li a::after {
-  background-color: var(--accent-color); /* underline أزرق */
+  background-color: var(--accent-color);
 }
-/* Underline effect */
+
+/* Underline hover effect */
 .nav-links li a::after {
   content: "";
   position: absolute;
@@ -144,31 +159,240 @@ header.scrolled .nav-links li a::after {
   order: 3;
 }
 
+#join-btn::after {
+  content: "Join US";
+}
+
 .nav-button a {
   padding: 6px 14px;
-  border: 1px solid var(--text-color);
+  border: 1px solid #fff;
   border-radius: 6px;
-  color: var(--text-color);
+  color: #fff;
   text-decoration: none;
-  transition: all var(--transition-speed);
+  transition: all 0.3s ease;
+  background: transparent;
 }
 
 .nav-button a:hover {
-  color: var(--accent-color);
+  background: var(--accent-color);
+  color: #fff;
   border-color: var(--accent-color);
 }
 
-/* Menu toggle button */
-.menu-toggle {
-  display: none;
-  font-size: 26px;
-  color: var(--text-color);
-  cursor: pointer;
-  transition: color var(--transition-speed);
-  order: 4;
+/* After scroll Join Button */
+header.scrolled .nav-button a {
+  background: var(--accent-color);
+  color: #fff;
+  border-color: var(--accent-color);
 }
 
-/* Hero Section */
+header.scrolled .nav-button a:hover {
+  background: #005a95;
+  box-shadow: 0 0 12px rgba(0, 98, 155, 0.6);
+  color: #fff;
+}
+
+/* Menu Toggle */
+.menu-toggle {
+  display: none;
+  /* يظهر في الموبايل تحت */
+  position: relative;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1300;
+  /* أعلى من طبقة المينيو عشان نقدر نقفله */
+}
+
+.menu-toggle span {
+  position: absolute;
+  right: 0;
+  height: 2.5px;
+  border-radius: 2px;
+  background: #fff;
+  transition: transform .35s ease, width .25s ease, top .35s ease, background-color .35s ease, opacity .25s ease;
+}
+
+.menu-toggle span:nth-child(1) {
+  width: 18px;
+  top: 6px;
+}
+
+.menu-toggle span:nth-child(2) {
+  width: 28px;
+  top: 14px;
+}
+
+header.scrolled .menu-toggle span {
+  background: var(--accent-color);
+}
+
+/* Active state (X) */
+.menu-toggle.active span:nth-child(1) {
+  width: 24px;
+  top: 10px;
+  transform: rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  width: 24px;
+  top: 10px;
+  transform: rotate(-45deg);
+}
+
+/* Overlay background */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  /* عتمة */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 900;
+}
+
+.drawer-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Navbar Mobile Styles */
+@media (max-width: 768px) {
+  #join-btn::after {
+    content: "Join";
+  }
+
+  .menu-toggle {
+    display: block;
+    order: 3;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    /* يختفي برا الشاشة تمامًا */
+    width: 300px;
+    /* أو 100% لو عايزه يغطي العرض كله */
+    height: 100vh;
+    margin: 100px -25px 200px 0;
+    /* مهم عشان يشيل أي مسافة */
+    padding: 100px 20px 20px;
+    /* padding داخلي بس */
+    box-sizing: border-box;
+    /* عشان البادينج مايزودش العرض */
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    transition: right 0.4s ease;
+    z-index: 1000;
+    box-shadow: -2px 0 12px rgba(0, 0, 0, 0.15);
+    gap: 20px;
+    border-radius: 20px;
+  }
+  .nav-links li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: transparent;
+  transition: width 0.3s ease;
+}
+ header.scrolled .nav-links li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: transparent;
+  transition: width 0.3s ease;
+}
+  .nav-links.show {
+    right: 0;
+    /* يفتح من غير فراغ */
+  }
+
+  .nav-links li {
+    list-style: none;
+    width: 100%;
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links li a {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-links li a:hover {
+    background: var(--accent-color);
+    color: #fff;
+    padding-left: 5px;
+    /* حركة صغيرة يمين-شمال */
+  }
+
+  /* Menu toggle (hamburger) */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  .menu-toggle span {
+    display: block;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: all 0.4s ease;
+    z-index: 1500;
+  }
+
+  .menu-toggle span:first-child {
+    width: 18px;
+  }
+
+  .menu-toggle span:last-child {
+    width: 28px;
+  }
+
+  /* X animation */
+  .menu-toggle.active span:first-child {
+    transform: rotate(45deg) translate(5px, 6px);
+    width: 22px;
+  }
+
+  .menu-toggle.active span:last-child {
+    transform: rotate(-45deg) translate(5px, -6px);
+    width: 22px;
+  }
+
+
+}
+
+/* ==================== HERO SECTION ==================== */
 .hero {
   height: 100vh;
   margin-top: var(--nav-height);
@@ -185,6 +409,7 @@ header.scrolled .nav-links li a::after {
   color: #fff;
   max-width: 800px;
 }
+
 .hero-title {
   font-size: 3rem;
   color: white;
@@ -195,7 +420,7 @@ header.scrolled .nav-links li a::after {
 }
 
 .hero-title span {
-  color: var(--accent-color);/* لون الدم */
+  color: var(--accent-color);
   font-weight: bold;
 }
 
@@ -220,7 +445,17 @@ header.scrolled .nav-links li a::after {
   margin-top: 10px;
 }
 
-/* Content Section */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-logo {
+    width: 300px;
+  }
+}
+
+/* ==================== CONTENT SECTION ==================== */
 .content {
   padding: 50px 20px;
   background-color: #fff;
@@ -240,7 +475,7 @@ header.scrolled .nav-links li a::after {
   margin: 0 auto;
 }
 
-/* footer */
+/* ==================== FOOTER ==================== */
 footer {
   margin-top: auto;
 }
@@ -312,7 +547,6 @@ footer {
   color: #eee;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
@@ -329,7 +563,7 @@ footer {
   }
 }
 
-/* Cycles */
+/* ==================== CYCLES SECTION ==================== */
 .cycles-section {
   padding: 80px 20px;
   background-color: #f9f9f9;
@@ -350,7 +584,7 @@ footer {
   background-color: white;
   border-radius: 10px;
   padding: 30px 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -382,14 +616,10 @@ footer {
   line-height: 1.5;
 }
 
-a{
-  text-decoration: none;
-}
-
-/* Executive Officers Section  */
+/* ==================== EXECUTIVE OFFICERS ==================== */
 #executive-officers {
-    text-align: center;
-  }
+  text-align: center;
+}
 
 .section-titlee {
   font-size: 2.5rem;
@@ -400,28 +630,30 @@ a{
 }
 
 .officers-grid {
-  display: flex;           
-  flex-wrap: wrap;        
+  display: flex;
+  flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
   max-width: 900px;
   margin: 0 auto;
 }
-  
+
 .officer-card {
   background: transparent;
   padding: 10px;
   text-align: center;
   max-width: 250px;
-  position: relative;flex: 0 0 250px; 
+  position: relative;
+  flex: 0 0 250px;
 }
 
 .officer-card.chair {
   order: -10;
   transform: translateY(-60px);
 }
+
 .officer-card.vice {
-  order: -11
+  order: -11;
 }
 
 .officer-img {
@@ -456,7 +688,7 @@ a{
     order: -2;
     transform: none;
   }
-  
+
   .officer-card.vice {
     order: -1;
     transform: none;
@@ -467,7 +699,6 @@ a{
   }
 }
 
-/* Mobile - أقل من 767px */
 @media (max-width: 767px) {
   .officers-grid {
     display: grid;
@@ -480,7 +711,7 @@ a{
     order: -2;
     transform: none;
   }
-  
+
   .officer-card.vice {
     order: -1;
     transform: none;
@@ -495,14 +726,13 @@ a{
     height: 170px;
   }
 
-  /* آخر عنصر يأخذ العمودين ويتوسط */
   .officer-card:last-child {
     grid-column: 1 / -1;
     justify-self: center;
   }
 }
 
-/* OUR EVENT */
+/* ==================== OUR EVENT (CAROUSEL) ==================== */
 .carousel-events-section {
   padding: 80px 20px;
   background-color: #f4f7fa;
@@ -523,13 +753,14 @@ a{
   scroll-behavior: smooth;
   gap: 30px;
   padding: 10px;
-  -ms-overflow-style: none; /* IE */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .carousel-container::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  display: none;
 }
+
 body.no-hero::before,
 body.no-hero::after {
   display: none;
@@ -605,7 +836,6 @@ body.no-hero::after {
   background-color: var(--accent-color);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .event-card {
     padding: 20px 15px;
@@ -624,101 +854,11 @@ body.no-hero::after {
   }
 }
 
-/* General Section Titles */
+/* ==================== GENERAL SECTION TITLES ==================== */
 .section-title {
   font-size: 2.5rem;
   color: var(--primary-color);
   font-weight: bold;
   text-align: center;
   margin: 0px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background-color: transparent;
-    backdrop-filter: blur(5px);
-    position: absolute;
-    top: var(--nav-height);
-    left: 0;
-    width: 100%;
-    padding: 10px 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    z-index: 999;
-    transition: background-color 0.3s ease;
-  }
-
-  header.scrolled .nav-links {
-    background-color: #fff;
-  }
-
-  .navbar {
-    flex-wrap: nowrap;
-    gap: 10px;
-    align-items: center;
-  }
-
-  .logo {
-    order: 1;
-  }
-
-  .nav-button {
-    order: 2;
-    margin-left: auto;
-  }
-
-  .menu-toggle {
-    order: 3;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-  
-  .nav-links li {
-    text-align: center;
-    margin: 10px 0;
-  }
-
-  .nav-links li a {
-    color: var(--accent-color);
-  }
-
-  .menu-toggle {
-    display: block;
-    order: 3;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero-logo {
-    width: 300px;
-  }
-
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .footer-social {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 10px;
-  }
-
-  .social-icons a {
-    margin-right: 0;
-  }
 }
