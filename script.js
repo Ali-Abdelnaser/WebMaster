@@ -1,12 +1,15 @@
 const header = document.querySelector("header");
 const toggle = document.getElementById("menu-toggle");
 const navLinks = document.querySelector(".nav-links");
+const logo = document.getElementById("logo");
 
 window.addEventListener("scroll", () => {
   if (window.scrollY > 50) {
     header.classList.add("scrolled");
+    logo.src = "img/logo-1.png";
   } else {
     header.classList.remove("scrolled");
+    logo.src = "img/logo-2.png";
   }
 });
 
@@ -14,26 +17,25 @@ toggle.addEventListener("click", () => {
   navLinks.classList.toggle("show");
 });
 
-
 // Events
-const carousel = document.getElementById('eventsCarousel');
-const dots = document.querySelectorAll('.dot');
+const carousel = document.getElementById("eventsCarousel");
+const dots = document.querySelectorAll(".dot");
 let currentIndex = 0;
 
 function updateCarousel(index) {
   const cardWidth = carousel.offsetWidth;
   carousel.scrollTo({
     left: cardWidth * index,
-    behavior: 'smooth',
+    behavior: "smooth",
   });
 
-  dots.forEach(dot => dot.classList.remove('active'));
-  dots[index].classList.add('active');
+  dots.forEach((dot) => dot.classList.remove("active"));
+  dots[index].classList.add("active");
 }
 
-dots.forEach(dot => {
-  dot.addEventListener('click', () => {
-    const idx = parseInt(dot.getAttribute('data-index'));
+dots.forEach((dot) => {
+  dot.addEventListener("click", () => {
+    const idx = parseInt(dot.getAttribute("data-index"));
     updateCarousel(idx);
     resetAuto();
   });
