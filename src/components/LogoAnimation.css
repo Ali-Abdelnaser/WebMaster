@@ -1,0 +1,20 @@
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #000;
+  position: relative;
+}
+
+.logo-symbol {
+  width: 300px;
+  position: absolute;
+  z-index: 2;
+}
+
+.logo-text {
+  width: 420px;
+  position: absolute;
+  z-index: 1;
+}

@@ -1,0 +1,49 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: #000;
+}
+
+/* الخلفية */
+.hero-bg-wrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0; /* أول ما تفتح */
+  transition: opacity 1s ease;
+}
+
+.hero-bg.show {
+  opacity: 0.4; /* 👈 الصورة هادية كخلفية */
+}
+
+/* لودينج (skeleton shimmer) */
+.img-skeleton {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #222, #333, #222);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  z-index: 1;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: 200px 0; }
+}
+
+/* اللوجو */
+.logo-container {
+  position: relative;
+  z-index: 2; /* فوق الخلفية */
+}
