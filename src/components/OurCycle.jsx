@@ -1,4 +1,17 @@
 import { motion } from "framer-motion";
+import { Canvas } from "@react-three/fiber";
+import { Float, Html } from "@react-three/drei";
+import { FaUsers,
+  FaHandsHelping,
+  FaBook,
+  FaCalendarAlt,
+  FaBullhorn,
+  FaHandshake,
+  FaCamera,
+  FaChartLine,
+  FaMoneyBillWave,
+  FaLaptopCode,
+  FaLightbulb,FaBullseye, } from "react-icons/fa"; // أيقونات جاهزة
 import "./cycle.css";
 
 const committees = [
@@ -11,9 +24,59 @@ const committees = [
   { name: "Media", image: "/img/committees/media.svg" },
 ];
 
+// أيقونات الخلفية
+const bgIcons = [
+  FaUsers,
+  FaHandsHelping,
+
+  FaBook,
+  FaCalendarAlt,
+  FaMoneyBillWave,
+  FaBullhorn,
+  FaHandshake,
+  FaBullseye,
+  FaCamera,
+  FaChartLine,
+  FaLaptopCode,
+  FaLightbulb,
+];
+
+function FloatingBgIcon({ Icon }) {
+  const randomX = Math.random() * 100; // position %
+  const randomY = Math.random() * 100;
+  const duration = 10 + Math.random() * 10; // 10–20s
+
+  return (
+    <motion.div
+      className="floating-bg-icon"
+      style={{ left: `${randomX}%`, top: `${randomY}%` }}
+      animate={{
+        x: [0, (Math.random() - 0.5) * 200],
+        y: [0, (Math.random() - 0.5) * 200],
+        rotate: [0, Math.random() * 360],
+        scale: [1, 1.3, 1],
+      }}
+      transition={{
+        duration,
+        repeat: Infinity,
+        repeatType: "mirror",
+        ease: "easeInOut",
+      }}
+    >
+      <Icon />
+    </motion.div>
+  );
+}
+
 export default function OurCycle() {
   return (
     <section className="cycle-section">
+      <div className="cycle-background">
+        {Array.from({ length: 25 }).map((_, i) => {
+          const Icon = bgIcons[i % bgIcons.length];
+          return <FloatingBgIcon key={i} Icon={Icon} />;
+        })}
+      </div>
       <h2 className="section-title">Our Cycle</h2>
 
       <div className="hex-grid">
@@ -35,7 +98,8 @@ export default function OurCycle() {
       </div>
 
       <p className="cycle-quote">
-        Like <span>Bees</span> In a Hive, Every Committee Plays a Role — But Together, <br></br>
+        Like <span>Bees</span> In a Hive, Every Committee Plays a Role — But
+        Together, <br></br>
         WE ARE ONE.
       </p>
     </section>

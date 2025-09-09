@@ -1,8 +1,41 @@
 .cycle-section {
-  padding: 100px 20px;
-  background: linear-gradient(to bottom, #f9f9f9, #e9f2f9);
-  text-align: center;
   position: relative;
+  padding: 100px 20px;
+  background: #f9f9f9;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cycle-background {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.floating-bg-icon {
+  position: absolute;
+  font-size: 2rem;
+  color: rgba(0, 98, 155, 0.2);
+  pointer-events: none; /* ما تتضغطش */
+}
+
+.hex-grid,
+.section-title,
+.cycle-quote {
+  position: relative;
+  z-index: 2; /* فوق الخلفية */
+}
+
+.cycle-quote span {
+  color: #FFD700;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .floating-bg-icon {
+    font-size: 3.5rem;
+  }
 }
 
 .section-title {

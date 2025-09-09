@@ -18,16 +18,16 @@ export default function LogoAnimation() {
       timers.push(setTimeout(() => setStep(2), 3000));
 
       // 3. يفضل ثابت (30 ثانية مثلاً)
-      timers.push(setTimeout(() => setStep(3), 33000));
+      timers.push(setTimeout(() => setStep(3), 13000));
 
       // 4. النص يختفي
-      timers.push(setTimeout(() => setStep(4), 34000));
+      timers.push(setTimeout(() => setStep(4), 14000));
 
       // 5. بعد ثانية يبدأ الرمز يصغر (ديلاي بعد النص)
-      timers.push(setTimeout(() => setStep(5), 36000));
+      timers.push(setTimeout(() => setStep(5), 16000));
 
       // 6. بعد 10 ثواني إضافية يبدأ من الأول
-      timers.push(setTimeout(runCycle, 40000));
+      timers.push(setTimeout(runCycle, 30000));
     };
 
     runCycle();
@@ -38,7 +38,7 @@ export default function LogoAnimation() {
   return (
     <div className="logo-container">
       {/* الرمز */}
-       <motion.img
+      <motion.img
         src="/logo/Shape-white.png"
         alt="Logo Symbol"
         className="logo-symbol"
