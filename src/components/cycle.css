@@ -36,6 +36,7 @@
   .floating-bg-icon {
     font-size: 3.5rem;
   }
+
 }
 
 .section-title {
@@ -96,7 +97,7 @@
 
 .cycle-quote {
   margin-top: 50px;
-  font-size: 1.6rem;
+  font-size: 2.2rem;
   color: #031d2b;
   max-width: 800px;
   margin-left: auto;
@@ -112,20 +113,17 @@
   font-size: 2rem;
   color: #00629B;
   position: absolute;
-  top: -30px;
+  top: -40px;
 }
 
 .cycle-quote::after {
   content: "❞";
-  right: -25px;
-  bottom: -10px;
+  right: 70px;
+  bottom: -20px;
   top: auto;
 }
 
-.cycle-quote span {
-  color: #ffd901; /* أصفر ذهبي */
-  font-weight: 700;
-}
+
 
 
 /* Responsive */
@@ -174,7 +172,9 @@
   .hex {
     width: 280px; /* أكبر شوية */
   }
-
+  .cycle-quote{
+    font-size: 1.5rem;
+  }
   .hex-inner img {
     width: 140px;
     height: 140px;
