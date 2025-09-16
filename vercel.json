@@ -1,17 +1,17 @@
 {
   "redirects": [
     {
-      "source": "/(.*)",
-      "has": [
-        { "type": "host", "value": "www.ieeemet.org" }
-      ],
-      "destination": "https://ieeemet.org/$1",
+      "source": "/",
+      "destination": "https://ieeemet.org",
       "permanent": true
     },
     {
       "source": "/(.*)",
       "has": [
-        { "type": "scheme", "value": "http" }
+        {
+          "type": "host",
+          "value": "www.ieeemet.org"
+        }
       ],
       "destination": "https://ieeemet.org/$1",
       "permanent": true
