@@ -1,0 +1,322 @@
+/* ==================== NAVBAR ==================== */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: min(90%, 1200px);
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.014);
+  backdrop-filter: blur(10px);
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.336);
+  z-index: 1000;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+}
+
+header.scrolled {
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+header.scrolled .nav-links li a,
+header.scrolled .nav-button a {
+  color: var(--accent-color);
+}
+
+header.scrolled .menu-toggle span {
+  background: var(--accent-color);
+}
+
+/* ==================== NAVBAR INNER ==================== */
+.navbar {
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo img {
+  width: 180px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+header.scrolled .logo img {
+  transform: scale(0.95);
+  opacity: 0.9;
+}
+
+/* Links (Desktop default) */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  position: relative;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  padding: 5px 0;
+}
+/* Glow & Tooltip for live Events */
+.events-item.live a {
+  position: relative;
+  color: #ffffff;
+  font-weight: 700;
+  animation: glowPulse .8s infinite;
+}
+
+@keyframes glowPulse {
+  0% {
+    transform: scale(1);
+    text-shadow: 
+      0 0 8px #f53535, 
+      0 0 16px #eb2c2c, 
+      0 0 24px #f10e0e;
+  }
+  50% {
+    transform: scale(1.2);
+    text-shadow: 
+      0 0 20px #ff4d4d, 
+      0 0 40px #ff1a1a, 
+      0 0 60px #ff0000;
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: 
+      0 0 8px #f53535, 
+      0 0 16px #eb2c2c, 
+      0 0 24px #f10e0e;
+  }
+}
+
+
+header.scrolled .nav-links li a {
+  color: var(--accent-color);
+}
+
+header.scrolled .nav-links li a::after {
+  background-color: var(--accent-color);
+}
+
+/* Underline hover effect */
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: var(--text-color);
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.nav-links li a:hover {
+  color: #00629B;
+  text-shadow: 0 0 6px rgba(0, 98, 155, 0.6);
+}
+
+/* Join Button */
+.nav-button {
+  order: 3;
+}
+
+#join-btn::after {
+  content: "Join US";
+}
+
+.nav-button a {
+  padding: 6px 14px;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.nav-button a:hover {
+  background: var(--accent-color);
+  color: #fff;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 10px rgba(0, 98, 155, 0.5);
+}
+
+header.scrolled .nav-button a {
+  background: var(--accent-color);
+  color: #fff;
+  border-color: var(--accent-color);
+}
+
+header.scrolled .nav-button a:hover {
+  background: #005a95;
+  box-shadow: 0 0 12px rgba(0, 98, 155, 0.6);
+  color: #fff;
+}
+
+/* ==================== MENU TOGGLE ==================== */
+.menu-toggle {
+  display: none;
+  position: relative;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1300;
+}
+.menu-toggle.active span:nth-child(1) {
+  width: 18px;
+  top: 6px; background-color: #005a95;
+}
+.menu-toggle.active span:nth-child(2) {
+   width: 28px;
+  top: 14px; background-color: #005a95;
+}
+.menu-toggle span {
+  position: absolute;
+  right: 0;
+  height: 2.5px;
+  border-radius: 2px;
+  background: #fff;
+  transition: transform .35s ease, width .25s ease, top .35s ease, background-color .35s ease, opacity .25s ease;
+}
+
+.menu-toggle span:nth-child(1) {
+  width: 18px;
+  top: 6px;
+}
+
+.menu-toggle span:nth-child(2) {
+  width: 28px;
+  top: 14px;
+}
+
+header.scrolled .menu-toggle span {
+  background: var(--accent-color);
+}
+
+/* Active state (X) */
+.menu-toggle.active span:nth-child(1) {
+  width: 24px;
+  top: 10px;
+  transform: rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  width: 24px;
+  top: 10px;
+  transform: rotate(-45deg);
+}
+
+/* ==================== OVERLAY ==================== */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.05);
+  transition: all 0.4s ease;
+  z-index: 900;
+}
+
+.drawer-overlay.show {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+/* ==================== MOBILE MENU ==================== */
+@media (max-width: 768px) {
+  #join-btn::after {
+    content: "Join";
+  }
+
+  .menu-toggle {
+    display: block;
+    order: 3;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -120%;
+    width: 300px;
+    height: 100vh;
+    margin: 0;
+    padding: 100px 20px 20px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: right 0.4s ease;
+    z-index: 1000;
+    box-shadow: -2px 0 12px rgba(0, 0, 0, 0.15);
+    gap: 20px;
+    border-radius: 20px 0 0 20px;
+  }
+
+  .nav-links.show {
+    right: -40px;
+  }
+
+  .nav-links li {
+    list-style: none;
+    width: 100%;
+    opacity: 0;
+    transform: translateX(20px);
+    animation: slideIn 0.5s forwards;
+  }
+
+  .nav-links.show li:nth-child(1) { animation-delay: 0.1s; }
+  .nav-links.show li:nth-child(2) { animation-delay: 0.2s; }
+  .nav-links.show li:nth-child(3) { animation-delay: 0.3s; }
+  .nav-links.show li:nth-child(4) { animation-delay: 0.4s; }
+  .nav-links.show li:nth-child(5) { animation-delay: 0.5s; }
+
+  @keyframes slideIn {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .nav-links li a {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-links li a:hover {
+    background: var(--accent-color);
+    color: #fff;
+    padding-left: 5px;
+  }
+}

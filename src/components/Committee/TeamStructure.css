@@ -1,0 +1,264 @@
+.team-structure {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.team-title {
+  font-size: 3.5rem;
+  color: #fff;
+  margin-bottom: 60px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+/* داخل الكروت */
+.special-card h3,
+.member-card h3 {
+  font-size: 1.25rem;
+  /* اسم الشخص */
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.special-card p,
+.member-card p {
+  font-size: 0.95rem;
+  /* رول / كلية */
+  opacity: 0.85;
+  margin: 2px 0;
+}
+
+/* Head */
+.team-head {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+/* Vice + Advisors */
+.team-row {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+  
+  margin-bottom: 50px;
+}
+
+/* Members grid */
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  
+  justify-content: center;
+  
+  gap: 20px;
+}
+
+/* Special cards (Head, Vice, Advisor) */
+/* Special cards (Head, Vice, Advisor) */
+.special-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  min-width: 220px;  /* أقل عرض ليه */
+  max-width: 220px; 
+  padding: 16px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 215, 0, 0.8);
+  color: #fff;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.special-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 32px rgba(255, 217, 0, 0.555);
+  /* لمعة دهبية */
+  border-color: rgba(255, 215, 0, 0.7);
+  /* يبان دهبي أكتر */
+}
+
+/* shimmer effect */
+.special-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -200%;
+  /* يبدأ من بره الكارت */
+  width: 200%;
+  /* يغطي الكارت بالراحة */
+  height: 100%;
+  /* نفس الطول بالظبط */
+  background: linear-gradient(120deg,
+      transparent 0%,
+      rgba(255, 215, 0, 0.05) 15%,
+      rgba(255, 215, 0, 0.15) 25%,
+      rgba(255, 215, 0, 0.35) 35%,
+      rgba(255, 215, 0, 0.65) 45%,
+      rgba(255, 215, 0, 0.9) 50%,
+      rgba(255, 215, 0, 0.65) 55%,
+      rgba(255, 215, 0, 0.35) 65%,
+      rgba(255, 215, 0, 0.15) 75%,
+      rgba(255, 215, 0, 0.05) 85%,
+      transparent 100%);
+  transform: skewX(-20deg);
+  animation: shimmer-gold 3.5s linear infinite;
+  /* أسرع وأنعم */
+  z-index: 1;
+}
+
+/* النص فوق اللمعة */
+.special-card * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes shimmer-gold {
+  0% {
+    left: -200%;
+  }
+
+  100% {
+    left: 200%;
+  }
+
+  /* يعدي لحد آخر الكارت */
+}
+
+
+/* الصور */
+.special-card img {
+  width: clamp(120px, 18vw, 160px);
+  height: clamp(120px, 18vw, 160px);
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.4);
+  object-fit: cover; 
+  object-position: top;  /* تمنع الضغط وتقص الصورة بشكل مظبوط */ 
+}
+
+.member-card img {
+  width: clamp(80px, 14vw, 110px);
+  height: clamp(80px, 14vw, 110px);
+  border-radius: 50%;
+  object-fit: cover; 
+  object-position: top;
+}
+
+
+/* Member cards */
+.member-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  color: #fff;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  flex: 1 1 180px;
+  max-width: 220px;
+}
+
+.member-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgb(0, 0, 0);
+  border-color: #009fe3;
+}
+
+/* Responsive */
+@media (max-width: 1023px) {
+  .team-title {
+    font-size: 2rem;
+  }
+  .special-card h3,
+  .member-card h3 {
+    font-size: 1.1rem;
+  }
+  .special-card p,
+  .member-card p {
+    font-size: 0.9rem;
+  }
+
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .team-title {
+    font-size: 1.7rem;
+  }
+  .team-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .team-row .special-card {
+  flex: 1 1 150px;   /* الكارد ياخد مساحة مرنة */
+  min-width: 150px;  /* أقل عرض ليه */
+  max-width: 150px;  /* اختيارية: علشان ما يكبرش قوي */
+}
+  .special-card {
+    padding: 14px;
+    border-radius: 12px;
+  }
+  .member-card {
+    width: 190px;
+
+  }
+ .team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    gap: 16px;
+  }
+  .special-card h3,
+  .member-card h3 {
+    font-size: 1rem;
+  }
+
+  .special-card p,
+  .member-card p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 479px) {
+  .team-title {
+    font-size: 1.4rem;
+  }
+  .special-card h3,
+  .member-card h3 {
+    font-size: 0.9rem;
+  }
+
+  .special-card p,
+  .member-card p {
+    font-size: 0.75rem;
+  }
+  .team-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .team-row .special-card {
+  flex: 1 1 120px;   /* الكارد ياخد مساحة مرنة */
+  min-width: 120px;  /* أقل عرض ليه */
+  max-width: 120px;  /* اختيارية: علشان ما يكبرش قوي */
+}
+  .member-card {
+    width: 130px;
+    /* نفس عرض العمود */
+  }
+  .team-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}

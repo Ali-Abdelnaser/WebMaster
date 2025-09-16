@@ -1,0 +1,84 @@
+/* Executive Officers Section */
+#executive-officers {
+  text-align: center;
+}
+
+.section-titlee {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: 60px;
+}
+
+.officers-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.officer-card {
+  background: transparent;
+  padding: 10px;
+  text-align: center;
+  max-width: 250px;
+  flex: 0 0 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 12px;
+}
+
+/* Desktop ≥1025px */
+.officer-card.vice { order: -11; }
+.officer-card.chair { order: -10; transform: translateY(-60px); }
+
+
+
+
+
+/* باقي الصور */
+.officer-img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* الاسم */
+.officer-card h3 { margin: 8px 0 4px; color: #00629b; font-size: 1.2rem; font-weight: 600; }
+
+/* البوزيشن */
+.officer-card p { margin: 0 0 12px; color: #535353; font-size: 0.95rem; }
+
+/* اللينكات */
+.links { display: flex; gap: 10px; justify-content: center; }
+.links a { font-size: 1.3rem; color: #016DA6; transition: color 0.3s ease; }
+.links a:hover { color: #004b7c; }
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .officers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+  .officer-card.chair { order: -1; transform: none; }
+  .officer-card.vice { order: 0; transform: none; }
+  .officer-card { max-width: 100%; }
+}
+
+@media (max-width: 767px) {
+  .officers-grid { display: grid; grid-template-columns: repeat(2, 1fr); justify-items: center; gap: 0; margin: 30px;}
+  .officer-card.chair { order: 1; transform: none; }
+  .officer-card.vice { order: 2; transform: none; }
+  .officer-card.webmaster { order: 3; grid-column: 1 / -1; justify-self: center; }
+  .officer-card.secretary { order: 4; }
+  .officer-card.treasurer { order: 5; }
+  .officer-card { max-width: 100%; }
+  .officer-img { width: 180px; height: 180px; }
+}
+@media (max-width: 300px) {
+  .officer-img { width: 180px; height: 180px; }
+}

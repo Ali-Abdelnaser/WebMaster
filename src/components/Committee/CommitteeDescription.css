@@ -1,0 +1,84 @@
+.committee-description-section {
+  width: 100%;
+  /* ياخد العرض كله */
+  padding: 80px 20px;
+  /* padding من فوق وتحت + يسار ويمين */
+  text-align: center;
+  /* النص في النص */
+background: linear-gradient(
+  180deg,
+  rgba(255, 255, 255, 0) 0%,
+  rgba(255, 255, 255, 0.4) 10%,
+  rgba(255, 255, 255, 0.8) 20%,
+  #ffffff 30%,
+  #ffffff 100%
+);
+  box-sizing: border-box;
+  /* عشان الـ padding محسوب ضمن العرض */
+}
+
+.committee-description-section h2 {
+  font-size: 2.5rem;
+  /* عنوان أكبر على الديسكتوب */
+  color: #00629B;
+  margin: 60px  0 20px 0;
+}
+
+.committee-description-section p {
+  font-size: 1.3rem;
+  /* حجم الخط الأساسي للوصف */
+  color: #333;
+  line-height: 1.8;
+  text-align: left;
+  /* الوصف يبدأ من اليسار داخل البلوك */
+  max-width: 900px;
+  margin: 0 auto;
+  /* يوسّط الوصف داخل السكشن */
+  white-space: pre-line;
+  /* يحافظ على فواصل الأسطر */
+}
+
+/* Tablet */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .committee-description-section {
+    padding: 60px 15px;
+  }
+
+  .committee-description-section h2 {
+    font-size: 2rem;
+  }
+
+  .committee-description-section p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .committee-description-section {
+    padding: 40px 10px;
+  }
+
+  .committee-description-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .committee-description-section p {
+    font-size: 1rem;
+  }
+}
+
+/* Small Mobile (<480px) */
+@media (max-width: 479px) {
+  .committee-description-section {
+    padding: 30px 10px;
+  }
+
+  .committee-description-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .committee-description-section p {
+    font-size: 0.95rem;
+  }
+}

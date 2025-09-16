@@ -1,0 +1,448 @@
+[
+  {
+    "name": "HR",
+    "title": "What makes our HR team essential?",
+    "image": "/img/committees/hr.svg",
+    "description": "The HR Committee is responsible for ensuring every member feels welcomed, valued, and engaged in our branch. They manage onboarding, training sessions, internal communication, and member satisfaction. HR organizes team-building activities, resolves internal conflicts, and maintains a positive environment. Their role is crucial for fostering a sense of community and ensuring smooth collaboration between all committees.",
+    "responsibilities": [
+      "Organize onboarding and training sessions for new members.",
+      "Conduct team-building and engagement activities.",
+      "Resolve internal conflicts and maintain harmony.",
+      "Ensure smooth communication between committees."
+    ],
+    "team": {
+      "head": {
+        "name": "Ahmed Saad",
+        "image": "/img/HR/Ahmed Saad.webp",
+        "college": "Engineering",
+        "level": "3rd Year"
+      },
+      "vice": [
+        {
+          "name": "Mayar Emam",
+          "image": "/img/HR/Mayar.webp",
+          "college": "BIS",
+          "level": "4th Year"
+        }
+      ],
+      "advisors": [
+        {
+          "name": "Hoda Abdo ",
+          "image": "/img/HR/Hoda.webp",
+          "college": "Engineering",
+          "level": "4th Year"
+        }
+      ],
+      "members": [
+        {
+          "name": "Moaz Mohamed",
+          "image": "/img/HR/Moaz.webp",
+          "college": "CS",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Shahd Hesham",
+          "image": "/img/HR/Shahd.webp",
+          "college": "Engineering",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Mostafa Mohamed",
+          "image": "/img/HR/Mostafa.webp",
+          "college": "Engineering",
+          "level": "4th Year"
+        },
+        {
+          "name": "Omnia Abdelazim",
+          "image": "/img/HR/Omnia.webp",
+          "college": "Science ",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Naira Farhat",
+          "image": "/img/HR/naira.webp",
+          "college": "Science ",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Salma medhat",
+          "image": "/img/HR/Salma.webp",
+          "college": "Engineering ",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Yassmena Abdullah ",
+          "image": "/img/HR/Yassmena.webp",
+          "college": "Engineering ",
+          "level": "2nd Year"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Media",
+    "title": "How does Media keep us connected visually?",
+    "image": "/img/committees/media.svg",
+    "description": "The Media Committee handles all visual and digital content for the branch. They capture photographs and videos during events, design graphics for social media, create promotional materials, and maintain the branch's online presence. Media ensures that our events are well-documented and visually appealing, contributing to a strong branch identity and professional image. They also work on creative campaigns to engage members and the community.",
+    "responsibilities": [
+      "Capture photos and videos during events.",
+      "Design graphics and digital content for campaigns.",
+      "Manage the branch’s visual identity and branding.",
+      "Maintain a strong online and social media presence."
+    ],
+    "team": {
+      "head": {
+        "name": "Shahd Saleh",
+        "image": "/img/Media/Shahd saleh.webp",
+        "college": "Engineering",
+        "level": "5th Year"
+      },
+      "vice": [
+        {
+          "name": "Omar Mosaad",
+          "image": "/img/Media/Omar Mosaad.webp",
+          "college": "Engineering",
+          "level": "5th Year"
+        },
+        {
+          "name": "Hanya Elmasry",
+          "image": "/img/Media/Hanya Elmasry.webp",
+          "college": "CS",
+          "level": "3rd Year"
+        }
+      ],
+      "advisors": [
+        {
+          "name": "Mohammad Abuoelezz",
+          "image": "/img/Media/Abuoelezz.webp",
+          "college": "Engineering",
+          "level": "Graduated"
+        },
+        {
+          "name": "Fatma Waleed",
+          "image": "/img/Media/Fatma Waleed.webp",
+          "college": "Engineering",
+          "level": "5th Year"
+        }
+      ],
+      "members": [
+        {
+          "name": "Mohamed Saleh",
+          "image": "/img/Media/MOHAMED SALEH.webp",
+          "college": "Engineering",
+          "level": "5th Year"
+        },
+        {
+          "name": "Mohamed Elmansy",
+          "image": "/img/Media/Mohamed Elmansy.webp",
+          "college": "Engineering",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Arwa Hany",
+          "image": "/img/Media/Arwa Hany.webp",
+          "college": "CS",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Ganna Mamdouh",
+          "image": "/img/Media/woman.png",
+          "college": "CS",
+          "level": "3rd Year"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Logistics",
+    "title": "Who ensures our events run smoothly?",
+    "image": "/img/committees/logistics.svg",
+    "description": "The Logistics Committee is responsible for organizing venues, equipment, and resources for all events and activities. They coordinate transportation, manage inventory, handle event setup and breakdown, and ensure that all physical arrangements run smoothly. Logistics plays a critical role in making sure events happen without any disruptions, guaranteeing a seamless experience for both organizers and participants.",
+    "responsibilities": [
+      "Arrange venues and handle event setup.",
+      "Manage transportation and equipment.",
+      "Coordinate event breakdown and cleanup.",
+      "Ensure smooth physical arrangements for all activities."
+    ],
+    "team": {
+      "head": {
+        "name": "Hagar Mohsen ",
+        "image": "/img/Logistice/Hagar Mohsen.webp",
+        "college": "Engineering",
+        "level": "4th Year"
+      },
+      "vice": [
+        {
+          "name": "Abdallah Mostafa ",
+          "image": "/img/Logistice/Abdallah Mostafa.webp",
+          "college": "Engineering",
+          "level": "3rd Year"
+        }
+      ],
+      "advisors": [],
+      "members": [
+        {
+          "name": "Zeinab Omar",
+          "image": "/img/Logistice/Zeinab Omar.webp",
+          "college": "Engineering",
+          "level": "4th Year"
+        },
+        {
+          "name": "Ahmed Ehab",
+          "image": "/img/Logistice/Ahmed Ehab.webp",
+          "college": "Engineering",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Mehad Magdy",
+          "image": "/img/Logistice/Mehad Magdy.webp",
+          "college": "BIS",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Fatma Abdelfatah",
+          "image": "/img/Logistice/Fatma Abdelfatah.webp",
+          "college": "CS",
+          "level": "2nd Year"
+        },
+        {
+          "name": "AbdelGawad Elkholy",
+          "image": "/img/Logistice/AbdelGawad Elkholy.webp",
+          "college": "Engineering",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Asmaa Barghout",
+          "image": "/img/Logistice/Asmaa Barghout.webp",
+          "college": "Engineering",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Ahmed hesham",
+          "image": "/img/Logistice/Ahmed hesham.webp",
+          "college": "Engineering",
+          "level": "4th Year"
+        },
+        {
+          "name": "Yousef Mohamed",
+          "image": "/img/Logistice/Yousef Mohamed.webp",
+          "college": "Engineering",
+          "level": "3rd Year"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Event Management",
+    "title": "How do we manage flawless events?",
+    "image": "/img/committees/event.svg",
+    "description": "The Event Management Committee focuses on planning, coordinating, and executing events from start to finish. They create event timelines, manage task assignments, liaise with other committees, and oversee the entire workflow. This committee ensures that all events meet their objectives, are executed efficiently, and provide value to attendees. They also handle post-event evaluations to continuously improve the branch’s activities.",
+    "responsibilities": [
+      "Plan and organize event timelines.",
+      "Assign and manage tasks across teams.",
+      "Oversee event execution and coordination.",
+      "Conduct post-event evaluations for improvement."
+    ],
+    "team": {
+      "head": {
+        "name": "Omar Abdelazim ",
+        "image": "/img/Team Management/Omar.webp",
+        "college": "Engineering",
+        "level": "3rd Year"
+      },
+      "vice": [
+        {
+          "name": "Nourhan Khaled",
+          "image": "/img/Team Management/Nourhan.webp",
+          "college": "CS",
+          "level": "4th Year"
+        }
+      ],
+      "advisors": [
+        {
+          "name": "Mostafa Loutfy",
+          "image": "/img/Team Management/Loutfy.webp",
+          "college": "Engineering",
+          "level": "Graduated"
+        }
+      ],
+      "members": [
+        {
+          "name": "Hamza Yehia",
+          "image": "/img/Team Management/Hamza.webp",
+          "college": "Engineering",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Khalid Hany",
+          "image": "/img/Team Management/Khalid.webp",
+          "college": "Engineering",
+          "level": "4th Year"
+        },
+        {
+          "name": "Yousef sharshira ",
+          "image": "/img/Team Management/Yousef.webp",
+          "college": "Engineering",
+          "level": "4th Year"
+        },
+        {
+          "name": "Ahmed ElNahas",
+          "image": "/img/Team Management/ElNahas.webp",
+          "college": "Engineering",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Shahd Elsayed",
+          "image": "/img/Team Management/Shahd.webp",
+          "college": "BIS",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Shahd Tarek",
+          "image": "/img/Team Management/Shahd Tarek.webp",
+          "college": "BIS",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Nagham Ahmed ",
+          "image": "/img/Team Management/Nagham.webp",
+          "college": "CS",
+          "level": "4th Year"
+        },
+        {
+          "name": "Aida Mohamed",
+          "image": "/img/Team Management/woman.png",
+          "college": "Engineering",
+          "level": "5th Year"
+        },
+        {
+          "name": "Bahaa Wael",
+          "image": "/img/Team Management/Bahaa.webp",
+          "college": "CS",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Khaled Mohamed",
+          "image": "/img/Team Management/Khaled Rezk.webp",
+          "college": "Engineering",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Baraa Mabrok ",
+          "image": "/img/Team Management/baraa.webp",
+          "college": "CS",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Abdullrhman Ayman",
+          "image": "/img/Team Management/Abdo.webp",
+          "college": "Engineering",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Basmala Ahmed",
+          "image": "/img/Team Management/Basmala.webp",
+          "college": "Engineering",
+          "level": "3rd Year"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Marketing",
+    "title": "How do we promote our branch effectively?",
+    "image": "/img/committees/marketing.svg",
+    "description": "The Marketing Committee promotes the branch and its activities to the wider community. They design campaigns, write content for social media, engage with partners, and develop strategies to attract new members. Marketing ensures that our events and initiatives receive maximum visibility and that our branch maintains a strong presence both online and offline. Their work directly influences membership growth and public engagement.",
+    "responsibilities": [
+      "Design and execute promotional campaigns.",
+      "Create content for social media platforms.",
+      "Engage with partners and collaborators.",
+      "Develop strategies to attract new members."
+    ],
+    "team": {
+      "head": {
+        "name": "Salah Ayman",
+        "image": "/img/Marketing/Salah.webp",
+        "college": "Engineering",
+        "level": "3rd Year"
+      },
+      "vice": [],
+      "advisors": [
+        {
+          "name": "Rawda abdelsalam",
+          "image": "/img/Marketing/Rawda.webp",
+          "college": "Engineering",
+          "level": "4th Year"
+        }
+      ],
+      "members": [
+        {
+          "name": "Fares Tarek",
+          "image": "/img/Marketing/Fares.webp",
+          "college": "Engineering",
+          "level": "4th Year"
+        }
+      ]
+    }
+  },
+  {
+    "name": "PR",
+    "title": "How do we maintain our branch's reputation?",
+    "image": "/img/committees/pr.svg",
+    "description": "The PR Committee manages public relations and communications for the branch. They handle media outreach, press releases, official statements, and relationships with external organizations. PR ensures that the branch's message is consistent and professional, maintaining a positive reputation. They also manage crisis communication and coordinate announcements for events, achievements, and partnerships.",
+    "responsibilities": [
+      "Prepare press releases and official statements.",
+      "Handle communication with media outlets.",
+      "Manage relationships with external organizations.",
+      "Maintain a consistent and professional image."
+    ],
+    "team": {
+      "head": {
+        "name": "Youssef Mahmoud",
+        "image": "/img/PR/Youssef.webp",
+        "college": "Engineering",
+        "level": "3rd Year"
+      },
+      "vice": [],
+      "advisors": [],
+      "members": [
+        {
+          "name": "Moaz Zaghloul",
+          "image": "/img/PR/Moaz.webp",
+          "college": "CS",
+          "level": "2nd Year"
+        }
+      ]
+    }
+  },
+  {
+    "name": "FR",
+    "title": "Who keeps our finances and resources in check?",
+    "image": "/img/committees/fr.svg",
+    "description": "The FR (Finance & Resources) Committee manages the financial and resource planning of the branch. They handle budgeting, tracking expenses, fundraising, and resource allocation for all committees. FR ensures that all activities are financially sustainable, that funds are properly managed, and that resources are allocated efficiently. Their work is critical to maintaining the operational stability and success of the branch.",
+    "responsibilities": [
+      "Prepare budgets and track expenses.",
+      "Plan and manage fundraising activities.",
+      "Ensure resources are distributed fairly.",
+      "Maintain financial sustainability for all committees."
+    ],
+    "team": {
+      "head": {
+        "name": "Mohamed Magdy",
+        "image": "/img/FR/Mohamed.webp",
+        "college": "Engineering",
+        "level": "3rd Year"
+      },
+      "vice": [],
+      "advisors": [],
+      "members": [
+        {
+          "name": "Aya Salah",
+          "image": "/img/FR/Aya.webp",
+          "college": "BIS",
+          "level": "2nd Year"
+        }
+      ]
+    }
+  }
+]

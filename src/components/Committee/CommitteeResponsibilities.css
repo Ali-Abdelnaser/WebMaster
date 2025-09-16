@@ -1,0 +1,292 @@
+/* Section base */
+.crt-section {
+  width: 100%;
+  padding: 80px 20px;
+  box-sizing: border-box;
+background: linear-gradient(
+  180deg,
+  #ffffff 0%,
+  #ffffff 70%,
+  rgba(255, 255, 255, 0.8) 80%,
+  rgba(255, 255, 255, 0.4) 90%,
+  rgba(255, 255, 255, 0) 100%
+);
+
+
+}
+
+.crt-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #00629B;
+  margin: 0 0 36px 0;
+}
+
+/* Timeline container */
+.crt-timeline {
+  max-width: 1100px;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* two-column timeline on desktop */
+  gap: 24px 40px;
+  align-items: stretch;
+  /* الكروت كلها نفس الطول */
+  position: relative;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* Each item */
+.crt-item {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  /* الأيقونة تبقى في النص رأسياً */
+  background: white;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 8px 24px rgba(4, 30, 60, 0.06);
+  transition: all .25s ease;
+  /* يخلي كل التغييرات تتعمل بسلاسة */
+  height: 100%;
+  /* يخلي الكارت يتمدد وياخد نفس الطول */
+}
+
+.crt-item:hover {
+  transform: translateY(-6px);
+  background: #00629B;
+  /* الكارت كله يبقى أزرق */
+  box-shadow: 0 14px 40px rgba(4, 30, 60, 0.25);
+}
+
+.crt-item:hover .crt-marker {
+  background: #fff;
+  /* الأيقونة تبقى أبيض */
+}
+
+.crt-item:hover .crt-marker-icon {
+  color: #00629B;
+  /* لون الأيقونة يبقى أزرق */
+}
+
+.crt-item:hover .crt-step-number,
+.crt-item:hover .crt-task {
+  color: #fff;
+  /* النصوص تبقى أبيض */
+}
+
+/* marker area */
+.crt-marker-wrap {
+  position: relative;
+  width: 54px;
+  min-width: 54px;
+  display: flex;
+  align-items: center;
+  /* الأيقونة في النص رأسياً */
+  justify-content: center;
+}
+
+.crt-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(0, 98, 155, 0.12), rgba(0, 98, 155, 0.06));
+  transform: translateX(-50%);
+  z-index: 1;
+  border-radius: 2px;
+}
+
+/* marker circle */
+.crt-marker {
+  z-index: 2;
+  background: linear-gradient(180deg, #00629B, #0082C2);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transition: all .25s ease;
+}
+
+.crt-marker-icon {
+  color: white;
+  width: 16px;
+  height: 16px;
+  transition: color .25s ease;
+}
+
+/* content */
+.crt-content {
+  flex: 1;
+}
+
+.crt-step-number {
+  font-weight: 700;
+  color: #01629B;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  transition: color .25s ease;
+}
+
+.crt-task {
+  margin: 0;
+  color: #213547;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  transition: color .25s ease;
+}
+
+
+/* Tablet */
+@media (max-width: 1023px) {
+  .crt-section {
+    padding: 60px 16px;
+  }
+
+  .crt-title {
+    font-size: 2rem;
+  }
+
+  .crt-timeline {
+    grid-template-columns: 1fr;
+    /* عمود واحد */
+    gap: 20px;
+  }
+
+  .crt-task {
+    font-size: 1.05rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .crt-section {
+    padding: 32px 12px;
+  }
+
+  .crt-title {
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+  }
+
+  .crt-timeline {
+    gap: 16px;
+  }
+
+  .crt-item {
+    padding: 14px;
+    flex-direction: row;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideInUp 0.7s ease-out forwards;
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+
+  /* stagger delay */
+  .crt-item:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .crt-item:nth-child(2) {
+    animation-delay: 0.25s;
+  }
+
+  .crt-item:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  .crt-item:nth-child(4) {
+    animation-delay: 0.55s;
+  }
+
+  .crt-item:nth-child(5) {
+    animation-delay: 0.7s;
+  }
+
+  .crt-item:nth-child(6) {
+    animation-delay: 0.85s;
+  }
+
+
+  .crt-marker-wrap {
+    width: 44px;
+    min-width: 44px;
+  }
+
+  .crt-marker {
+    width: 32px;
+    height: 32px;
+  }
+
+  .crt-marker-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .crt-task {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .crt-step-number {
+    font-size: 0.8rem;
+  }
+}
+
+/* Very small phones (≤479px) */
+@media (max-width: 479px) {
+  .crt-section {
+    padding: 24px 10px;
+  }
+
+  .crt-title {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+
+  .crt-item {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .crt-marker-wrap {
+    width: 38px;
+    min-width: 38px;
+  }
+
+  .crt-marker {
+    width: 28px;
+    height: 28px;
+  }
+
+  .crt-marker-icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .crt-task {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .crt-step-number {
+    font-size: 0.75rem;
+  }
+}

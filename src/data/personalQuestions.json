@@ -1,0 +1,93 @@
+[
+    {
+        "type": "text",
+        "name": "fullName",
+        "label": "Full Name",
+        "placeholder": "Your full name",
+        "required": true
+    },
+    {
+        "type": "email",
+        "name": "email",
+        "label": "Email",
+        "placeholder": "you@example.com",
+        "required": true
+    },
+    {
+        "type": "tel",
+        "name": "phone",
+        "label": "Phone Number",
+        "placeholder": "+20 1...",
+        "required": true
+    },
+    {
+        "type": "text",
+        "name": "nationalId",
+        "label": "National Id ",
+        "placeholder": "National ID must contain exactly 14 digits",
+        "required": true
+    },
+    {
+        "type": "text",
+        "name": "university",
+        "label": "University",
+        "placeholder": "Mansoura University",
+        "required": true
+    },
+    {
+        "type": "text",
+        "name": "faculty",
+        "label": "Faculty / Department",
+        "placeholder": "Faculty of Engineering",
+        "required": true
+    },
+    {
+        "type": "radio",
+        "name": "academicYear",
+        "label": "Academic Year",
+        "options": [
+            "1st Year",
+            "2nd Year",
+            "3rd Year",
+            "4th Year",
+            "5th Year"
+        ],
+        "required": true
+    },
+    {
+        "type": "date",
+        "name": "dateOfBirth",
+        "label": "Date of Birth",
+        "required": true
+    },
+    {
+        "type": "text",
+        "name": "address",
+        "label": "Address / City",
+        "placeholder": "City, Country"
+    },
+    {
+        "type": "radio",
+        "name": "gender",
+        "label": "Gender",
+        "options": [
+            "Male",
+            "Female",
+            "Prefer not to say"
+        ],
+        "required": true
+    },
+    {
+        "type": "url",
+        "name": "linkedin",
+        "label": "LinkedIn Profile",
+        "placeholder": "https://linkedin.com/in/username",
+        "required": true
+    },
+    {
+        "type": "url",
+        "name": "facebook",
+        "label": "Facebook Profile (Optional)",
+        "placeholder": "https://facebook.com/username"
+    }
+]

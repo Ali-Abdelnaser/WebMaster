@@ -1,0 +1,19 @@
+/* src/components/events/UpcomingHero.css */
+.upcoming-hero {
+  padding: 120px 20px 80px; /* مساحة كويسة من فوق */
+  background-color: #0080ff28; /* لون فاتح للتمييز */
+  text-align: center;
+}
+
+.upcoming-hero .hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.upcoming-hero .hero-description {
+  font-size: 1.2rem;
+  color: #969393;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}

@@ -1,0 +1,47 @@
+.committee-header-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* يوسّط المحتوى رأسياً */
+  text-align: center;
+  height: 100vh;          /* ياخد طول الشاشة كله */
+  position: relative;
+  padding: 20px;
+  background-color: #ffffff00; /* خلفية نصف شفافة، ممكن تغيرها */
+}
+
+.committee-header-section img {
+  width: 90%;            /* مرنة مع حجم الشاشة */
+  max-width: 700px;      /* الحد الأقصى للصورة */
+  height: auto;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.committee-header-section h2 {
+  color: white;          /* الخط أبيض */
+  font-size: 4.5rem;
+  margin: 0;
+}
+
+/* Tablet */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .committee-header-section img {
+    max-width: 620px;
+  }
+
+  .committee-header-section h2 {
+    font-size: 3rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .committee-header-section img {
+    max-width: 560px;
+  }
+
+  .committee-header-section h2 {
+    font-size: 2rem;
+  }
+}

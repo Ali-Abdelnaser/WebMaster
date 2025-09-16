@@ -1,0 +1,62 @@
+.cs-about {
+  background: #000; /* خلفية سوداء */
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cs-about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  animation: fadeInUp 1.2s ease;
+}
+
+.cs-about-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #faa41a; /* برتقاني */
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.cs-about-underline {
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 0 auto 40px;
+  background: linear-gradient(90deg, #faa41a, #e69110);
+  border-radius: 2px;
+}
+
+.cs-about-text p {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  margin-bottom: 20px;
+  color: #fff6e0; /* أبيض مائل */
+  text-align: justify;
+  text-align-last: center;
+  transition: color 0.3s ease;
+}
+
+.cs-about-text p:hover {
+  color: #faa41a; /* عند hover */
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cs-about-title {
+    font-size: 2.2rem;
+  }
+  .cs-about-text p {
+    font-size: 1rem;
+    text-align: center;
+  }
+}

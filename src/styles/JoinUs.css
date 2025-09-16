@@ -1,0 +1,446 @@
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+/* basic layout */
+.join-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: #f5f9fc0e; /* خلفية خفيفة عشان يبان الكونتينر */
+}
+
+.join-container {
+  background: rgba(255, 255, 255, 0.918);
+  border-radius: 16px;
+  padding: 10px 25px;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  z-index: 2;
+  margin: 60px auto;
+}
+
+/* الهيدر */
+.join-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.join-title {
+  font-size: 3.2rem;
+  color: #004b7c;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+
+
+.join-logo {
+  width: 50%;
+  height: auto;
+}
+
+/* الاستيب */
+.step {
+  margin-top: 20px;
+}
+
+.step h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #004b7c;  
+  text-align: center;
+}
+
+/* الحقول */
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.field span {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #004b7c; /* غامق وواضح */
+}
+
+.field input,
+.field textarea,
+.field select {
+  padding: 10px 12px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  font-size: 17px;
+  color: #252525ab; /* النص الأساسي */
+  background: #fafafa; /* خفيف عشان يبان */
+  transition: border 0.2s, background 0.2s;
+}
+.field textarea {
+  min-height: 80px;        /* بداية الطول */
+  resize: none;            /* يمنع المستخدم من تكبير/تصغير يدوي */
+  overflow-y: hidden;      /* يمنع الـ scrollbar */
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  border-color: #004b7c;
+  outline: none;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0, 98, 155, 0.541);
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #777;
+}
+
+/* الراديو */
+.radios {
+  display: flex;
+  flex-direction: column; /* يخليهم تحت بعض */
+  gap: 6px;
+  margin-top: 5px;
+}
+
+.radios label {
+  font-size: 15px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* الأخطاء */
+.error {
+  font-size: 13px;
+  color: #d32f2f;
+  margin-top: 4px;
+}
+
+/* الحقل الأساسي للـ DatePicker */
+/* input box */
+.custom-datepicker-input {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  color: #333;
+  background: #fafafa;
+  transition: border 0.2s, background 0.2s;
+}
+
+.custom-datepicker-input:focus {
+  border-color: #00629B;
+  outline: none;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0,98,155,0.15);
+}
+
+/* calendar popup */
+.custom-datepicker-cal {
+  font-family: inherit;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  background: white;
+}
+
+/* header */
+.custom-datepicker-cal .react-datepicker__header {
+  background: #00629B;
+  color: white;
+  border-bottom: none;
+  padding: 15px 10px;
+}
+
+.custom-datepicker-cal .react-datepicker__current-month {
+  font-weight: 600;
+  font-size: 1rem;
+   color: white;
+}
+
+/* dropdowns for month & year */
+.custom-datepicker-cal .react-datepicker__month-dropdown,
+.custom-datepicker-cal .react-datepicker__year-dropdown {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.custom-datepicker-cal .react-datepicker__month-option,
+.custom-datepicker-cal .react-datepicker__year-option {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.custom-datepicker-cal .react-datepicker__month-option:hover,
+.custom-datepicker-cal .react-datepicker__year-option:hover {
+  background: rgba(0,98,155,0.1);
+}
+
+/* days */
+.custom-datepicker-cal .react-datepicker__day {
+  border-radius: 6px;
+  transition: background 0.2s;
+  text-align: center;
+}
+.react-datepicker__day-names {
+    white-space: nowrap;
+    margin-bottom: -8px;
+    color: #004b7c;
+    text-align: center;
+    background-color: #00629B;
+}
+.custom-datepicker-cal .react-datepicker__day:hover {
+  background: rgba(0,98,155,0.15);
+}
+
+.custom-datepicker-cal .react-datepicker__day--selected,
+.custom-datepicker-cal .react-datepicker__day--keyboard-selected {
+  background: #00629B;
+  color: white;
+}
+
+/* arrows */
+.custom-datepicker-cal .react-datepicker__navigation-icon::before {
+  border-color: white;
+  margin: 10px -10px;
+}
+
+
+/* كنترول البوتنز */
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.btn {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn.primary {
+  background: #004b7c;
+  color: white;
+}
+
+.btn.secondary {
+  background: #f1f1f1;
+  color: #333;
+}
+
+/* Progress Bar */
+.progress-wrap {
+  margin: 20px 0 30px;
+}
+
+.step-names {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.step-name {
+  flex: 1;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.step-name.active {
+  color: #004b7c;
+  font-weight: bold;
+}
+.percent{
+  color: #004b7c;
+  font-weight: bold;
+}
+
+.bar {
+  width: 100%;
+  height: 8px;
+  background: #eee;
+  border-radius: 999px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg,#004b7c,#00a1ff);
+  transition: width 0.4s ease;
+}
+
+/* السلايدر */
+.slider-question {
+  margin-top: 20px;
+}
+
+/* برواز الصورة */
+.slider-frame {
+  background: #fff;
+  padding: 10px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* الصور نفسها */
+.slider-img {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain; /* يخلي الصورة كاملة متتقصش */
+  border-radius: 10px;
+}
+
+/* ريسبونسيف */
+@media (max-width: 767px) {
+  .slider-img {
+    max-height: 200px;
+  }
+}
+
+/* textarea ياخد نفس ستايل اللي عندك */
+.styled-textarea {
+  width: 100%;
+  min-height: 80px;
+  resize: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 14px;
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  transition: border-color 0.3s ease;
+}
+.styled-textarea:focus {
+  outline: none;
+  border-color: #009fe3;
+}
+
+
+/* animated background blobs */
+.animated-bg { position:absolute; inset:0; z-index:-10; overflow:hidden; }
+.blob { position:absolute; filter: blur(20px); opacity:0.38; border-radius:50%; }
+.b1 {
+  width: 380px;
+  height: 380px;
+  background: #0485ca;
+  top: -100px;   /* فوق */
+  left: -120px;  /* شمال فوق */
+  animation: move1 7s infinite alternate;
+}
+
+.b2 {
+  width: 300px;
+  height: 300px;
+  background: #00a1ff;
+  top: -80px;    /* فوق */
+  right: -120px; /* يمين فوق */
+  animation: move2 6s infinite alternate;
+}
+
+.b3 {
+  width: 220px;
+  height: 220px;
+  background: #3ad0ff;
+  top: 25%;      /* يمين النص */
+  right: -100px;
+  animation: move3 8s infinite alternate;
+}
+
+.b4 {
+  width: 260px;
+  height: 260px;
+  background: #0485ca;
+  top: 30%;      /* شمال النص */
+  left: -100px;
+  animation: move1 9s infinite alternate;
+}
+.step-content {
+  position: relative;
+  min-height: 600px; /* أو على حسب أطول فورم عندك */
+  overflow: visible;  /* يخفي اللي بيخرج برا */
+}
+
+.b5 {
+  width: 200px;
+  height: 200px;
+  background: #00a1ff;
+  bottom: 30%;   /* فوق الفوتر بشوية */
+  right: 15%;
+  animation: move2 7s infinite alternate;
+}
+
+.b6 {
+  width: 180px;
+  height: 180px;
+  background: #3ad0ff;
+  bottom: 35%;   /* شمال تحت النص */
+  left: 20%;
+  animation: move3 10s infinite alternate;
+}
+
+
+@keyframes move1 { to { transform: translate(40px,30px) scale(1.05); } }
+@keyframes move2 { to { transform: translate(-40px,-30px) scale(1.08); } }
+@keyframes move3 { to { transform: translate(-20px,50px) scale(.98); } }
+
+/* لاب توب وديسكتوب */
+@media (min-width: 1024px) {
+  .join-title {
+    font-size: 3.8rem;
+  }
+
+  .step h2 {
+    font-size: 2.8rem;
+  }
+
+  .field span,
+  .radios label {
+    font-size: 20px;
+  }
+
+  .step-name {
+    font-size: 1.5rem;
+  }
+}
+
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .join-title { font-size: 2.5rem; }
+  .step h2 { font-size: 2rem; }
+  .field span, .radios label { font-size: 0.95rem; }
+}
+
+/* Mobile Large */
+@media (min-width: 480px) and (max-width: 767px) {
+  .join-title { font-size: 2rem; }
+  .step h2 { font-size: 1.6rem; }
+  .field span, .radios label { font-size: 0.9rem; }
+}
+
+/* Mobile Small */
+@media (max-width: 479px) {
+  .join-title { font-size: 1.6rem; }
+  .step h2 { font-size: 1.3rem; }
+  .field span, .radios label { font-size: 0.8rem; }
+}
+

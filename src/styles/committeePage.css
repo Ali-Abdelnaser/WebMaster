@@ -1,0 +1,79 @@
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+/* Base Page */
+.committee-page {
+  background-color: #00629b50;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* animated background blobs */
+.animated-bg { position:absolute; inset:0; z-index:-10; overflow:hidden; }
+.blob { position:absolute; filter: blur(20px); opacity:0.38; border-radius:50%; }
+.b1 {
+  width: 380px;
+  height: 380px;
+  background: #0485ca;
+  top: -100px;   /* فوق */
+  left: -120px;  /* شمال فوق */
+  animation: move1 7s infinite alternate;
+}
+
+.b2 {
+  width: 300px;
+  height: 300px;
+  background: #00a1ff;
+  top: -80px;    /* فوق */
+  right: -120px; /* يمين فوق */
+  animation: move2 6s infinite alternate;
+}
+
+.b3 {
+  width: 220px;
+  height: 220px;
+  background: #3ad0ff;
+  top: 25%;      /* يمين النص */
+  right: -100px;
+  animation: move3 8s infinite alternate;
+}
+
+.b4 {
+  width: 260px;
+  height: 260px;
+  background: #0485ca;
+  top: 30%;      /* شمال النص */
+  left: -100px;
+  animation: move1 9s infinite alternate;
+}
+.step-content {
+  position: relative;
+  min-height: 600px; /* أو على حسب أطول فورم عندك */
+  overflow: visible;  /* يخفي اللي بيخرج برا */
+}
+
+.b5 {
+  width: 200px;
+  height: 200px;
+  background: #00a1ff;
+  bottom: 30%;   /* فوق الفوتر بشوية */
+  right: 15%;
+  animation: move2 7s infinite alternate;
+}
+
+.b6 {
+  width: 180px;
+  height: 180px;
+  background: #3ad0ff;
+  bottom: 35%;   /* شمال تحت النص */
+  left: 20%;
+  animation: move3 10s infinite alternate;
+}
+
+
+@keyframes move1 { to { transform: translate(40px,30px) scale(1.05); } }
+@keyframes move2 { to { transform: translate(-40px,-30px) scale(1.08); } }
+@keyframes move3 { to { transform: translate(-20px,50px) scale(.98); } }

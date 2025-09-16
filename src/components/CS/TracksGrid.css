@@ -1,0 +1,72 @@
+.tracks-section {
+  position: relative;
+  text-align: center;
+  padding: 100px 20px;
+  overflow: hidden;
+}
+
+.tracks-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.floating-bg-icon-cs {
+  position: absolute;
+  font-size: 2rem;
+  color: rgba(250, 164, 26, 0.301);
+  z-index: 0;
+}
+
+.tracks-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #faa41a;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.tracks-subtitle {
+  font-size: 1.3rem;
+  color: #444;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.tracks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.track-card {
+  background: #ffffff15;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(250, 164, 26, 0.17);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.track-card img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.track-card h3 {
+  padding: 15px;
+  font-size: 1.2rem;
+  color: rgb(255, 157, 0);
+}
+
+.track-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(250, 164, 26, 0.7);
+}

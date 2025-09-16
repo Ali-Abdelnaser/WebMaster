@@ -1,0 +1,95 @@
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+}
+.hero {
+  height: 100vh;               /* طول الشاشة بالكامل */
+  width: 100%;                
+  display: flex;
+  align-items: center;         /* عمودي */
+  justify-content: center;     /* أفقي */
+  text-align: center;
+  background: #0000004f;            /* خلفية سوداء */
+  position: relative;
+  overflow: hidden;
+}
+/* ==================== Animated Background ==================== */
+.cs-animated-bg { 
+  position: absolute; 
+  inset: 0; 
+  z-index: -10; 
+  overflow: hidden; 
+}
+
+.cs-blob { 
+  position: absolute; 
+  filter: blur(20px); 
+  opacity: 0.38; 
+  border-radius: 50%; 
+}
+
+/* Blobs */
+.cs-b1 {
+  width: 380px;
+  height: 380px;
+  background: #e69110;
+  top: -100px;
+  left: -120px;
+  animation: cs-move1 7s infinite alternate;
+}
+
+.cs-b2 {
+  width: 300px;
+  height: 300px;
+  background: #faa41a;
+  top: -80px;
+  right: -120px;
+  animation: cs-move2 6s infinite alternate;
+}
+
+.cs-b3 {
+  width: 220px;
+  height: 220px;
+  background: #ffbb52;
+  top: 25%;
+  right: -100px;
+  animation: cs-move3 8s infinite alternate;
+}
+
+.cs-b4 {
+  width: 260px;
+  height: 260px;
+  background: #faa41a;
+  top: 30%;
+  left: -100px;
+  animation: cs-move1 9s infinite alternate;
+}
+
+.cs-b5 {
+  width: 200px;
+  height: 200px;
+  background: #e69110;
+  bottom: 30%;
+  right: 15%;
+  animation: cs-move2 7s infinite alternate;
+}
+
+.cs-b6 {
+  width: 180px;
+  height: 180px;
+  background: #ffbb52;
+  bottom: 35%;
+  left: 20%;
+  animation: cs-move3 10s infinite alternate;
+}
+
+/* Animations */
+@keyframes cs-move1 {
+  to { transform: translate(40px, 30px) scale(1.05); }
+}
+@keyframes cs-move2 {
+  to { transform: translate(-40px, -30px) scale(1.08); }
+}
+@keyframes cs-move3 {
+  to { transform: translate(-20px, 50px) scale(.98); }
+}
+

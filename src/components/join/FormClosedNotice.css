@@ -1,0 +1,81 @@
+.form-closed-page {
+  min-height: 100vh; /* يغطي الصفحة كلها */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* محتوى في الأعلى لكن مش أول الصفحة */
+  align-items: center;
+  padding-top: 80px; /* المسافة من أعلى الصفحة */
+  background: #f5f9fc0e;
+  text-align: center;
+  color: #969393;
+  box-sizing: border-box;
+}
+.form-closed-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 900px;
+  width: 90%;
+  gap: 40px; /* المسافة بين الصورة والكلام */
+  flex-wrap: wrap; /* يسمح بالانتقال فوق بعض على الشاشات الصغيرة */
+}
+
+.form-closed-image {
+  width: 400px;
+  max-width: 100%;
+  opacity: 0.9;
+  flex-shrink: 0;
+}
+
+.form-closed-text {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
+}
+
+.form-closed-text h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #00629b; /* لون هادي وجذاب */
+}
+
+.form-closed-text p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.social-links {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: #00629b;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #004a73;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .form-closed-content {
+    flex-direction: column; /* الصورة فوق الكلام */
+    text-align: center;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .form-closed-text {
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}

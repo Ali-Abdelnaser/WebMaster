@@ -1,0 +1,13 @@
+{
+  "title": "Technical Tracks",
+  "subtitle": "Explore the fields we offer to help you grow and innovate.",
+  "tracks": [
+    { "name": "Cyber Security", "image": "/img/tracks/cyberSecurity.webp" },
+    { "name": "Flutter", "image": "/img/tracks/flutter.webp" },
+    { "name": "Front End", "image": "/img/tracks/frontend.webp" },
+    { "name": "Back End", "image": "/img/tracks/backend.webp" },
+    { "name": "UI/UX", "image": "/img/tracks/uiux.webp" },
+    { "name": "Hardware", "image": "/img/tracks/hardware.webp" },
+    { "name": "AI", "image": "/img/tracks/ai.webp" }
+  ]
+}

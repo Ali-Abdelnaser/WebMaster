@@ -1,0 +1,43 @@
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #000;
+  position: relative;
+}
+
+.logo-symbol {
+  width: 300px;
+  position: absolute;
+  z-index: 2;
+}
+
+.logo-text {
+  width: 420px;
+  position: absolute;
+  z-index: 1;
+}
+/* شاشات أقل من 1200px */
+@media (max-width: 1200px) {
+  .logo-symbol { width: 250px; }
+  .logo-text { width: 360px; }
+}
+
+/* تابلت */
+@media (max-width: 900px) {
+  .logo-symbol { width: 200px;left: -30px; }
+  .logo-text { width: 300px; }
+}
+
+/* موبايل متوسط */
+@media (max-width: 600px) {
+  .logo-symbol { width: 150px; left: -20px; }
+  .logo-text { width: 220px; right: -40px ;}
+}
+
+/* موبايل صغير */
+@media (max-width: 400px) {
+  .logo-symbol { width: 120px; left:2px }
+  .logo-text { width: 180px; right: 2px;}
+}

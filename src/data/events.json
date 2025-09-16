@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "title": "Tech Talk: Future of AI",
+        "date": "25 Sept 2025",
+        "location": "Hall A, MET",
+        "description": "Join us for an engaging session on the future of Artificial Intelligence and discover the trends shaping tomorrow.",
+        "images": [
+            "/img/home.jpg",
+            "/img/home.jpg",
+            "/img/home.jpg"
+        ],
+        "socials": {
+            "facebook": "https://facebook.com",
+            "instagram": "https://instagram.com",
+            "linkedin": "https://linkedin.com"
+        }
+    },
+    {
+        "id": 2,
+        "title": "Cybersecurity Bootcamp",
+        "date": "10 Oct 2025",
+        "location": "Tech Hub, Cairo",
+        "description": "A full-day intensive bootcamp to learn about ethical hacking, cyber defense, and real-world applications.",
+        "images": [
+            "/img/home.jpg",
+            "/img/home.jpg"
+        ],
+        "socials": {
+            "facebook": "https://facebook.com",
+            "instagram": "https://instagram.com",
+            "linkedin": "https://linkedin.com"
+        }
+    },
+    {
+        "id": 3,
+        "title": "Cloud & DevOps Summit",
+        "date": "15 Nov 2025",
+        "location": "Hall B, MET",
+        "description": "Explore the future of cloud infrastructure, automation, and DevOps practices with industry experts.",
+        "images": [
+            "/img/home.jpg",
+            "/img/home.jpg",
+            "/img/home.jpg"
+        ],
+        "socials": {
+            "facebook": "https://facebook.com",
+            "instagram": "https://instagram.com",
+            "linkedin": "https://linkedin.com"
+        }
+    }
+]

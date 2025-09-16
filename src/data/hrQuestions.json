@@ -1,0 +1,72 @@
+[
+  {
+    "name": "introduction",
+    "label": "Introduce yourself in two sentences.",
+    "type": "textarea",
+    "required": true,
+    "placeholder": "Write a brief introduction..."
+  },
+  {
+    "name": "whyHere",
+    "label": "Why did you choose to apply here instead of somewhere else?",
+    "type": "textarea",
+    "required": true,
+    "placeholder": "Explain your reasons..."
+  },
+  {
+    "name": "workPreference",
+    "label": "Do you prefer working individually or in a team? Why?",
+    "type": "textarea",
+    "required": true,
+    "placeholder": "Explain your preference..."
+  },
+  {
+    "name": "taskOutsideTrack",
+    "label": "If you were assigned a task outside your track, what would you do?",
+    "type": "textarea",
+    "required": true,
+    "placeholder": "Explain your approach..."
+  },
+  {
+    "name": "motivationPersistence",
+    "label": "What motivates you to keep working even when you’re tired?",
+    "type": "textarea",
+    "required": true,
+    "placeholder": "Share your motivation..."
+  },
+  {
+    "name": "pressureHandling",
+    "label": "Share a situation where you were under pressure and had to deliver quickly. How did you handle it?",
+    "type": "textarea",
+    "required": true,
+    "placeholder": "Describe your experience..."
+  },
+  {
+    "name": "limitedResources",
+    "label": "With limited resources (time/tools), how would you still achieve the best results?",
+    "type": "textarea",
+    "required": true,
+    "placeholder": "Explain your strategy..."
+  },
+  {
+    "name": "teamValues",
+    "label": "What’s the most important value or principle you follow while working in a team?",
+    "type": "textarea",
+    "required": true,
+    "placeholder": "Write about your values..."
+  },
+  {
+    "name": "goalsJoining",
+    "label": "What do you hope to achieve by joining us?",
+    "type": "textarea",
+    "required": true,
+    "placeholder": "Share your goals..."
+  },
+  {
+    "name": "creativityVsPerfection",
+    "label": "What’s your opinion on this statement: 'Creativity is more important than perfection.' Do you agree or disagree? Why?",
+    "type": "textarea",
+    "required": true,
+    "placeholder": "Explain your opinion..."
+  }
+]

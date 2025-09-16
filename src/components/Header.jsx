@@ -1,32 +1,33 @@
+// src/components/Header.js
 import { useState, useEffect } from "react";
-import "./navbar.css"; // ملف الستايل اللي انت بعتني
+import "../components/Header.css";
+import { Link } from "react-router-dom";
+import eventsData from "../data/upcomingEvent.json"; // ملف JSON بتاع الأحداث
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [liveEvent, setLiveEvent] = useState(false);
 
   // scroll effect
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      if (window.scrollY > 50) setScrolled(true);
+      else setScrolled(false);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // toggle drawer
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  // check live events
+  useEffect(() => {
+    // بما إن عندك كائن واحد، فقط تحقق من الـ status مباشرة
+    setLiveEvent(eventsData.status === "on");
+  }, []);
 
-  const closeMenu = () => {
-    setMenuOpen(false);
-  };
+  // toggle drawer
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <>
@@ -43,13 +44,12 @@ export default function Header() {
 
           {/* Join button */}
           <div className="nav-button">
-            <a href="/Pages/Join Us/join-us.html" id="join-btn"></a>
+            <Link to="/join" id="join-btn"></Link>
           </div>
 
           {/* Menu toggle (hamburger) */}
           <div
             className={`menu-toggle ${menuOpen ? "active" : ""}`}
-            id="menu-toggle"
             onClick={toggleMenu}
           >
             <span></span>
@@ -59,19 +59,22 @@ export default function Header() {
           {/* Links */}
           <ul className={`nav-links ${menuOpen ? "show" : ""}`}>
             <li>
-              <a href="/index.html">Home</a>
+              <Link to="/">Home</Link>
+            </li>
+            <li className={`events-item ${liveEvent ? "live" : ""}`}>
+              <Link to="/events">Events</Link>
+              {/* {liveEvent && (
+                <span className="tooltip"></span>
+              )} */}
             </li>
             <li>
-              <a href="/Pages/Events/event.html">Events</a>
+              <Link to="/wie">WIE</Link>
             </li>
             <li>
-              <a href="/Pages/We/we.html">WE</a>
+              <Link to="/CS">CS</Link>
             </li>
             <li>
-              <a href="/Pages/Chapter/chapter.html">Chapter</a>
-            </li>
-            <li>
-              <a href="/Pages/About As/about.html">About Us</a>
+              <Link to="/about">About Us</Link>
             </li>
           </ul>
         </nav>
@@ -80,7 +83,6 @@ export default function Header() {
       {/* Drawer overlay */}
       <div
         className={`drawer-overlay ${menuOpen ? "show" : ""}`}
-        id="drawer-overlay"
         onClick={closeMenu}
       ></div>
     </>
