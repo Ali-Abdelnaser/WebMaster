@@ -8,7 +8,7 @@ export default function CounselorSection() {
   return (
     <section className="counselor-section">
       <h2 className="counselor-title">BRANCH COUNSOLAR</h2>
-
+      <img src="/img/hr.svg" alt="Divider" className="counselor-divider" />
       <div className="counselor-content">
         {/* Left - Avatar */}
         <motion.div

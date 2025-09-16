@@ -80,7 +80,8 @@ export default function OurCycle() {
           return <FloatingBgIcon key={i} Icon={Icon} />;
         })}
       </div>
-      <h2 className="section-title">Our Cycle</h2>
+      <h2 className="cycle-title">OUR COMMITTEES</h2>
+      <img src="img/hr.svg" alt="Divider" className="cycle-divider" />
 
       <div className="hex-grid">
         {committeesData.map((item, index) => (

@@ -3,6 +3,21 @@
   background: #fff;
   text-align: center;
 }
+/* العنوان */
+.partners-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #004b7c; /* لون أغمق وأشيك */
+  text-align: center;
+  margin-bottom: -10px; /* المسافة بين العنوان و الـ divider */
+}
+
+/* الـ SVG Divider */
+.partners-divider {
+  display: block;
+  margin: 0 auto 40px auto; /* في الوسط مع مسافة تحتها */
+  width: 240px; /* الحجم الابتدائي، ممكن تعدل حسب الحاجة */
+}
 
 .partner-logo {
   height: 150px;

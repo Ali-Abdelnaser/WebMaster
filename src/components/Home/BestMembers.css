@@ -1,0 +1,144 @@
+.best-members-section {
+  position: relative;
+  padding: 100px 20px;
+  text-align: center;
+  color: #333;
+  overflow: hidden;
+  background-color: #f4f4f9;
+}
+
+/* div يحتوي العنوان و الـ SVG مع بعض */
+.section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+/* العنوان */
+.best-members-title {
+  margin: 0;
+  color: #004b7c;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 1px; 
+}
+
+/* الـ SVG */
+.HR-divider {
+  width: 300px;
+  margin-top: -15px;
+  display: block;
+}
+
+/* Grid الكروت */
+.members-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* الكارد */
+.best-card {
+  background: #ffffff;
+  text-align: center;
+  flex: 1 1 220px; /* مرن حسب المساحة */
+  min-width: 220px;
+  max-width: 220px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Glow effect للكارد عند hover */
+.best-card::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 217, 0, 0.6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.best-card:hover::after {
+  opacity: 1;
+}
+
+.best-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+/* دائرة الصورة */
+.image-wrapper {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto 25px auto;
+  box-shadow: 0 0 20px rgba(255, 217, 0, 0.8);
+  transition: box-shadow 0.3s ease;
+}
+
+.best-card:hover .image-wrapper {
+  box-shadow: 0 0 35px rgba(255, 215, 0, 1);
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 102%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* اسم العضو */
+.best-card h3 {
+  margin: 10px 0 5px;
+  color: #000000;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* التيم */
+.best-card p {
+  margin: 0;
+  color: #666;
+  font-size: 1rem;
+}
+
+/* Responsive - أقل من 768px: اتنين كروت في الصف */
+@media (max-width: 768px) {
+  .best-card {
+    flex: 0 0 calc(50% - 65px); /* اتنين في الصف مع gap */
+    max-width: calc(50% - 65px);
+    min-width: 20px;
+    height: 210px;
+  }
+  .image-wrapper {
+    width: 130px;
+    height: 130px;
+  }
+  .best-card h3 {
+    margin: 10px 0 5px;
+    color: #000000;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.best-card p {
+    margin: 0;
+    color: #666;
+    font-size: .7rem;
+}
+}

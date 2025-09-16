@@ -1,17 +1,27 @@
 .story-section {
-  padding: 120px 20px;
+  padding: 20px 20px;
   background: linear-gradient(to bottom, #f9f9f9, #e9f2f9);
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  margin-bottom: 80px;
-  font-weight: bold;
-  color: #00629B;
+/* العنوان */
+.story-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #004b7c; /* لون أغمق وأشيك */
+  text-align: center;
+  margin-bottom: -10px; /* المسافة بين العنوان و الـ divider */
 }
+
+/* الـ SVG Divider */
+.story-divider {
+  display: block;
+  margin: 0 auto 40px auto; /* في الوسط مع مسافة تحتها */
+  width: 200px; /* الحجم الابتدائي، ممكن تعدل حسب الحاجة */
+}
+
 
 /* grid layout بدل العمودي */
 .story-wrapper {

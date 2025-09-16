@@ -11,6 +11,21 @@
   inset: 0;
   z-index: 1;
 }
+/* العنوان */
+.cycle-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #004b7c; /* لون أغمق وأشيك */
+  text-align: center;
+  margin-bottom: -10px; /* المسافة بين العنوان و الـ divider */
+}
+
+/* الـ SVG Divider */
+.cycle-divider {
+  display: block;
+  margin: 0 auto 40px auto; /* في الوسط مع مسافة تحتها */
+  width: 300px; /* الحجم الابتدائي، ممكن تعدل حسب الحاجة */
+}
 
 .floating-bg-icon {
   position: absolute;
