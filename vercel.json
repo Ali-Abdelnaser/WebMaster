@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    {
+      "source": "http://www.ieeemet.org/(.*)",
+      "destination": "https://ieeemet.org/$1",
+      "permanent": true
+    },
+    {
+      "source": "https://www.ieeemet.org/(.*)",
+      "destination": "https://ieeemet.org/$1",
+      "permanent": true
+    },
+    {
+      "source": "http://ieeemet.org/(.*)",
+      "destination": "https://ieeemet.org/$1",
+      "permanent": true
+    }
+  ]
+}
