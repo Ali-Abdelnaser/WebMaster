@@ -1,0 +1,97 @@
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+.wie-hero {
+  height: 100vh;               /* طول الشاشة بالكامل */
+  width: 100%;                
+  display: flex;
+  align-items: center;         /* عمودي */
+  justify-content: center;     /* أفقي */
+  text-align: center;
+  background-color: #622a90be;
+background-image: url("https://www.transparenttextures.com/patterns/dark-mosaic.png");
+  position: relative;
+  overflow: hidden;
+}
+
+.wie-animated-bg { 
+  position: absolute; 
+  inset: 0; 
+  z-index: -10; 
+  overflow: hidden; 
+}
+
+.wie-blob { 
+  position: absolute; 
+  filter: blur(20px); 
+  opacity: 0.38; 
+  border-radius: 50%; 
+}
+
+/* Blobs */
+.wie-b1 {
+  width: 380px;
+  height: 380px;
+  background: #622a90; /* Purple */
+  top: -100px;
+  left: -120px;
+  animation: wie-move1 7s infinite alternate;
+}
+
+.wie-b2 {
+  width: 300px;
+  height: 300px;
+  background: #a10d54; /* Strong pink-red */
+  top: -80px;
+  right: -120px;
+  animation: wie-move2 6s infinite alternate;
+}
+
+.wie-b3 {
+  width: 220px;
+  height: 220px;
+  background: #bd467f; /* Rose accent */
+  top: 25%;
+  right: -100px;
+  animation: wie-move3 8s infinite alternate;
+}
+
+.wie-b4 {
+  width: 260px;
+  height: 260px;
+  background: #e87db0; /* Bright pink */
+  top: 30%;
+  left: -100px;
+  animation: wie-move1 9s infinite alternate;
+}
+
+.wie-b5 {
+  width: 200px;
+  height: 200px;
+  background: #f1b4d1; /* Light pink */
+  bottom: 30%;
+  right: 15%;
+  animation: wie-move2 7s infinite alternate;
+}
+
+.wie-b6 {
+  width: 180px;
+  height: 180px;
+  background: #bd467f; /* Rose */
+  bottom: 35%;
+  left: 20%;
+  animation: wie-move3 10s infinite alternate;
+}
+
+/* Animations */
+@keyframes wie-move1 {
+  to { transform: translate(40px, 30px) scale(1.05); }
+}
+@keyframes wie-move2 {
+  to { transform: translate(-40px, -30px) scale(1.08); }
+}
+@keyframes wie-move3 {
+  to { transform: translate(-20px, 50px) scale(.98); }
+}

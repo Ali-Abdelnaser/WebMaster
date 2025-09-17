@@ -21,8 +21,7 @@ function AboutCard({ icon, title, text }) {
         setHovered(true);
       }}
       onMouseMove={handleMouseMove}
-      onMouseLeave={() => setHovered(false)}
-    >
+      onMouseLeave={() => setHovered(false)} >
       <span className="icon">{icon}</span>
       <h5>{title}</h5>
       <p>{text}</p>

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Doha Hussein",
+    "role": "Chairman",
+    "img": "img/WIE/doha.svg",
+    "linkedin": "https://www.linkedin.com/",
+    "email": "279@gmail.com",
+    "extraClass": "chair"
+  },
+  {
+    "name": "Mayar Gamal",
+    "role": "Secretary",
+    "img": "img/WIE/mayar.svg",
+    "linkedin": "https://www.linkedin.com/",
+    "email": "amr@gmail.com",
+    "extraClass": "secretary"
+  },
+  {
+    "name": "Hagar Reda",
+    "role": "Treasurer",
+    "img": "img/WIE/hagar.svg",
+    "linkedin": "https://www.linkedin.com/",
+    "email": "320005@gmail.com",
+    "extraClass": "Treasurer"
+  }
+]

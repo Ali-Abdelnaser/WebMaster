@@ -1,0 +1,163 @@
+.wie-about {
+  padding: 80px 20px;
+  /* background: linear-gradient(135deg, #1a0b2e, #2d0a3d, #622a90);  */
+  background: #622a904b;
+  text-align: center;
+  color: #eee;
+}
+
+.wie-about-header h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #622a90; 
+}
+
+.wie-underline {
+  width: 400px;
+  max-width: 70%;
+  margin: -35px auto 40px;
+  display: block;
+}
+
+.wie-about-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+
+.wie-about-text {
+  flex: 1;
+  min-width: 320px;
+}
+
+.wie-about-text h3 {
+  font-size: 1.4rem;
+  margin: 20px 0 10px;
+  color: #622a90; 
+}
+
+.wie-about-text p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: #ddd;
+}
+span{
+    color: #ffffff;
+}
+.wie-about-text ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.wie-about-text ul li {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #f1b4d1;
+  font-weight: 500;
+}
+
+
+.wie-about-image {
+  flex: 1;
+  min-width: 240px;
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+}
+
+.wie-about-image img {
+  max-width: 100%;
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 6px 25px #622a90be;
+  transition: transform 0.4s ease;
+}
+
+.wie-about-image img:hover {
+  transform: scale(1.05);
+}
+
+
+.wie-about-socials {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.wie-about-socials a {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #a10d54;
+  color: #fff;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.wie-about-socials a:hover {
+  background: #fff;
+  color: #a10d54;
+  transform: scale(1.15);
+}
+
+
+@media (max-width: 992px) {
+  .wie-about-header h2 {
+    font-size: 1.8rem;
+  }
+  .wie-about-text h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .wie-about-content {
+    flex-direction: column-reverse; 
+    
+  }
+  .wie-underline {
+  width: 400px;
+  max-width: 70%;
+  margin: -30px auto 40px;
+  display: block;
+}
+ .wie-about-header h2 {
+    font-size: 1.8rem;
+  }
+  .wie-underline {
+    width: 500px;
+    margin-bottom: 30px;
+  }
+
+  .wie-about-socials {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .wie-about {
+    padding: 50px 15px;
+  }
+  .wie-about-header h2 {
+    font-size: 1.5rem;
+  }
+  .wie-about-text p,
+  .wie-about-text ul li {
+    font-size: 0.9rem;
+  }
+  .wie-about-socials a {
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+  }
+}

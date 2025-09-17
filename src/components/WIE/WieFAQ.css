@@ -1,0 +1,141 @@
+
+.wie-faq {
+  padding: 40px 20px;
+  background: #622a904b;
+  color: #fff;
+  text-align: center;
+}
+
+.wie-faq-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  text-align: left;
+}
+.faq-underline{
+    width: 300px;
+  max-width: 70%;
+  margin: -35px auto 40px;
+  display: block;
+}
+/* ===== IMAGE ===== */
+.wie-faq-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wie-faq-image img {
+  max-width: 350px;
+  animation: floatImage 3s ease-in-out infinite;
+}
+
+@keyframes floatImage {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-30px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ===== FAQ CONTENT ===== */
+.wie-faq-content {
+  flex: 2;
+  min-width: 320px;
+}
+
+
+
+.wie-faq-window {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 20px;
+  max-height: 600px;
+  overflow-y: auto;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* FAQ item */
+.wie-faq-item {
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  padding: 10px 0;
+  transition: all 0.3s ease;
+}
+
+.wie-faq-question {
+  font-weight: 600;
+  color: #ffffff;
+}
+.wie-faq-question span {
+  font-weight: 600;
+  color: #8c55b9;
+}
+
+.wie-faq-answer {
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  color: #8d8891;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+.wie-faq-item.active .wie-faq-question {
+  color: #8c55b9;
+  text-shadow: 0 0 8px rgba(241, 180, 209, 0.308);
+}
+
+/* ===== Scrollbar Style ===== */
+.wie-faq-window::-webkit-scrollbar {
+  width: 6px;
+}
+
+.wie-faq-window::-webkit-scrollbar-thumb {
+  background: #bd467f;
+  border-radius: 6px;
+}
+
+.wie-faq-window::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .wie-faq-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .wie-faq-content {
+    order: 2;
+    width: 100%;
+  }
+  .faq-underline{
+    width: 200px;
+  max-width: 70%;
+  margin: -25px auto 40px;
+  display: block;
+}
+  .wie-faq-image {
+    order: 1;
+    margin-bottom: 20px;
+    width: 100%;       /* تاخد العرض كله */
+    display: flex;
+    justify-content: center;
+  }
+
+  .wie-faq-image img {
+    max-width: 80%;    /* صغر الصورة شوية بدل 350px */
+    height: auto;
+  }
+
+  .wie-faq-title {
+    text-align: center;
+  }
+}
+

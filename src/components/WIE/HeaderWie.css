@@ -1,0 +1,307 @@
+/* ==================== NAVBAR ==================== */
+
+.wie-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: min(90%, 1200px);
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.85); /* خلفية فاتحة */
+  backdrop-filter: blur(10px);
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+}
+
+.wie-header.wie-scrolled {
+  background: #622a90ad; /* لون غامق بعد السكروول */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+.wie-header.wie-scrolled .wie-nav-links li a {
+  color: #fff;
+}
+
+.wie-header.wie-scrolled .wie-nav-links li a:hover {
+  color: #f1b4d1;
+  text-shadow: 0 0 6px rgba(241, 180, 209, 0.8);
+}
+
+.wie-header.wie-scrolled .wie-nav-button a {
+  background: #fff;
+  color: #622a90;
+  border-color: #fff;
+}
+
+.wie-header.wie-scrolled .wie-nav-button a:hover {
+  background: #bd467f;
+  color: #fff;
+  box-shadow: 0 0 12px rgba(189, 70, 127, 0.6);
+}
+
+.wie-header.wie-scrolled .wie-menu-toggle span {
+  background: #fff;
+}
+
+/* ==================== NAVBAR INNER ==================== */
+.wie-navbar {
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.wie-logo img {
+  width: 100px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.wie-header.wie-scrolled .wie-logo img {
+  transform: scale(0.95);
+  opacity: 0.9;
+}
+
+/* Links (Desktop default) */
+.wie-nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.wie-nav-links li a {
+  position: relative;
+  text-decoration: none;
+  color: #622a90; /* لون أساسي */
+  font-weight: 500;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  padding: 5px 0;
+}
+
+.wie-nav-links li a:hover {
+  color: #622a90;
+  text-shadow: 0 0 6px rgba(98, 42, 144, 0.6);
+}
+
+/* Glow & Tooltip for live Events */
+.wie-events-item.wie-live a {
+  position: relative;
+  color: #ffffff;
+  font-weight: 700;
+  animation: wie-glowPulse .8s infinite;
+}
+
+@keyframes wie-glowPulse {
+  0% {
+    transform: scale(1);
+    text-shadow: 
+      0 0 8px #e87db0, 
+      0 0 16px #bd467f, 
+      0 0 24px #a10d54;
+  }
+  50% {
+    transform: scale(1.2);
+    text-shadow: 
+      0 0 20px #f1b4d1, 
+      0 0 40px #e87db0, 
+      0 0 60px #bd467f;
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: 
+      0 0 8px #e87db0, 
+      0 0 16px #bd467f, 
+      0 0 24px #a10d54;
+  }
+}
+
+/* Underline hover effect */
+.wie-nav-links li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: #bd467f;
+  transition: width 0.3s ease;
+}
+
+.wie-nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* Join Button */
+.wie-nav-button {
+  order: 3;
+}
+
+#wie-join-btn::after {
+  content: "Join US";
+}
+
+.wie-nav-button a {
+  padding: 6px 14px;
+  border: 1px solid #622a90;
+  border-radius: 6px;
+  color: #622a90;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.wie-nav-button a:hover {
+  background: #622a90;
+  color: #fff;
+  border-color: #622a90;
+  box-shadow: 0 0 10px rgba(161, 13, 84, 0.5);
+}
+
+/* ==================== MENU TOGGLE ==================== */
+.wie-menu-toggle {
+  display: none;
+  position: relative;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1300;
+}
+.wie-menu-toggle span {
+  position: absolute;
+  right: 0;
+  height: 2.5px;
+  border-radius: 2px;
+  background: #622a90;
+  transition: transform .35s ease, width .25s ease, top .35s ease, background-color .35s ease, opacity .25s ease;
+}
+
+.wie-menu-toggle span:nth-child(1) {
+  width: 18px;
+  top: 6px;
+}
+
+.wie-menu-toggle span:nth-child(2) {
+  width: 28px;
+  top: 14px;
+}
+
+.wie-menu-toggle.active span:nth-child(1) {
+  width: 24px;
+  top: 10px;
+  transform: rotate(45deg);
+  background-color: #a10d54;
+}
+
+.wie-menu-toggle.active span:nth-child(2) {
+  width: 24px;
+  top: 10px;
+  transform: rotate(-45deg);
+  background-color: #a10d54;
+}
+
+/* ==================== OVERLAY ==================== */
+.wie-drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.05);
+  transition: all 0.4s ease;
+  z-index: 900;
+}
+
+.wie-drawer-overlay.show {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+/* ==================== MOBILE MENU ==================== */
+@media (max-width: 768px) {
+  #wie-join-btn::after {
+    content: "Join";
+  }
+
+  .wie-menu-toggle {
+    display: block;
+    order: 3;
+  }
+
+  .wie-nav-links {
+    position: fixed;
+    top: 0;
+    right: -120%;
+    width: 300px;
+    height: 100vh;
+    margin: 0;
+    padding: 100px 20px 20px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: right 0.4s ease;
+    z-index: 1000;
+    box-shadow: -2px 0 12px rgba(0, 0, 0, 0.15);
+    gap: 20px;
+    border-radius: 20px 0 0 20px;
+  }
+
+  .wie-nav-links.show {
+    right: -40px;
+  }
+
+  .wie-nav-links li {
+    list-style: none;
+    width: 100%;
+    opacity: 0;
+    transform: translateX(20px);
+    animation: wie-slideIn 0.5s forwards;
+  }
+
+  .wie-nav-links.show li:nth-child(1) { animation-delay: 0.1s; }
+  .wie-nav-links.show li:nth-child(2) { animation-delay: 0.2s; }
+  .wie-nav-links.show li:nth-child(3) { animation-delay: 0.3s; }
+  .wie-nav-links.show li:nth-child(4) { animation-delay: 0.4s; }
+  .wie-nav-links.show li:nth-child(5) { animation-delay: 0.5s; }
+
+  @keyframes wie-slideIn {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .wie-nav-links li a {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #622a90;
+    border: 2px solid #622a90;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .wie-nav-links li a:hover {
+    background: #622a90;
+    color: #fff;
+    padding-left: 5px;
+  }
+}

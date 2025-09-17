@@ -1,0 +1,119 @@
+.metwie-about {
+  padding: 80px 20px;
+  background: #622a904b;
+  text-align: center;
+  color: #eee;
+}
+
+.metwie-about-header h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #622a90;
+}
+
+.metwie-underline {
+  width: 450px;
+  max-width: 70%;
+  margin: -35px auto 40px;
+  display: block;
+}
+
+.metwie-about-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* النص */
+.metwie-about-text {
+  flex: 1;
+  min-width: 320px;
+}
+
+.metwie-about-text h3 {
+  font-size: 1.4rem;
+  margin: 20px 0 10px;
+  color: #622a90; 
+}
+
+.metwie-about-text p, 
+.metwie-about-text li {
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 8px;
+}
+span{
+    color: #ffffff;
+}
+/* الصورة */
+.metwie-about-image {
+  flex: 1;
+  min-width: 240px;
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+}
+
+.metwie-about-image img {
+   max-width: 100%;
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 6px 25px #622a90be;
+  transition: transform 0.4s ease;
+}
+.metwie-about-image img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 992px) {
+  .metwie-about-header h2 {
+    font-size: 1.8rem;
+  }
+  .metwie-about-text h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .metwie-underline {
+  width: 400px;
+  max-width: 70%;
+  margin: -30px auto 40px;
+  display: block;
+}
+ .metwie-about-header h2 {
+    font-size: 1.8rem;
+  }
+  .metwie-underline {
+    width: 500px;
+    margin-bottom: 30px;
+  }
+
+  .metwie-about-socials {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .metwie-about {
+    padding: 50px 15px;
+  }
+  .metwie-about-header h2 {
+    font-size: 1.5rem;
+  }
+  .metwie-about-text p,
+  .metwie-about-text ul li {
+    font-size: 0.9rem;
+  }
+  .metwie-about-socials a {
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+  }
+}

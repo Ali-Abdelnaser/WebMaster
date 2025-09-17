@@ -1,8 +1,28 @@
-export default function Events() {
+import HeaderWIE from "../components/WIE/HeaderWie";
+import FooterWIE from "../components/WIE/FooterWie";
+import HeroWIE from "../components/WIE/Wie-Hero";
+import AboutWIE from "../components/WIE/AboutWIE";
+import AboutMetWie from "../components/WIE/AboutMetWie";
+import WieFaqs from "../components/WIE/WieFAQ";
+import AnimatedBackgroundWIE from "../components/WIE/AnimatedBackgroundWie";
+import { motion } from "framer-motion";
+
+export default function WIE() {
   return (
-    <div style={{ padding: "80px", textAlign: "center" }}>
-      <h1>Events Page</h1>
-      <p>Our events will be displayed here soon 🚀</p>
-    </div>
+    <motion.div
+      className="wie-page"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -50 }}
+      transition={{ duration: 0.5 }}
+    >
+      <HeaderWIE />
+      <AnimatedBackgroundWIE />
+      <HeroWIE />
+      <AboutWIE />
+      <AboutMetWie />
+      <WieFaqs />
+      <FooterWIE />
+    </motion.div>
   );
 }
