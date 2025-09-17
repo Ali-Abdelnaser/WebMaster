@@ -12,16 +12,17 @@ const WieOfficersCarousel = () => {
       {/* Header */}
       <div className="wie-carousel-header">
         <h2 className="wie-carousel-title">WIE OFFICERS</h2>
-        <img src="img/hr.svg" alt="Divider" className="wie-carousel-divider" />
+        <img src="img/WIE/Wie-hr.svg" alt="Divider" className="wie-carousel-divider" />
       </div>
 
       {/* Carousel */}
       <Swiper
         modules={[Pagination]}
         spaceBetween={45}
-        slidesPerView={3}
-        loop={true}
+        slidesPerView={2}
+        loop={false}
         centeredSlides={true}
+        initialSlide={1}
         pagination={{ clickable: true }}
         breakpoints={{
           0: { slidesPerView: 1 },
