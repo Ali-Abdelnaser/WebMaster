@@ -3,6 +3,7 @@ import FooterCS from "../components/CS/FooterCS";
 import Hero from "../components/CS/HeroCS";
 import AboutCS from "../components/CS/AboutCS";
 import TracksCircle from "../components/CS/TracksGrid";
+import OfficersCS from "../components/CS/OfficersCS";
 import AnimatedBackgroundCS from "../components/CS/AnimatedBackgroundCS";
 import { motion } from "framer-motion";
 
@@ -20,6 +21,7 @@ export default function CS() {
       <Hero />
       <AboutCS />
       <TracksCircle />
+      <OfficersCS />
       <FooterCS />
     </motion.div>
   );

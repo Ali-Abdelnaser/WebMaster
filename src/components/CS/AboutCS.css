@@ -1,9 +1,10 @@
 .cs-about {
-  background: #000; /* خلفية سوداء */
   color: #fff;
   padding: 100px 20px;
   text-align: center;
   position: relative;
+  
+  background-image: url("https://www.transparenttextures.com/patterns/dark-mosaic.png");
   overflow: hidden;
 }
 
