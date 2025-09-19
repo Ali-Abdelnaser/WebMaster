@@ -11,7 +11,7 @@ const OfficersCarousel = () => {
     <section className="executive-officers-carousel">
       {/* Header */}
       <div className="carousel-header">
-        <h2 className="carousel-title">EXECUTIVE OFFICERS</h2>
+        <h2 className="Home-title"> OFFICERS</h2>
         <img src="img/hr.svg" alt="Divider" className="carousel-divider" />
       </div>
 

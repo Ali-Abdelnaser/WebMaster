@@ -1,22 +1,13 @@
 /* Section Base */
 .counselor-section {
   width: 100%;
-  padding: 40px 20px;
-  background: #fdfdfd;
+  padding: 40px 0;
+    background: linear-gradient(135deg, #0080ff28);
+
   position: relative;
   text-align: center;
   font-family: "Poppins", Arial, sans-serif; /* خط أنعم */
 }
-
-.counselor-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #004b7c; /* لون أغمق وأشيك */
-  text-align: center;
-  margin-bottom: -10px; /* المسافة بين العنوان والصورة */
-}
-
-/* الصورة تحت العنوان */
 .counselor-divider {
   display: block;
   margin: 0 auto 40px auto; /* في الوسط مع مسافة تحتها */
@@ -53,8 +44,8 @@
   margin: 25px 0;
   font-size: 40px;
   font-weight: 700;
-  color: #4da6ff18; /* مفيش لون داخلي */
-  -webkit-text-stroke: 1.2px #004b7c; /* أزرق فاتح */
+  color: #9693933b; /* مفيش لون داخلي */
+  -webkit-text-stroke: 1.2px #969393; /* أزرق فاتح */
 }
 
 .counselor-surname {
@@ -64,8 +55,8 @@
   transform: translate(-50%, -50%);
   font-size: 40px;
   font-weight: 800;
-  color: #4da6ff18;
-  -webkit-text-stroke: 1.2px #004b7c; /* نفس الأزرق الفاتح */
+  color: #9693933b;
+  -webkit-text-stroke: 1.2px #969393; /* نفس الأزرق الفاتح */
   pointer-events: none;
   user-select: none;
   white-space: nowrap;
@@ -76,7 +67,7 @@
 /* About Section */
 .counselor-about {
   flex: 1;
-  max-width: 650px;
+  max-width: 750px;
   text-align: left;
 }
 
@@ -88,82 +79,86 @@
   margin-bottom: 30px;
 }
 
-/* About Card + Ripple Hover Effect */
+/* About Card */
 .about-card {
   position: relative;
   overflow: hidden;
   flex: 1;
-  min-width: 180px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  min-width: 200px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 24px 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
   text-align: center;
-  border: 1px solid #004b7c;
+  border: 1px solid rgba(0, 128, 255, 0.4); 
   cursor: pointer;
+  transition: all 0.4s ease;
+  color: #969393;
+  backdrop-filter: blur(10px);
+}
+
+/* Hover effect */
+.about-card:hover {
+  background: linear-gradient(135deg, rgba(0, 128, 255, 0.719), rgba(0, 74, 124, 0.24));
+  border-color: #009fe3;
+  box-shadow: 0 12px 30px rgba(0,128,255,0.5),
+              0 0 20px rgba(0,128,255,0.4);
+  transform: translateY(-8px) scale(1.03);
+}
+
+/* Icon */
+.about-card .icon {
+  font-size: 3rem;
+  margin-bottom: -12px;
+  color: #027dcf; /* الأزرق الأساسي */
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* عند الهوفر على الكارد */
+.about-card:hover .icon {
+  color: #ffffff; /* الأزرق الفاتح عند hover */
+  transform: scale(1.15);
+  text-shadow: 0 0 10px rgba(0, 159, 227, 0.6);
+}
+
+
+/* Title */
+.about-card h5 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #027dcf; 
   transition: color 0.3s ease;
 }
 
-.about-card::before {
-  content: "";
-  position: absolute;
-  left: var(--x, 50%);
-  top: var(--y, 50%);
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: #004b7c;
-  transform: translate(-50%, -50%);
-  transition: 
-    width 0.9s cubic-bezier(0.25, 0.8, 0.25, 1),
-    height 0.9s cubic-bezier(0.25, 0.8, 0.25, 1),
-    opacity 1s ease-out;
-  z-index: 0;
-  opacity: 0;
+.about-card:hover h5 {
+  color: #fff;
 }
 
-.about-card.hovered::before {
-  width: 300%;
-  height: 300%;
-  opacity: 0.9; /* أنعم وأخف */
-}
-
-
-.about-card * {
-  position: relative;
-  z-index: 1;
-}
-
-.about-card.hovered h5 {
-  color: #fffffff3;
-}
-.about-card.hovered p{
-    color: #ffffff9f;
-}
-.about-card .icon {
-  font-size: 28px;
-  margin-bottom: 8px;
-}
-
-.about-card h5 {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: #004b7c;
-}
-
+/* Paragraph */
 .about-card p {
-  font-size: 14px;
-  color: #555;
+  font-size: 0.9rem;
+  color: #969393;
   line-height: 1.6;
+  text-align: left;
+  transition: color 0.3s ease;
+ padding: 10px;
 }
+
+.about-card:hover p {
+  color: #beb9b9;
+}
+
 
 
 /* Bio Summary */
 .about-summary {
   font-size: 15px;
   line-height: 1.8;
-  color: #555;
+  color: #969393;
   margin-bottom: 25px;
   text-align: justify; /* يوزع الكلام بشكل منسق */
 }
@@ -186,53 +181,165 @@
   color: #999898;
   transform: scale(1.15);
 }
-
-/* ✅ Mobile Fix */
-@media (max-width: 768px) {
-  .counselor-section {
-    padding: 80px 0px;
-  }
-
+/* ✅ Tablet fix (769px–1024px) */
+@media (max-width: 1024px) {
   .counselor-content {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 30px;
   }
 
   .counselor-avatar {
-    margin-top: 0;
+    order: -1; /* يخلي الصورة تطلع فوق */
+    margin: 0 auto 20px auto;
+    text-align: center;
   }
 
   .counselor-avatar img {
-    width: 260px;
-    height: 260px;
+    width: 360px;
+    height: 360px;
+    margin: 0 auto;
+    display: block;
   }
 
+  .counselor-name,
   .counselor-surname {
-    font-size: 40px;
-    top: 95%;
-    padding-top: 10px;
+    font-size: 30px;
+    text-align: center;
   }
 
   .counselor-about {
+    max-width: 700px;
     text-align: center;
   }
 
   .about-cards {
+    justify-content: center;
+  }
+}
+
+/* ✅ Mobile (≤768px) */
+@media (max-width: 768px) {
+  .counselor-content {
     flex-direction: column;
-    gap: 15px;
     align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  /* الصورة فوق وتبقى في النص */
+  .counselor-avatar {
+    order: -1;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .counselor-avatar img {
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .counselor-name,
+  .counselor-surname {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  /* النص */
+  .counselor-about {
+    text-align: center;
+    max-width: 90%;
+    padding: 0 15px; /* علشان الكلام ما يلزقش في الأطراف */
+  }
+
+  /* الكروت */
+  .about-cards {
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch; /* تاخد عرض الكونتينر */
+    width: 100%;
   }
 
   .about-card {
-    padding: 0px;
-    width: 100%;
-    max-width: 350px; /* يمنع انها تتاكل من الشمال */
+    flex: 1 1 auto;
+    width: 90%;          /* يملى العرض */
+    margin: 0;            /* المارجن عندك في الكونتينر */
+  }
+}
+
+
+/* ✅ Very small phones (≤480px) */
+@media (max-width: 480px) {
+  .counselor-avatar img {
+    width: 360px;
+    height: 360px;
   }
 
-  .about-summary {
-    text-align: center;
-    font-size: 14px;
-    padding: 0 20px;
+  .counselor-name,
+  .counselor-surname {
+    font-size: 22px;
   }
+
+  .about-cards {
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch; /* تاخد عرض الكونتينر */
+    width: 100%;
+  }
+
+  .about-card {
+    flex: 1 1 auto;
+    width: 90%;          /* يملى العرض */
+    margin: 0;            /* المارجن عندك في الكونتينر */
+  }
+}
+
+/* 🖥️ شاشات كبيرة (أكتر من 1200px) */
+@media (min-width: 1200px) {
+  .Home-title {
+    font-size: 4rem; /* كبير وواضح */
+  }
+  .counselor-divider {
+  display: block;
+  margin: 0 auto 40px auto; 
+  width: 350px; 
+}
+}
+/* 📱 تابلت (768px – 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .Home-title {
+    font-size: 3rem;
+  }
+  .counselor-divider {
+  display: block;
+  margin: 0 auto 40px auto; 
+  width: 300px; 
+}
+}
+
+/* 📱 موبايل متوسط (481px – 767px) */
+@media (max-width: 767px) and (min-width: 481px) {
+  .Home-title {
+    font-size: 2.5rem;
+  }
+    .counselor-divider {
+  display: block;
+  margin: 0 auto 40px auto; 
+  width: 250px; 
+}
+}
+
+/* 📱 موبايل صغير (≤480px) */
+@media (max-width: 480px) {
+  .Home-title {
+    font-size: 2rem;
+  }
+    .counselor-divider {
+  display: block;
+  margin: 0 auto 40px auto; 
+  width: 150px; 
+}
 }

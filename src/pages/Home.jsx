@@ -7,11 +7,13 @@ import BestMembers from "../components/Home/BestMembers";
 import OfficersCarousel from "../components/Home/OfficersCarousel";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import AnimatedBackground from "../components/join/AnimatedBackground";
 function Home() {
   return (
     <>
       <Header/>
       <Hero />
+      <AnimatedBackground />
       <AboutTimeline />
       <OurCycle />
       <BestMembers />

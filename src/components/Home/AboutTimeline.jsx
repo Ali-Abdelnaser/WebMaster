@@ -26,7 +26,7 @@ const storyData = [
 export default function AboutStory() {
   return (
     <section className="story-section">
-      <h2 className="story-title">OUR STORY</h2>
+      <h2 className="Home-title">OUR STORY</h2>
       <img src="img/hr.svg" alt="Divider" className="story-divider" />
 
       <div className="story-wrapper">

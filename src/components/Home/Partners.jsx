@@ -89,7 +89,7 @@ const partners = [
 export default function Partners() {
   return (
     <section className="partners-section">
-      <h2 className="partners-title">Our Partners</h2>
+      <h2 className="Home-title">Our Partners</h2>
       <img src="img/hr.svg" alt="Divider" className="partners-divider" />
 
       {/* Desktop: صف واحد */}

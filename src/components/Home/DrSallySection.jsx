@@ -1,13 +1,21 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaLinkedin, FaEnvelope, FaFacebook, FaLink } from "react-icons/fa";
-import AboutCard from "./AboutCard"; // 👈 الكومبوننت الجديد
+import {
+  FaLinkedin,
+  FaEnvelope,
+  FaFacebook,
+  FaLink,
+  FaChalkboardTeacher,
+  FaTrophy,
+  FaBookOpen,
+} from "react-icons/fa"; // 👈 ضفنا الأيقونات
+import AboutCard from "./AboutCard";
 import "./DrSallySection.css";
 
 export default function CounselorSection() {
   return (
     <section className="counselor-section">
-      <h2 className="counselor-title">BRANCH COUNSOLAR</h2>
+      <h2 className="Home-title">COUNSOLAR</h2>
       <img src="/img/hr.svg" alt="Divider" className="counselor-divider" />
       <div className="counselor-content">
         {/* Left - Avatar */}
@@ -31,17 +39,17 @@ export default function CounselorSection() {
         >
           <div className="about-cards">
             <AboutCard
-              icon="🎓"
+              icon={<FaChalkboardTeacher />} // 🎓 ➝ FaChalkboardTeacher
               title="Academic Leadership"
               text="First woman to serve as Dean of MISR Higher Institute. Head of Communications & Computer Engineering, Vice Dean for Community Service and Development."
             />
             <AboutCard
-              icon="🏆"
+              icon={<FaTrophy />} // 🏆 ➝ FaTrophy
               title="Awards & Recognition"
               text="Excellence in Research Award (2018), Arab Research Councils Award (2019) , State Encouragement Award (2021). "
             />
             <AboutCard
-              icon="📚"
+              icon={<FaBookOpen />} // 📚 ➝ FaBookOpen
               title="Research & Contributions"
               text="Member of the Egyptian Scientific Research School, contributor to books on Big Data & AI, speaker at international conferences."
             />
@@ -61,21 +69,31 @@ export default function CounselorSection() {
           {/* Social Media */}
           <div className="social-links-home">
             <a
+              target="_blank"
               href="https://www.linkedin.com/in/sally-elghamrawy-821aa736/?trk=people-guest_people_search-card&originalSubdomain=eg"
               aria-label="LinkedIn"
             >
               <FaLinkedin />
             </a>
-            <a href="mailto:sally_elghamrawy@ieee.org" aria-label="Email">
+            <a
+              target="_blank"
+              href="mailto:sally_elghamrawy@ieee.org"
+              aria-label="Email"
+            >
               <FaEnvelope />
             </a>
             <a
+              target="_blank"
               href="https://www.facebook.com/sallyelghamrawy"
               aria-label="Facebook"
             >
               <FaFacebook />
             </a>
-            <a href="http://sallyelghamrawy.com/" aria-label="Website">
+            <a
+              target="_blank"
+              href="http://sallyelghamrawy.com/"
+              aria-label="Website"
+            >
               <FaLink />
             </a>
           </div>

@@ -7,7 +7,7 @@ const BestMembers = () => {
   return (
     <section className="best-members-section section-with-bg">
       <div className="section-header">
-        <h2 className="best-members-title">BEST MEMBERS</h2>
+        <h2 className="Home-title">BEST MEMBERS</h2>
         <img src="img/hr.svg" alt="Divider" className="HR-divider" />
       </div>
       <div className="members-grid">

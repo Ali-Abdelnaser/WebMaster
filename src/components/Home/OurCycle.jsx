@@ -20,14 +20,6 @@ import {
 } from "react-icons/fa"; // أيقونات جاهزة
 import "./cycle.css";
 
-const committees = [
-  { name: "Event\nManagement", image: "/img/committees/event.svg" },
-  { name: "Marketing", image: "/img/committees/marketing.svg" },
-  { name: "PR", image: "/img/committees/pr.svg" },
-  { name: "FR", image: "/img/committees/fr.svg" },
-];
-
-// أيقونات الخلفية
 const bgIcons = [
   FaUsers,
   FaHandsHelping,
@@ -80,7 +72,7 @@ export default function OurCycle() {
           return <FloatingBgIcon key={i} Icon={Icon} />;
         })}
       </div>
-      <h2 className="cycle-title">OUR COMMITTEES</h2>
+      <h2 className="Home-title">OUR COMMITTEES</h2>
       <img src="img/hr.svg" alt="Divider" className="cycle-divider" />
 
       <div className="hex-grid">
