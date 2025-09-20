@@ -1,7 +1,7 @@
 // src/components/Header.js
 import { useState, useEffect } from "react";
 import "./HeaderWie.css";
-import { Link } from "react-router-dom";
+import SmartLink from "../SmartLink";
 import eventsData from "../../data/upcomingEvent.json"; // ملف JSON بتاع الأحداث
 
 export default function Header() {
@@ -42,7 +42,7 @@ export default function Header() {
           </div>
 
           <div className="wie-nav-button">
-            <Link to="/join" id="wie-join-btn"></Link>
+            <SmartLink  to="/join" id="wie-join-btn"></SmartLink >
           </div>
 
           {/* Menu toggle (hamburger) */}
@@ -57,19 +57,19 @@ export default function Header() {
           {/* Links */}
           <ul className={`wie-nav-links ${menuOpen ? "show" : ""}`}>
             <li>
-              <Link to="/">Home</Link>
+              <SmartLink  to="/">Home</SmartLink >
             </li>
             <li className={`wie-events-item ${liveEvent ? "wie-live" : ""}`}>
-              <Link to="/events">Events</Link>
+              <SmartLink  to="/events">Events</SmartLink >
             </li>
             <li>
-              <Link to="/wie">WIE</Link>
+              <SmartLink  to="/wie">WIE</SmartLink >
             </li>
             <li>
-              <Link to="/CS">CS</Link>
+              <SmartLink  to="/CS">CS</SmartLink >
             </li>
             <li>
-              <Link to="/about">About Us</Link>
+              <SmartLink  to="/about">About Us</SmartLink >
             </li>
           </ul>
         </nav>

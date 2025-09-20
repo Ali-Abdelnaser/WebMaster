@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import SmartLink from "../SmartLink";
 import "./FooterCS.css";
 
 export default function FooterCS() {
@@ -99,21 +99,21 @@ export default function FooterCS() {
         {/* Quick Links */}
         <div className="cs-footer-column cs-quick-links">
           <h3>Quick Links</h3>
-          <Link to="/">
+          <SmartLink  to="/">
             <i className="fas fa-angle-right"></i> Home
-          </Link>
-          <Link to="/events">
+          </SmartLink >
+          <SmartLink  to="/events">
             <i className="fas fa-angle-right"></i> Events
-          </Link>
-          <Link to="/wie">
+          </SmartLink >
+          <SmartLink  to="/wie">
             <i className="fas fa-angle-right"></i> WIE
-          </Link>
-          <Link to="/CS">
+          </SmartLink >
+          <SmartLink  to="/CS">
             <i className="fas fa-angle-right"></i> CS
-          </Link>
-          <Link to="/about">
+          </SmartLink >
+          <SmartLink  to="/about">
             <i className="fas fa-angle-right"></i> About Us
-          </Link>
+          </SmartLink >
         </div>
       </div>
 

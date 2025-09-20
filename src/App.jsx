@@ -16,7 +16,7 @@ import Wie from "./pages/Wie";
 import CS from "./pages/CS";
 import About from "./pages/About";
 import AESS from "./pages/AESS";
-
+import ScrollToTopButton from "./components/ScrollToTopButton";
 // ScrollToTop component
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -55,7 +55,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-
+      <ScrollToTopButton />
       <AnimatedRoutes />
     </Router>
   );

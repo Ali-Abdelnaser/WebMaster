@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./HeaderCS.css";
-import { Link } from "react-router-dom";
+import SmartLink from "../SmartLink";
 
 export default function HeaderCS() {
   const [scrolled, setScrolled] = useState(false);
@@ -32,7 +32,7 @@ export default function HeaderCS() {
 
           {/* Join button */}
           <div className="cs-nav-button">
-            <Link to="/join" id="join-btn"></Link>
+            <SmartLink to="/join" id="join-btn"></SmartLink>
           </div>
 
           {/* Menu toggle */}
@@ -46,11 +46,21 @@ export default function HeaderCS() {
 
           {/* Links */}
           <ul className={`cs-nav-links ${menuOpen ? "show" : ""}`}>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/events">Events</Link></li>
-            <li><Link to="/wie">WIE</Link></li>
-            <li><Link to="/CS">CS</Link></li>
-            <li><Link to="/about">About Us</Link></li>
+            <li>
+              <SmartLink to="/">Home</SmartLink>
+            </li>
+            <li>
+              <SmartLink to="/events">Events</SmartLink>
+            </li>
+            <li>
+              <SmartLink to="/wie">WIE</SmartLink>
+            </li>
+            <li>
+              <SmartLink to="/CS">CS</SmartLink>
+            </li>
+            <li>
+              <SmartLink to="/about">About Us</SmartLink>
+            </li>
           </ul>
         </nav>
       </header>

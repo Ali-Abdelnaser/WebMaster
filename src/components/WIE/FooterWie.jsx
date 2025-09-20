@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import SmartLink from "../SmartLink";
 import "./FooterWie.css";
 
 export default function Footer() {
@@ -86,24 +86,24 @@ export default function Footer() {
         {/* Quick Links */}
         <div className="wie-footer-column wie-quick-links">
           <h3>Quick Links</h3>
-          <Link to="/">
+          <SmartLink  to="/">
             <i className="fas fa-angle-right"></i> Home
-          </Link>
-          <Link to="/events">
+          </SmartLink >
+          <SmartLink  to="/events">
             <i className="fas fa-angle-right"></i> Events
-          </Link>
-          <Link to="/wie">
+          </SmartLink >
+          <SmartLink  to="/wie">
             <i className="fas fa-angle-right"></i> WiE
-          </Link>
-          <Link to="/CS">
+          </SmartLink >
+          <SmartLink  to="/CS">
             <i className="fas fa-angle-right"></i> CS
-          </Link>
-          {/* <Link to="/AESS">
+          </SmartLink >
+          {/* <SmartLink  to="/AESS">
             <i className="fas fa-angle-right"></i> AESS
-          </Link> */}
-          <Link to="/about">
+          </SmartLink > */}
+          <SmartLink  to="/about">
             <i className="fas fa-angle-right"></i> About Us
-          </Link>
+          </SmartLink >
         </div>
       </div>
 
