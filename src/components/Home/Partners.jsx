@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import "./partners.css";
+import "./Partners.css";
 import partners from "../../data/partners.json"; // 👈 لو عندك JSON بره
 
 export default function Partners() {

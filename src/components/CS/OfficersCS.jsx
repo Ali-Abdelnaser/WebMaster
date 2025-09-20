@@ -7,23 +7,29 @@ export default function csTwoOfficers() {
       name: "Mahmoud Hatem",
       role: "Chairman",
       img: "/img/CS/hatem.svg",
-      linkedin: "#",
-      email: "officer1@email.com",
+      linkedin:
+        "https://www.linkedin.com/in/mahmoudhatems?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      email: "mahmoudhatemc@gmail.com",
     },
     {
       name: "Mohamed Sakr",
       role: "Vice Chair",
       img: "/img/CS/sakr.svg",
-      linkedin: "#",
-      email: "officer2@email.com",
+      linkedin:
+        "https://www.linkedin.com/in/mohamed-sakr-15b674279?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      email: "mo.sakr1400@gmail.com",
     },
   ];
 
   return (
     <section className="cs-two-officers">
-        <div className="wie-carousel-header">
+      <div className="wie-carousel-header">
         <h2 className="cs-title">CS OFFICERS</h2>
-        <img src="img/CS/CS-hr.svg" alt="Divider" className="wie-carousel-divider" />
+        <img
+          src="img/CS/CS-hr.svg"
+          alt="Divider"
+          className="wie-carousel-divider"
+        />
       </div>
       <div className="cs-officers-container">
         {officers.map((officer, index) => (
