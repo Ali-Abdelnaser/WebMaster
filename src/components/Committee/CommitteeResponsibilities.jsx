@@ -4,7 +4,8 @@ import { FaCheck } from "react-icons/fa";
 export default function CommitteeResponsibilities({ responsibilities = [] }) {
   return (
     <section className="crt-section" aria-labelledby="crt-title">
-      <h2 id="crt-title" className="crt-title">Responsibilities</h2>
+      <h2 id="crt-title" className="Home-title">Responsibilities</h2>
+      <img src="../img/hr.svg" alt="Divider" className="crt-divider" />
 
       <div className="crt-timeline">
         {responsibilities.map((task, idx) => (

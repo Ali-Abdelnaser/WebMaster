@@ -7,7 +7,8 @@
   height: 100vh;          /* ياخد طول الشاشة كله */
   position: relative;
   padding: 20px;
-  background-color: #ffffff00; /* خلفية نصف شفافة، ممكن تغيرها */
+    background: linear-gradient(135deg, #0080ff28);
+ /* خلفية نصف شفافة، ممكن تغيرها */
 }
 
 .committee-header-section img {
@@ -16,14 +17,26 @@
   height: auto;
   border-radius: 15px;
   margin-bottom: 20px;
+  animation: floatY 3s ease-in-out infinite;
 }
 
 .committee-header-section h2 {
   color: white;          /* الخط أبيض */
   font-size: 4.5rem;
   margin: 0;
+  animation: floatY 3s ease-in-out infinite;
 }
-
+@keyframes floatY {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-25px); /* تطلع لفوق */
+  }
+  100% {
+    transform: translateY(0px); /* ترجع مكانها */
+  }
+}
 /* Tablet */
 @media (max-width: 1023px) and (min-width: 768px) {
   .committee-header-section img {

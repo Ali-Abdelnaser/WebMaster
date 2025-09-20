@@ -1,6 +1,8 @@
 .team-structure {
   padding: 80px 20px;
   text-align: center;
+  background: linear-gradient(135deg, #0080ff28);
+
 }
 
 .team-title {
@@ -68,7 +70,8 @@
   padding: 16px;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 215, 0, 0.8);
+    border: 1px solid #009fe3;
+
   color: #fff;
   overflow: hidden;
   transition:
@@ -261,4 +264,58 @@
     grid-template-columns: 1fr 1fr;
     gap: 12px;
   }
+}
+  .team-divider {
+  display: block;
+  margin: 0 auto 40px auto; 
+  width: 450px; 
+}
+
+/* 🖥️ شاشات كبيرة (أكتر من 1200px) */
+@media (min-width: 1200px) {
+  .Home-title {
+    font-size: 4rem; /* كبير وواضح */
+  }
+  .team-divider {
+  display: block;
+  margin: 0 auto 40px auto; 
+  width: 500px; 
+}
+}
+
+/* 📱 تابلت (768px – 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .Home-title {
+    font-size: 3rem;
+  }
+  .team-divider {
+  display: block;
+  margin: 0 auto 40px auto; 
+  width: 380px; 
+}
+}
+
+/* 📱 موبايل متوسط (481px – 767px) */
+@media (max-width: 767px) and (min-width: 481px) {
+  .Home-title {
+    font-size: 2.5rem;
+  }
+    .team-divider {
+  display: block;
+  margin: 0 auto 40px auto; 
+  width: 320px; 
+}
+}
+
+/* 📱 موبايل صغير (≤480px) */
+@media (max-width: 480px) {
+  .Home-title {
+    font-size: 2rem;
+    margin-bottom: -10px;
+  }
+    .team-divider {
+  display: block;
+  margin: 0 auto 40px auto; 
+  width: 250px; 
+}
 }

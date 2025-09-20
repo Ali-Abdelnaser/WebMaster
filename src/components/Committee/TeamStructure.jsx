@@ -3,7 +3,8 @@ import "./TeamStructure.css";
 export default function TeamStructure({ name, head, vice, advisors, members }) {
   return (
     <section className="team-structure">
-      <h2 className="team-title">Meet Our Team</h2>
+      <h2 className="Home-title">Meet Our Team</h2>
+      <img src="../img/hr.svg" alt="Divider" className="team-divider" />
 
       {/* Head */}
       <div className="team-head">
