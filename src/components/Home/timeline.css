@@ -4,13 +4,14 @@
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, #0080ff28);
+
 }
 
 /* العنوان */
 .Home-title {
   font-size: 4rem;
   font-weight: 700;
-  color: #004b7c; 
+  color: #ffffff; 
   text-align: center;
   margin-bottom: -15px; 
 }
@@ -40,10 +41,11 @@
 .story-year {
   font-size: 4rem;
   font-weight: 800;
-  color: #96939349; /* watermark style */
+  color: #96939376;
+  -webkit-text-stroke: 1.2px #ffffff;/* watermark style */
   position: absolute;
-  top: -10px;
-  left: 15px;
+  top: -20px;
+  left: 45px;
   z-index: 0;
 }
 
@@ -51,8 +53,8 @@
   position: relative;
   z-index: 1;
   background: rgba(255, 255, 255, 0.08); /* شفاف */
-  backdrop-filter: blur(12px);           /* البلور بتاع الزجاج */
-  -webkit-backdrop-filter: blur(12px);   /* دعم للمتصفحات */
+  backdrop-filter: blur(6px);           /* البلور بتاع الزجاج */
+  -webkit-backdrop-filter: blur(6px);   /* دعم للمتصفحات */
   border-radius: 16px;
   padding: 30px;
   border: 1px solid #0099ff; /* بورد خفيف */
@@ -73,7 +75,7 @@
 
 .story-content p {
   font-size: 1rem;
-  color: #969393;
+  color: #c5c3c3;
   line-height: 1.7;
 }
 
@@ -130,6 +132,7 @@
 @media (max-width: 480px) {
   .Home-title {
     font-size: 2rem;
+    margin-bottom: -10px;
   }
     .story-divider {
   display: block;

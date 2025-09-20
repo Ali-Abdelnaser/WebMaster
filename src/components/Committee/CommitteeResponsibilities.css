@@ -3,16 +3,6 @@
   width: 100%;
   padding: 80px 20px;
   box-sizing: border-box;
-background: linear-gradient(
-  180deg,
-  #ffffff 0%,
-  #ffffff 70%,
-  rgba(255, 255, 255, 0.8) 80%,
-  rgba(255, 255, 255, 0.4) 90%,
-  rgba(255, 255, 255, 0) 100%
-);
-
-
 }
 
 .crt-title {
@@ -43,7 +33,6 @@ background: linear-gradient(
   gap: 18px;
   align-items: center;
   /* الأيقونة تبقى في النص رأسياً */
-  background: white;
   border-radius: 12px;
   padding: 18px;
   box-shadow: 0 8px 24px rgba(4, 30, 60, 0.06);

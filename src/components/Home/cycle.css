@@ -1,6 +1,6 @@
 .cycle-section {
   position: relative;
-  padding: 100px 20px;
+  padding: 20px;
     background: linear-gradient(135deg, #0080ff28);
   text-align: center;
   overflow: hidden;
@@ -54,7 +54,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 60px;
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto 60px;
   justify-items: center;
 }
@@ -129,7 +129,7 @@
 
 .hex-inner span {
   font-weight: 700;
-  color: #969393;
+  color: #d1cfcf;
   font-size: 1.4rem;
   display: block;
 }
@@ -142,7 +142,7 @@
 .cycle-quote {
   margin-top: 50px;
   font-size: 2.2rem;
-  color: #969393;
+  color: #d1cfcf;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;

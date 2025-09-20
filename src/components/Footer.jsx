@@ -13,7 +13,7 @@ export default function Footer() {
         >
           <path
             className="wave-path"
-            fill="var(--accent-color)"
+            fill="#0080FF42"
             d="M0,64L48,80C96,96,192,128,288,144C384,160,480,160,576,144C672,128,768,96,864,74.7C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160V0H0Z"
           />
         </svg>

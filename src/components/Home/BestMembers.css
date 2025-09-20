@@ -1,6 +1,6 @@
 .best-members-section {
   position: relative;
-  padding: 100px 20px;
+  padding:  20px;
   text-align: center;
   overflow: hidden;
   background: linear-gradient(135deg, #0080ff28);
@@ -50,7 +50,7 @@
   padding: 16px;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 215, 0, 0.8);
+  border: 1px solid #009fe3;
   color: #fff;
   overflow: hidden;
   transition:
@@ -135,7 +135,7 @@
   margin: 0;
   font-size: 0.95rem;
   opacity: 0.85;
-  color: #ddd;
+  color: #d1cfcf;
 }
 
 /* Responsive - أقل من 768px: اتنين كروت في الصف */

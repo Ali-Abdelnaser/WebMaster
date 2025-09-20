@@ -10,7 +10,7 @@
   align-items: center;
   margin-bottom: 50px;
 }
-
+/*TODO نخلي الكارد بيتعمله كليك بدل ما هوا ثابت */
 .officer-card {
   background: #44709a; /* لون الكارد */
   border-radius: 25px;

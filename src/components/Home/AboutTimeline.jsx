@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import "./timeline.css";
 const storyData = [
   {
-    year: "2020",
+    year: "June",
     title: "The Beginning",
     text: "A small group of passionate students came together with one vision in mind.",
   },

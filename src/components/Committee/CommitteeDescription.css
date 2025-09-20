@@ -4,16 +4,8 @@
   padding: 80px 20px;
   /* padding من فوق وتحت + يسار ويمين */
   text-align: center;
-  /* النص في النص */
-background: linear-gradient(
-  180deg,
-  rgba(255, 255, 255, 0) 0%,
-  rgba(255, 255, 255, 0.4) 10%,
-  rgba(255, 255, 255, 0.8) 20%,
-  #ffffff 30%,
-  #ffffff 100%
-);
   box-sizing: border-box;
+  border-top: 4px solid #00629b9c ;
   /* عشان الـ padding محسوب ضمن العرض */
 }
 
@@ -27,9 +19,9 @@ background: linear-gradient(
 .committee-description-section p {
   font-size: 1.3rem;
   /* حجم الخط الأساسي للوصف */
-  color: #333;
+  color: #d1cfcf;
   line-height: 1.8;
-  text-align: left;
+  text-align: justify;
   /* الوصف يبدأ من اليسار داخل البلوك */
   max-width: 900px;
   margin: 0 auto;

@@ -1,90 +1,71 @@
 .partners-section {
-  padding: 60px 20px;
-     background: linear-gradient(135deg, #0080ff28);
-
+  padding: 20px;
+  background: linear-gradient(135deg, #0080ff28);
   text-align: center;
+  overflow: hidden; /* يمنع أي overflow غريب من السوايبر */
 }
-/* العنوان */
 
-
-/* الـ SVG Divider */
+/* Divider */
 .partners-divider {
   display: block;
-  margin: 0 auto 40px auto; /* في الوسط مع مسافة تحتها */
-  width: 400px; /* الحجم الابتدائي، ممكن تعدل حسب الحاجة */
+  margin: 0 auto 40px auto;
+  width: 400px;
+  max-width: 90%; /* responsive أكتر */
 }
 
+
+
+/* Partner Logo */
 .partner-logo {
-  height: 150px;
-  margin: 20px 30px;
+  margin-top: 10px;
+  height: 120px; /* قللت شوية علشان تبقى مرنة */
   border-radius: 12px;
   transition: transform 0.3s ease;
 }
-/* لما يعمل hover الصورة تكبر + توقف الطفو */
+
 .partner-logo:hover {
-  transform: scale(1.15);
+  transform: scale(1.1);
 }
 
-/* Responsive */
-.mobile-only {
-  display: none;
-  flex-direction: column;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-@media (max-width: 767px) {
-  .desktop-only { display: none; }
-  .mobile-only { display: flex; }
-}
-@media (min-width: 768px) {
-  .desktop-only { display: block; }
-  .mobile-only { display: none; }
-}
-
-/* 🖥️ شاشات كبيرة (أكتر من 1200px) */
+/* 🖥️ Large screens (≥1200px) */
 @media (min-width: 1200px) {
   .Home-title {
-    font-size: 4rem; /* كبير وواضح */
+    font-size: 4rem;
   }
   .partners-divider {
-  display: block;
-  margin: 0 auto 40px auto; 
-  width: 400px; 
+    width: 400px;
+  }
+
 }
-}
-/* 📱 تابلت (768px – 1023px) */
+
+/* 📱 Tablet (768px – 1023px) */
 @media (max-width: 1023px) and (min-width: 768px) {
   .Home-title {
     font-size: 3rem;
   }
   .partners-divider {
-  display: block;
-  margin: 0 auto 40px auto; 
-  width: 300px; 
-}
+    width: 300px;
+  }
 }
 
-/* 📱 موبايل متوسط (481px – 767px) */
+/* 📱 Mobile Medium (481px – 767px) */
 @media (max-width: 767px) and (min-width: 481px) {
   .Home-title {
     font-size: 2.5rem;
   }
-    .partners-divider {
-  display: block;
-  margin: 0 auto 40px auto; 
-  width: 250px; 
-}
+  .partners-divider {
+    width: 250px;
+  }
+
 }
 
-/* 📱 موبايل صغير (≤480px) */
+/* 📱 Mobile Small (≤480px) */
 @media (max-width: 480px) {
   .Home-title {
     font-size: 2rem;
   }
-    .partners-divider {
-  display: block;
-  margin: 0 auto 40px auto; 
-  width: 200px; 
-}
+  .partners-divider {
+    width: 200px;
+  }
+
 }

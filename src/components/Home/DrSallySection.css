@@ -45,7 +45,7 @@
   font-size: 40px;
   font-weight: 700;
   color: #9693933b; /* مفيش لون داخلي */
-  -webkit-text-stroke: 1.2px #969393; /* أزرق فاتح */
+  -webkit-text-stroke: 1.2px #d1cfcf; /* أزرق فاتح */
 }
 
 .counselor-surname {
@@ -56,7 +56,7 @@
   font-size: 40px;
   font-weight: 800;
   color: #9693933b;
-  -webkit-text-stroke: 1.2px #969393; /* نفس الأزرق الفاتح */
+  -webkit-text-stroke: 1.2px #d1cfcf; /* نفس الأزرق الفاتح */
   pointer-events: none;
   user-select: none;
   white-space: nowrap;
@@ -141,9 +141,9 @@
 /* Paragraph */
 .about-card p {
   font-size: 0.9rem;
-  color: #969393;
+  color: #d1cfcf;
   line-height: 1.6;
-  text-align: left;
+   text-align: justify;
   transition: color 0.3s ease;
  padding: 10px;
 }
@@ -158,7 +158,7 @@
 .about-summary {
   font-size: 15px;
   line-height: 1.8;
-  color: #969393;
+  color: #d1cfcf;
   margin-bottom: 25px;
   text-align: justify; /* يوزع الكلام بشكل منسق */
 }
@@ -178,7 +178,7 @@
 }
 
 .social-links-home a:hover {
-  color: #999898;
+  color: #d1cfcf;
   transform: scale(1.15);
 }
 /* ✅ Tablet fix (769px–1024px) */
