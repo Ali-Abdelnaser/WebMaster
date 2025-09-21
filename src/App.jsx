@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
-
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import CommitteePage from "./pages/CommitteePage";
 // Pages
 import Home from "./pages/Home";
@@ -54,6 +54,7 @@ function AnimatedRoutes() {
 function App() {
   return (
     <Router>
+      <SpeedInsights/>
       <ScrollToTop />
       <ScrollToTopButton />
       <AnimatedRoutes />
