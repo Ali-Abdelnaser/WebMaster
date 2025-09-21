@@ -1,0 +1,21 @@
+.team-preview {
+  padding: 70px 20px;
+  background: #f9f9f9;
+  text-align: center;
+}
+.team-preview h2 {
+  color: #00629b;
+  margin-bottom: 20px;
+}
+.team-btn {
+  display: inline-block;
+  background: #00629b;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.team-btn:hover {
+  background: #005080;
+}

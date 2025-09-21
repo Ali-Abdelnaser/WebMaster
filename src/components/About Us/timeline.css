@@ -2,9 +2,6 @@
   padding: 20px 20px;
   text-align: center;
   position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #0080ff28);
-
 }
 
 /* العنوان */
@@ -59,7 +56,11 @@
   padding: 30px;
   border: 1px solid #0099ff; /* بورد خفيف */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;}
+  transition: transform 0.3s ease, box-shadow 0.3s ease,all 0.3s ease;
+    
+  height: 130px;     
+  overflow: hidden; 
+}
 
 .story-content:hover {
   transform: translateY(-6px);
@@ -78,6 +79,10 @@
   color: #c5c3c3;
   line-height: 1.7;
 }
+ 
+
+
+
 
 
 /* Responsive */

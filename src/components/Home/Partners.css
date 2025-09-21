@@ -13,10 +13,10 @@
   max-width: 90%; /* responsive أكتر */
 }
 
-
-
 /* Partner Logo */
 .partner-logo {
+  padding: 12px;
+  border: 1px solid white;
   margin-top: 10px;
   height: 120px; /* قللت شوية علشان تبقى مرنة */
   border-radius: 12px;

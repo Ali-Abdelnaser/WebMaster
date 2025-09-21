@@ -14,16 +14,15 @@ export default function Partners() {
       <div className="desktop-only">
         <Swiper
           modules={[Autoplay]}
-
           loop={true}
           autoplay={{ delay: 0, disableOnInteraction: false }}
           speed={4000}
           grabCursor={true}
           breakpoints={{
-            0: { slidesPerView: 2, spaceBetween: 20 }, // موبايل صغير
-            480: { slidesPerView: 3, spaceBetween: 25 }, // موبايل متوسط
-            768: { slidesPerView: 4, spaceBetween: 30 }, // تابلت
-            1024: { slidesPerView: 5, spaceBetween: 35 }, // ديسكتوب
+            0: { slidesPerView: 2, spaceBetween: 10 }, // موبايل صغير
+            480: { slidesPerView: 3, spaceBetween: 15 }, // موبايل متوسط
+            768: { slidesPerView: 4, spaceBetween: 20 }, // تابلت
+            1024: { slidesPerView: 6, spaceBetween: 25 }, // ديسكتوب
           }}
         >
           {partners.map((p, i) => (

@@ -1,0 +1,147 @@
+{
+  "hero": {
+    "title": "About IEEE MET SB",
+    "subtitle": "United by Vision, Not Location",
+    "background": "/img/mockup.svg"
+  },
+  "missionVision": {
+    "mission": "To inspire and empower students to innovate through technology, teamwork, and leadership.",
+    "vision": "To become a leading student branch recognized for its impact, inclusivity, and innovation."
+  },
+  "whatWeDo": [
+    {
+      "title": "Events",
+      "description": "We organize impactful technical and non-technical events.",
+      "icon": "fa-calendar-check"
+    },
+    {
+      "title": "Workshops",
+      "description": "Hands-on sessions to develop technical and soft skills.",
+      "icon": "fa-chalkboard-teacher"
+    },
+    {
+      "title": "Competitions",
+      "description": "Hackathons, coding challenges, and innovation contests.",
+      "icon": "fa-trophy"
+    }
+  ],
+  "images": [
+    {
+      "src": "/img/home.jpg",
+      "alt": "Event 1"
+    },
+    {
+      "src": "/img/home.jpg",
+      "alt": "Event 2"
+    },
+    {
+      "src": "/img/home.jpg",
+      "alt": "Event 3"
+    },
+    {
+      "src": "/img/home.jpg",
+      "alt": "Event 4"
+    }
+  ],
+  "summary": {
+    "title": "About IEEE MET SB",
+    "description": "IEEE MET Student Branch is a vibrant community of passionate students who aim to promote technological innovation, leadership, and professional development. As part of the IEEE global network, our branch organizes events, workshops, and activities that empower students to learn, grow, and make an impact in engineering and technology. We also collaborate with different IEEE societies such as WiE (Women in Engineering), technical chapters, and regional initiatives.",
+    "highlights": [
+      {
+        "icon": "fas fa-bolt",
+        "heading": "Innovation",
+        "text": "Driving creativity and new ideas through projects and competitions."
+      },
+      {
+        "icon": "fas fa-users",
+        "heading": "Community",
+        "text": "Bringing together diverse students and fostering collaboration."
+      },
+      {
+        "icon": "fas fa-globe",
+        "heading": "Global Reach",
+        "text": "Connected with IEEE worldwide to expand opportunities."
+      }
+    ]
+  },
+  "storyData": [
+    {
+      "year": "June",
+      "title": "The Beginning",
+      "text": "A small group of passionate students came together with one vision in mind.",
+      "details": "In 2018, our journey began with a small team of students eager to learn and share knowledge. We started organizing small workshops and awareness sessions to introduce IEEE to our community."
+    },
+    {
+      "year": "2021",
+      "title": "First Achievements",
+      "text": "We launched our first events and started growing our community.",
+      "details": "In 2018, our journey began with a small team of students eager to learn and share knowledge. We started organizing small workshops and awareness sessions to introduce IEEE to our community."
+    },
+    {
+      "year": "2023",
+      "title": "Expanding Horizons",
+      "text": "Collaborations and workshops that reached more students than ever.",
+      "details": "By 2020, the branch expanded to include Women in Engineering (WiE) and other technical societies. This allowed us to diversify our activities and reach a broader audience."
+    },
+    {
+      "year": "2025",
+      "title": "The Future",
+      "text": "Continuing our mission to inspire, innovate, and lead.",
+      "details": "By 2020, the branch expanded to include Women in Engineering (WiE) and other technical societies. This allowed us to diversify our activities and reach a broader audience."
+    }
+  ],
+  "stats": [
+    {
+      "number": 71,
+      "label": "Members",
+      "icon": "fas fa-user-friends"
+    },
+    {
+      "number": 19,
+      "label": "Events & Workshops",
+      "icon": "fas fa-calendar-alt"
+    },
+    {
+      "number": 25,
+      "label": "Partners",
+      "icon": "fas fa-handshake"
+    },
+    {
+      "number": "0",
+      "label": "Competitions",
+      "icon": "fas fa-trophy"
+    }
+  ],
+  "founding": [
+    {
+      "name": "Mohamed Rajab",
+      "role": "Founding Chair",
+      "image": "img/officers/rajab.webp",
+      "socials": [
+        {
+          "icon": "fab fa-linkedin",
+          "link": "https://www.linkedin.com/in/mohamed-rajab-3049831b1/"
+        },
+        {
+          "icon": "fas fa-envelope",
+          "link": "mailto:mohamed.rajab@ieeeypegypt.org"
+        }
+      ]
+    },
+    {
+      "name": "Nancy Hosny",
+      "role": "Founding Vice Chair",
+      "image": "img/Best/4.svg",
+      "socials": [
+        {
+          "icon": "fab fa-linkedin",
+          "link": "https://www.linkedin.com/in/nancyhosny/"
+        },
+        {
+          "icon": "fas fa-envelope",
+          "link": "mailto:sara@example.com"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+.stats-section {
+  padding: 60px 20px;
+  color: #d1cfcf;
+  font-family: "Poppins", sans-serif;
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.stats-divider {
+  display: block;
+  margin: 0 auto 40px auto;
+  width: 400px;
+}
+/* Card */
+.stat-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 128, 255, 0.4);
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+
+.stat-card i {
+  font-size: 3.5rem;
+  color: #027dcf;
+  margin-bottom: 12px;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.stat-card h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.stat-card p {
+  font-size: 1.1rem;
+  color: #c5c3c3;
+}
+
+/* Hover effect */
+.stat-card:hover {
+  background: linear-gradient(135deg, rgba(0, 128, 255, 0.7), rgba(0, 74, 124, 0.3));
+  border-color: #009fe3;
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(0,128,255,0.5), 0 0 20px rgba(0,128,255,0.4);
+}
+
+.stat-card:hover i {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+/* 📱 موبايل: صفين × 2 كروت */
+@media (max-width: 768px) {
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .stat-card h3 {
+    font-size: 1.6rem;
+  }
+
+  .stat-card i {
+    font-size: 2rem;
+  }
+}
+
+/* 📱 موبايل صغير جدًا (≤480px): كرتين فوق بعض */
+@media (max-width: 480px) {
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+
+/* 🖥️ شاشات كبيرة (أكتر من 1200px) */
+@media (min-width: 1200px) {
+  .Home-title {
+    font-size: 4rem;
+    /* كبير وواضح */
+  }
+
+  .stats-divider {
+    display: block;
+    margin: 0 auto 40px auto;
+    width: 400px;
+  }
+}
+
+/* 📱 تابلت (768px – 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .Home-title {
+    font-size: 3rem;
+  }
+
+  .stats-divider {
+    display: block;
+    margin: 0 auto 40px auto;
+    width: 300px;
+  }
+}
+
+/* 📱 موبايل متوسط (481px – 767px) */
+@media (max-width: 767px) and (min-width: 481px) {
+  .Home-title {
+    font-size: 2.5rem;
+  }
+
+  .stats-divider {
+    display: block;
+    margin: 0 auto 40px auto;
+    width: 260px;
+  }
+}
+
+/* 📱 موبايل صغير (≤480px) */
+@media (max-width: 480px) {
+  .Home-title {
+    font-size: 2rem;
+  }
+
+  .stats-divider {
+    display: block;
+    margin: 0 auto 40px auto;
+    width: 220px;
+  }
+}

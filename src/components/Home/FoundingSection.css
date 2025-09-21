@@ -1,0 +1,270 @@
+.founding-section {
+    padding: 60px 20px;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(135deg, #0080ff28);
+}
+
+.founding-divider {
+    display: block;
+    margin: 0 auto 40px auto;
+    width: 300px;
+}
+
+/* Layout */
+.founding-cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Card */
+.founding-card {
+    position: relative;
+    width: 330px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 20px;
+    border: 1px solid #009fe3;
+    color: #fff;
+    overflow: hidden;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.founding-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 12px 32px rgba(255, 217, 0, 0.555);
+    border-color: rgba(255, 215, 0, 0.7);
+}
+
+/* shimmer effect */
+.founding-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -200%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent 0%,
+            rgba(255, 215, 0, 0.05) 15%,
+            rgba(255, 215, 0, 0.15) 25%,
+            rgba(255, 215, 0, 0.35) 35%,
+            rgba(255, 215, 0, 0.65) 45%,
+            rgba(255, 215, 0, 0.9) 50%,
+            rgba(255, 215, 0, 0.65) 55%,
+            rgba(255, 215, 0, 0.35) 65%,
+            rgba(255, 215, 0, 0.15) 75%,
+            rgba(255, 215, 0, 0.05) 85%,
+            transparent 100%);
+    transform: skewX(-20deg);
+    animation: shimmer-gold 3.5s linear infinite;
+    z-index: 1;
+}
+
+.founding-card * {
+    position: relative;
+    z-index: 2;
+}
+
+
+@keyframes shimmer-gold {
+    0% {
+        left: -200%;
+    }
+
+    100% {
+        left: 200%;
+    }
+}
+
+.founding-avatar {
+    position: relative;
+    display: inline-block;
+}
+
+.founding-avatar img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid rgba(255, 255, 255, 0.4);
+}
+
+
+/* Name & Role */
+.founding-name {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.founding-role {
+    font-size: 1.2rem;
+    color: #c5c3c3;
+    margin-bottom: 15px;
+}
+
+/* Socials */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.social-links a {
+    font-size: 1.8rem;
+    color: #027dcf;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+    color: #fff;
+    transform: scale(1.25);
+}
+
+/* Hover effect */
+.founding-card:hover {
+    transform: translateY(-10px) scale(1.04);
+    box-shadow: 0 18px 45px rgba(0, 128, 255, 0.5),
+        0 0 30px rgba(0, 128, 255, 0.4);
+}
+
+/* ✅ Responsive */
+
+/* تابلت */
+@media (max-width: 1024px) {
+    .founding-card {
+        width: 300px;
+        height: 440px;
+    }
+
+    .founding-avatar img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* موبايل متوسط */
+@media (max-width: 768px) {
+    .founding-cards {
+        gap: 25px;
+    }
+
+    .founding-card {
+        width: 50%;
+        height: auto;
+        padding: 25px;
+    }
+
+    .founding-avatar img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .founding-name {
+        font-size: 1.6rem;
+    }
+
+    .founding-role {
+        font-size: 1rem;
+    }
+}
+
+/* موبايل صغير */
+@media (max-width: 480px) {
+    .founding-avatar img {
+        width: 150px;
+        height: 150px;
+    }
+    .founding-card {
+        width: 70%;
+        height: auto;
+        padding: 25px;
+    }
+    .founding-name {
+        font-size: 1.4rem;
+    }
+
+    .founding-role {
+        font-size: 0.9rem;
+    }
+
+    .social-links a {
+        font-size: 1.5rem;
+    }
+}
+
+.founding-divider {
+    display: block;
+    margin: 0 auto 40px auto;
+    width: 650px;
+}
+
+
+
+
+/* 🖥️ شاشات كبيرة (أكتر من 1200px) */
+@media (min-width: 1200px) {
+    .Home-title {
+        font-size: 4rem;
+        /* كبير وواضح */
+    }
+
+.founding-divider {
+    display: block;
+    margin: 0 auto 40px auto;
+    width: 650px;
+}
+}
+
+/* 📱 تابلت (768px – 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .Home-title {
+        font-size: 3rem;
+    }
+
+    .founding-divider {
+        display: block;
+        margin: 0 auto 40px auto;
+        width: 500px;
+    }
+}
+
+/* 📱 موبايل متوسط (481px – 767px) */
+@media (max-width: 767px) and (min-width: 481px) {
+    .Home-title {
+        font-size: 2.5rem;
+    }
+
+    .founding-divider {
+        display: block;
+        margin: 0 auto 40px auto;
+        width: 300px;
+    }
+}
+
+/* 📱 موبايل صغير (≤480px) */
+@media (max-width: 480px) {
+    .Home-title {
+        font-size: 2rem;
+    }
+
+    .founding-divider {
+        display: block;
+        margin: 0 auto 40px auto;
+        width: 350px;
+    }
+}

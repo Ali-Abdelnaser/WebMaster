@@ -1,0 +1,99 @@
+.about-hero-section {
+  display: flex;
+  flex-direction: column; /* النص فوق الصورة */
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  height: auto;
+}
+
+.about-hero-overlay {
+  z-index: 2;
+  margin: 70px 0 20px 0;
+}
+
+.about-hero-section h1 {
+  font-size: 3rem;
+  margin: 10px;
+}
+
+.about-hero-section p {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.about-hero-img {
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* 🎯 موبايل */
+@media (max-width: 768px) {
+  .about-hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .about-hero-section p {
+    font-size: 1rem;
+  }
+
+  .about-hero-img {
+    width: 100%;
+    height: 250px; /* طول ثابت للموبايل */
+  }
+}
+
+/* 🎯 تابلت */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .about-hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .about-hero-section p {
+    font-size: 1.2rem;
+  }
+
+  .about-hero-img {
+    width: 90%;
+    height: 350px; /* طول مناسب للتابلت */
+  }
+}
+
+/* 🎯 لابتوب */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .about-hero-section h1 {
+    font-size: 3.2rem;
+  }
+
+  .about-hero-section p {
+    font-size: 1.4rem;
+  }
+
+  .about-hero-img {
+    width: 80%;
+    height: 500px; /* صورة كبيرة */
+  }
+}
+
+/* 🎯 شاشات أكبر من 1440px */
+@media (min-width: 1441px) {
+  .about-hero-section h1 {
+    font-size: 3.5rem;
+  }
+
+  .about-hero-section p {
+    font-size: 1.6rem;
+  }
+
+  .about-hero-img {
+    width: 70%;
+    height: 600px; /* صورة أعرض وأطول */
+  }
+}

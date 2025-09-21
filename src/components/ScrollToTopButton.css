@@ -20,5 +20,5 @@
 
 .scroll-to-top:hover {
   transform: scale(1.1);
-  background: linear-gradient(135deg, #0082C2, #0099ff);
+ background: #ffcd00;
 }

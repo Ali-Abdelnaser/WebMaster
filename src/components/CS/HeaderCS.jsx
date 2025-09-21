@@ -50,6 +50,9 @@ export default function HeaderCS() {
               <SmartLink to="/">Home</SmartLink>
             </li>
             <li>
+              <SmartLink to="/about">About</SmartLink>
+            </li>
+            <li>
               <SmartLink to="/events">Events</SmartLink>
             </li>
             <li>
@@ -57,9 +60,6 @@ export default function HeaderCS() {
             </li>
             <li>
               <SmartLink to="/CS">CS</SmartLink>
-            </li>
-            <li>
-              <SmartLink to="/about">About Us</SmartLink>
             </li>
           </ul>
         </nav>
