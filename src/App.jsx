@@ -30,6 +30,8 @@ function ScrollToTop() {
 
   return null;
 }
+import { HelmetProvider } from "react-helmet-async";
+
 
 // AnimatedRoutes component
 function AnimatedRoutes() {

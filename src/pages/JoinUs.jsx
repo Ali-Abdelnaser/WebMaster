@@ -78,6 +78,38 @@ export default function JoinUs() {
 
   const currentStep = allSteps[stepIndex];
 
+  // ✅ Helmet Section for SEO
+  const seoHelmet = (
+    <Helmet>
+      <title>Join Us | IEEE MET SB</title>
+      <meta
+        name="description"
+        content="Apply now to join IEEE MET Student Branch in Mansoura, Egypt. Become part of a community of passionate students in technology, leadership, and innovation."
+      />
+      <meta
+        name="keywords"
+        content="IEEE, MET SB, Join Us, Recruitment, Students, Technology, Innovation, Leadership, Egypt"
+      />
+
+      <meta property="og:title" content="Join Us | IEEE MET SB" />
+      <meta
+        property="og:description"
+        content="Be part of IEEE MET SB — apply now to join our student community in Mansoura, Egypt."
+      />
+      <meta property="og:image" content="/img/logo-1.png" />
+      <meta property="og:url" content="https://ieeemet.org/join" />
+      <meta property="og:type" content="website" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Join Us | IEEE MET SB" />
+      <meta
+        name="twitter:description"
+        content="Submit your application to IEEE MET SB and join a network of students passionate about technology and leadership."
+      />
+      <meta name="twitter:image" content="/img/logo-1.png" />
+    </Helmet>
+  );
+
   const next = async () => {
     const values = methods.getValues();
     let fieldsToValidate = [];
@@ -255,6 +287,7 @@ export default function JoinUs() {
   return isOpen ? (
     <FormProvider {...methods}>
       <motion.div className="join-page">
+        {seoHelmet}
         <Header />
         <AnimatedBackground3D />
         <motion.div
@@ -325,6 +358,7 @@ export default function JoinUs() {
     </FormProvider>
   ) : (
     <>
+      {seoHelmet}
       <Header />
       <AnimatedBackground3D />
       <FormClosedNotice />

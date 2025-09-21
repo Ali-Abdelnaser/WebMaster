@@ -13,6 +13,35 @@ import AnimatedBackground from "../components/join/AnimatedBackground";
 function Home() {
   return (
     <>
+      <Helmet>
+        <title>IEEE MET SB | Home</title>
+        <meta
+          name="description"
+          content="Welcome to IEEE MET Student Branch in Mansoura, Egypt. A vibrant student community passionate about technology, innovation, and leadership."
+        />
+        <meta
+          name="keywords"
+          content="IEEE, MET SB, Student Branch, Mansoura, Egypt, Technology, Innovation, Engineering, Leadership, Events"
+        />
+
+        <meta property="og:title" content="IEEE MET SB | Home" />
+        <meta
+          property="og:description"
+          content="Discover IEEE MET Student Branch — where students innovate, collaborate, and lead through technology and events."
+        />
+        <meta property="og:image" content="/img/logo-1.png" />
+        <meta property="og:url" content="https://ieeemet.org/" />
+        <meta property="og:type" content="website" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="IEEE MET SB | Home" />
+        <meta
+          name="twitter:description"
+          content="Join IEEE MET SB in Mansoura — where students connect through technology, innovation, and leadership."
+        />
+        <meta name="twitter:image" content="/img/logo-1.png" />
+      </Helmet>
+
       <Header />
       <Hero />
       <AnimatedBackground />

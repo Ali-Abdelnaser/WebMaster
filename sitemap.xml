@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- الصفحة الرئيسية -->
+  <url>
+    <loc>https://ieeemet.org/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- الصفحات الرئيسية -->
+  <url>
+    <loc>https://ieeemet.org/about</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ieeemet.org/events</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ieeemet.org/join</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ieeemet.org/wie</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ieeemet.org/cs</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- الكوميتيز (زود الباقي من عندك) -->
+  <url>
+    <loc>https://ieeemet.org/committee/HR</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ieeemet.org/committee/FR</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ieeemet.org/committee/Logistics</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ieeemet.org/committee/PR</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ieeemet.org/committee/Media</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ieeemet.org/committee/Marketing</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ieeemet.org/committee/EVM</loc>
+    <priority>0.6</priority>
+  </url>
+
+
+</urlset>

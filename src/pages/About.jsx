@@ -19,14 +19,43 @@ export default function CS() {
       exit={{ opacity: 0, y: -50 }}
       transition={{ duration: 0.5 }}
     >
+      <Helmet>
+        <title>About Us | IEEE MET SB</title>
+        <meta
+          name="description"
+          content="Learn more about IEEE MET Student Branch, our vision, mission, and the passionate students who make it possible."
+        />
+        <meta
+          name="keywords"
+          content="IEEE, MET SB, About, Vision, Mission, Students, Innovation, Egypt"
+        />
+
+        <meta property="og:title" content="About Us | IEEE MET SB" />
+        <meta
+          property="og:description"
+          content="Explore the story and mission of IEEE MET Student Branch in Mansoura, Egypt."
+        />
+        <meta property="og:image" content="/img/logo-1.png" />
+        <meta property="og:url" content="https://ieeemet.org/about" />
+        <meta property="og:type" content="website" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Us | IEEE MET SB" />
+        <meta
+          name="twitter:description"
+          content="Discover the vision and journey of IEEE MET Student Branch in Mansoura, Egypt."
+        />
+        <meta name="twitter:image" content="/img/logo-1.png" />
+      </Helmet>
+
       <Header />
       <div className="about-container">
         <AnimatedBackground />
         <HeroSection data={aboutData.hero} />
         <MissionVision data={aboutData.missionVision} />
-        <AboutTimeline storyData={aboutData.storyData}/>
+        <AboutTimeline storyData={aboutData.storyData} />
         <WhatWeDo data={aboutData.whatWeDo} />
-         <StatsSection stats={aboutData.stats} />
+        <StatsSection stats={aboutData.stats} />
         <ImageSwiper images={aboutData.images} />
       </div>
       <Footer />
