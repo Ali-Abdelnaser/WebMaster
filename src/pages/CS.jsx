@@ -6,6 +6,7 @@ import TracksCircle from "../components/CS/TracksGrid";
 import OfficersCS from "../components/CS/OfficersCS";
 import AnimatedBackgroundCS from "../components/CS/AnimatedBackgroundCS";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 
 export default function CS() {
   return (

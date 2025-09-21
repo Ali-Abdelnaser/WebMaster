@@ -11,6 +11,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "../styles/committeePage.css"; // CSS الخاص بالصفحة + blobs
 
+
 export default function CommitteePage() {
   const { name } = useParams();
   const committee = committeesData.find((c) => c.name === name);
@@ -42,7 +43,7 @@ export default function CommitteePage() {
         />
         <meta
           property="og:image"
-          content={committee.image ? committee.image : "/img/logo-1.png"}
+          content={"https://opengraph.b-cdn.net/production/images/e9f5d2c5-0dd8-41ac-b993-06d86db20374.png?token=QophnvuIP3FcHxgJ_K21Wnhvx9Kke2drXBWp7bb1v8g&height=1143&width=1200&expires=33294466238"}
         />
         <meta property="og:url" content={`https://ieeemet.org/committee/${committee.name}`} />
         <meta property="og:type" content="website" />
@@ -55,7 +56,7 @@ export default function CommitteePage() {
         />
         <meta
           name="twitter:image"
-          content={committee.image ? committee.image : "/img/logo-1.png"}
+          content={"https://opengraph.b-cdn.net/production/images/e9f5d2c5-0dd8-41ac-b993-06d86db20374.png?token=QophnvuIP3FcHxgJ_K21Wnhvx9Kke2drXBWp7bb1v8g&height=1143&width=1200&expires=33294466238"}
         />
       </Helmet>
 

@@ -19,6 +19,7 @@ import { supabase } from "../data/supabaseClient";
 import { useNavigate } from "react-router-dom";
 import SubmitAlert from "../components/join/SubmitAlert";
 import stepFields from "../data/stepFields";
+import { Helmet } from "react-helmet";
 
 // ✅ Schema validation
 import schema from "../data/validator";
@@ -96,7 +97,7 @@ export default function JoinUs() {
         property="og:description"
         content="Be part of IEEE MET SB — apply now to join our student community in Mansoura, Egypt."
       />
-      <meta property="og:image" content="/img/logo-1.png" />
+      <meta property="og:image" content="https://opengraph.b-cdn.net/production/images/e9f5d2c5-0dd8-41ac-b993-06d86db20374.png?token=QophnvuIP3FcHxgJ_K21Wnhvx9Kke2drXBWp7bb1v8g&height=1143&width=1200&expires=33294466238" />
       <meta property="og:url" content="https://ieeemet.org/join" />
       <meta property="og:type" content="website" />
 
@@ -106,7 +107,7 @@ export default function JoinUs() {
         name="twitter:description"
         content="Submit your application to IEEE MET SB and join a network of students passionate about technology and leadership."
       />
-      <meta name="twitter:image" content="/img/logo-1.png" />
+      <meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/e9f5d2c5-0dd8-41ac-b993-06d86db20374.png?token=QophnvuIP3FcHxgJ_K21Wnhvx9Kke2drXBWp7bb1v8g&height=1143&width=1200&expires=33294466238" />
     </Helmet>
   );
 

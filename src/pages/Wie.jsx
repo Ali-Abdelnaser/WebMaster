@@ -7,6 +7,7 @@ import WieOfficersCarousel from "../components/WIE/WieOfficersCarousel";
 import WieFaqs from "../components/WIE/WieFAQ";
 import AnimatedBackgroundWIE from "../components/WIE/AnimatedBackgroundWie";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 
 export default function WIE() {
   return (

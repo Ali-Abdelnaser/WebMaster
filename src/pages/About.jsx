@@ -9,6 +9,7 @@ import WhatWeDo from "../components/About Us/WhatWeDo";
 import ImageSwiper from "../components/About Us/ImageSwiper";
 import StatsSection from "../components/About Us/StatsSection";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 
 export default function CS() {
   return (
@@ -35,7 +36,7 @@ export default function CS() {
           property="og:description"
           content="Explore the story and mission of IEEE MET Student Branch in Mansoura, Egypt."
         />
-        <meta property="og:image" content="/img/logo-1.png" />
+        <meta property="og:image" content="https://opengraph.b-cdn.net/production/images/3e1db924-5287-4b91-aa0b-db4f95793c1f.png?token=6GoDv05ee86C96MITaBgpvLunKem2pm1fZt44mbCqwk&height=1055&width=1200&expires=33294466926" />
         <meta property="og:url" content="https://ieeemet.org/about" />
         <meta property="og:type" content="website" />
 
@@ -45,7 +46,7 @@ export default function CS() {
           name="twitter:description"
           content="Discover the vision and journey of IEEE MET Student Branch in Mansoura, Egypt."
         />
-        <meta name="twitter:image" content="/img/logo-1.png" />
+        <meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/3e1db924-5287-4b91-aa0b-db4f95793c1f.png?token=6GoDv05ee86C96MITaBgpvLunKem2pm1fZt44mbCqwk&height=1055&width=1200&expires=33294466926" />
       </Helmet>
 
       <Header />

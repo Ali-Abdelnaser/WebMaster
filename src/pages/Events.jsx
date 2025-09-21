@@ -5,6 +5,7 @@ import UpcomingHero from "../components/events/UpcomingHero";
 import UpcomingSection from "../components/events/UpcomingSection";
 import OurEvents from "../components/events/OurEvents";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 
 export default function CS() {
   return (
@@ -31,7 +32,7 @@ export default function CS() {
           property="og:description"
           content="Check out IEEE MET SB’s events and activities that empower students with technology and innovation."
         />
-        <meta property="og:image" content="/img/logo-1.png" />
+        <meta property="og:image" content="https://opengraph.b-cdn.net/production/images/4c0815f2-6160-4aec-82db-92fa37ceb6ee.png?token=Nsc-4i-C_OwJ5mOm23lflRsH8EfafqZ3cw1xBLSat5w&height=813&width=1200&expires=33294470769" />
         <meta property="og:url" content="https://ieeemet.org/events" />
         <meta property="og:type" content="website" />
 
@@ -41,7 +42,7 @@ export default function CS() {
           name="twitter:description"
           content="Join IEEE MET SB events: hackathons, workshops, and inspiring student activities."
         />
-        <meta name="twitter:image" content="/img/logo-1.png" />
+        <meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/4c0815f2-6160-4aec-82db-92fa37ceb6ee.png?token=Nsc-4i-C_OwJ5mOm23lflRsH8EfafqZ3cw1xBLSat5w&height=813&width=1200&expires=33294470769" />
       </Helmet>
 
       <Header />
