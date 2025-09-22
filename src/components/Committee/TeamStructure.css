@@ -199,7 +199,7 @@
     display: flex;
     justify-content: center;
     gap: 16px;
-    flex-wrap: wrap;
+    flex-wrap: initial;
   }
   .team-row .special-card {
   flex: 1 1 150px;   /* الكارد ياخد مساحة مرنة */
@@ -249,7 +249,7 @@
     display: flex;
     justify-content: center;
     gap: 16px;
-    flex-wrap: wrap;
+    flex-wrap: initial;
   }
   .team-row .special-card {
   flex: 1 1 120px;   /* الكارد ياخد مساحة مرنة */

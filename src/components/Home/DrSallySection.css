@@ -242,12 +242,6 @@
     display: block;
   }
 
-  .counselor-name,
-  .counselor-surname {
-    font-size: 22px;
-    text-align: center;
-  }
-
   /* النص */
   .counselor-about {
     text-align: center;
@@ -278,11 +272,6 @@
     height: 360px;
   }
 
-  .counselor-name,
-  .counselor-surname {
-    font-size: 22px;
-  }
-
   .about-cards {
     flex-direction: column;
     gap: 20px;
@@ -292,7 +281,7 @@
 
   .about-card {
     flex: 1 1 auto;
-    width: 90%;          /* يملى العرض */
+    width: 87%;          /* يملى العرض */
     margin: 0;            /* المارجن عندك في الكونتينر */
   }
 }

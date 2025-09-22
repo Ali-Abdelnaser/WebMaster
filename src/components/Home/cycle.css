@@ -1,6 +1,6 @@
 .cycle-section {
   position: relative;
-  padding: 20px;
+  padding: 20px 0 20px 0;
     background: linear-gradient(135deg, #0080ff28);
   text-align: center;
   overflow: hidden;
@@ -140,7 +140,7 @@
 }
 
 .cycle-quote {
-  margin-top: 50px;
+  margin-top: 90px;
   font-size: 2.2rem;
   color: #d1cfcf;
   max-width: 800px;
@@ -162,7 +162,7 @@
 
 .cycle-quote::after {
   content: "❞";
-  right: 70px;
+  right: 190px;
   bottom: -20px;
   top: auto;
 }
@@ -187,6 +187,9 @@
 
   .cycle-quote {
     font-size: 1rem;
+  }
+  .cycle-quote::after{
+    right: 60px;
   }
 }
 /* Responsive */
@@ -247,6 +250,9 @@
   display: block;
   margin: 0 auto 40px auto; 
   width: 400px; 
+}
+.cycle-quote::after{
+  right: 290px;
 }
 }
 

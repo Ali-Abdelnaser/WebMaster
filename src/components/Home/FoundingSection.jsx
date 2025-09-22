@@ -4,7 +4,7 @@ import "./FoundingSection.css";
 export default function FoundingSection({ data }) {
   return (
     <section className="founding-section">
-      <h2 className="Home-title">FOUNDING OFFICERS</h2>
+      <h2 className="Home-title">FOUNDERS</h2>
       <img src="img/hr.svg" alt="Divider" className="founding-divider" />
 
       <div className="founding-cards">

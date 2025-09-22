@@ -10,7 +10,8 @@ export default function OurEvents() {
   return (
     <section className="our-events-section">
       <div className="our-events-header">
-        <h2 className="our-events-title">Latest Events</h2>
+        <h2 className="Home-title">Latest Events</h2>
+        <br />
         <p className="our-events-description">
           Explore our previous and upcoming events — knowledge, networking, and
           inspiration all in one place.

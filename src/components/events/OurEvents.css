@@ -18,7 +18,7 @@
 
 .our-events-description {
   font-size: 1.1rem;
-  color: #969393;
+  color: #d1cfcf;
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
@@ -46,13 +46,12 @@
 /* Swiper */
 .event-image-wrapper {
   width: 100%;
-  aspect-ratio: 16/9;
-  height: auto;
+  height: 100%;
 }
 
 .event-swiper {
   width: 100%;
-  height: 100%;
+  height: 95%;
 }
 
 .event-swiper .swiper-button-next,
@@ -67,8 +66,9 @@
 
 .event-img {
   width: 100%;
-  height: 90%;
+  height: 430px;
   object-fit: cover;
+  object-position: top;
   display: block;
 }
 
@@ -103,7 +103,7 @@
 .event-date,
 .event-location {
   font-size: 1rem;
-  color: #969393;
+  color: #d1cfcf;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -116,7 +116,7 @@
 
 .event-desc {
   font-size: 1rem;
-  color: #969393;
+  color: #d1cfcf;
   margin-bottom: 15px;
 }
 
@@ -141,7 +141,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0099ff33;
+  background: #0099ff3f;
   color: white;
   font-size: 1.2rem;
   transition: all 0.3s ease;
@@ -197,12 +197,9 @@
   .event-desc {
     font-size: 0.95rem;
   }
-.event-img {
-  width: 100%;
-  height: 80%;
-  object-fit: cover;
-  display: block;
-}
+  .event-img {
+    height: 320px; /* يقل شوية */
+  }
   .event-readmore {
     font-size: 0.95rem;
   }
@@ -258,7 +255,9 @@
   .social-links {
     gap: 10px;
   }
-
+  .event-img {
+    height: 250px; /* أقل */
+  }
   .social-links a {
     width: 32px;
     height: 32px;

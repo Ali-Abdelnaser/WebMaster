@@ -424,14 +424,7 @@
         }
       ],
       "advisors": [],
-      "members": [
-        {
-          "name": "Moaz Zaghloul",
-          "image": "/img/PR/Moaz.webp",
-          "college": "CS",
-          "level": "2nd Year"
-        }
-      ]
+      "members": []
     }
   },
   {
@@ -459,6 +452,12 @@
           "name": "Aya Salah",
           "image": "/img/FR/Aya.webp",
           "college": "BIS",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Moaz Zaghloul",
+          "image": "/img/PR/Moaz.webp",
+          "college": "CS",
           "level": "2nd Year"
         }
       ]

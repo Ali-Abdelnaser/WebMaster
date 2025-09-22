@@ -17,7 +17,7 @@ export default function Hero() {
       <div className="hero-bg-wrapper">
         {!loaded && <div className="img-skeleton" />} {/* اللودينج */}
         <motion.img
-          src="/img/home.jpg" // 👈 حط الصورة الموحدة هنا
+          src="/img/home2.webp" // 👈 حط الصورة الموحدة هنا
           alt="Background"
           className={`hero-bg ${loaded ? "show" : ""}`}
           onLoad={() => setLoaded(true)}

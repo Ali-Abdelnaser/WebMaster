@@ -1,52 +1,100 @@
 [
     {
         "id": 1,
-        "title": "Tech Talk: Future of AI",
-        "date": "25 Sept 2025",
-        "location": "Hall A, MET",
-        "description": "Join us for an engaging session on the future of Artificial Intelligence and discover the trends shaping tomorrow.",
+        "title": "Awareness Bytes",
+        "date": "25 Sept 2024",
+        "location": "Google Meet",
+        "description": "Awareness Bytes brought together 6 experts from diverse fields for 10 hours of inspiring sessions, attracting 550 participants — including international attendees from outside Egypt. With students from over 30 universities joining in, the event became a unique platform for learning, exchanging ideas, and sharing experiences.",
         "images": [
-            "/img/home.jpg",
-            "/img/home.jpg",
-            "/img/home.jpg"
+            "/img/Events/Awareness_1.webp",
+            "/img/Events/Awareness_2.webp",
+            "/img/Events/Awareness_3.webp",
+            "/img/Events/Awareness_4.webp",
+            "/img/Events/Awareness_5.webp",
+            "/img/Events/Awareness_6.webp",
+            "/img/Events/Awareness_7.webp"
         ],
         "socials": {
-            "facebook": "https://facebook.com",
-            "instagram": "https://instagram.com",
-            "linkedin": "https://linkedin.com"
+            "facebook": "https://www.facebook.com/share/p/1A5VY57px5/",
+            "instagram": "https://www.instagram.com/p/C95THeUowav/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
         }
     },
     {
         "id": 2,
-        "title": "Cybersecurity Bootcamp",
-        "date": "10 Oct 2025",
-        "location": "Tech Hub, Cairo",
-        "description": "A full-day intensive bootcamp to learn about ethical hacking, cyber defense, and real-world applications.",
+        "title": "Orientation 1.0",
+        "date": "1 Nov 2024",
+        "location": "Creativa hub Mansoura",
+        "description": "Our first Orientation Day was filled with inspiration, recognition, and fun! Officers and board members shared the branch’s vision and future plans, followed by honoring our amazing Ambassador Team for their dedication. The day wrapped up with engaging games and team-building activities that sparked creativity, energy, and teamwork across our IEEE family.",
         "images": [
-            "/img/home.jpg",
-            "/img/home.jpg"
+            "/img/Events/Orientation1_5.webp",
+            "/img/Events/Orientation1_1.webp",
+            "/img/Events/Orientation1_2.webp",
+            "/img/Events/Orientation1_3.webp",
+            "/img/Events/Orientation1_4.webp",
+            "/img/Events/Orientation1_6.webp",
+            "/img/Events/Orientation1_7.webp"
         ],
         "socials": {
-            "facebook": "https://facebook.com",
-            "instagram": "https://instagram.com",
-            "linkedin": "https://linkedin.com"
+            "facebook": "https://www.facebook.com/share/p/1ZM4UyG2i5/",
+            "instagram": "https://www.instagram.com/p/DB12znfoXLV/?img_index=8"
         }
     },
     {
         "id": 3,
-        "title": "Cloud & DevOps Summit",
-        "date": "15 Nov 2025",
-        "location": "Hall B, MET",
-        "description": "Explore the future of cloud infrastructure, automation, and DevOps practices with industry experts.",
+        "title": "IEEE MET Booth!",
+        "date": " 6 & 7 Nov 2025",
+        "location": "MET",
+        "description": "Two unforgettable days at our IEEE MET Booth! The event was full of energy, positivity, and inspiring conversations with amazing people who shared our passion and excitement. We connected with students from different backgrounds, exchanged ideas, and introduced them to the vision of our branch. A special highlight was the presence of Dr. Sally, our department head and IEEE MET SB counselor. Her support and guidance gave us extra motivation to keep moving forward with ambition and passion. ",
         "images": [
-            "/img/home.jpg",
-            "/img/home.jpg",
-            "/img/home.jpg"
+            "/img/Events/Booth1_4.webp",
+            "/img/Events/Booth1_7.webp",
+            "/img/Events/Booth1_6.webp",
+            "/img/Events/Booth1_5.webp",
+            "/img/Events/Booth1_1.webp",
+            "/img/Events/Booth1_2.webp",
+            "/img/Events/Booth1_3.webp"
         ],
         "socials": {
-            "facebook": "https://facebook.com",
-            "instagram": "https://instagram.com",
-            "linkedin": "https://linkedin.com"
+            "facebook": "https://www.facebook.com/share/p/1PF9T7H7iQ/",
+            "instagram": "https://instagram.com"
+        }
+    },
+    {
+        "id": 4,
+        "title": "Research and Development",
+        "date": "15 March 2025",
+        "location": "Creativa hub Mansoura",
+        "description": "Research & Development (R&D) is a cornerstone of our IEEE MET Student Branch journey. It empowers us to explore new ideas, develop innovative solutions, and strengthen teamwork and critical thinking. By applying our knowledge in real-life projects, members not only enhance their skills but also gain practical experience that prepares them for the job market and sets them apart as future leaders.",
+        "images": [
+            "/img/Events/R&D_5.webp",
+            "/img/Events/R&D_1.webp",
+            "/img/Events/R&D_2.webp",
+            "/img/Events/R&D_3.webp",
+            "/img/Events/R&D_4.webp",
+            "/img/Events/R&D_6.webp",
+            "/img/Events/R&D_7.webp"
+        ],
+        "socials": {
+            "facebook": "https://www.facebook.com/share/p/1BSLkE6caJ/",
+            "instagram": "https://www.instagram.com/p/DHOko3MtaL1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+        }
+    },
+    {
+        "id": 5,
+        "title": "Orientation 2.0",
+        "date": "27 Feb 2025",
+        "location": "Creativa hub Mansoura",
+        "description": "Our second recruitment for IEEE MET Student Branch was an inspiring success! We welcomed passionate new members, shared our vision for the future, and enjoyed interactive activities that built real connections. This milestone was made even more special with the support of our amazing partners — DOLCE Donuts, IQRAA Sprachinstitut, Wasla Tech, and Digital Knights — who believed in our mission and joined us on this exciting journey. Together, we’re shaping a stronger, brighter IEEE family!",
+        "images": [
+            "/img/Events/Orientation2_1.webp",
+            "/img/Events/Orientation2_2.webp",
+            "/img/Events/Orientation2_3.webp",
+            "/img/Events/Orientation2_4.webp",
+            "/img/Events/Orientation2_5.webp"
+        ],
+        "socials": {
+            "facebook": "https://www.facebook.com/share/p/1BRf3ywqzH/",
+            "instagram": "https://www.instagram.com/p/DGvolizo8jI/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
         }
     }
 ]

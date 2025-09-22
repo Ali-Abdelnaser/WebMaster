@@ -1,6 +1,6 @@
 .best-members-section {
   position: relative;
-  padding:  20px;
+  padding:  0 20px;
   text-align: center;
   overflow: hidden;
   background: linear-gradient(135deg, #0080ff28);
@@ -32,12 +32,13 @@
 
 /* Grid الكروت */
 .members-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: inline-flex;
+  flex-wrap: wrap ;
   gap: 40px;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  max-width: 1200px;
 }
 
 /* الكارد (نفس ستايل special-card) */

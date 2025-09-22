@@ -33,13 +33,13 @@ export default function AboutWIE() {
 
           {/* Social Icons */}
           <div className="wie-about-socials">
-            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.facebook.com/wie.egypt" target="_blank" rel="noopener noreferrer">
               <FaFacebookF />
             </a>
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/wie_egypt_section?igshid=YmMyMTA2M2Y%3D" target="_blank" rel="noopener noreferrer">
               <FaInstagram />
             </a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/company/ieee-women-in-engineering-egypt-section/" target="_blank" rel="noopener noreferrer">
               <FaLinkedinIn />
             </a>
           </div>

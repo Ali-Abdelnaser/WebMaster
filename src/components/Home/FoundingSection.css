@@ -210,7 +210,7 @@
 .founding-divider {
     display: block;
     margin: 0 auto 40px auto;
-    width: 650px;
+    width: 350px;
 }
 
 
@@ -226,7 +226,7 @@
 .founding-divider {
     display: block;
     margin: 0 auto 40px auto;
-    width: 650px;
+    width: 350px;
 }
 }
 
@@ -235,11 +235,10 @@
     .Home-title {
         font-size: 3rem;
     }
-
     .founding-divider {
         display: block;
         margin: 0 auto 40px auto;
-        width: 500px;
+        width: 280px;
     }
 }
 
@@ -252,7 +251,7 @@
     .founding-divider {
         display: block;
         margin: 0 auto 40px auto;
-        width: 300px;
+        width: 230px;
     }
 }
 
@@ -261,10 +260,9 @@
     .Home-title {
         font-size: 2rem;
     }
-
     .founding-divider {
         display: block;
         margin: 0 auto 40px auto;
-        width: 350px;
+        width: 180px;
     }
 }
