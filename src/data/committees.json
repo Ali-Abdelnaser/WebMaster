@@ -146,7 +146,7 @@
         },
         {
           "name": "Ganna Mamdouh",
-          "image": "/img/Media/woman.png",
+          "image": "/img/Best/4.svg",
           "college": "CS",
           "level": "3rd Year"
         }
@@ -311,7 +311,7 @@
         },
         {
           "name": "Aida Mohamed",
-          "image": "/img/Team Management/woman.png",
+          "image": "/img/Best/4.svg",
           "college": "Engineering",
           "level": "5th Year"
         },
@@ -381,6 +381,18 @@
           "image": "/img/Marketing/Fares.webp",
           "college": "Engineering",
           "level": "4th Year"
+        },
+        {
+          "name": "Mahmoud Shawky",
+          "image": "/img/Marketing/Mahmoud.webp",
+          "college": "CS",
+          "level": "4th Year"
+        },
+        {
+          "name": "Nadine Badran",
+          "image": "/img/Marketing/Nadine.webp",
+          "college": "Agriculture ",
+          "level": "3rd Year"
         }
       ]
     }
@@ -403,7 +415,14 @@
         "college": "Engineering",
         "level": "3rd Year"
       },
-      "vice": [],
+      "vice": [
+        {
+          "name": "Habiba Hosuin ",
+          "image": "/img/PR/Habiba.webp",
+          "college": "CS",
+          "level": "3rd Year"
+        }
+      ],
       "advisors": [],
       "members": [
         {

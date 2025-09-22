@@ -27,7 +27,7 @@ export default function CommitteePage() {
       transition={{ duration: 0.5 }}
     >
       <Helmet>
-        <title>{committee.title} Committee | IEEE MET SB</title>
+        <title>{committee.name} Committee | IEEE MET SB</title>
         <meta
           name="description"
           content={`Discover the ${committee.title} Committee at IEEE MET SB. ${committee.description}`}

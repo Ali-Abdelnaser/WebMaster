@@ -66,28 +66,70 @@
   },
   "storyData": [
     {
-      "year": "June",
-      "title": "The Beginning",
-      "text": "A small group of passionate students came together with one vision in mind.",
-      "details": "In 2018, our journey began with a small team of students eager to learn and share knowledge. We started organizing small workshops and awareness sessions to introduce IEEE to our community."
+      "year": "October 2023",
+      "title": "The Idea is Born",
+      "text": "A group of passionate students came together with one vision: to establish IEEE MET SB.",
+      "details": "With the beginning of the academic year, students spread the idea among friends and colleagues, encouraging them to join and gather memberships."
     },
     {
-      "year": "2021",
-      "title": "First Achievements",
-      "text": "We launched our first events and started growing our community.",
-      "details": "In 2018, our journey began with a small team of students eager to learn and share knowledge. We started organizing small workshops and awareness sessions to introduce IEEE to our community."
+      "year": "November 2023",
+      "title": "Facing Challenges",
+      "text": "The first submission for approval was rejected, but the team didn’t give up.",
+      "details": "Instead, they worked together, solved the issues, and prepared a stronger application for IEEE."
     },
     {
-      "year": "2023",
-      "title": "Expanding Horizons",
-      "text": "Collaborations and workshops that reached more students than ever.",
-      "details": "By 2020, the branch expanded to include Women in Engineering (WiE) and other technical societies. This allowed us to diversify our activities and reach a broader audience."
+      "year": "April 2024",
+      "title": "Official Approval",
+      "text": "IEEE officially recognized MET Student Branch.",
+      "details": "This milestone marked the true beginning of our journey, full of passion, teamwork, and ambition to build a vibrant community of engineers."
     },
     {
-      "year": "2025",
-      "title": "The Future",
-      "text": "Continuing our mission to inspire, innovate, and lead.",
-      "details": "By 2020, the branch expanded to include Women in Engineering (WiE) and other technical societies. This allowed us to diversify our activities and reach a broader audience."
+      "year": "July 2024",
+      "title": "First Project: Awareness Bites",
+      "text": "Our journey took its first big step with Awareness Bites, an online project of 6 sessions.",
+      "details": "Each session included technical and soft-skills parts, delivered by MET graduates working abroad. The project attracted 500+ students from across Egypt."
+    },
+    {
+      "year": "August 2024",
+      "title": "Social Media Campaign: Know Your Cycle",
+      "text": "We launched a creative social media campaign introducing branch cycles.",
+      "details": "Produced 5 videos and a series of posts introducing Media, HR, Assistant, Business, and Logistics to help members understand the branch structure."
+    },
+    {
+      "year": "September 2024",
+      "title": "First Recruitment Drive",
+      "text": "We officially opened doors for new members to join.",
+      "details": "Recruitment took place over four days: 4 & 5 September 2024 (online interviews) and 9 & 10 September 2024 (offline interviews & activities). Candidates went through screening interviews and interactive tasks to prepare them for branch roles."
+    },
+    {
+      "year": "September 2024",
+      "title": "First Offline Project at Creativa",
+      "text": "Our first offline project at Creativa Mansoura ran for a whole week.",
+      "details": "Participants engaged in Project Management and Design Thinking sessions focused on self-development and enhancing branch growth. This marked a shift from online activities to professional offline training."
+    },
+    {
+      "year": "October 2024",
+      "title": "First Orientation Day",
+      "text": "Our first Orientation Day at Creativa Mansoura.",
+      "details": "An informative and fun day that introduced the branch to new members and strengthened community spirit. It helped members learn more about the branch and each other while breaking the ice."
+    },
+    {
+      "year": "November 2024",
+      "title": "First College Booth",
+      "text": "Our first booth inside MET campus increased visibility of IEEE MET SB.",
+      "details": "Members visited lectures and classrooms to introduce the branch, talk with students, and invite them to join IEEE MET SB."
+    },
+    {
+      "year": "February 2025",
+      "title": "Second Recruitment Drive",
+      "text": "Recruitment designed as a Project Management experience.",
+      "details": "A dedicated Project Manager led the process at Creativa Mansoura. New members joined through tasks and interviews, marking the beginning of structured leadership and scaling."
+    },
+    {
+      "year": "March 2025",
+      "title": "Project R&D ",
+      "text": "To prepare new members, we launched Project R&D at Creativa Mansoura.",
+      "details": "This project was fully organized and delivered by IEEE MET members. Sessions focused on skills development, teamwork, and practical training — representing the shift from learning to leading."
     }
   ],
   "stats": [
