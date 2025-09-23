@@ -47,12 +47,15 @@ function TypewriterText({ text }) {
 
   useEffect(() => {
     let i = 0;
-    setDisplayedText("");
+    setDisplayedText(text.charAt(0)); // ضيف أول حرف على طول
+    i = 1;
+
     const interval = setInterval(() => {
       setDisplayedText((prev) => prev + text.charAt(i));
       i++;
       if (i >= text.length) clearInterval(interval);
-    }, 40); // سرعة الكتابة
+    }, 40);
+
     return () => clearInterval(interval);
   }, [text]);
 

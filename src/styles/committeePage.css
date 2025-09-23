@@ -4,7 +4,7 @@ body {
 
 /* Base Page */
 .committee-page {
-  
+  background-color: #0080ff28;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

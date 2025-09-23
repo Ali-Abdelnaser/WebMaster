@@ -9,13 +9,39 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 
 export default function CS() {
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { 
+      staggerChildren: 0.35, // زيادة المدة بين ظهور العناصر
+      delayChildren: 0.3     // زيادة البداية لتكون أنعم
+    },
+  },
+};
+
+
+  const itemVariants = {
+  hidden: { opacity: 0, y: 50, rotateX: 15, scale: 0.9 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    rotateX: 0, 
+    scale: 1, 
+    transition: { 
+      type: "spring", 
+      stiffness: 50,  // أخف من 80 -> أبطأ حركة الارتداد
+      damping: 20,    // أخف damping -> حركة أبطأ وأقل حدة
+      mass: 1.2       // تزيد شعور بالثقل
+    } 
+  },
+};
   return (
     <motion.div
       className="cs-page"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -50 }}
-      transition={{ duration: 0.5 }}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
     >
       <Helmet>
         <title>Computer Society | IEEE MET SB</title>

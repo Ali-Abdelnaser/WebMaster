@@ -11,20 +11,44 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "../styles/committeePage.css"; // CSS الخاص بالصفحة + blobs
 
-
 export default function CommitteePage() {
   const { name } = useParams();
   const committee = committeesData.find((c) => c.name === name);
 
   if (!committee) return <p>Committee not found</p>;
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { 
+      staggerChildren: 0.35, // زيادة المدة بين ظهور العناصر
+      delayChildren: 0.3     // زيادة البداية لتكون أنعم
+    },
+  },
+};
 
+
+  const itemVariants = {
+  hidden: { opacity: 0, y: 50, rotateX: 15, scale: 0.9 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    rotateX: 0, 
+    scale: 1, 
+    transition: { 
+      type: "spring", 
+      stiffness: 50,  // أخف من 80 -> أبطأ حركة الارتداد
+      damping: 20,    // أخف damping -> حركة أبطأ وأقل حدة
+      mass: 1.2       // تزيد شعور بالثقل
+    } 
+  },
+};
   return (
     <motion.div
       className="committee-page"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -50 }}
-      transition={{ duration: 0.5 }}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
     >
       <Helmet>
         <title>{committee.name} Committee | IEEE MET SB</title>
@@ -36,27 +60,40 @@ export default function CommitteePage() {
           name="keywords"
           content={`IEEE, MET SB, ${committee.title} Committee, Students, Innovation, Mansoura, Egypt`}
         />
-        <meta property="og:title" content={`${committee.title} Committee | IEEE MET SB`} />
+        <meta
+          property="og:title"
+          content={`${committee.title} Committee | IEEE MET SB`}
+        />
         <meta
           property="og:description"
           content={`Learn more about the ${committee.title} Committee at IEEE MET SB.`}
         />
         <meta
           property="og:image"
-          content={"https://opengraph.b-cdn.net/production/images/e9f5d2c5-0dd8-41ac-b993-06d86db20374.png?token=QophnvuIP3FcHxgJ_K21Wnhvx9Kke2drXBWp7bb1v8g&height=1143&width=1200&expires=33294466238"}
+          content={
+            "https://opengraph.b-cdn.net/production/images/e9f5d2c5-0dd8-41ac-b993-06d86db20374.png?token=QophnvuIP3FcHxgJ_K21Wnhvx9Kke2drXBWp7bb1v8g&height=1143&width=1200&expires=33294466238"
+          }
         />
-        <meta property="og:url" content={`https://ieeemet.org/committee/${committee.name}`} />
+        <meta
+          property="og:url"
+          content={`https://ieeemet.org/committee/${committee.name}`}
+        />
         <meta property="og:type" content="website" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${committee.title} Committee | IEEE MET SB`} />
+        <meta
+          name="twitter:title"
+          content={`${committee.title} Committee | IEEE MET SB`}
+        />
         <meta
           name="twitter:description"
           content={`Get to know the ${committee.title} Committee at IEEE MET SB and their responsibilities.`}
         />
         <meta
           name="twitter:image"
-          content={"https://opengraph.b-cdn.net/production/images/e9f5d2c5-0dd8-41ac-b993-06d86db20374.png?token=QophnvuIP3FcHxgJ_K21Wnhvx9Kke2drXBWp7bb1v8g&height=1143&width=1200&expires=33294466238"}
+          content={
+            "https://opengraph.b-cdn.net/production/images/e9f5d2c5-0dd8-41ac-b993-06d86db20374.png?token=QophnvuIP3FcHxgJ_K21Wnhvx9Kke2drXBWp7bb1v8g&height=1143&width=1200&expires=33294466238"
+          }
         />
       </Helmet>
 
@@ -67,7 +104,9 @@ export default function CommitteePage() {
       {/* Main Content */}
       <main className="committee-content">
         {/* Hero Header */}
-        <CommitteeHeader image={committee.image} name={committee.name} />
+        <motion.div variants={itemVariants}>
+          <CommitteeHeader image={committee.image} name={committee.name} />
+        </motion.div>
 
         {/* Description Section */}
         <CommitteeDescription

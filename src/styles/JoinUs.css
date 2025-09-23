@@ -9,7 +9,8 @@ body {
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
-  background: #f5f9fc0e; /* خلفية خفيفة عشان يبان الكونتينر */
+   background-color: #0080ff28;
+ /* خلفية خفيفة عشان يبان الكونتينر */
 }
 
 .join-container {

@@ -1,5 +1,5 @@
 .cs-about {
-  color: #fff;
+  color: #d1cfcf;
   padding: 100px 20px;
   text-align: center;
   position: relative;
@@ -35,7 +35,7 @@
   font-size: 1.1rem;
   line-height: 1.9;
   margin-bottom: 20px;
-  color: #fff6e0; /* أبيض مائل */
+  color: #d1cfcf; /* أبيض مائل */
   text-align: justify;
   text-align-last: center;
   transition: color 0.3s ease;

@@ -2,7 +2,7 @@
     {
         "id": 1,
         "title": "Awareness Bytes",
-        "date": "25 Sept 2024",
+        "date": "25 July 2024",
         "location": "Google Meet",
         "description": "Awareness Bytes brought together 6 experts from diverse fields for 10 hours of inspiring sessions, attracting 550 participants — including international attendees from outside Egypt. With students from over 30 universities joining in, the event became a unique platform for learning, exchanging ideas, and sharing experiences.",
         "images": [
@@ -22,7 +22,7 @@
     {
         "id": 2,
         "title": "Orientation 1.0",
-        "date": "1 Nov 2024",
+        "date": "27 Oct 2024",
         "location": "Creativa hub Mansoura",
         "description": "Our first Orientation Day was filled with inspiration, recognition, and fun! Officers and board members shared the branch’s vision and future plans, followed by honoring our amazing Ambassador Team for their dedication. The day wrapped up with engaging games and team-building activities that sparked creativity, energy, and teamwork across our IEEE family.",
         "images": [
@@ -61,6 +61,24 @@
     },
     {
         "id": 4,
+        "title": "recruitment 2.0",
+        "date": "27 Feb 2025",
+        "location": "Creativa hub Mansoura",
+        "description": "Our second recruitment for IEEE MET Student Branch was an inspiring success! We welcomed passionate new members, shared our vision for the future, and enjoyed interactive activities that built real connections. This milestone was made even more special with the support of our amazing partners — DOLCE Donuts, IQRAA Sprachinstitut, Wasla Tech, and Digital Knights — who believed in our mission and joined us on this exciting journey. Together, we’re shaping a stronger, brighter IEEE family!",
+        "images": [
+            "/img/Events/Orientation2_1.webp",
+            "/img/Events/Orientation2_2.webp",
+            "/img/Events/Orientation2_3.webp",
+            "/img/Events/Orientation2_4.webp",
+            "/img/Events/Orientation2_5.webp"
+        ],
+        "socials": {
+            "facebook": "https://www.facebook.com/share/p/1BRf3ywqzH/",
+            "instagram": "https://www.instagram.com/p/DGvolizo8jI/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+        }
+    },
+    {
+        "id": 5,
         "title": "Research and Development",
         "date": "15 March 2025",
         "location": "Creativa hub Mansoura",
@@ -77,24 +95,6 @@
         "socials": {
             "facebook": "https://www.facebook.com/share/p/1BSLkE6caJ/",
             "instagram": "https://www.instagram.com/p/DHOko3MtaL1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-        }
-    },
-    {
-        "id": 5,
-        "title": "Orientation 2.0",
-        "date": "27 Feb 2025",
-        "location": "Creativa hub Mansoura",
-        "description": "Our second recruitment for IEEE MET Student Branch was an inspiring success! We welcomed passionate new members, shared our vision for the future, and enjoyed interactive activities that built real connections. This milestone was made even more special with the support of our amazing partners — DOLCE Donuts, IQRAA Sprachinstitut, Wasla Tech, and Digital Knights — who believed in our mission and joined us on this exciting journey. Together, we’re shaping a stronger, brighter IEEE family!",
-        "images": [
-            "/img/Events/Orientation2_1.webp",
-            "/img/Events/Orientation2_2.webp",
-            "/img/Events/Orientation2_3.webp",
-            "/img/Events/Orientation2_4.webp",
-            "/img/Events/Orientation2_5.webp"
-        ],
-        "socials": {
-            "facebook": "https://www.facebook.com/share/p/1BRf3ywqzH/",
-            "instagram": "https://www.instagram.com/p/DGvolizo8jI/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
         }
     }
 ]

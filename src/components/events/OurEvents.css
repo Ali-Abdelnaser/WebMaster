@@ -1,6 +1,5 @@
 .our-events-section {
   padding: 30px 120px; /* قللت شوية من الديسكتوب */
-  background: linear-gradient(135deg, #0080ff28);
   backdrop-filter: blur(8px);
 }
 

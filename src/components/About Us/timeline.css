@@ -53,13 +53,13 @@
   backdrop-filter: blur(6px);           /* البلور بتاع الزجاج */
   -webkit-backdrop-filter: blur(6px);   /* دعم للمتصفحات */
   border-radius: 16px;
-  padding: 30px;
+  padding: 15px;
   border: 1px solid #0099ff; /* بورد خفيف */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease,all 0.3s ease;
-    
-  height: 130px;     
+  height: auto;     
   overflow: hidden; 
+  text-align: left;
 }
 
 .story-content:hover {
@@ -72,18 +72,18 @@
   font-weight: 700;
   color: var(--primary-color);
   margin-bottom: 12px;
+  text-align: left;
+  margin-top: 0px;
 }
 
 .story-content p {
   font-size: 1rem;
   color: #c5c3c3;
   line-height: 1.7;
+  margin-top: 0;
+  text-align: justify;
 }
  
-
-
-
-
 
 /* Responsive */
 @media (max-width: 900px) {
@@ -93,7 +93,7 @@
   }
 
   .story-year {
-    font-size: 3rem;
+    font-size: 2.7rem;
     top: -10px;
   } 
    .story-wrapper {
@@ -131,6 +131,9 @@
   margin: 0 auto 40px auto; 
   width: 230px; 
 }
+.story-content h3{
+  font-size: 1rem;
+}
 }
 
 /* 📱 موبايل صغير (≤480px) */
@@ -144,4 +147,11 @@
   margin: 0 auto 40px auto; 
   width: 180px; 
 }
+.story-content h3{
+  font-size: 1.3rem;
+}
+.story-year {
+    font-size: 2.8rem;
+    top: -2px;
+  } 
 }

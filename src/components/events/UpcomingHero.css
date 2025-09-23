@@ -1,7 +1,6 @@
 /* src/components/events/UpcomingHero.css */
 .upcoming-hero {
-  padding: 120px 20px 80px; /* مساحة كويسة من فوق */
-  background-color: #0080ff28; /* لون فاتح للتمييز */
+  padding: 120px 20px 80px; /* مساحة كويسة من فوق */ /* لون فاتح للتمييز */
   text-align: center;
 }
 

@@ -46,7 +46,7 @@
 
   .about-hero-img {
     width: 100%;
-    height: 250px; /* طول ثابت للموبايل */
+    height: 230px; /* طول ثابت للموبايل */
   }
 }
 
@@ -93,7 +93,7 @@
   }
 
   .about-hero-img {
-    width: 70%;
-    height: 600px; /* صورة أعرض وأطول */
+    width: 80%;
+    height: 500px; /* صورة أعرض وأطول */
   }
 }

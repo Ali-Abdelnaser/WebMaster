@@ -1,7 +1,6 @@
 /* src/components/events/UpcomingSection.css */
 .upcoming-section {
   padding: 30px ;
-  background: linear-gradient(135deg, #0080ff28);
   backdrop-filter: blur(8px);
 }
 

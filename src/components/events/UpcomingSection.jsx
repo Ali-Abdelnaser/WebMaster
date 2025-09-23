@@ -32,7 +32,7 @@ export default function UpcomingSection() {
     <section className="upcoming-section">
       {status === "on" && event ? (
         <div className="upcoming-header">
-          <h2 className="upcoming-title">Upcoming Events</h2>
+          <h2 className="Home-title">Upcoming Events</h2><br />
           <p className="upcoming-description">
             A new chapter of events is about to begin. Don’t miss this chance to
             engage, explore, and be part of something amazing.
