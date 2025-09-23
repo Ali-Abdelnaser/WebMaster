@@ -15,7 +15,7 @@ function Home() {
   return (
     <>
       <Helmet>
-        <title>IEEE MET SB | Home</title>
+        <title>IEEE MET SB | Student Branch in Mansoura</title>
         <meta
           name="description"
           content="Welcome to IEEE MET Student Branch in Mansoura, Egypt. A vibrant student community passionate about technology, innovation, and leadership."

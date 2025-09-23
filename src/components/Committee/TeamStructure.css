@@ -187,7 +187,6 @@
   .member-card p {
     font-size: 0.9rem;
   }
-
 }
 
 /* Mobile */
@@ -195,15 +194,16 @@
   .team-title {
     font-size: 1.7rem;
   }
-  .team-row {
-    display: flex;
+    .team-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     justify-content: center;
+    justify-items: center;
     gap: 16px;
-    flex-wrap: initial;
   }
   .team-row .special-card {
   flex: 1 1 150px;   /* الكارد ياخد مساحة مرنة */
-  min-width: 150px;  /* أقل عرض ليه */
+  min-width: 200px;  /* أقل عرض ليه */
   max-width: 150px;  /* اختيارية: علشان ما يكبرش قوي */
 }
   .special-card {
@@ -246,14 +246,13 @@
     font-size: 0.75rem;
   }
   .team-row {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 16px;
-    flex-wrap: initial;
   }
   .team-row .special-card {
   flex: 1 1 120px;   /* الكارد ياخد مساحة مرنة */
-  min-width: 120px;  /* أقل عرض ليه */
+  min-width: 130px;  /* أقل عرض ليه */
   max-width: 120px;  /* اختيارية: علشان ما يكبرش قوي */
 }
   .member-card {
@@ -265,6 +264,11 @@
     gap: 12px;
   }
 }
+
+
+
+
+
   .team-divider {
   display: block;
   margin: 0 auto 40px auto; 
