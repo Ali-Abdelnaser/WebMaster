@@ -102,6 +102,9 @@ export default function FooterCS() {
           <SmartLink  to="/">
             <i className="fas fa-angle-right"></i> Home
           </SmartLink >
+          <SmartLink  to="/about">
+            <i className="fas fa-angle-right"></i> About
+          </SmartLink >
           <SmartLink  to="/events">
             <i className="fas fa-angle-right"></i> Events
           </SmartLink >
@@ -110,9 +113,6 @@ export default function FooterCS() {
           </SmartLink >
           <SmartLink  to="/CS">
             <i className="fas fa-angle-right"></i> CS
-          </SmartLink >
-          <SmartLink  to="/about">
-            <i className="fas fa-angle-right"></i> About Us
           </SmartLink >
         </div>
       </div>

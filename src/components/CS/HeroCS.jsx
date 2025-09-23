@@ -3,7 +3,7 @@ import "../../styles/CS.css";
 import LogoAnimation from "../Home/LogoAnimation"
 
 const Hero = ({ children }) => {
-  return <section className="hero">
+  return <section className="Cs-hero">
     <LogoAnimation />
   </section>;
 };

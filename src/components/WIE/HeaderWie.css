@@ -61,7 +61,8 @@
 
 /* Logo */
 .wie-logo img {
-  width: 100px;
+  padding-top: 5px;
+  width: 90px;
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
@@ -284,7 +285,13 @@
       transform: translateX(0);
     }
   }
-
+  .wie-nav-button{
+    position: relative;
+    left: 150px;
+  }
+  .wie-header.wie-scrolled .wie-nav-links li a {
+    color: #622a90;
+}
   .wie-nav-links li a {
     display: block;
     width: 100%;
@@ -309,7 +316,31 @@
 
   .wie-nav-button{
     position: relative;
-    left: 30px;
+    left: 70px;
+  }
+
+}
+
+@media (max-width: 600px){
+
+  .wie-nav-button{
+    position: relative;
+    left: 100px;
+  }
+
+}
+@media (max-width: 500px){
+
+  .wie-nav-button{
+    position: relative;
+    left: 90px;
+  }
+
+}@media (max-width: 400px){
+
+  .wie-nav-button{
+    position: relative;
+    left: 40px;
   }
 
 }
