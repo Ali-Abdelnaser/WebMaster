@@ -18,6 +18,44 @@
             "facebook": "https://www.facebook.com/share/p/1A5VY57px5/",
             "instagram": "https://www.instagram.com/p/C95THeUowav/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
         }
+    },{
+        "id": 3,
+        "title": "recruitment 1.0",
+        "date": "10 Sep 2024",
+        "location": "Hall , MET",
+        "description": "The first day of our Recruitment Process marked an important step in welcoming potential new members into our community. The day was designed to provide participants with valuable insights into our vision, culture, and the opportunities available for personal and professional growth within our organization. Through engaging activities and interactive sessions, applicants had the chance to showcase their skills, communicate their ideas, and experience the collaborative spirit that defines our team. It was not only a selection process, but also a platform for participants to learn, connect, and start building meaningful relationships.",
+        "images": [
+            "/img/Events/recruitment1_7.webp",
+            "/img/Events/recruitment1_5.webp",
+            "/img/Events/recruitment1_1.webp",
+            "/img/Events/recruitment1_2.webp",
+            "/img/Events/recruitment1_3.webp",
+            "/img/Events/recruitment1_4.webp",
+            "/img/Events/recruitment1_6.webp"
+        ],
+        "socials": {
+            "facebook": "https://www.facebook.com/share/v/176AThP1TE/",
+            "instagram": "https://www.instagram.com/reel/C_gS_0ygPKR/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+        }
+    },{
+        "id": 3,
+        "title": "Criativa Camp",
+        "date": "15 Sep 2024",
+        "location": "Creativa hub Mansoura",
+        "description": "In collaboration with Creativa Mansoura, we organized a specialized Bootcamp aimed at preparing our new members for their journey ahead. The program focused on enhancing critical and creative thinking while fostering leadership skills essential for professional and personal growth. Through interactive sessions and practical exercises, participants were encouraged to approach challenges with innovative perspectives and develop the confidence to lead effectively. This Bootcamp served as a solid foundation, equipping our members with the mindset and capabilities needed to excel within our community and beyond.",
+        "images": [
+            "/img/Events/Criativa_6.webp",        
+            "/img/Events/Criativa_5.webp",
+            "/img/Events/Criativa_1.webp",
+            "/img/Events/Criativa_2.webp",
+            "/img/Events/Criativa_3.webp",
+            "/img/Events/Criativa_4.webp",
+            "/img/Events/Criativa_7.webp"
+        ],
+        "socials": {
+            "facebook": "https://www.facebook.com/share/p/1JYDfBA7F2/",
+            "instagram": "https://www.instagram.com/reel/DGbV_zKIWF7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+        }
     },
     {
         "id": 2,
