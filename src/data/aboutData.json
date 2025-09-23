@@ -158,7 +158,6 @@
       "src": "/img/Gallary/34.webp",
       "alt": "Event 14"
     }
-    
   ],
   "summary": {
     "title": "About IEEE MET SB",
@@ -290,7 +289,7 @@
     {
       "name": "Nancy Hosny",
       "role": "Founding Vice Chair",
-      "image": "img/Best/4.svg",
+      "image": "img/officers/Nancy.webp",
       "socials": [
         {
           "icon": "fab fa-linkedin",
@@ -298,7 +297,7 @@
         },
         {
           "icon": "fas fa-envelope",
-          "link": "mailto:sara@example.com"
+          "link": "mailto:nancyhosny8@gmail.com"
         }
       ]
     }
