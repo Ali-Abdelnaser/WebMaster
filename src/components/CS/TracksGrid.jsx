@@ -71,7 +71,8 @@ export default function TracksGrid() {
       </div>
 
       {/* العنوان */}
-      <h2 className="tracks-title">{title}</h2>
+      <h2 className="cs-about-title">{title}</h2>
+        <img src="img/CS/CS-hr.svg" alt="Divider" className="tracks-divider" />
       <p className="tracks-subtitle">{subtitle}</p>
 
       {/* الكروت */}

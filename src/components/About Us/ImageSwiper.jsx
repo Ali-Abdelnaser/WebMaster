@@ -1,8 +1,25 @@
-// src/components/about/ImageSwiper.jsx
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "./ImageSwiper.css";
+import { useState } from "react";
+
+function LazyPartnerImage({ src, alt }) {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <div className="partner-lazy-wrapper">
+      <img
+        src={src}
+        alt={alt}
+        className={`partner-lazy-image ${loaded ? "loaded" : ""}`}
+        loading="lazy"
+        onLoad={() => setLoaded(true)}
+      />
+      {!loaded && <div className="partner-lazy-placeholder"></div>}
+    </div>
+  );
+}
 
 export default function ImageSwiper({ images }) {
   return (
@@ -12,23 +29,25 @@ export default function ImageSwiper({ images }) {
       <section className="image-swiper-section">
         <Swiper
           modules={[Autoplay]}
-          spaceBetween={10} // مفيش فواصل بين الصور
-          // عدد الصور اللي يبانوا في نفس الوقت (هنظبطه بالـ CSS)
+          spaceBetween={10}
           loop={true}
           autoplay={{
-            delay: 0, // مفيش توقف
+            delay: 0,
             disableOnInteraction: false,
           }}
-          speed={3000} // السرعة (كل ما تقل الرقم الصور تسرع)
+          speed={3000}
           allowTouchMove={false}
           breakpoints={{
-            0: { slidesPerView: 2 }, // موبايل صغير // موبايل متوسط
-            768: { slidesPerView: 3 }, // تابلت // ديسكتوب
-          }} // المستخدم مش يقدر يوقف أو يسحب
+            0: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+          }}
         >
           {images.map((img, index) => (
             <SwiperSlide key={index}>
-              <img src={img.src} alt={img.alt || `slide-${index}`} />
+              <LazyPartnerImage
+                src={img.src}
+                alt={img.alt || `slide-${index}`}
+              />
             </SwiperSlide>
           ))}
         </Swiper>

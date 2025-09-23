@@ -1,5 +1,5 @@
 .cs-two-officers {
-  padding: 60px 20px;
+  padding:  20px;
   text-align: center;
 }
 
@@ -23,7 +23,7 @@
 .cs-officer-card {
   flex: 1;
   min-width: 280px;
-  max-width: 400px;
+  max-width: 350px;
   background: #faa41a;
   border-radius: 20px;
   padding: 25px;
@@ -89,5 +89,25 @@
   .cs-officers-container {
     flex-direction: column;
     align-items: center;
+  }
+
+}
+/* Mobile - أقل من 400px */
+@media (max-width: 400px) {
+  .cs-officers-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* تقليل المسافة بين الكروت */
+  }
+
+  .cs-officer-card {
+    width: 80%; /* تمدد الكارد ليغطي تقريبًا عرض الشاشة */
+    max-width: none; /* إزالة الحد الأقصى */
+    min-width: auto; /* إزالة الحد الأدنى */
+  }
+
+  .cs-officer-img {
+    width: 100%;
+    height: auto; /* الحفاظ على نسبة الصورة */
   }
 }

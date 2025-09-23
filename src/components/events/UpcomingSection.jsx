@@ -32,7 +32,8 @@ export default function UpcomingSection() {
     <section className="upcoming-section">
       {status === "on" && event ? (
         <div className="upcoming-header">
-          <h2 className="Home-title">Upcoming Events</h2><br />
+          <h2 className="Home-title">Upcoming Events</h2>
+          <img src="img/hr.svg" alt="Divider" className="upcoming-section-divider" />
           <p className="upcoming-description">
             A new chapter of events is about to begin. Don’t miss this chance to
             engage, explore, and be part of something amazing.
@@ -118,7 +119,11 @@ export default function UpcomingSection() {
                 the first to know about upcoming opportunities and activities.
               </p>
               <div className="social-links">
-                <a href="https://www.facebook.com/profile.php?id=61560937966305" target="_blank" rel="noreferrer">
+                <a
+                  href="https://www.facebook.com/profile.php?id=61560937966305"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fab fa-facebook-f"></i>
                 </a>
                 <a
@@ -128,7 +133,11 @@ export default function UpcomingSection() {
                 >
                   <i className="fab fa-instagram"></i>
                 </a>
-                <a href="https://www.linkedin.com/company/ieee-met-sb-pioneers/posts/?feedView=all" target="_blank" rel="noreferrer">
+                <a
+                  href="https://www.linkedin.com/company/ieee-met-sb-pioneers/posts/?feedView=all"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fab fa-linkedin-in"></i>
                 </a>
               </div>

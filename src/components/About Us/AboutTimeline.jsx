@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "./timeline.css";
 
 export default function AboutStory({ storyData }) {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(null);
 
   return (
     <section className="story-section">
@@ -19,13 +19,12 @@ export default function AboutStory({ storyData }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: index * 0.2 }}
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
+            onClick={() => setActiveIndex(activeIndex === index ? null : index)}
           >
             <div className="story-year">{item.year}</div>
 
             <div className="story-content">
-              {hoveredIndex === index ? (
+              {activeIndex === index ? (
                 <TypewriterText text={item.details} />
               ) : (
                 <>
@@ -41,14 +40,12 @@ export default function AboutStory({ storyData }) {
   );
 }
 
-// 🖋️ تأثير آلة كاتبة
 function TypewriterText({ text }) {
   const [displayedText, setDisplayedText] = useState("");
 
   useEffect(() => {
     let i = 0;
-    setDisplayedText(text.charAt(0)); // ضيف أول حرف على طول
-    i = 1;
+    setDisplayedText(""); // نبدأ بسلسلة فارغة
 
     const interval = setInterval(() => {
       setDisplayedText((prev) => prev + text.charAt(i));

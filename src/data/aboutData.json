@@ -27,21 +27,138 @@
   ],
   "images": [
     {
-      "src": "/img/home.jpg",
+      "src": "/img/Gallary/1.webp",
       "alt": "Event 1"
     },
     {
-      "src": "/img/home.jpg",
+      "src": "/img/Gallary/2.webp",
       "alt": "Event 2"
     },
     {
-      "src": "/img/home.jpg",
+      "src": "/img/Gallary/3.webp",
       "alt": "Event 3"
     },
     {
-      "src": "/img/home.jpg",
+      "src": "/img/Gallary/4.webp",
       "alt": "Event 4"
+    },
+    {
+      "src": "/img/Gallary/5.webp",
+      "alt": "Event 5"
+    },
+    {
+      "src": "/img/Gallary/6.webp",
+      "alt": "Event 6"
+    },
+    {
+      "src": "/img/Gallary/7.webp",
+      "alt": "Event 7"
+    },
+    {
+      "src": "/img/Gallary/8.webp",
+      "alt": "Event 8"
+    },
+    {
+      "src": "/img/Gallary/9.webp",
+      "alt": "Event 9"
+    },
+    {
+      "src": "/img/Gallary/10.webp",
+      "alt": "Event 10"
+    },
+    {
+      "src": "/img/Gallary/11.webp",
+      "alt": "Event 11"
+    },
+    {
+      "src": "/img/Gallary/12.webp",
+      "alt": "Event 12"
+    },
+    {
+      "src": "/img/Gallary/13.webp",
+      "alt": "Event 13"
+    },
+    {
+      "src": "/img/Gallary/14.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/15.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/16.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/17.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/18.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/19.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/20.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/21.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/22.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/23.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/24.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/25.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/26.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/27.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/28.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/29.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/31.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/32.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/33.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/34.webp",
+      "alt": "Event 14"
     }
+    
   ],
   "summary": {
     "title": "About IEEE MET SB",

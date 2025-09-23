@@ -11,7 +11,7 @@ export default function OurEvents() {
     <section className="our-events-section">
       <div className="our-events-header">
         <h2 className="Home-title">Latest Events</h2>
-        <br />
+        <img src="img/hr.svg" alt="Divider" className="HR-divider" />
         <p className="our-events-description">
           Explore our previous and upcoming events — knowledge, networking, and
           inspiration all in one place.
@@ -32,7 +32,11 @@ export default function OurEvents() {
               >
                 {event.images.map((img, index) => (
                   <SwiperSlide key={index}>
-                    <img src={img} alt={`${event.title}-${index}`} className="event-img" />
+                    <img
+                      src={img}
+                      alt={`${event.title}-${index}`}
+                      className="event-img"
+                    />
                   </SwiperSlide>
                 ))}
               </Swiper>
@@ -56,17 +60,29 @@ export default function OurEvents() {
 
               <div className="social-links">
                 {event.socials?.facebook && (
-                  <a href={event.socials.facebook} target="_blank" rel="noreferrer">
+                  <a
+                    href={event.socials.facebook}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <i className="fab fa-facebook-f"></i>
                   </a>
                 )}
                 {event.socials?.instagram && (
-                  <a href={event.socials.instagram} target="_blank" rel="noreferrer">
+                  <a
+                    href={event.socials.instagram}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <i className="fab fa-instagram"></i>
                   </a>
                 )}
                 {event.socials?.linkedin && (
-                  <a href={event.socials.linkedin} target="_blank" rel="noreferrer">
+                  <a
+                    href={event.socials.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <i className="fab fa-linkedin-in"></i>
                   </a>
                 )}
