@@ -8,11 +8,11 @@
   <!-- Title -->
   <title>IEEE MET SB | Student Branch in Mansoura</title>
 
-  <!-- Favicon -->
-
-  <link rel="icon" href="/public/favicon.ico" type="image/x-icon" />
+  <!-- Favicon (ICO + PNG for compatibility) -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
   <link rel="apple-touch-icon" href="https://ieeemet.org/img/logo-1.png" />
-
 
   <!-- Site Name Metadata -->
   <meta name="application-name" content="IEEE MET SB" />
@@ -41,12 +41,27 @@
     content="Join the IEEE MET Student Branch community in Mansoura, Egypt. Explore events, innovation, and leadership opportunities." />
   <meta name="twitter:image" content="https://ieeemet.org/img/logo-1.png" />
 
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "IEEE MET SB",
+    "url": "https://ieeemet.org",
+    "logo": "https://ieeemet.org/img/logo-1.png",
+    "sameAs": [
+      "https://www.facebook.com/IEEE.METSB",
+      "https://www.linkedin.com/company/ieee-metsb"
+    ]
+  }
+  </script>
 
   <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 
 <body>
   <div id="root"></div>
