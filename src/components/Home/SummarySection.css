@@ -1,12 +1,11 @@
 .summary-section {
-  padding:  20px;
+  padding:  20px ;
   background: linear-gradient(135deg, #0080ff28);
   color: #d1cfcf;
   font-family: "Poppins", sans-serif;
 }
 
 .summary-container {
-  max-width: 1600px;
   margin: 0 auto;
   text-align: center;
 }
@@ -20,7 +19,7 @@
 .summary-text {
   font-size: 1.4rem;
   line-height: 1.8;
-  max-width: 1300px;
+  max-width: 1100px;
   margin: 0 auto 40px auto;
   text-align: justify;
   color: #d1cfcf;
