@@ -47,6 +47,9 @@ const containerVariants = {
       <main className="instructions-container">
         <motion.div className="instructions-content" variants={itemVariants}>
           <div className="instructions-text">
+            <motion.div className="instructions-illustration" variants={itemVariants}>
+            <img src="/img/Instructions.svg" alt="Instructions" />
+          </motion.div>
             <motion.h1 className="instructions-title" variants={itemVariants}>
               Welcome to <span>IEEE MET SB Recruitment</span> 🚀
             </motion.h1>
@@ -97,9 +100,7 @@ const containerVariants = {
             </motion.button>
           </div>
 
-          <motion.div className="instructions-illustration" variants={itemVariants}>
-            <img src="/img/Instructions.svg" alt="Instructions" />
-          </motion.div>
+          
         </motion.div>
       </main>
 

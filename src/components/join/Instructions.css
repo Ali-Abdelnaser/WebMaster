@@ -8,7 +8,7 @@
 
 .instructions-container {
     flex: 1;
-    padding: 80px 100px;
+    padding: 180px 100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,6 +17,7 @@
 .instructions-content {
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: space-between;
     gap: 50px;
     max-width: 1200px;
