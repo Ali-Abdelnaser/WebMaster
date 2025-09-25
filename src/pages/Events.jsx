@@ -60,8 +60,7 @@ export default function CS() {
         />
         <meta
           property="og:image"
-          content="https://opengraph.b-cdn.net/production/images/4c0815f2-6160-4aec-82db-92fa37ceb6ee.png?token=Nsc-4i-C_OwJ5mOm23lflRsH8EfafqZ3cw1xBLSat5w&height=813&width=1200&expires=33294470769"
-        />
+          content="/Social.png"/>
         <meta property="og:url" content="https://ieeemet.org/events" />
         <meta property="og:type" content="website" />
 
@@ -73,8 +72,7 @@ export default function CS() {
         />
         <meta
           name="twitter:image"
-          content="https://opengraph.b-cdn.net/production/images/4c0815f2-6160-4aec-82db-92fa37ceb6ee.png?token=Nsc-4i-C_OwJ5mOm23lflRsH8EfafqZ3cw1xBLSat5w&height=813&width=1200&expires=33294470769"
-        />
+          content="/Social.png"/>
       </Helmet>
       <Header />
       <AnimatedBackground />

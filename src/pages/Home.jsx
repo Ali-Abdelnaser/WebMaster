@@ -32,8 +32,7 @@ function Home() {
         />
         <meta
           property="og:image"
-          content="https://opengraph.b-cdn.net/production/images/e9f5d2c5-0dd8-41ac-b993-06d86db20374.png?token=QophnvuIP3FcHxgJ_K21Wnhvx9Kke2drXBWp7bb1v8g&height=1143&width=1200&expires=33294466238"
-        />
+          content="/Social.png"/>
         <meta property="og:url" content="https://ieeemet.org/" />
         <meta property="og:type" content="website" />
 
@@ -45,8 +44,7 @@ function Home() {
         />
         <meta
           name="twitter:image"
-          content="https://opengraph.b-cdn.net/production/images/e9f5d2c5-0dd8-41ac-b993-06d86db20374.png?token=QophnvuIP3FcHxgJ_K21Wnhvx9Kke2drXBWp7bb1v8g&height=1143&width=1200&expires=33294466238"
-        />
+          content="/Social.png"/>
       </Helmet>
 
       <Header />

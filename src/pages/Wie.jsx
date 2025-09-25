@@ -10,33 +10,32 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 
 export default function WIE() {
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { 
-      staggerChildren: 0.35, // زيادة المدة بين ظهور العناصر
-      delayChildren: 0.3     // زيادة البداية لتكون أنعم
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.35, // زيادة المدة بين ظهور العناصر
+        delayChildren: 0.3, // زيادة البداية لتكون أنعم
+      },
     },
-  },
-};
-
+  };
 
   const itemVariants = {
-  hidden: { opacity: 0, y: 50, rotateX: 15, scale: 0.9 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    rotateX: 0, 
-    scale: 1, 
-    transition: { 
-      type: "spring", 
-      stiffness: 50,  // أخف من 80 -> أبطأ حركة الارتداد
-      damping: 20,    // أخف damping -> حركة أبطأ وأقل حدة
-      mass: 1.2       // تزيد شعور بالثقل
-    } 
-  },
-};
+    hidden: { opacity: 0, y: 50, rotateX: 15, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      rotateX: 0,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 50, // أخف من 80 -> أبطأ حركة الارتداد
+        damping: 20, // أخف damping -> حركة أبطأ وأقل حدة
+        mass: 1.2, // تزيد شعور بالثقل
+      },
+    },
+  };
   return (
     <motion.div
       className="wie-page"
@@ -60,7 +59,7 @@ const containerVariants = {
           property="og:description"
           content="Explore WIE at IEEE MET SB — empowering female engineers and leaders in Mansoura, Egypt."
         />
-        <meta property="og:image" content="/img/WIE/wie-purple.svg" />
+        <meta property="og:image" content="/Social.png" />
         <meta property="og:url" content="https://ieeemet.org/wie" />
         <meta property="og:type" content="website" />
 
@@ -70,7 +69,7 @@ const containerVariants = {
           name="twitter:description"
           content="Discover IEEE MET SB’s Women in Engineering chapter empowering diversity and innovation."
         />
-        <meta name="twitter:image" content="/img/WIE/wie-purple.svg" />
+        <meta name="twitter:image" content="/Social.png" />
       </Helmet>
 
       <HeaderWIE />

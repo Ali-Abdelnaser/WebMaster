@@ -66,7 +66,7 @@ export default function About() {
         />
         <meta
           property="og:image"
-          content="https://opengraph.b-cdn.net/production/images/3e1db924-5287-4b91-aa0b-db4f95793c1f.png?token=6GoDv05ee86C96MITaBgpvLunKem2pm1fZt44mbCqwk&height=1055&width=1200&expires=33294466926"
+          content="/Social.png"
         />
         <meta property="og:url" content="https://ieeemet.org/about" />
         <meta property="og:type" content="website" />
@@ -79,7 +79,7 @@ export default function About() {
         />
         <meta
           name="twitter:image"
-          content="https://opengraph.b-cdn.net/production/images/3e1db924-5287-4b91-aa0b-db4f95793c1f.png?token=6GoDv05ee86C96MITaBgpvLunKem2pm1fZt44mbCqwk&height=1055&width=1200&expires=33294466926"
+          content="/Social.png"
         />
       </Helmet>
       <Header />

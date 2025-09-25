@@ -59,7 +59,7 @@ const containerVariants = {
           property="og:description"
           content="Join the IEEE MET SB Computer Society — where students excel in coding, programming, and technology."
         />
-        <meta property="og:image" content="/img/CS/CsOrange.webp" />
+        <meta property="og:image" content="/Social.png" />
         <meta property="og:url" content="https://ieeemet.org/CS" />
         <meta property="og:type" content="website" />
 
@@ -69,7 +69,7 @@ const containerVariants = {
           name="twitter:description"
           content="Explore the Computer Society at IEEE MET SB: coding, software, and innovation."
         />
-        <meta name="twitter:image" content="/img/CS/CsOrange.webp" />
+        <meta name="twitter:image" content="/Social.png" />
       </Helmet>
 
       <HeaderCS />
