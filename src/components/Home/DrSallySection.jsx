@@ -41,29 +41,36 @@ export default function CounselorSection() {
             <AboutCard
               icon={<FaChalkboardTeacher />} // 🎓 ➝ FaChalkboardTeacher
               title="Academic Leadership"
-              text="First woman to serve as Dean of MISR Higher Institute. Head of Communications & Computer Engineering, Vice Dean for Community Service and Development."
+              text="Dean of MISR Higher Institute for Engineering & Technology (first woman in this role). Former Vice Dean for Community Service and Development, and Head of the Communications & Computer Engineering Department. Founder and Counselor of IEEE MET Student Branch."
             />
             <AboutCard
               icon={<FaTrophy />} // 🏆 ➝ FaTrophy
               title="Awards & Recognition"
-              text="Excellence in Research Award (2018), Arab Research Councils Award (2019) , State Encouragement Award (2021). "
+              text="State Encouragement Award in Energy, Water & Environmental Engineering Sciences (2021). Arab Scientific Research Councils Prize in AI (2019). Excellence in Research Award (2018). Best Paper Award at ITC-Egypt IEEE Conference (2023)."
             />
             <AboutCard
               icon={<FaBookOpen />} // 📚 ➝ FaBookOpen
               title="Research & Contributions"
-              text="Member of the Egyptian Scientific Research School, contributor to books on Big Data & AI, speaker at international conferences."
+              text="Author of 40+ peer-reviewed papers in top journals (Elsevier, IEEE, Springer). Editor of Springer books on AI, Big Data, and Sustainability. Reviewer for leading international journals, and keynote speaker at global conferences. Led AI-driven projects in climate change, healthcare, IoT, and robotics."
             />
           </div>
 
           {/* Bio Summary */}
           <p className="about-summary">
-            Dr. Sally El Ghamrawy is an experienced professor with a
-            demonstrated history of working at the American University in Cairo
-            (AUC), the British University in Egypt (BUE), and MISR Higher
-            Institute for Engineering and Technology. She holds a PhD in
-            Computer Engineering and Systems (2012, Mansoura University), and
-            has contributed extensively to research in AI, Big Data, and
-            engineering education.
+            Dr. Sally Elghamrawy is a Professor of Computer Engineering and IEEE
+            Senior Member, currently Dean of MISR Higher Institute for
+            Engineering & Technology. With 20+ years of experience, she has
+            served as Vice Dean and Head of the Communications & Computer
+            Engineering Department. She holds a PhD in Computer & Systems
+            Engineering (Mansoura University, 2012) and specializes in
+            Artificial Intelligence, Big Data, and Distributed Systems. Dr.
+            Elghamrawy has published widely in top journals, edited
+            international books, and supervised numerous postgraduate theses.
+            Recognized with awards such as the State Award for Women in
+            Engineering Sciences (2021) and the Arab Scientific Research
+            Councils Prize in AI (2019), she is also active in community
+            development, focusing on digital transformation, healthcare
+            innovation, and entrepreneurship.
           </p>
 
           {/* Social Media */}

@@ -54,8 +54,8 @@ function Home() {
       <OurCycle />
       <BestMembers />
       <DrSallySection />
-      <FoundingSection data={data.founding} />
       <OfficersCarousel />
+      <FoundingSection data={data.founding} />
       <Partners />
       <Footer />
     </>

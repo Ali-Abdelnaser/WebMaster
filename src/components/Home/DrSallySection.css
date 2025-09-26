@@ -152,15 +152,12 @@
   color: #beb9b9;
 }
 
-
-
-/* Bio Summary */
 .about-summary {
   font-size: 15px;
   line-height: 1.8;
   color: #d1cfcf;
   margin-bottom: 25px;
-  text-align: justify; /* يوزع الكلام بشكل منسق */
+  text-align: justify; 
 }
 
 /* Social Media */

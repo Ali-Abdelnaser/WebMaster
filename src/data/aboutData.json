@@ -272,6 +272,20 @@
           "link": "mailto:nancyhosny8@gmail.com"
         }
       ]
+    },{
+      "name": "Doha Elmonzer",
+      "role": "Founding Secretary",
+      "image": "img/officers/Doha.webp",
+      "socials": [
+        {
+          "icon": "fab fa-linkedin",
+          "link": "https://www.linkedin.com/in/nancyhosny/"
+        },
+        {
+          "icon": "fas fa-envelope",
+          "link": "mailto:dohaelmonzer@gmail.com"
+        }
+      ]
     }
   ]
 }
