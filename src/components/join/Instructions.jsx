@@ -81,7 +81,7 @@ const containerVariants = {
               <button
                 className="job-btn"
                 onClick={() =>
-                  window.open("https://example.com/your-image.jpg", "_blank")
+                  window.open("https://exciting-anaconda-240.notion.site/Executive-Job-Description-27d3069a395880b2945ae68983297015?source=copy_link", "_blank")
                 }
               >
                 View Job Description

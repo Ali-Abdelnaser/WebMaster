@@ -21,7 +21,6 @@ export default function Header() {
 
   // check live events
   useEffect(() => {
-    // بما إن عندك كائن واحد، فقط تحقق من الـ status مباشرة
     setLiveEvent(eventsData.status === "on");
   }, []);
 
