@@ -158,6 +158,118 @@
     flex: 1;
     text-align: center;
 }
+/* CSS */
+:root{
+  --bg: #ffffff;
+  --urgent-start: #ff6b6b;
+  --urgent-end: #ff3b3b;
+  --info-start: #3b82f6; /* blue */
+  --info-end: #2563eb;
+  --text: #0f172a;
+  --muted: rgba(15,23,42,0.6);
+  --radius: 12px;
+  --pad: 10px 14px;
+  --shadow: 0 8px 22px rgba(2,6,23,0.08);
+}
+
+/* Base deadline box */
+.deadline{
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: var(--pad);
+  border-radius: var(--radius);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text);
+  background: linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.6));
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(2,6,23,0.04);
+  position: relative;
+  overflow: hidden;
+  transform-origin: center;
+  
+}
+
+/* small clock badge on the left */
+.deadline::before{
+  content: "⏰";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  font-size: 16px;
+  margin-right: 4px;
+  flex: 0 0 34px;
+  box-shadow: 0 4px 12px rgba(2,6,23,0.08);
+}
+
+/* label and date layout */
+.deadline__label{
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: var(--text);
+}
+
+/* right-side date pill */
+.deadline__date{
+  background: rgba(255,255,255,0.06);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  margin-left: 8px;
+  box-shadow: inset 0 -2px 6px rgba(255,255,255,0.02);
+  color: white;
+}
+
+/* URGENT theme (red gradient + pulse) */
+.deadline--urgent{
+  color: white;
+  background: linear-gradient(90deg, var(--urgent-start), var(--urgent-end));
+  border: none;
+  
+}
+
+.deadline--urgent::before{
+  background: rgba(255,255,255,0.12);
+}
+
+.deadline--urgent .deadline__date{
+  background: rgba(255,255,255,0.14);
+}
+
+/* subtle glowing pulse for urgent */
+@keyframes glow {
+  0% { box-shadow: 0 8px 22px rgba(255,59,59,0.18); transform: translateY(0); }
+  50% { box-shadow: 0 18px 44px rgba(255,59,59,0.28); transform: translateY(-2px); }
+  100% { box-shadow: 0 8px 22px rgba(255,59,59,0.18); transform: translateY(0); }
+}
+.deadline--urgent {
+  animation: glow 2.5s ease-in-out infinite;
+}
+
+/* small hover emphasis for both */
+.deadline:hover{
+  transform: translateY(-3px);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+/* responsive: smaller on tight widths */
+@media (max-width:420px){
+  .deadline{ font-size: 0.92rem; padding: 8px 10px; gap:8px; }
+  .deadline::before{ width:28px; height:28px; border-radius:8px; font-size:14px; }
+  .deadline__date{ padding:5px 8px; font-size:0.86rem; }
+}
+
+/* accessibility: focus outline for keyboard users */
+.deadline:focus{
+  outline: 3px solid rgba(255,255,255,0.18);
+  outline-offset: 4px;
+}
 
 .instructions-illustration img {
     max-width: 460px;
