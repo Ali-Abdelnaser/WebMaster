@@ -65,15 +65,87 @@
           "level": "2nd Year"
         },
         {
-          "name": "Salma medhat",
-          "image": "/img/HR/Salma.webp",
-          "college": "Engineering ",
-          "level": "3rd Year"
-        },
-        {
           "name": "Yassmena Abdullah ",
           "image": "/img/HR/Yassmena.webp",
           "college": "Engineering ",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Ahmed Tarek",
+          "image": "/img/HR/Ahmed Tarek.webp",
+          "college": "CS",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Ahmed Mohmed",
+          "image": "/img/HR/Ahmed Mohmed.webp",
+          "college": "Engineering",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Mahmoud Hani",
+          "image": "/img/HR/Mahmoud.webp",
+          "college": "BIS",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Habiba Khalil",
+          "image": "/img/HR/Habiba.webp",
+          "college": "CS",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Shahd Elhoseni",
+          "image": "/img/HR/shahd elhoseni.webp",
+          "college": "CS",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Ali Mohamed",
+          "image": "/img/HR/Ali.webp",
+          "college": "Engineering",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Mai Said",
+          "image": "/img/HR/May.webp",
+          "college": "Science",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Sama Mohamed",
+          "image": "/img/HR/Sama.webp",
+          "college": "Science",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Salma Salem",
+          "image": "/img/HR/Salma.webp",
+          "college": "English Arts",
+          "level": "1st Year"
+        },
+        {
+          "name": "Sara Ata",
+          "image": "/img/HR/Sara.webp",
+          "college": "Engineering",
+          "level": "1st Year"
+        },
+        {
+          "name": "Samir Tamer",
+          "image": "/img/HR/Samir.webp",
+          "college": "Mansoura",
+          "level": "1st Year"
+        },
+        {
+          "name": "Rahma Kamel ",
+          "image": "/img/HR/Rahma.webp",
+          "college": "CS",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Maram osama",
+          "image": "/img/HR/Maram.webp",
+          "college": "Science",
           "level": "2nd Year"
         }
       ]
@@ -146,9 +218,33 @@
         },
         {
           "name": "Ganna Mamdouh",
-          "image": "/img/Best/4.svg",
+          "image": "/img/PR/woman.png",
           "college": "CS",
           "level": "3rd Year"
+        },
+        {
+          "name": "Ahmed Elnawsany",
+          "image": "/img/Media/Elnawsany.webp",
+          "college": "Science",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Omar Mamdouh",
+          "image": "/img/Media/Omar.webp",
+          "college": "Mansoura",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Omar Ehab",
+          "image": "/img/Media/Omar Ehab.webp",
+          "college": "Engineering",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Mohamed Osama",
+          "image": "/img/Media/Osama.webp",
+          "college": "Engineering",
+          "level": "2nd Year"
         }
       ]
     }
@@ -226,6 +322,76 @@
         {
           "name": "Yousef Mohamed",
           "image": "/img/Logistice/Yousef Mohamed.webp",
+          "college": "Engineering",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Omar Magdy",
+          "image": "/img/Logistice/Omar.webp",
+          "college": "Engineering",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Hanaa Mohamed",
+          "image": "/img/Logistice/Hanaa.webp",
+          "college": "Engineering",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Kareem Mohamed",
+          "image": "/img/Logistice/Kareem.webp",
+          "college": "Engineering",
+          "level": "4th Year"
+        },
+        {
+          "name": "Ahmed Ehab",
+          "image": "/img/Logistice/Ahmed.webp",
+          "college": "Engineering",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Retaj Mahmoud",
+          "image": "/img/Logistice/Retaj.webp",
+          "college": "CS",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Nada Kandil",
+          "image": "/img/Logistice/Nada.webp",
+          "college": "CS",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Raneem Elgamal",
+          "image": "/img/Logistice/Raneem.webp",
+          "college": "Engineering",
+          "level": "2nd Year"
+        }
+        ,
+        {
+          "name": "Malak Mohamed",
+          "image": "/img/Logistice/Malak.webp",
+          "college": "MET",
+          "level": "2nd Year"
+        }
+        ,
+        {
+          "name": "Rana Hassan",
+          "image": "/img/Logistice/Rana.webp",
+          "college": "BIS",
+          "level": "2nd Year"
+        }
+        ,
+        {
+          "name": "Naglaa Diaa ",
+          "image": "/img/Logistice/Naglaa.webp",
+          "college": "Engineering",
+          "level": "2nd Year"
+        }
+        ,
+        {
+          "name": "Ahmed amin",
+          "image": "/img/Logistice/Ahmed amin.webp",
           "college": "Engineering",
           "level": "3rd Year"
         }
@@ -311,7 +477,7 @@
         },
         {
           "name": "Aida Mohamed",
-          "image": "/img/Best/4.svg",
+          "image": "/img/PR/woman.png",
           "college": "Engineering",
           "level": "5th Year"
         },
@@ -343,6 +509,84 @@
           "name": "Basmala Ahmed",
           "image": "/img/Team Management/Basmala.webp",
           "college": "Engineering",
+          "level": "3rd Year"
+        },
+        {
+          "name": "A'laa Hassan",
+          "image": "/img/Team Management/A'laa.webp",
+          "college": "Engineering",
+          "level": "4th Year"
+        },
+        {
+          "name": "Jana Hazem",
+          "image": "/img/Team Management/Jana.webp",
+          "college": "CS",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Mariam Atia",
+          "image": "/img/Team Management/Mariam.webp",
+          "college": "CS",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Yousef Raouf",
+          "image": "/img/Team Management/Yousef Raouf.webp",
+          "college": "Engineering",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Nada Nabil",
+          "image": "/img/Team Management/Nada.webp",
+          "college": "CS",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Nadeen Mahmoud",
+          "image": "/img/Team Management/Nadeen.webp",
+          "college": "CS",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Malak Mohamed",
+          "image": "/img/Team Management/Malak.webp",
+          "college": "Science",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Hana Amr",
+          "image": "/img/Team Management/Hana.webp",
+          "college": "CS",
+          "level": "1st Year"
+        },
+        {
+          "name": "Shady Magdy",
+          "image": "/img/Team Management/Shady.webp",
+          "college": "Mansoura",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Ali mohamed",
+          "image": "/img/Team Management/Ali.webp",
+          "college": "Engineering",
+          "level": "4th Year"
+        },
+        {
+          "name": "Nada Alsaied ",
+          "image": "/img/Team Management/Nada Alsaied.webp",
+          "college": "CS",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Ebtsam Khaled",
+          "image": "/img/PR/woman.png",
+          "college": "CS",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Magdy Hatem",
+          "image": "/img/Team Management/Magdy.webp",
+          "college": "CS",
           "level": "3rd Year"
         }
       ]
@@ -393,6 +637,36 @@
           "image": "/img/Marketing/Nadine.webp",
           "college": "Agriculture ",
           "level": "3rd Year"
+        },
+        {
+          "name": "Ghada Mohamed",
+          "image": "/img/Marketing/Ghada.webp",
+          "college": "BIS",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Mariam Taha",
+          "image": "/img/Marketing/woman.png",
+          "college": "CS",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Eslam Ebrahim",
+          "image": "/img/Marketing/Eslam.webp",
+          "college": "Engineering",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Mirna Mohamed",
+          "image": "/img/Marketing/Mirna.webp",
+          "college": "CS",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Farah Mohsen",
+          "image": "/img/Marketing/woman.png",
+          "college": "BIS",
+          "level": "3rd Year"
         }
       ]
     }
@@ -424,7 +698,59 @@
         }
       ],
       "advisors": [],
-      "members": []
+      "members": [
+        {
+          "name": "Mahmoud Atia",
+          "image": "/img/PR/Mahmoud.webp",
+          "college": "CS",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Kareem Abdelaziz",
+          "image": "/img/PR/Kareem.webp",
+          "college": "CS",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Nadeen Sameh",
+          "image": "/img/PR/woman.png",
+          "college": "Engineering",
+          "level": "1st Year"
+        },
+        {
+          "name": "Menna Allah",
+          "image": "/img/PR/Menna.webp",
+          "college": "CS",
+          "level": "2nd Year"
+        },
+        {
+          "name": "Rana Ashraf",
+          "image": "/img/PR/woman.png",
+          "college": "CS",
+          "level": "2nd Year"
+        }
+        ,
+        {
+          "name": "Hanin Ashraf ",
+          "image": "/img/PR/Hanin.webp",
+          "college": "CS",
+          "level": "3rd Year"
+        }
+        ,
+        {
+          "name": "Shehab Mahmoud",
+          "image": "/img/PR/Shehab.webp",
+          "college": "CS",
+          "level": "1st Year"
+        }
+        ,
+        {
+          "name": "Rana Khaled",
+          "image": "/img/PR/woman.png",
+          "college": "CS",
+          "level": "3rd Year"
+        }
+      ]
     }
   },
   {
@@ -445,12 +771,14 @@
         "college": "Engineering",
         "level": "3rd Year"
       },
-      "vice": [{
+      "vice": [
+        {
           "name": "Moaz Zaghloul",
           "image": "/img/PR/Moaz.webp",
           "college": "CS",
           "level": "2nd Year"
-        }],
+        }
+      ],
       "advisors": [],
       "members": [
         {
@@ -458,8 +786,37 @@
           "image": "/img/FR/Aya.webp",
           "college": "BIS",
           "level": "2nd Year"
+        },
+        {
+          "name": "Mariam Maged",
+          "image": "/img/FR/Mariam.webp",
+          "college": "BIS",
+          "level": "4th Year"
+        },
+        {
+          "name": "Mohamed Taher",
+          "image": "/img/FR/Mohammed Taher.webp",
+          "college": "CS",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Mahmoud Khattab",
+          "image": "/img/Team Management/Mahmoud.webp",
+          "college": "CS",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Halla Sameh",
+          "image": "/img/FR/Halla.webp",
+          "college": "BIS",
+          "level": "4th Year"
+        },
+        {
+          "name": "Mariam Mohamed ",
+          "image": "/img/PR/woman.png",
+          "college": "BIS",
+          "level": "4th Year"
         }
-        
       ]
     }
   }

@@ -45,6 +45,9 @@ export default function Header() {
           <div className="nav-button">
             <SmartLink  to="/join" id="join-btn"></SmartLink >
           </div>
+          {/* <div className="nav-button">
+            <SmartLink  to="/join-cs" id="join-btn"></SmartLink >
+          </div> */}
 
           {/* Menu toggle (hamburger) */}
           <div

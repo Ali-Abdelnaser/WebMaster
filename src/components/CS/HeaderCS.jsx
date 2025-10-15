@@ -31,6 +31,9 @@ export default function HeaderCS() {
           </div>
 
           {/* Join button */}
+          {/* <div className="cs-nav-button">
+            <SmartLink to="/join-cs" id="join-btn"></SmartLink>
+          </div> */}
           <div className="cs-nav-button">
             <SmartLink to="/join" id="join-btn"></SmartLink>
           </div>

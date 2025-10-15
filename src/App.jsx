@@ -12,6 +12,7 @@ import CommitteePage from "./pages/CommitteePage";
 // Pages
 import Home from "./pages/Home";
 import JoinUs from "./pages/JoinUs";
+import JoinCS from "./pages/JoinCS";
 import Events from "./pages/Events";
 import Wie from "./pages/Wie";
 import CS from "./pages/CS";
@@ -42,6 +43,7 @@ function AnimatedRoutes() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/join" element={<JoinUs />} />
+        <Route path="/join-cs" element={<JoinCS />} />
         <Route path="/events" element={<Events />} />
         <Route path="/wie" element={<Wie />} />
         <Route path="/CS" element={<CS />} />

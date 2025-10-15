@@ -1,0 +1,474 @@
+/* ==================== Global ==================== */
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+   /* أبيض فاتح */
+  color: #000000; /* أسمر غامق للنصوص */
+  margin: 0;
+  padding: 0;
+}
+
+/* ==================== Page & Container ==================== */
+.joincs-page {
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.joincs-container {
+  background: #ffffff;
+  border-radius: 16px;
+  padding:  35px;
+  max-width: 700px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  z-index: 2;
+  margin: 60px auto;
+}
+
+.joincs-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #e69110; /* برتقالي CS */
+  margin-bottom: 25px;
+}
+
+.joincs-step {
+  position: relative;
+}
+
+.joincs-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+/* ==================== Buttons ==================== */
+.btn {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn.primary {
+  background-color: #e69110; /* برتقالي */
+  color: white;
+}
+
+.btn.primary:hover {
+  background-color: #e67e22;
+}
+
+.btn.secondary {
+  background-color: #f1f1f1;
+  color: #3a2e2a;
+}
+
+.btn.secondary:hover {
+  background-color: #e0e0e0;
+}
+
+/* ==================== Steps ==================== */
+.step h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #e69110;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* ==================== Fields ==================== */
+.cs-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.cs-label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #3a2e2a;
+}
+
+.cs-input {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  font-size: 16px;
+  color: #3a2e2a;
+  background: #fffaf5;
+  transition: all 0.2s ease;
+}
+
+.cs-input:focus {
+  border-color: #e69110;
+  outline: none;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(211,84,0,0.2);
+}
+
+.cs-error {
+  font-size: 13px;
+  color: #e74c3c;
+  margin-top: 4px;
+}
+
+/* ==================== Radios / MCQ ==================== */
+.cs-radios {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cs-radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: #e69110;
+  cursor: pointer;
+}
+
+.cs-radio-input {
+  accent-color: #000000;
+  width: 18px;
+  height: 18px;
+}
+
+.cs-radio-text {
+  user-select: none;
+  color: #000000;
+
+}
+/* ==================== CS Logo ==================== */
+.cs-logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cs-logo-img {
+  width: 270px;
+  height: 270px;
+  object-fit: contain;
+}
+
+/* ==================== CS DatePicker ==================== */
+.cs-datepicker-input {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  font-size: 16px;
+  color: #3a2e2a;
+  background: #fffaf5;
+    width: 95%;
+
+  transition: all 0.2s ease;
+}
+
+.cs-datepicker-input:focus {
+  border-color: #e69110;
+  outline: none;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(211,84,0,0.15);
+}
+
+.cs-datepicker-calendar {
+  font-family: inherit;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+/* header */
+.cs-datepicker-calendar .react-datepicker__header {
+  background-color: #e69110;
+  color: #fff;
+  border-bottom: none;
+  padding: 15px 10px;
+}
+
+.cs-datepicker-calendar .react-datepicker__current-month {
+  font-weight: 600;
+  font-size: 1rem;
+  color: white;
+}
+
+/* dropdowns for month & year */
+.cs-datepicker-calendar .react-datepicker__month-dropdown,
+.cs-datepicker-calendar .react-datepicker__year-dropdown {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.cs-datepicker-calendar .react-datepicker__month-option,
+.cs-datepicker-calendar .react-datepicker__year-option {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.cs-datepicker-calendar .react-datepicker__month-option:hover,
+.cs-datepicker-calendar .react-datepicker__year-option:hover {
+  background: rgba(211,84,0,0.1);
+}
+
+/* day names (Sun, Mon, ...) */
+.cs-datepicker-calendar .react-datepicker__day-names {
+  white-space: nowrap;
+  margin-bottom: -8px;
+  color: #fff;
+  text-align: center;
+  background-color: #e69110;
+}
+
+/* individual days */
+.cs-datepicker-calendar .react-datepicker__day {
+  border-radius: 6px;
+  transition: background 0.2s;
+  text-align: center;
+}
+
+.cs-datepicker-calendar .react-datepicker__day:hover {
+  background: rgba(211,84,0,0.15);
+}
+
+.cs-datepicker-calendar .react-datepicker__day--selected,
+.cs-datepicker-calendar .react-datepicker__day--keyboard-selected {
+  background-color: #e69110;
+  color: white;
+  border-radius: 6px;
+}
+
+/* arrows */
+.cs-datepicker-calendar .react-datepicker__navigation-icon::before {
+  border-color: white;
+  margin: 10px -10px;
+}
+
+
+/* ==================== Progress Bar ==================== */
+.progressbar {
+  margin: 20px 0 30px;
+}
+
+.progressbar-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.step-item {
+  flex: 1;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.step-item.active {
+  color: #e69110;
+  font-weight: bold;
+}
+
+.step-number {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 50%;
+  background: #f1f1f1;
+  color: #3a2e2a;
+  margin-bottom: 4px;
+}
+
+.step-item.active .step-number {
+  background: #e69110;
+  color: #fff;
+}
+
+.progressbar-track {
+  width: 100%;
+  height: 8px;
+  background: #eee;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progressbar-fill {
+  height: 100%;
+  background: linear-gradient(90deg,#e69110,#e67e22);
+  transition: width 0.4s ease;
+}
+
+/* ==================== Review Card ==================== */
+.review-card {
+  background: #fffaf5;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.review-card h3 {
+  margin-top: 12px;
+  margin-bottom: 8px;
+  color: #3a2e2a;
+}
+/* ==================== Alerts ==================== */
+.submit-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(58,46,42,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.submit-alert-inner {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.submit-alert.success {
+  border-top: 4px solid #e69110;
+}
+
+.submit-alert.error {
+  border-top: 4px solid #e74c3c;
+}
+/* ==================== GeneralStepCS ==================== */
+
+
+.cs-step-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3a2e2a;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.cs-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.cs-label {
+  font-weight: 600;
+  margin-bottom: 6px;
+    color: #e69110;
+
+}
+
+.cs-input,
+.cs-textarea {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  font-size: 16px;
+  color: #524f4e;
+  background: #fffaf5;
+  width: 95%;
+  transition: all 0.2s ease;
+}
+
+.cs-input:focus,
+.cs-textarea:focus {
+  border-color: #e69110;
+  outline: none;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(211,84,0,0.15);
+}
+
+.cs-textarea {
+  min-height: 80px;
+  resize: none;
+  overflow-y: hidden;
+}
+.cs-textarea:placeholder-shown {
+  font-size: 16px;
+}
+.cs-error {
+  font-size: 13px;
+  color: #d9534f;
+  margin-top: 4px;
+}
+
+/* responsive */
+@media (max-width: 767px) {
+  .cs-step-title {
+    font-size: 1.6rem;
+  }
+
+  .cs-label {
+    font-size: 0.95rem;
+  }
+}
+
+/* ==================== Responsive ==================== */
+/* Laptop / Desktop */
+@media (min-width: 1024px) {
+  .joincs-title { font-size: 3.5rem; }
+  .step h2 { font-size: 2.6rem; }
+   
+   .cs-label{
+    font-size: 18px;
+   }
+   .cs-textarea:placeholder-shown {
+  font-size: 14px;
+}
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .joincs-title { font-size: 2.5rem; }
+  .step h2 { font-size: 2rem; }
+   
+   .cs-label{
+    font-size: 16px;
+   }
+   .cs-textarea:placeholder-shown {
+  font-size: 14px;
+}
+}
+
+/* Mobile Large */
+@media (min-width: 480px) and (max-width: 767px) {
+  .joincs-title { font-size: 2rem; }
+  .step h2 { font-size: 1.6rem; }
+  .cs-radio-text {font-size: 16px; }
+   .cs-label{
+    font-size: 14px;
+   }
+   .cs-textarea:placeholder-shown {
+  font-size: 14px;
+}
+}
+
+/* Mobile Small */
+@media (max-width: 479px) {
+  .joincs-title { font-size: 1.6rem; }
+  .step h2 { font-size: 1.3rem; }
+   .cs-radio-text {font-size: 14px; }
+   .cs-label{
+    font-size: 16px; 
+   }
+   .cs-textarea:placeholder-shown {
+  font-size: 14px;
+}
+}

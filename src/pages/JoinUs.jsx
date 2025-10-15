@@ -24,11 +24,13 @@ export default function JoinUs() {
 
   return (
     <div className="join-us-page">
-      {!showForm ? (
+      <JoinForm />
+      {/* Recruting Instructions */}
+      {/* {!showForm ? (
         <Instructions onStart={handleStart} />
       ) : (
         <JoinForm onFormSubmit={handleFormSubmit} />
-      )}
+      )} */}
     </div>
   );
 }

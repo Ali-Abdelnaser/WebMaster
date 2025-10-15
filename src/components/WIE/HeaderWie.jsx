@@ -41,6 +41,9 @@ export default function Header() {
             />
           </div>
 
+          {/* <div className="wie-nav-button">
+            <SmartLink  to="/join-cs" id="wie-join-btn"></SmartLink >
+          </div> */}
           <div className="wie-nav-button">
             <SmartLink  to="/join" id="wie-join-btn"></SmartLink >
           </div>

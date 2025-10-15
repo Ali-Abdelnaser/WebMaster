@@ -1,338 +1,67 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <base target="_top">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: "Segoe UI", Roboto, Arial, sans-serif;
-            padding: 16px;
-            background: linear-gradient(135deg, #0f172a, #1e3a8a);
-            color: #ffffff;
-        }
-
-        .logo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .logo img {
-            width: 220px;
-            border-radius: 12px;
-        }
-
-        h2 {
-            margin-top: -20px;
-            font-size: 25px;
-            text-align: center;
-            color: #ffffff;
-            /* navy blue */
-        }
-
-
-        .back {
-            background: rgba(255, 255, 255, 0.9);
-            color: #00629B;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 700;
-        }
-
-        label {
-            display: block;
-            margin-top: 14px;
-            font-weight: 600;
-            color: #ffffff;
-        }
-
-        input[type=text],
-        input[type=number],
-        input[type=date],
-        input[type=time],
-        select,
-        textarea {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 12px 14px;
-            margin-top: 6px;
-            border: 1px solid #e2e8f0;
-            /* رمادي فاتح */
-            border-radius: 10px;
-            /* زوايا ناعمة */
-            font-size: 14px;
-            background: #ffffff;
-            color: #111827;
-            /* نص غامق */
-            transition: all 0.3s ease;
-        }
-
-        /* لما المستخدم يضغط أو يكتب */
-        input[type=text]:focus,
-        input[type=number]:focus,
-        input[type=date]:focus,
-        input[type=time]:focus,
-        select:focus,
-        textarea:focus {
-            border-color: #00629B;
-            /* أزرق */
-            box-shadow: 0 0 0 3px rgba(0, 98, 155, 0.2);
-            outline: none;
-        }
-
-        /* input العادي يبقى دائري أكتر */
-        input[type=text],
-        input[type=number],
-        input[type=date],
-        input[type=time],
-        select {
-            border-radius: 50px;
-        }
-
-        /* textarea */
-        textarea {
-            font-family: "Segoe UI", Roboto, Arial, sans-serif;
-            min-height: 160px;
-            resize: none;
-            border-radius: 12px;
-        }
-
-        
-
-        .btn-primary {
-            background: transparent;
-
-            /* اللون الأزرق الرئيسي */
-            color: #00ff2f;
-            /* النص أبيض */
-            border: 1px solid white;
-            padding: 12px 20px;
-            font-size: 16px;
-            font-weight: 600;
-            width: 100%;
-            border-radius: 30px;
-            /* شكل دائري */
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .muted {
-            font-size: 12px;
-            opacity: 0.85;
-            margin-top: 6px;
-        }
-
-        .footer {
-            margin-top: 12px;
-            text-align: center;
-        }
-    </style>
-</head>
-
-<body>
-    <button class="back" onclick="google.script.run.showSidebar()">⬅ Back</button>
-    <div class="logo"> <img src="https://i.ibb.co/FkXFQRZf/logo-2.png" alt="IEEE MET Logo"
-            style="width:220px; margin-bottom:20px; border-radius:12px;"></div>
-    <h2> Meeting Mail</h2>
-
-
-    <label>Meeting Title</label>
-    <input id="meetingTitle" type="text" placeholder="Meeting title">
-
-    <div class="row">
-        <div>
-            <label>Date</label>
-            <input id="meetingDate" type="date">
-        </div>
-        <div>
-            <label>Time</label>
-            <input id="meetingTime" type="time">
-        </div>
-    </div>
-
-    <label>Duration (minutes)</label>
-    <input id="duration" type="number" value="60" min="1">
-
-    <div class="row">
-        <div>
-            <label>Email Column</label>
-            <select id="emailCol"></select>
-        </div>
-        <div>
-            <label>Cycle Column</label>
-            <select id="cycleCol"></select>
-        </div>
-    </div>
-
-    <label>Cycle (optional — load values from chosen cycle column)</label>
-    <select id="cycleValue">
-        <option value="">All cycles</option>
-    </select>
-
-    <div class="row">
-        <div>
-            <label>Send only to selected cycle?</label>
-            <select id="filterMode">
-                <option value="all">No — send to all</option>
-                <option value="only">Yes — send to selected cycle</option>
-            </select>
-        </div>
-        <div>
-            <label>Test Mode</label>
-            <select id="testMode">
-                <option value="false">Off</option>
-                <option value="true">Send only to me</option>
-            </select>
-        </div>
-    </div>
-
-    <label>Additional Message</label>
-    <textarea id="message" placeholder="Optional notes / agenda"></textarea>
-
-    <label>HTML Email Template</label>
-    <textarea id="htmlTemplate">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <div style="font-family: Arial, sans-serif; background:#f4f7fb; padding:20px; color:#111; line-height:1.5">
-  <div style="max-width:600px; margin:0 auto; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.1)">
-    
-    <!-- Header -->
-    <div style="background:#00629B; color:#fff; padding:16px 20px; text-align:center">
-      <h2 style="margin:0; font-size:22px">📢 Meeting Invitation</h2>
+    <div
+        style="max-width:600px; margin:0 auto; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.1)">
+
+        <!-- Header -->
+        <div style="background:#00629B; color:#fff; padding:16px 20px; text-align:center">
+            <h2 style="margin:0; font-size:22px"> <i class="fas fa-bullhorn"
+                    style="color:#ffffff; margin-right:6px;"></i>
+
+                Meeting Invitation</h2>
+        </div>
+
+        <!-- Body -->
+        <div style="padding:20px">
+            <p style="margin:0 0 12px 0">Hello,</p>
+            <p style="margin:0 0 20px 0">
+                You are invited to the <b>${cycle}</b> meeting. Below are the details:
+            </p>
+
+            <table style="width:100%; border-collapse:collapse; font-size:14px">
+                <tr>
+                    <td style="padding:10px; border:1px solid #e5e7eb; background:#f9fafb"><b>Title</b></td>
+                    <td style="padding:10px; border:1px solid #e5e7eb">${meetingTitle}</td>
+                </tr>
+                <tr>
+                    <td style="padding:10px; border:1px solid #e5e7eb; background:#f9fafb"><b>Date</b></td>
+                    <td style="padding:10px; border:1px solid #e5e7eb">${meetingDate}</td>
+                </tr>
+                <tr>
+                    <td style="padding:10px; border:1px solid #e5e7eb; background:#f9fafb"><b>Time</b></td>
+                    <td style="padding:10px; border:1px solid #e5e7eb">${meetingTime}</td>
+                </tr>
+                <tr>
+                    <td style="padding:10px; border:1px solid #e5e7eb; background:#f9fafb"><b>Duration</b></td>
+                    <td style="padding:10px; border:1px solid #e5e7eb">${durationMinutes} minutes</td>
+                </tr>
+                <tr>
+                    <td style="padding:10px; border:1px solid #e5e7eb; background:#f9fafb"><b>Cycle</b></td>
+                    <td style="padding:10px; border:1px solid #e5e7eb">${cycle}</td>
+                </tr>
+                <tr>
+                    <td style="padding:10px; border:1px solid #e5e7eb; background:#f9fafb"><b>Meeting Link</b></td>
+                    <td style="padding:10px; border:1px solid #e5e7eb">
+                        <a href="${meetLink}" target="_blank"
+                            style="color:#00629B; text-decoration:none; font-weight:600">
+                            <i class="fas fa-link" style="margin-right:6px;"></i> Join Meeting
+                        </a>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Optional message -->
+            <div
+                style="margin-top:20px; padding:15px; background:#f0f9ff; border-left:4px solid #00629B; border-radius:6px; font-size:14px; color:#111">
+                ${message}
+            </div>
+
+            <p style="margin-top:24px; text-align: center;">Best regards,<br><b>IEEE MET HR Team</b></p>
+        </div>
+
+        <!-- Footer -->
+        <div style="background:#f9fafb; text-align:center; padding:12px; font-size:12px; color:#6b7280">
+            This is an automated email. Please do not reply directly.
+        </div>
     </div>
-
-    <!-- Body -->
-    <div style="padding:20px">
-      <p style="margin:0 0 12px 0">Hello <b>${name}</b>,</p>
-      <p style="margin:0 0 20px 0">
-        You are invited to the <b>${cycle}</b> meeting. Below are the details:
-      </p>
-
-      <table style="width:100%; border-collapse:collapse; font-size:14px">
-        <tr>
-          <td style="padding:10px; border:1px solid #e5e7eb; background:#f9fafb"><b>Title</b></td>
-          <td style="padding:10px; border:1px solid #e5e7eb">${meetingTitle}</td>
-        </tr>
-        <tr>
-          <td style="padding:10px; border:1px solid #e5e7eb; background:#f9fafb"><b>Date</b></td>
-          <td style="padding:10px; border:1px solid #e5e7eb">${meetingDate}</td>
-        </tr>
-        <tr>
-          <td style="padding:10px; border:1px solid #e5e7eb; background:#f9fafb"><b>Time</b></td>
-          <td style="padding:10px; border:1px solid #e5e7eb">${meetingTime}</td>
-        </tr>
-        <tr>
-          <td style="padding:10px; border:1px solid #e5e7eb; background:#f9fafb"><b>Duration</b></td>
-          <td style="padding:10px; border:1px solid #e5e7eb">${durationMinutes} minutes</td>
-        </tr>
-        <tr>
-          <td style="padding:10px; border:1px solid #e5e7eb; background:#f9fafb"><b>Cycle</b></td>
-          <td style="padding:10px; border:1px solid #e5e7eb">${cycle}</td>
-        </tr>
-        <tr>
-          <td style="padding:10px; border:1px solid #e5e7eb; background:#f9fafb"><b>Meeting Link</b></td>
-          <td style="padding:10px; border:1px solid #e5e7eb">
-            <a href="${meetLink}" target="_blank" style="color:#00629B; text-decoration:none; font-weight:600">
-              🔗 Join Meeting
-            </a>
-          </td>
-        </tr>
-      </table>
-
-      <!-- Optional message -->
-      <div style="margin-top:20px; padding:15px; background:#f0f9ff; border-left:4px solid #00629B; border-radius:6px; font-size:14px; color:#111">
-        ${message}
-      </div>
-
-      <p style="margin-top:24px">Best regards,<br><b>IEEE MET Team</b></p>
-    </div>
-
-    <!-- Footer -->
-    <div style="background:#f9fafb; text-align:center; padding:12px; font-size:12px; color:#6b7280">
-      This is an automated email. Please do not reply directly.
-    </div>
-  </div>
 </div>
-    </textarea>
-
-    <div class="footer">
-        <button class="btn-primary" onclick="createAndSend()">Create Meeting & Send</button>
-        <div class="muted">Note: guests added to the event will be able to join without asking. Non-listed emails
-            will need to ask to join.</div>
-    </div>
-
-
-    <script>
-        // initialize headers
-        function init() {
-            google.script.run.withSuccessHandler(function (res) {
-                var headers = res.headers || [];
-                var emailCol = document.getElementById('emailCol');
-                var cycleCol = document.getElementById('cycleCol');
-                emailCol.innerHTML = '';
-                cycleCol.innerHTML = '';
-                for (var i = 0; i < headers.length; i++) {
-                    var opt1 = document.createElement('option');
-                    opt1.value = i;
-                    opt1.text = headers[i] || ('Column ' + (i + 1));
-                    emailCol.appendChild(opt1);
-                    var opt2 = opt1.cloneNode(true);
-                    cycleCol.appendChild(opt2);
-                }
-            }).getSheetHeadersForMeeting();
-        }
-
-        // when user selects cycle column, load unique values
-        document.getElementById('cycleCol').addEventListener('change', function () {
-            var col = parseInt(this.value, 10);
-            if (isNaN(col)) return;
-            google.script.run.withSuccessHandler(function (vals) {
-                var sel = document.getElementById('cycleValue');
-                sel.innerHTML = '<option value=\"\">All cycles</option>';
-                vals.forEach(function (v) { var o = document.createElement('option'); o.value = v; o.text = v; sel.appendChild(o); });
-            }).getUniqueColumnValues(col);
-        });
-
-        function createAndSend() {
-            var data = {
-                title: document.getElementById('meetingTitle').value,
-                date: document.getElementById('meetingDate').value,
-                time: document.getElementById('meetingTime').value,
-                durationMinutes: Number(document.getElementById('duration').value) || 60,
-                emailCol: Number(document.getElementById('emailCol').value),
-                cycleCol: (document.getElementById('cycleCol').value === '') ? undefined : Number(document.getElementById('cycleCol').value),
-                cycleValue: document.getElementById('cycleValue').value || '',
-                message: document.getElementById('message').value || '',
-                htmlTemplate: document.getElementById('htmlTemplate').value,
-                subjectTemplate: 'Invitation: ' + document.getElementById('meetingTitle').value,
-                testMode: (document.getElementById('testMode').value === 'true')
-            };
-            // if filterMode is only and no cycleValue selected -> warn
-            if (document.getElementById('filterMode').value === 'only' && !data.cycleValue) {
-                if (!confirm('You selected "Only selected cycle" but did not choose a cycle value. Continue sending to ALL?')) {
-                    return;
-                }
-            }
-
-            document.querySelector('.btn-primary').disabled = true;
-            document.querySelector('.btn-primary').innerText = 'Working...';
-
-            google.script.run.withSuccessHandler(function (res) {
-                alert('Done. Sent: ' + res.sent + '  Errors: ' + res.sendErrors + '\\nMeet link: ' + res.meetLink);
-                document.querySelector('.btn-primary').disabled = false;
-                document.querySelector('.btn-primary').innerText = 'Create Meeting & Send';
-            }).withFailureHandler(function (err) {
-                alert('Error: ' + err.message);
-                document.querySelector('.btn-primary').disabled = false;
-                document.querySelector('.btn-primary').innerText = 'Create Meeting & Send';
-            }).createMeetingAndSend(data);
-        }
-
-        // init on load
-        init();
-    </script>
-</body>
-
-</html>
