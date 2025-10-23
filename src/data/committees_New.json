@@ -326,6 +326,12 @@
           "level": "3rd Year"
         },
         {
+          "name": "Malak Nagah",
+          "image": "/img/Logistice/Malak Nagah.webp",
+          "college": "Engineering",
+          "level": "3rd Year"
+        },
+        {
           "name": "Omar Magdy",
           "image": "/img/Logistice/Omar.webp",
           "college": "Engineering",
@@ -366,29 +372,25 @@
           "image": "/img/Logistice/Raneem.webp",
           "college": "Engineering",
           "level": "2nd Year"
-        }
-        ,
+        },
         {
           "name": "Malak Mohamed",
           "image": "/img/Logistice/Malak.webp",
           "college": "MET",
           "level": "2nd Year"
-        }
-        ,
+        },
         {
           "name": "Rana Hassan",
           "image": "/img/Logistice/Rana.webp",
           "college": "BIS",
           "level": "2nd Year"
-        }
-        ,
+        },
         {
           "name": "Naglaa Diaa ",
           "image": "/img/Logistice/Naglaa.webp",
           "college": "Engineering",
           "level": "2nd Year"
-        }
-        ,
+        },
         {
           "name": "Ahmed amin",
           "image": "/img/Logistice/Ahmed amin.webp",
@@ -536,12 +538,6 @@
           "level": "2nd Year"
         },
         {
-          "name": "Nada Nabil",
-          "image": "/img/Team Management/Nada.webp",
-          "college": "CS",
-          "level": "2nd Year"
-        },
-        {
           "name": "Nadeen Mahmoud",
           "image": "/img/Team Management/Nadeen.webp",
           "college": "CS",
@@ -610,7 +606,14 @@
         "college": "Engineering",
         "level": "3rd Year"
       },
-      "vice": [],
+      "vice": [
+        {
+          "name": "Fares Tarek",
+          "image": "/img/Marketing/Fares.webp",
+          "college": "Engineering",
+          "level": "4th Year"
+        }
+      ],
       "advisors": [
         {
           "name": "Rawda abdelsalam",
@@ -620,12 +623,6 @@
         }
       ],
       "members": [
-        {
-          "name": "Fares Tarek",
-          "image": "/img/Marketing/Fares.webp",
-          "college": "Engineering",
-          "level": "4th Year"
-        },
         {
           "name": "Mahmoud Shawky",
           "image": "/img/Marketing/Mahmoud.webp",
@@ -728,22 +725,19 @@
           "image": "/img/PR/woman.png",
           "college": "CS",
           "level": "2nd Year"
-        }
-        ,
+        },
         {
           "name": "Hanin Ashraf ",
           "image": "/img/PR/Hanin.webp",
           "college": "CS",
           "level": "3rd Year"
-        }
-        ,
+        },
         {
           "name": "Shehab Mahmoud",
           "image": "/img/PR/Shehab.webp",
           "college": "CS",
           "level": "1st Year"
-        }
-        ,
+        },
         {
           "name": "Rana Khaled",
           "image": "/img/PR/woman.png",
