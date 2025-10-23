@@ -1,37 +1,37 @@
 [
   {
-    "name": "Best Member",
+    "name": "Omnia Abdelazim",
     "team": "HR ",
-    "img": "img/Best/1.svg"
+    "img": "/img/HR/Omnia.webp"
   },
   {
-    "name": "Best Member",
-    "team": "Media ",
-    "img": "img/Best/2.svg"
+    "name": "Naira Farhat",
+    "team": "HR ",
+    "img": "/img/HR/naira.webp"
   },
   {
-    "name": "Best Member",
-    "team": "Logistics ",
-    "img": "img/Best/3.svg"
+    "name": "Moaz Mohamed",
+    "team": "HR ",
+    "img": "/img/HR/Moaz.webp"
   },
   {
-    "name": "Best Member",
-    "team": "FR ",
-    "img": "img/Best/4.svg"
-  },
-  {
-    "name": "Best Member",
+    "name": "Khaled Mohamed",
     "team": "Event Managment ",
-    "img": "img/Best/5.svg"
+    "img": "/img/Team Management/Khaled Rezk.webp"
   },
   {
-    "name": "Best Member",
-    "team": "PR ",
-    "img": "img/Best/6.svg"
+    "name": "AbdelGawad Elkholy",
+    "team": "Logistics ",
+    "img": "/img/Logistice/AbdelGawad Elkholy.webp"
   },
   {
-    "name": "Best Member",
-    "team": "Marketing ",
-    "img": "img/Best/7.svg"
+    "name": "Yousef Mohamed",
+    "team": "Logistics ",
+    "img": "/img/Logistice/Yousef Mohamed.webp"
+  },
+  {
+    "name": "Ahmed hesham",
+    "team": "Logistics ",
+    "img": "/img/Logistice/Ahmed hesham.webp"
   }
 ]
