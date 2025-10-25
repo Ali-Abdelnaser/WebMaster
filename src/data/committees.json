@@ -77,7 +77,7 @@
           "level": "2nd Year"
         },
         {
-          "name": "Ahmed Mohmed",
+          "name": "Ahmed M.Mohy",
           "image": "/img/HR/Ahmed Mohmed.webp",
           "college": "Engineering",
           "level": "2nd Year"
@@ -128,7 +128,7 @@
           "name": "Sara Ata",
           "image": "/img/HR/Sara.webp",
           "college": "Engineering",
-          "level": "1st Year"
+          "level": "2nd Year"
         },
         {
           "name": "Samir Tamer",
@@ -661,7 +661,7 @@
         },
         {
           "name": "Farah Mohsen",
-          "image": "/img/Marketing/woman.png",
+          "image": "/img/Marketing/Farah.webp",
           "college": "BIS",
           "level": "3rd Year"
         }
@@ -715,6 +715,12 @@
           "level": "1st Year"
         },
         {
+          "name": "Khaled Mohamed",
+          "image": "/img/PR/Khaled Mohamed.webp",
+          "college": "BIS",
+          "level": "4th Year"
+        },
+        {
           "name": "Menna Allah",
           "image": "/img/PR/Menna.webp",
           "college": "CS",
@@ -733,7 +739,7 @@
           "level": "3rd Year"
         },
         {
-          "name": "Shehab Mahmoud",
+          "name": "Shehab Abdelsamee",
           "image": "/img/PR/Shehab.webp",
           "college": "CS",
           "level": "1st Year"
