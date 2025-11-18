@@ -1,0 +1,755 @@
+/* ========== BASE LAYOUT & GLOBAL STYLES ========== */
+.ieee-section-cards {
+  display: flex;
+  gap: 40px;
+  border-radius: 20px;
+  padding: 56px 42px;
+  color: #fff;
+  max-width: 1400px;
+}
+.ieee-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* ----- Sidebar ----- */
+.ieee-side-bar {
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.ieee-side-item {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  border: 1px solid rgba(0, 128, 255, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px 19px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  transition: background 0.2s, transform .16s;
+  cursor: pointer;
+}
+.ieee-side-item.selected,
+.ieee-side-item:hover {
+  background: linear-gradient(135deg, rgba(0, 128, 255, 0.7), rgba(0, 74, 124, 0.3));
+  border-color: #009fe3;
+  box-shadow: 0 12px 30px rgba(0,128,255,0.5), 0 0 20px rgba(0,128,255,0.4);
+  transform: translateY(-8px) scale(1.03);
+}
+.item-label { font-weight: 700; font-size: 1.2rem; }
+.item-desc  { font-size: 0.95rem; color: #d1cfcf; }
+
+/* ----- Main Content Generic ----- */
+.ieee-main-content {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid #007BFF;
+  padding: 28px 38px;
+  border-radius: 18px;
+  flex: 1;
+  min-width: 0;
+  color: #d1cfcf;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 2px 22px #0004;
+}
+.ieee-content-row {
+  display: flex;
+  flex-direction: row;
+  gap: 36px;
+  align-items: flex-start;
+}
+.main-img {
+  margin-top: 12px;
+  max-width: 340px;
+  border-radius: 16px;
+  transition: box-shadow .3s, transform .3s;
+}
+/* ========== RESPONSIVE FIXED VERSION ========== */
+
+/* --- Up to Tablet --- */
+@media (max-width: 1024px) {
+  .ieee-section-cards {
+    flex-direction: column;
+    gap: 25px;
+    padding: 32px 4vw;
+    align-items: center;
+  }
+
+  /* Sidebar فوق المحتوى */
+  .ieee-side-bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .ieee-side-item {
+    min-width: 180px;
+    padding: 14px 12px;
+    font-size: 1.05rem;
+    border-radius: 14px;
+    text-align: center;
+  }
+
+  .ieee-main-content {
+    flex: 1;
+    width: 95%;
+    padding: 20px 3vw;
+    border-radius: 15px;
+  }
+
+  .ieee-content-row {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+}
+
+/* --- Phone (less than 700px) --- */
+@media (max-width: 700px) {
+  .ieee-section-cards {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 5vw;
+  }
+
+  /* Sidebar فوق المحتوى لكن العناصر تحت بعض */
+  .ieee-side-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    max-width: 400px;
+  }
+
+  .ieee-side-item {
+    width: 90%;
+    padding: 14px 20px;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .ieee-main-content {
+    width: 96%;
+  }
+
+  .main-img {
+    width: 80%;
+    max-width: 320px;
+    border-radius: 10px;
+    margin: 10px auto;
+  }
+}
+
+
+/* ================================================== */
+/*            === SPECIAL CARDS/SECTIONS ===          */
+/* ================================================== */
+
+/* ===== ABOUT CARD - GLASS ICON MODERN ===== */
+.ieee-details-about .about-row {
+  display: flex;
+  align-items: flex-start;
+      justify-content: space-between;
+
+  gap: 44px;
+}
+.ieee-details-about p{
+  text-align: justify;
+}
+.ieee-details-about .about-facts ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.ieee-details-about .about-facts li {
+  margin-bottom: 13px;
+  font-size: 1.11rem;
+  display: flex; align-items: center;
+  gap: 13px;
+  font-weight: 500;
+  letter-spacing: .01em;
+}
+.ieee-details-about .about-facts .fa {
+  background: rgba(0, 123, 255, 0.16);   /* ازرق شبه شفاف يعمل glass effect */
+  color: #0098ff;
+  border-radius: 50%;
+  padding:  12px;
+  font-size: 1em;
+  margin-right: 2px;
+  box-shadow: 0 2px 8px #007bff23, 0 1.5px 6px #fff2;
+  backdrop-filter: blur(3px) saturate(1.7);
+  border: 1px solid rgba(0,128,255,.23);
+  transition: transform 0.2s, box-shadow .18s;
+}
+.ieee-details-about .about-facts .fa:hover,
+.ieee-details-about .about-facts li:hover .fa {
+  background: rgba(0, 123, 255, 0.24);
+  color: #fff;
+  box-shadow: 0 3.5px 11px #0095ff38;
+  transform: scale(1.07);
+}
+
+.ieee-details-about .about-highlights {
+  display: flex;
+  gap: 22px;
+  margin-top: 28px;
+  justify-content: flex-start;
+  
+}
+.fa-external-link-alt:before, .fa-up-right-from-square:before {
+    content: "\f35d";
+    margin-left: 5px;
+}
+.ieee-details-about .about-highlight-card {
+  background: rgba(0,128,255,0.09);
+  border-radius: 12px;
+  padding: 15px 16px 12px 16px;
+  min-width: 185px;
+  text-align: center;
+  box-shadow: 0 2px 12px #0080ff10;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+ border: 1px solid rgba(0, 128, 255, 0.4);
+  gap: 7px;
+}
+.ieee-details-about .about-highlight-card .fa {
+  background: rgba(0, 123, 255, 0.16);
+  color: #ffffff;
+  border-radius: 50%;
+  padding:  10px;
+  font-size: 1.11em;
+  margin-bottom: 6px;
+  margin-right: 0;
+  box-shadow: 0 1px 6px #007bff20;
+  border: 1px solid rgba(0,123,255,.14);
+  backdrop-filter: blur(2.7px);
+  transition: transform .13s;
+}
+.ieee-details-about .about-highlight-card strong {
+  color: #0097ff;
+  font-size: 1.06rem;
+  letter-spacing: .01em;
+  
+}
+.ieee-details-about .about-highlight-card span {
+  font-size: 0.96rem;
+  color: #d1cfcf;
+  font-weight: 400;
+}
+
+.ieee-details-about .tagline {
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: .008em;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  text-align: center;
+  padding-bottom: 3px;
+  text-shadow: 0 1px 11px #00629b, 0 1.5px 4px #ffffff60;
+}
+.ieee-details-about .ieee-link {
+  display:flex;
+  margin-top: 23px;
+  color: #009fe3;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  transition: color .18s;
+  text-decoration: none;
+}
+.ieee-details-about .ieee-link:hover {
+  
+  color: #fff;
+}
+/* ========== RESPONSIVE FOR ABOUT CARD ========== */
+/* 📱 للموبايل (أقل من 700px) */
+@media (max-width: 700px) {
+ .ieee-details-about .about-tagline {
+    font-size: 1.5rem;
+  }
+
+  .ieee-details-about .about-description {
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
+
+ .ieee-details-about .about-row {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 25px;
+  }
+
+ .ieee-details-about .main-img img {
+    width: 90%;
+    max-width: 320px;
+  }
+
+ .ieee-details-about .about-facts {
+    text-align: left;
+  }
+
+  .ieee-details-about .about-facts li {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+
+  /* الهايلايت تبقى صفوف */
+ .ieee-details-about  .about-highlights {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+ .ieee-details-about .highlight-card {
+    width: 100%;
+    text-align: center;
+  }
+
+ .ieee-details-about .highlight-card i {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+    color: #0077b6;
+  }
+
+ .ieee-details-about .highlight-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+ .ieee-details-about .highlight-card p {
+    font-size: 0.95rem;
+  }
+
+ .ieee-details-about .ieee-link {
+    margin-top: 30px;
+    display: block;
+    text-align: center;
+  }
+}
+
+/* 💻 تابلت (بين 700 و1024) */
+@media (max-width: 1024px) and (min-width: 700px) {
+  .about-tagline {
+    font-size: 1.8rem;
+  }
+
+  .about-description {
+    font-size: 1rem;
+  }
+
+  .main-img img {
+    max-width: 250px;
+  }
+
+  .about-facts li {
+    font-size: 1rem;
+  }
+
+  .highlight-card h3 {
+    font-size: 1rem;
+  }
+
+  .highlight-card p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== HISTORY CARD STYLE (مثال) ===== */
+.ieee-details-history {
+  color: #d1cfcf;
+  display: flex; flex-direction: column; gap: 18px;
+}
+
+.history-headline {
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: .008em;
+  font-size: 1.5rem;
+  text-align: center;
+  text-shadow: 0 1px 11px #00629b, 0 1.5px 4px #ffffff60;
+}
+.ieee-details-history p{
+  color: #d1cfcf;
+    text-align: justify;
+}
+.timeline-modern {
+  display: flex; flex-direction: column;
+  position: relative; gap: 1.8em; 
+}
+.timeline-modern:before {
+  content: ""; position: absolute;
+  left: 33px; top: 0; bottom: 7px;
+  width: 3px; background: linear-gradient(to bottom, #0091ff77, #08385b25);
+  border-radius: 3px;
+}
+.timeline-step {
+  position: relative;
+  display: flex; align-items: center; gap: 17px;
+}
+
+.timeline-step .icon-circle {
+  min-width: 45px; min-height: 45px;
+  background: rgba(0, 123, 255, 0.16);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.28em;
+  color: #ffffff;
+  border: 1.5px solid #007bff44;
+  box-shadow: 0 2px 8px #007bff23, 0 1.5px 6px #fff2;
+  margin-top: 4px;
+  position: relative;
+  z-index: 2;
+  left: 10px;
+  transition: background 0.1s, transform .16s;
+}
+.timeline-step .icon-circle:hover{
+  background: rgb(255, 255, 255);
+  color: #007bff;
+}
+.timeline-step-content {
+  background: rgba(0,128,255,0.09);
+  border-radius: 12px;
+  padding: 13px 15px;
+  box-shadow: 0 2px 12px #0080ff10;
+  border-left: 3px solid #007bff44;
+  min-width: 180px;
+}
+.timeline-step strong { color: #009fe3; font-size: 1.2em; margin-right: 12px;}
+.timeline-step small { color: #ffffff;font-size: .9em;}
+.timeline-step p {margin: 5px 0 0 0; color: #d1cfcf; font-size: .87em; text-align: justify;}
+
+.ieee-details-history .ieee-link {
+  display:inline-flex;
+  color: #009fe3;
+  font-weight: 700;
+  align-items: center;
+  justify-content: center;
+  transition: color .18s;
+  text-decoration: none;
+  font-size: 1.07em;
+  gap: 3px;
+}
+.ieee-details-history .ieee-link:hover {
+  
+  color: #fff;
+}
+
+
+/* 🎯=================== RESPONSIVE DESIGN ===================*/
+
+/* 💻 Large screens (Desktop 1200px+) */
+@media (min-width: 1200px) {
+  .history-headline {
+    font-size: 1.6rem;
+  }
+  .timeline-step strong {
+    font-size: 1.25em;
+  }
+}
+
+/* 🖥️ Medium screens (Tablets 768px–1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .history-headline {
+    font-size: 1.4rem;
+  }
+
+  .timeline-step .icon-circle {
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 1.1em;
+  }
+
+  .timeline-step strong {
+    font-size: 1.1em;
+  }
+
+  .timeline-step small {
+    font-size: 0.85em;
+  }
+
+  .timeline-step p {
+    font-size: 0.85em;
+  }
+}
+
+/* 📱 Small screens (Mobile <768px) */
+@media (max-width: 767px) {
+
+  .history-headline {
+    font-size: 1.25rem;
+  }
+
+  .timeline-modern:before {
+    left: 20px;
+  }
+
+  .timeline-step {
+    gap: 10px;
+  }
+
+  .timeline-step .icon-circle {
+    min-width: 38px;
+    min-height: 38px;
+    font-size: 1em;
+    left: 0;
+  }
+
+  .timeline-step-content {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+  }
+
+  .timeline-step strong {
+    font-size: 1rem;
+  }
+
+  .timeline-step small {
+    font-size: 0.85em;
+  }
+
+  .timeline-step p {
+    font-size: 0.85em;
+  }
+
+  .ieee-details-history .ieee-link {
+    font-size: 0.95rem;
+    margin-top: 14px;
+  }
+}
+
+/* ===== sites CARD STYLE (مثال) ===== */
+.ieee-details-sites {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  color: #fff;
+  align-items: center;
+}
+.sites-main-title {
+color: #ffffff;
+  font-weight: 600;
+  letter-spacing: .008em;
+  font-size: 1.5rem;
+  text-align: center;
+  text-shadow: 0 1px 11px #00629b, 0 1.5px 4px #ffffff60;
+}
+.ieee-sites-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+}
+.ieee-site-row {
+  background: rgba(0,128,255,0.10);
+  box-shadow: 0 2px 12px #0080ff1a;
+  border: 1.5px solid rgba(0, 128, 255, 0.22);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 28px;
+  padding: 17px;
+  min-height: 150px;
+  transition: box-shadow .2s, transform .17s;
+}
+.ieee-site-row:hover {
+  background: linear-gradient(135deg, rgba(0, 128, 255, 0.36), rgba(0, 74, 124, 0.18));
+  box-shadow: 0 8px 24px #0099ff36;
+  transform: scale(1.015);
+  border-color: #009fe3;
+}
+
+.site-img {
+  width: 185px; height: 185px;
+  object-fit: contain;
+}
+.site-info {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  flex: 1;
+}
+.site-title {
+  font-size: 1.17rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 2px;
+}
+.site-desc {
+  font-size: 0.97rem;
+  color: #d1cfcf;
+    text-align: justify;
+
+}
+.site-imp {
+  font-size: 0.95em;
+  color: #d1cfcf;
+    text-align: justify;
+
+}
+.site-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #009fe3;
+  font-weight: 700;
+  font-size: 1.07em;
+  text-decoration: none;
+  transition: color .18s;
+}
+.site-link:hover {
+  color: #fff;
+
+}
+@media (max-width: 767px) {
+  .ieee-site-row{
+    flex-direction: column;
+    gap: 0px;
+  }
+    .site-img {
+        width: 269px;
+        height: 224px;
+        object-fit: contain;
+    }
+    .site-link{
+  justify-content: center;
+    }
+}
+
+/* ===== membership  CARD STYLE (مثال) ===== */
+.ieee-details-membership {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  color: #fff;
+}
+.card-title {
+color: #ffffff;
+  font-weight: 600;
+  letter-spacing: .008em;
+  font-size: 1.5rem;
+  text-align: center;
+  text-shadow: 0 1px 11px #00629b, 0 1.5px 4px #ffffff60;
+}
+.membership-desc {
+  text-align: justify;
+  font-size: 1.07rem;
+  color: #d1cfcf;
+  margin-bottom: 6px;
+}
+.membership-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.membership-benefits li {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  color: #ffffff;
+  background: rgba(0,123,255,0.07);
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-weight: 500;
+  gap: 8px;
+  transition:
+    background 0.18s,
+    color 0.16s,
+    box-shadow 0.17s,
+    transform 0.14s;
+  cursor: pointer;
+}
+
+.membership-benefits li:hover {
+   background: linear-gradient(135deg, rgba(0, 128, 255, 0.36), rgba(0, 74, 124, 0.18));
+  color: #fff;
+  box-shadow: 0 8px 24px #0099ff36;
+  transform: scale(1.045) translateY(-2px);
+}
+.benefit-icon {
+  color: #09ff00c9;
+  font-size: 1.08rem;
+  margin-right: 7px;
+  transition: color 0.14s;
+}
+.membership-benefits li:hover .benefit-icon {
+  color: #fff;
+}
+.membership-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  background: linear-gradient(90deg, #009fe3 50%, #007BFF 100%);
+  font-weight: 700;
+  font-size: 1.13em;
+  border-radius: 11px;
+  padding: 13px 32px;
+  text-decoration: none;
+  box-shadow: 0 8px 34px #009fe372, 0 2px 10px #007BFF42;
+  margin-top: 22px;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.02em;
+  transition:
+    background 0.17s,
+    box-shadow 0.18s,
+    transform 0.14s;
+}
+
+.membership-link::before {
+  content: "";
+  position: absolute;
+  left: -60px;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  background: linear-gradient(120deg, #ffffff 26%, transparent 85%);
+  opacity: 0.5;
+  filter: blur(6px);
+  transition: left 0.28s;
+  z-index: 2;
+}
+
+.membership-link:hover::before {
+  left: 100%;
+}
+
+.membership-link:hover,
+.membership-link:focus {
+  background: linear-gradient(90deg, #009fe3 10%, #007BFF 90%);
+  box-shadow: 0 11px 38px #009fe364, 0 5px 18px #007BFF45;
+  transform: scale(1.07) translateY(-2px);
+}
+
+.membership-link:active {
+  transform: scale(0.96);
+  box-shadow: 0 2px 8px #009fe364;
+}
+
+@media (max-width: 767px) {
+ 
+    .membership-desc {
+  font-size: .87rem;
+
+}
+.membership-benefits li {
+  font-size: .9rem;
+}
+}

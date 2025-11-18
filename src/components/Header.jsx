@@ -43,7 +43,7 @@ export default function Header() {
 
           {/* Join button */}
           <div className="nav-button">
-            <SmartLink  to="/join" id="join-btn"></SmartLink >
+            <SmartLink to="/join-cs" id="join-btn"></SmartLink>
           </div>
           {/* <div className="nav-button">
             <SmartLink  to="/join-cs" id="join-btn"></SmartLink >
@@ -61,21 +61,23 @@ export default function Header() {
           {/* Links */}
           <ul className={`nav-links ${menuOpen ? "show" : ""}`}>
             <li>
-              <SmartLink  to="/">Home</SmartLink >
+              <SmartLink to="/">Home</SmartLink>
             </li>
             <li>
-              <SmartLink  to="/about">About</SmartLink >
+              <SmartLink to="/about">About</SmartLink>
             </li>
             <li className={`events-item ${liveEvent ? "live" : ""}`}>
-              <SmartLink  to="/events">Events</SmartLink >
+              <SmartLink to="/events">Events</SmartLink>
             </li>
             <li>
-              <SmartLink  to="/wie">WIE</SmartLink >
+              <SmartLink to="/wie">WIE</SmartLink>
             </li>
             <li>
-              <SmartLink  to="/CS">CS</SmartLink >
+              <SmartLink to="/CS">CS</SmartLink>
             </li>
-
+            {/* <li>
+              <SmartLink to="/ieee">IEEE</SmartLink>
+            </li> */}
           </ul>
         </nav>
       </header>

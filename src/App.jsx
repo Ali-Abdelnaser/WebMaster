@@ -14,6 +14,7 @@ import Home from "./pages/Home";
 import JoinUs from "./pages/JoinUs";
 import JoinCS from "./pages/JoinCS";
 import Events from "./pages/Events";
+import IeeePage from "./pages/IeeePage";
 import Wie from "./pages/Wie";
 import CS from "./pages/CS";
 import About from "./pages/About";
@@ -47,6 +48,7 @@ function AnimatedRoutes() {
         <Route path="/events" element={<Events />} />
         <Route path="/wie" element={<Wie />} />
         <Route path="/CS" element={<CS />} />
+        <Route path="/ieee" element={<IeeePage />} />
         <Route path="/AESS" element={<AESS />} />
         <Route path="/about" element={<About />} />
         <Route path="/committee/:name" element={<CommitteePage />} />

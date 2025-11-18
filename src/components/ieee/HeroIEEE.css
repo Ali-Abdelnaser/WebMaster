@@ -1,0 +1,116 @@
+.ieee-hero-v2 {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#hero-bg {
+  width: 100vw;
+  height: 100vh;
+}
+.ieee-page {
+ background-color: #0080ff28;
+}
+.ieee-hero-content-v2 {
+  position: relative;
+  z-index: 3;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ieee-letters-row {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+.ieee-letter {
+  font-weight: 900;
+  font-size: 8.7rem;
+  color: #ffffff; /* الأزرق الرئيسي للهوية */
+  letter-spacing: .17em;
+  transition: color .5s, transform .5s;
+  text-shadow: 0 6px 44px #00629B;
+}
+.ieee-words-row {
+  display: flex;
+  gap: 42px;
+  min-height: 60px;
+  justify-content: center;
+}
+.ieee-word {
+  font-size: 2.1rem;
+  font-weight: 700;
+  background: #00629b4f;
+  padding: 9px 28px;
+  border-radius: 11px;
+  box-shadow: 0 1px 7px #284e9b13;
+  color: #fff;
+  letter-spacing: .07em;
+  opacity: 0;
+  transition: opacity .4s;
+  position: relative;
+}
+.ieee-word.show { opacity: 1; }
+.ieee-word-first {
+  font-weight: 900;
+  color: #00629B;
+  font-size: 2.5rem;
+  letter-spacing: .15em;
+  transition: color .4s;
+}
+.ieee-meaning-main,
+.ieee-sentence-show {
+  background: #00629b4f;
+  color: #ffffff;
+  font-size: 1.38rem;
+  font-weight: 900;
+  padding: 13px 32px 10px 32px;
+  border-radius: 13px;
+  box-shadow: 0 1.2px 8px #284e9b14;
+  margin-top: -80px;
+  display: inline-block;
+  min-width: 300px;
+  animation: fadeInIEEEText 1.1s .2s backwards;
+  user-select: text;
+  opacity: 1;
+  transition: opacity .9s;
+}
+
+@keyframes fadeInIEEEText {
+  0% { opacity: 0; transform: translateY(40px) scale(.85);}
+  100% { opacity:1; transform: translateY(0) scale(1);}
+}
+
+
+/* --- Responsive for Tablets --- */
+@media (max-width: 1024px) {
+  .ieee-letter { font-size: 8rem; }
+  .ieee-letters-row { gap: 34px;  }
+  .ieee-words-row { gap: 18px; }
+  .ieee-word { font-size: 1.35rem; padding: 8px 16px; }
+  .ieee-word-first { font-size: 1.47rem; }
+  .ieee-meaning-main,
+  .ieee-sentence-show { font-size: 1.2rem; padding: 8px 15px 7px; margin-top: -62px; }
+  
+}
+
+/* --- Responsive for Mobile --- */
+@media (max-width: 700px) {
+  .ieee-letters-row { flex-direction: row; flex-wrap: wrap; gap: 30px; }
+  .ieee-letter { font-size: 5rem; }
+  .ieee-words-row {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  .ieee-word { font-size: 1.07rem; padding: 5px 10px;  }
+  .ieee-word-first { font-size: 1.3rem;}
+  .ieee-meaning-main,
+  .ieee-sentence-show { font-size: 1rem; padding: 8px 15px 7px; min-width: 160px; margin: -198px  30px 0; }
+}

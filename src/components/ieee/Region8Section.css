@@ -1,0 +1,226 @@
+.region8-section {
+  display: flex;
+  flex-direction: column;
+  padding: 90px 44px 36px 44px;
+  margin: 28px auto 16px auto;
+  color: #d1cfcf;
+  max-width: 1400px;
+  background: none;
+}
+
+.region8-top-row {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  margin-bottom: 40px;
+}
+.region8-main-text {
+  flex: 2.2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.region8-img {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.region8-img img {
+  width: 540px;
+  max-width: 35vw;
+  min-width: 190px;
+  margin-top: 20px;
+  object-fit: contain;
+}
+
+/* Title & Desc */
+.region8-title {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: .01em;
+  font-size: 3rem;
+  text-align: center;
+  text-shadow: 0 1px 12px #00629b88, 0 1.5px 4px #ffffff80;
+  margin: 0 0 13px 0;
+}
+.region8-description {
+  color: #d1cfcf;
+  font-size: 1.18rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  line-height: 1.8;
+  letter-spacing: .01em;
+  text-align: justify;
+}
+
+/* Highlights modern "cards" */
+.region8-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 14px;
+  justify-content: center;
+}
+
+.region8-highlight-card {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  border: 1px solid rgba(0, 128, 255, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px 19px;
+  min-width: 215px;
+  flex: 1 1 215px;
+  max-width: 340px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+  cursor: pointer;
+  transition:
+    background 0.21s,
+    border-color 0.14s,
+    box-shadow 0.17s,
+    transform 0.13s;
+}
+.region8-highlight-card:hover,
+.region8-highlight-card:focus {
+  background: linear-gradient(135deg, rgba(0, 128, 255, 0.7), rgba(0, 74, 124, 0.3));
+  border-color: #009fe3;
+  box-shadow: 0 12px 30px rgba(0,128,255,0.5), 0 0 20px rgba(0,128,255,0.4);
+  transform: scale(1.045) translateY(-6px);
+}
+.region8-icon {
+  background: rgba(0,123,255,0.13);
+  border-radius: 50%;
+  padding: 13px;
+  font-size: 1.55em;
+  margin-bottom: 8px;
+  margin-top: 0;
+  border: 1.1px solid rgba(0,128,255,.14);
+  box-shadow: 0 2px 5px #0093ff33;
+  backdrop-filter: blur(5px);
+  transition: background 0.16s, color 0.13s, transform 0.14s;
+}
+
+.region8-highlight-card strong {
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+.region8-highlight-card span {
+  font-size: 1.003rem;
+  color: #d1cfcf;
+}
+
+.region8-egypt {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  border: 1px solid rgba(0, 128, 255, 0.4);
+  border-radius: 16px;
+  padding: 16px 27px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 38px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* شيمر بنفس منطق الكاردات الكبيرة */
+.region8-egypt::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -170%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg,
+    transparent 0%,
+    rgba(255, 215, 0, 0.05) 13%,
+    rgba(255, 215, 0, 0.13) 26%,
+    rgba(255, 215, 0, 0.35) 39%,
+    rgba(255, 215, 0, 0.56) 49%,
+    rgba(255, 215, 0, 0.94) 53%,
+    rgba(255, 215, 0, 0.39) 62%,
+    rgba(255, 215, 0, 0.15) 80%,
+    transparent 100%);
+  transform: skewX(-18deg);
+  animation: region8Shimmer 3.7s linear infinite;
+  z-index: 1;
+}
+
+@keyframes region8Shimmer {
+  0% { left: -180%; }
+  100% { left: 180%; }
+}
+
+/* مهم: محتوى البانر يكون فوق الشيمر */
+.region8-egypt > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+
+.region8-egypt-icon,
+.region8-egypt-text {
+  position: relative;
+  z-index: 2;
+}
+.region8-egypt-icon{
+  color: #007BFF;
+  font-weight: 900;
+  font-size: 3rem;
+  padding: 0;
+}
+.region8-egypt-text {
+  color: #ffffff;
+  letter-spacing: .03em;
+}
+
+/* Responsive for Tablets & Mobile */
+@media (max-width: 900px) {
+  .region8-section {
+    padding: 19px 5vw 18px 5vw;
+    border-radius: 14px;
+  }
+  .region8-top-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 22px;
+  }
+  .region8-img img {
+    width: 90vw;
+    max-width: 510px;
+    margin: 30px auto;
+    align-self: center;
+  }
+    .region8-img {
+    order: 1;    /* الصورة تظهر أولاً في العمود */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .region8-main-text {
+    order: 2;    /* النص والديتا يجي بعد الصورة */
+    width: 100%;
+  }
+  .region8-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 9px;
+  }
+  .region8-main-text, .region8-description {
+    text-align: justify;
+    font-size: 1rem;
+  }
+  .region8-egypt {
+    font-size: .88rem;
+    padding: 10px;
+    margin-top: 23px;
+  }
+}

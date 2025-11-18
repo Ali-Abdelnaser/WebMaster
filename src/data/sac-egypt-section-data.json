@@ -1,0 +1,23 @@
+{
+  "title": "IEEE SAC Egypt",
+  "logo": "/images/sac-logo.png",
+  "description": "IEEE Egypt Section Students’ Activities Committee (SAC) is the official committee responsible for developing, coordinating, and representing all IEEE students’ activities across Egypt. SAC Egypt empowers over 2000 student volunteers, strengthens more than 75 student branches, fosters competitions, technical chapters, and actively builds leadership skills, connecting Egypt’s largest STEM student community to the worldwide IEEE network.",
+  "stats": [
+    {"label": "Student Branches", "value": "75+"},
+    {"label": "Volunteers", "value": "2,000+"},
+    {"label": "Awards", "value": "100+"},
+    {"label": "SBCs/AGs", "value": "20"}
+  ],
+  "programs": [
+    {"name": "IEEE Day Egypt Section", "link": "https://sac.ieee.org.eg/programs"},
+    {"name": "Tech Tours", "link": "https://sac.ieee.org.eg/tech-tours"},
+    {"name": "IEEE PES Day", "link": "https://sac.ieee.org.eg/forms/pes24-closing"},
+    {"name": "Student Branches Activities", "link": "https://sac.ieee.org.eg/student-branches"},
+    {"name": "Awards & Recognition", "link": "https://sac.ieee.org.eg/awards"},
+    {"name": "Newsletter", "link": "https://sac.ieee.org.eg/newsletter"}
+  ],
+  "cta": {
+    "label": "Learn more about SAC Egypt",
+    "url": "https://sac.ieee.org.eg/"
+  }
+}

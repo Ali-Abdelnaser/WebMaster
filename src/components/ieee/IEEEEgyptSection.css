@@ -1,0 +1,207 @@
+.ieee-egypt-main-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  gap: 0;
+  padding: 100px 0 40px;
+  margin: 0 40px;
+}
+.ieee-egypt-title{
+ color: #fff;
+  font-weight: 700;
+  letter-spacing: .05em;
+  font-size: 1.5rem;
+  text-align: center;
+  text-shadow: 0 1px 12px #00629b88, 0 1.5px 4px #ffffff80;
+  margin: 0;
+}
+.ieee-egypt-side-card {
+      background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  border: 1px solid rgba(0, 128, 255, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  min-width: 230px;
+  max-width: 260px;
+  padding: 5px 28px 48px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ieee-egypt-logo {
+  width: 300px;
+  margin: -68px 0 ;
+}
+.ieee-egypt-about {
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: #d1cfcf;
+  text-align: justify;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+.ieee-egypt-cards-scroll {
+  overflow-x: scroll !important;
+  overflow-y: visible;
+  min-width: 0;
+  height: 100%;
+  padding: 0 16px;
+  margin-right: 50px;
+}
+
+.ieee-egypt-cards-row {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  min-width: 700px;
+  align-items: flex-start;
+  padding: 45px 0;
+  padding-right: 30px !important;
+
+}
+
+.ieee-egypt-org-card {
+  position: relative;
+  width: 320px;
+  min-width: 270px;
+  max-width: 320px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  border: 1px solid rgba(0, 128, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 24px 15px 16px 15px;
+  overflow: hidden;
+  transition:
+    transform 0.28s,
+    box-shadow 0.3s,
+    border-color 0.3s;
+  text-align: center;
+  cursor: pointer;
+  margin-right: -50px; /* لازقين ببعض */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  z-index: 0;
+}
+
+/* شيمر بنفس ستايل founders */
+.ieee-egypt-org-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -180%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg,
+    transparent 0%,
+    rgba(255, 215, 0, 0.05) 13%,
+    rgba(255, 215, 0, 0.13) 25%,
+    rgba(255, 215, 0, 0.33) 38%,
+    rgba(255, 215, 0, 0.51) 48%,
+    rgba(255, 215, 0, 0.83) 53%,
+    rgba(255, 215, 0, 0.44) 63%,
+    rgba(255, 215, 0, 0.19) 78%,
+    transparent 100%);
+  transform: skewX(-20deg);
+  animation: shimmer-gold-org 3.3s linear infinite;
+  z-index: 1;
+}
+@keyframes shimmer-gold-org {
+  0% { left: -180%; }
+  100% { left: 190%; }
+}
+
+.ieee-egypt-org-card * {
+  position: relative;
+  z-index: 2;
+}
+
+.ieee-egypt-org-card:hover,
+.ieee-egypt-org-card:focus-within {
+  z-index: 44 !important; /* أعلى من جيرانها */
+  transform: translateY(-16px) scale(1.09);
+  box-shadow: 0 21px 66px rgba(0, 128, 255, 0.53),
+              0 0 29px #ffd700a9,
+              0 1.5px 18px #fffadf83;
+  border-color: #ffd700;
+}
+/* الصورة الرمزية */
+.ieee-egypt-org-img {
+  width: 250px;
+  height: 200px;
+  object-fit: contain;
+}
+
+/* اسم الأورجنيزيشن */
+.ieee-egypt-org-name {
+  font-size: 1.17rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: -10px;
+  letter-spacing: .05em;
+}
+
+/* زر الريدمور */
+.ieee-egypt-readmore {
+  font-size: 1.07rem;
+  display:flex;
+  margin-top: 23px;
+  color: #009fe3;
+  font-weight: 600;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  transition: color .18s;
+  text-decoration: none;
+}
+.ieee-egypt-readmore:hover,
+.ieee-egypt-readmore:focus {
+  color: #ffffff;
+}
+@media (max-width: 760px) {
+
+  .ieee-egypt-main-row {
+    flex-direction: column;        
+    align-items: center;          
+    margin: 0;
+    padding: 80px 0 30px;         
+    gap: 28px;                     
+  }
+
+  .ieee-egypt-side-card {
+    width: 80%;                   
+    max-width: 90%;                              
+    padding: 20px 22px 20px 22px;  
+  }
+.ieee-egypt-title{
+  justify-content: center;
+    font-size: 1.2rem;
+}
+.ieee-egypt-about{
+    font-size: 1.2rem;
+
+}
+  .ieee-egypt-logo {
+    width: 85%;
+    max-width: 740px;
+    margin: -50px ;
+  }
+  .ieee-egypt-cards-row{
+    padding: 45px;
+  }
+  .ieee-egypt-cards-scroll {
+    width: 100%;
+    padding:  20px;
+    overflow-x: scroll !important;              
+    overflow-y: visible;
+    height: auto;
+  }.ieee-egypt-cards-scroll::-webkit-scrollbar {
+  display: block !important;       
+}
+}
