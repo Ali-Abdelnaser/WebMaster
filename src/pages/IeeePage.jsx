@@ -6,6 +6,7 @@ import IEEESection from "../components/ieee/ieeeSection";
 import Arrow from "../components/ieee/arrow";
 import Region8Section from "../components/ieee/Region8Section";
 import IEEEEgyptSection from "../components/ieee/ieee-egypt-section";
+import StudentActivitiesSection from "../components/ieee/StudentActivitiesSection";
 import SacEgyptSection from "../components/ieee/SacEgyptSection";
 import AnimatedBackground from "../components/join/AnimatedBackground";
 import { motion } from "framer-motion";
@@ -58,6 +59,8 @@ export default function IeeePage() {
         <IEEEEgyptSection />
         <Arrow />
         <SacEgyptSection />
+        <Arrow />
+        <StudentActivitiesSection />
       </div>
       <motion.div variants={itemVariants}>
         <Footer />

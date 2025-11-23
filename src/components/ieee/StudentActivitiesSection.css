@@ -1,0 +1,91 @@
+.student-activities-section {
+  border-radius: 26px;
+
+  padding: 38px 20px 48px 20px;
+  max-width: 1100px;
+  margin: 44px auto 0 auto;
+}
+.student-activities-title {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: .01em;
+  font-size: 2.8rem;
+  text-align: center;
+  text-shadow: 0 1px 12px #00629b88, 0 1.5px 4px #ffffff80;
+  margin: 20PX 0 13px 0;
+}
+.student-activities-desc {
+  color: #d1cfcf;
+  font-size: 1.18rem;
+  font-weight: 500;
+  margin-bottom: 25px;
+  line-height: 1.8;
+  letter-spacing: .01em;
+  text-align: justify;
+}
+.student-activities-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+}
+.student-activities-card {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  border: 1px solid rgba(0, 128, 255, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px 19px;
+  min-width: 200px;
+  flex: 1 1 200px;
+  max-width: 220px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+  cursor: pointer;
+  transition:
+    background 0.21s,
+    border-color 0.14s,
+    box-shadow 0.17s,
+    transform 0.13s;
+}
+.student-activities-card:hover {
+  background: linear-gradient(135deg, rgba(0, 128, 255, 0.7), rgba(0, 74, 124, 0.3));
+  border-color: #009fe3;
+  box-shadow: 0 12px 30px rgba(0,128,255,0.5), 0 0 20px rgba(0,128,255,0.4);
+  transform: scale(1.045) translateY(-6px);
+}
+
+.student-activities-icon {
+  background: rgba(0,123,255,0.13);
+  border-radius: 50%;
+  padding: 13px;
+  font-size: 2em;
+  margin-bottom: 8px;
+  margin-top: 0;
+  border: 1.1px solid rgba(0,128,255,.14);
+  box-shadow: 0 2px 5px #0093ff33;
+  backdrop-filter: blur(5px);
+  transition: background 0.16s, color 0.13s, transform 0.14s;
+}
+.student-activities-head {
+  font-size: 1rem;
+  color: #ffffff;
+  letter-spacing: .02em;
+  font-weight: 700;
+}
+.student-activities-label {
+  font-size: .98rem;
+  color: #d1cfcf;
+  font-weight: 400;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .student-activities-section { padding: 14px 2vw 22px 2vw; border-radius: 14px; }
+  .student-activities-highlights { gap: 10px; margin-bottom: 8px;}
+  .student-activities-title { font-size: 1.4rem; }
+  .student-activities-card { min-width: 120px; max-width: 96vw; padding: 13px 5vw;}
+}

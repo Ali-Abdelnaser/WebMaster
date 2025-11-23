@@ -99,21 +99,21 @@ export default function FooterCS() {
         {/* Quick Links */}
         <div className="cs-footer-column cs-quick-links">
           <h3>Quick Links</h3>
-          <SmartLink  to="/">
+          <SmartLink to="/">
             <i className="fas fa-angle-right"></i> Home
-          </SmartLink >
-          <SmartLink  to="/about">
+          </SmartLink>
+          <SmartLink to="/about">
             <i className="fas fa-angle-right"></i> About
-          </SmartLink >
-          <SmartLink  to="/events">
+          </SmartLink>
+          <SmartLink to="/events">
             <i className="fas fa-angle-right"></i> Events
-          </SmartLink >
-          <SmartLink  to="/wie">
+          </SmartLink>
+          <SmartLink to="/wie">
             <i className="fas fa-angle-right"></i> WIE
-          </SmartLink >
-          <SmartLink  to="/CS">
+          </SmartLink>
+          <SmartLink to="/CS">
             <i className="fas fa-angle-right"></i> CS
-          </SmartLink >
+          </SmartLink>
         </div>
       </div>
 

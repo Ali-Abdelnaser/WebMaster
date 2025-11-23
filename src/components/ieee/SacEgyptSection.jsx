@@ -5,7 +5,7 @@ import data from "../../data/sac-egypt-section-data.json";
 export default function SacEgyptSection() {
   return (
     <section className="sac-egypt-section">
-      <h2 className="sac-title">{data.title}</h2>
+      <h2 className="sac-programs">{data.title}</h2>
       <div className="sac-hero-row">
         <div className="sac-description">{data.description}</div>
         <div className="sac-logo-box">
@@ -20,6 +20,7 @@ export default function SacEgyptSection() {
           </div>
         ))}
       </div>
+      <h3 className="sac-programs">SAC PROGRAMS</h3>
       <div className="sac-programs-row">
         {data.programs.map((prog, i) => (
           <a href={prog.link} className="sac-program-card" key={i} target="_blank" rel="noopener noreferrer">
@@ -27,14 +28,15 @@ export default function SacEgyptSection() {
           </a>
         ))}
       </div>
-      <a
-        className="sac-egypt-cta"
-        href={data.cta.url}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {data.cta.label}
-      </a>
+    <a
+      className="ieee-link"
+      href={data.cta.url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Learn more from official website{" "}
+      <i className="fa fa-external-link-alt"></i>
+    </a>
     </section>
   );
 }

@@ -1,21 +1,21 @@
 .sac-egypt-section {
-  background: linear-gradient(120deg, #009fe311 0%, #182f5588 120%);
-  border-radius: 32px;
-  box-shadow: 0 12px 34px #009fe320;
-  margin: 34px 0 48px 0;
-  padding: 54px 38px 48px 38px;
-  max-width: 1100px;
-  color: #fff;
-  font-family: 'Cairo', 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 90px 44px 36px 44px;
+  margin: 0 10px  ;
+  color: #d1cfcf;
+  max-width: 1400px;
+  background: none;
 }
-.sac-title {
+
+.sac-programs{
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: .01em;
+  font-size: 3rem;
   text-align: center;
-  font-size: 2.3rem;
-  font-weight: 900;
-  letter-spacing: .07em;
-  color: #23dafc;
-  margin-bottom: 34px;
-  text-shadow: 0 3px 18px #21eafd30;
+  text-shadow: 0 1px 12px #00629b88, 0 1.5px 4px #ffffff80;
+  margin: 20PX 0 13px 0;
 }
 .sac-hero-row {
   display: flex;
@@ -25,59 +25,70 @@
   margin-bottom: 36px;
 }
 .sac-description {
-  flex: 2.7;
-  font-size: 1.13rem;
-  color: #e8f7ff;
-  letter-spacing: .03em;
+  color: #d1cfcf;
+  font-size: 1.18rem;
   font-weight: 500;
-  line-height: 1.85;
+  margin-bottom: 8px;
+  line-height: 1.8;
+  letter-spacing: .01em;
   text-align: justify;
 }
 .sac-logo-box {
-  flex: 1.2;
+  flex: 1;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: center;
 }
 .sac-logo {
-  width: 160px;
-  max-width: 100%;
-  border-radius: 18px;
-  background: #fafcff18;
-  box-shadow: 0 2px 19px #09d7fe52;
-  padding: 12px;
+  width: 540px;
+  max-width: 75vw;
+  min-width: 190px;
+  margin-top: 20px;
+  object-fit: contain;
 }
 .sac-stats-row {
   display: flex;
-  gap: 32px;
-  justify-content: center;
-  margin: 46px 0 36px 0;
   flex-wrap: wrap;
+  gap: 22px;
+  justify-content: center;
 }
 .sac-stat-card {
-  background: rgba(0,128,255,0.10);
-  border-radius: 18px;
-  box-shadow: 0 2px 18px #09d7fe19, 0 2px 7px #ffd70033;
-  padding: 29px 32px 22px 32px;
-  border: 1.3px solid #21eafd7a;
-  min-width: 130px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  border: 1px solid rgba(0, 128, 255, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px 19px;
+  min-width: 200px;
+  flex: 1 1 200px;
+  max-width: 220px;
   text-align: center;
-  transition: box-shadow 0.16s, transform 0.17s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+  cursor: pointer;
+  transition:
+    background 0.21s,
+    border-color 0.14s,
+    box-shadow 0.17s,
+    transform 0.13s;
 }
-.sac-stat-card:hover {
-  box-shadow: 0 8px 29px #ffd70084, 0 3px 12px #09d7fe36;
-  transform: scale(1.07) translateY(-8px);
+.sac-stat-card:hover,.sac-stat-card:focus {
+  background: linear-gradient(135deg, rgba(0, 128, 255, 0.7), rgba(0, 74, 124, 0.3));
+  border-color: #009fe3;
+  box-shadow: 0 12px 30px rgba(0,128,255,0.5), 0 0 20px rgba(0,128,255,0.4);
+  transform: scale(1.045) translateY(-6px);
 }
 .sac-stat-value {
-  font-size: 2.3rem;
+  font-size: 3rem;
   font-weight: 800;
-  color: #ffd700;
+  color: #ffffff;
   letter-spacing: .045em;
 }
 .sac-stat-label {
   font-size: 1.1rem;
-  color: #21eafd;
-  margin-top: 7px;
+  color: #d1cfcf;
   font-weight: 600;
   letter-spacing: .01em;
 }
@@ -90,25 +101,88 @@
   margin: 30px 0 36px 0;
 }
 .sac-program-card {
-  background: rgba(255,255,255,0.13);
-  border-radius: 15px;
-  box-shadow: 0 2px 13px #21eafd13;
-  border: 1.3px solid #ffd90060;
-  font-size: 1.08rem;
-  color: #23dafc;
-  padding: 14px 25px;
+  position: relative;
+  background: rgba(0, 128, 255, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 3px 18px #009fe358, 0 1px 7px #ffd90022;
+  border: 1.8px solid #009fe37a;
+  font-size: 1.11rem;
+  color: #ffffff;
+  padding: 17px 29px 17px 29px;
   font-weight: 700;
   letter-spacing: .02em;
   text-decoration: none;
-  transition: background 0.13s, border-color 0.13s, transform 0.13s, color 0.16s;
+  transition:
+    background 0.17s,
+    border-color 0.16s,
+    color 0.18s,
+    box-shadow 0.18s,
+    transform 0.18s;
   display: inline-block;
+  overflow: hidden;
+  cursor: pointer;
 }
-.sac-program-card:hover {
-  background: linear-gradient(100deg, #ffd90028 20%, #21eafd25 80%);
-  color: #ffd900;
-  border-color: #ffd900;
-  transform: scale(1.05) translateY(-2px);
+
+.sac-program-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -140%;
+  width: 200%;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(120deg,
+    transparent 0%,
+    rgba(255, 215, 0, 0.09) 20%,
+    rgba(255, 215, 0, 0.15) 33%,
+    rgba(255, 215, 0, 0.38) 45%,
+    rgba(255, 215, 0, 0.62) 52%,
+    rgba(255, 215, 0, 0.21) 65%,
+    transparent 100%);
+  transform: skewX(-22deg);
+  animation: shimmer-program-card 2.4s linear infinite;
+  pointer-events: none;
+  opacity: .65;
 }
+@keyframes shimmer-program-card {
+  0% { left: -140%; }
+  100% { left: 150%; }
+}
+
+.sac-program-card * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Wave Shine Glow على الحواف عند الهوفر */
+.sac-program-card:hover::after {
+  content: "";
+  position: absolute;
+  bottom: -6px; left: 10px; right: 10px;
+  height: 8px;
+  border-radius: 8px;
+  background: linear-gradient(90deg,#ffd900 0%, #21eafd 100%);
+  filter: blur(6px);
+  opacity: .3;
+  z-index: 3;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .sac-program-card {
+    font-size: .98rem;
+    padding: 12px 10vw;
+    border-radius: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sac-program-card {
+    font-size: .92rem;
+    padding: 9px 7vw;
+  }
+}
+
 .sac-egypt-cta {
   margin: 0 auto;
   display: block;
@@ -135,13 +209,17 @@
 @media (max-width: 900px) {
   .sac-egypt-section { padding: 18px 2vw 24px 2vw; border-radius: 19px; }
   .sac-hero-row { flex-direction: column-reverse; align-items: center; gap: 18px; }
-  .sac-logo { width: 110px; padding: 8px; margin-bottom: 12px; }
   .sac-stats-row { gap: 15px; margin: 18px 0 26px 0; }
 }
 
 @media (max-width: 600px) {
-  .sac-title { font-size: 1.3rem; }
-  .sac-logo { width: 75px; padding: 5px; }
-  .sac-stat-card { min-width: 95px; padding: 18px 10px 14px 10px;}
+  .sac-programs { font-size: 2.3rem; }
+  .sac-stat-card { min-width: 95px; max-width: 150px; padding: 18px 10px 14px 10px;}
+  .sac-stat-value{font-size: 2rem;} .sac-stat-label{font-size: 1rem;}
   .sac-program-card { font-size: .97rem; padding: 9px 10px;}
+  .sac-description{
+    font-size: 1rem;
+    padding: 5px;
+    margin-bottom: 0;
+  }
 }

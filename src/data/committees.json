@@ -131,12 +131,6 @@
           "level": "2nd Year"
         },
         {
-          "name": "Samir Tamer",
-          "image": "/img/HR/Samir.webp",
-          "college": "Mansoura",
-          "level": "1st Year"
-        },
-        {
           "name": "Rahma Kamel ",
           "image": "/img/HR/Rahma.webp",
           "college": "CS",
@@ -520,21 +514,9 @@
           "level": "2nd Year"
         },
         {
-          "name": "Mariam Atia",
-          "image": "/img/Team Management/Mariam.webp",
-          "college": "CS",
-          "level": "2nd Year"
-        },
-        {
           "name": "Yousef Raouf",
           "image": "/img/Team Management/Yousef Raouf.webp",
           "college": "Engineering",
-          "level": "2nd Year"
-        },
-        {
-          "name": "Nadeen Mahmoud",
-          "image": "/img/Team Management/Nadeen.webp",
-          "college": "CS",
           "level": "2nd Year"
         },
         {
@@ -549,12 +531,7 @@
           "college": "CS",
           "level": "1st Year"
         },
-        {
-          "name": "Shady Magdy",
-          "image": "/img/Team Management/Shady.webp",
-          "college": "Mansoura",
-          "level": "2nd Year"
-        },
+        
         {
           "name": "Ali mohamed",
           "image": "/img/Team Management/Ali.webp",
@@ -577,6 +554,30 @@
           "name": "Magdy Hatem",
           "image": "/img/Team Management/Magdy.webp",
           "college": "CS",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Belal Rabea ",
+          "image": "/img/Team Management/Belal Rabea.webp",
+          "college": "Engineering",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Youssef Tarek",
+          "image": "/img/Team Management/Youssef Tarek.webp",
+          "college": "Engineering",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Khaled Rabea",
+          "image": "/img/Team Management/Khaled Rabea.webp",
+          "college": "Engineering",
+          "level": "3rd Year"
+        },
+        {
+          "name": "Deyaa Hassan",
+          "image": "/img/Team Management/Deyaa Hassan.webp",
+          "college": "Engineering",
           "level": "3rd Year"
         }
       ]
@@ -618,9 +619,9 @@
       ],
       "members": [
         {
-          "name": "Mahmoud Shawky",
-          "image": "/img/Marketing/Mahmoud.webp",
-          "college": "CS",
+          "name": "Omnia Emad",
+          "image": "/img/Marketing/Omnia Emad.webp",
+          "college": "Engineering",
           "level": "4th Year"
         },
         {

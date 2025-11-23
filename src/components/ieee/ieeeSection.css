@@ -256,7 +256,8 @@
   padding-bottom: 3px;
   text-shadow: 0 1px 11px #00629b, 0 1.5px 4px #ffffff60;
 }
-.ieee-details-about .ieee-link {
+
+ .ieee-link {
   display:flex;
   margin-top: 23px;
   color: #009fe3;
@@ -268,7 +269,7 @@
   transition: color .18s;
   text-decoration: none;
 }
-.ieee-details-about .ieee-link:hover {
+ .ieee-link:hover {
   
   color: #fff;
 }

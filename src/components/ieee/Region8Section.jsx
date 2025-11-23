@@ -26,7 +26,15 @@ const Region8Section = () => (
         </div>
       ))}
     </div>
-
+    <a
+      className="ieee-link"
+      href={region8Data.website}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Learn more from official website{" "}
+      <i className="fa fa-external-link-alt"></i>
+    </a>
     <div className="region8-egypt">
       <span className="region8-egypt-icon">🇪🇬</span>
       <span className="region8-egypt-text">{region8Data.egyptFact}</span>
