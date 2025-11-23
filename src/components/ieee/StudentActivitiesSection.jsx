@@ -22,7 +22,7 @@ export default function StudentActivitiesSection() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Learn more about IEEE MET Student Branch 
+         IEEE MET Student Branch 
         <i className="fa fa-external-link-alt"></i>
       </a>
     </section>

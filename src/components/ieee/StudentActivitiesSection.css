@@ -84,8 +84,10 @@
 
 /* Responsive */
 @media (max-width: 900px) {
-  .student-activities-section { padding: 14px 2vw 22px 2vw; border-radius: 14px; }
-  .student-activities-highlights { gap: 10px; margin-bottom: 8px;}
-  .student-activities-title { font-size: 1.4rem; }
-  .student-activities-card { min-width: 120px; max-width: 96vw; padding: 13px 5vw;}
+  .student-activities-section { padding: 14px 6vw; border-radius: 14px; }
+  .student-activities-highlights { gap: 25px; margin-bottom: -15px;}
+  .student-activities-title { font-size: 1.9rem; }
+  .student-activities-desc{font-size: 1rem;}
+  .student-activities-card { min-width: 120px; max-width:80vw; padding: 13px 4vw;}
+ .student-activities-label{font-size: .8rem;}
 }

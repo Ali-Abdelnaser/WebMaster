@@ -37,6 +37,7 @@
   flex: 1;
   display: flex;
   justify-content: flex-end;
+  margin-bottom: -20px;
   align-items: center;
 }
 .sac-logo {
@@ -123,7 +124,14 @@
   cursor: pointer;
 }
 
-.sac-program-card::before {
+.sac-program-card * {
+  position: relative;
+  z-index: 2;
+}
+
+/* شيمر يظهر عند الهوفر فقط */
+.sac-program-card:hover::before,
+.sac-program-card:focus-within::before {
   content: "";
   position: absolute;
   top: 0;
@@ -133,39 +141,37 @@
   z-index: 1;
   background: linear-gradient(120deg,
     transparent 0%,
-    rgba(255, 215, 0, 0.09) 20%,
-    rgba(255, 215, 0, 0.15) 33%,
-    rgba(255, 215, 0, 0.38) 45%,
-    rgba(255, 215, 0, 0.62) 52%,
-    rgba(255, 215, 0, 0.21) 65%,
+    rgba(255, 215, 0, 0.05) 13%,
+    rgba(255, 215, 0, 0.13) 25%,
+    rgba(255, 215, 0, 0.33) 38%,
+    rgba(255, 215, 0, 0.51) 48%,
+    rgba(255, 215, 0, 0.83) 53%,
+    rgba(255, 215, 0, 0.44) 63%,
+    rgba(255, 215, 0, 0.19) 78%,
     transparent 100%);
   transform: skewX(-22deg);
   animation: shimmer-program-card 2.4s linear infinite;
   pointer-events: none;
   opacity: .65;
 }
+
 @keyframes shimmer-program-card {
   0% { left: -140%; }
   100% { left: 150%; }
 }
 
-.sac-program-card * {
-  position: relative;
-  z-index: 2;
-}
-
-/* Wave Shine Glow على الحواف عند الهوفر */
 .sac-program-card:hover::after {
   content: "";
   position: absolute;
   bottom: -6px; left: 10px; right: 10px;
   height: 8px;
   border-radius: 8px;
-  background: linear-gradient(90deg,#ffd900 0%, #21eafd 100%);
+  background: linear-gradient(90deg,#ffd900 0%, rgb(0, 128, 255) 100%);
   filter: blur(6px);
   opacity: .3;
   z-index: 3;
 }
+
 
 /* Responsive */
 @media (max-width: 900px) {
@@ -181,6 +187,13 @@
     font-size: .92rem;
     padding: 9px 7vw;
   }
+  .sac-logo-box {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: -50px;
+  align-items: center;
+}
 }
 
 .sac-egypt-cta {
@@ -209,7 +222,7 @@
 @media (max-width: 900px) {
   .sac-egypt-section { padding: 18px 2vw 24px 2vw; border-radius: 19px; }
   .sac-hero-row { flex-direction: column-reverse; align-items: center; gap: 18px; }
-  .sac-stats-row { gap: 15px; margin: 18px 0 26px 0; }
+  .sac-stats-row { gap: 15px;  }
 }
 
 @media (max-width: 600px) {
@@ -222,4 +235,12 @@
     padding: 5px;
     margin-bottom: 0;
   }
+}
+@media (max-width: 400px){
+  .sac-logo {
+  max-width: 90vw;
+}
+.sac-stat-card{
+  min-width: 70px; max-width: 133px; padding: 18px 10px 14px 10px;
+}
 }
