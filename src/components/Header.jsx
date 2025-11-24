@@ -75,9 +75,9 @@ export default function Header() {
             <li>
               <SmartLink to="/CS">CS</SmartLink>
             </li>
-            {/* <li>
+            <li>
               <SmartLink to="/ieee">IEEE</SmartLink>
-            </li> */}
+            </li> 
           </ul>
         </nav>
       </header>
