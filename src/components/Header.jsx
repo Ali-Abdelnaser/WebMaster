@@ -43,7 +43,7 @@ export default function Header() {
 
           {/* Join button */}
           <div className="nav-button">
-            <SmartLink to="/join-cs" id="join-btn"></SmartLink>
+            <SmartLink to="/join" id="join-btn"></SmartLink>
           </div>
           {/* <div className="nav-button">
             <SmartLink  to="/join-cs" id="join-btn"></SmartLink >
@@ -77,7 +77,7 @@ export default function Header() {
             </li>
             <li>
               <SmartLink to="/ieee">IEEE</SmartLink>
-            </li> 
+            </li>
           </ul>
         </nav>
       </header>

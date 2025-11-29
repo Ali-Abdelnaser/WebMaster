@@ -45,7 +45,7 @@ export default function Header() {
             <SmartLink  to="/join-cs" id="wie-join-btn"></SmartLink >
           </div> */}
           <div className="wie-nav-button">
-            <SmartLink  to="/join-cs" id="wie-join-btn"></SmartLink >
+            <SmartLink  to="/join" id="wie-join-btn"></SmartLink >
           </div>
 
           {/* Menu toggle (hamburger) */}
@@ -74,7 +74,9 @@ export default function Header() {
             <li>
               <SmartLink  to="/CS">CS</SmartLink >
             </li>
-
+            <li>
+              <SmartLink to="/ieee">IEEE</SmartLink>
+            </li>
           </ul>
         </nav>
       </header>

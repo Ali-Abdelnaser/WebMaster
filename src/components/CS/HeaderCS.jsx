@@ -35,7 +35,7 @@ export default function HeaderCS() {
             <SmartLink to="/join" id="join-btn"></SmartLink>
           </div> */}
           <div className="cs-nav-button">
-            <SmartLink to="/join-cs" id="join-btn"></SmartLink>
+            <SmartLink to="/join" id="join-btn"></SmartLink>
           </div>
 
           {/* Menu toggle */}
@@ -63,6 +63,9 @@ export default function HeaderCS() {
             </li>
             <li>
               <SmartLink to="/CS">CS</SmartLink>
+            </li>
+            <li>
+              <SmartLink to="/ieee">IEEE</SmartLink>
             </li>
           </ul>
         </nav>
