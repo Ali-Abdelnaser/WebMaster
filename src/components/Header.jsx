@@ -82,7 +82,7 @@ export default function Header() {
         </nav>
       </header>
 
-      {/* Drawer overlay */}
+
       <div
         className={`drawer-overlay ${menuOpen ? "show" : ""}`}
         onClick={closeMenu}

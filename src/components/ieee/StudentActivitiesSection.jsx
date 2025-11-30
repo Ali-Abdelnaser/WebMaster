@@ -1,6 +1,7 @@
 import React from "react";
 import "./StudentActivitiesSection.css";
 import data from "../../data/student-activities-data.json";
+import SmartLink from "../SmartLink";
 
 export default function StudentActivitiesSection() {
   return (
