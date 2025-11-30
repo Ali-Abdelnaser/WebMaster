@@ -17,11 +17,10 @@ export default function StudentActivitiesSection() {
           </div>
         ))}
       </div>
-      <a className="ieee-link" target="_blank" rel="noopener noreferrer">
-        <SmartLink to="/about">IEEE MET Student Branch</SmartLink>
 
-        <i className="fa fa-external-link-alt"></i>
-      </a>
+      <SmartLink className="ieee-link" to="/about">
+        IEEE MET Student Branch <i className="fa fa-external-link-alt"></i>
+      </SmartLink>
     </section>
   );
 }
