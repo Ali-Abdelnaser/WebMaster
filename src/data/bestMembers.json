@@ -1,37 +1,52 @@
 [
   {
-    "name": "Omnia Abdelazim",
+    "name": "Mostafa Mohamed",
     "team": "HR ",
-    "img": "/img/HR/Omnia.webp"
+    "img": "/img/HR/Mostafa.webp"
   },
   {
-    "name": "Naira Farhat",
+    "name": "Yassmena Abdullah",
     "team": "HR ",
-    "img": "/img/HR/naira.webp"
+    "img": "/img/HR/Yassmena.webp"
   },
   {
-    "name": "Moaz Mohamed",
-    "team": "HR ",
-    "img": "/img/HR/Moaz.webp"
+    "name": "Mohamed Osama",
+    "team": "Video Editing",
+    "img": "/img/Media/Osama.webp"
   },
   {
-    "name": "Khaled Mohamed",
+    "name": "Nagham Ahmed",
+    "team": "Graphic Design",
+    "img": "/img/Team Management/Nagham.webp"
+  },
+  {
+    "name": "Nada Kandil",
+    "team": "Logistics ",
+    "img": "/img/Logistice/Nada.webp"
+  },
+  {
+    "name": "Jana Hazem",
     "team": "Event Managment ",
-    "img": "/img/Team Management/Khaled Rezk.webp"
+    "img": "/img/Team Management/Jana.webp"
   },
   {
-    "name": "AbdelGawad Elkholy",
-    "team": "Logistics ",
-    "img": "/img/Logistice/AbdelGawad Elkholy.webp"
+    "name": "Mirna Mohamed",
+    "team": "Marketing ",
+    "img": "/img/Marketing/Mirna.webp"
   },
   {
-    "name": "Yousef Mohamed",
-    "team": "Logistics ",
-    "img": "/img/Logistice/Yousef Mohamed.webp"
+    "name": "Hanin Ashraf",
+    "team": "PR ",
+    "img": "/img/PR/Hanin.webp"
   },
   {
-    "name": "Ahmed hesham",
-    "team": "Logistics ",
-    "img": "/img/Logistice/Ahmed hesham.webp"
+    "name": "Rana Ashraf",
+    "team": " PR ",
+    "img": "/img/PR/Rana Ashraf.webp"
+  },
+  {
+    "name": "Mariam Maged",
+    "team": "FR ",
+    "img": "/img/FR/Mariam.webp"
   }
 ]
