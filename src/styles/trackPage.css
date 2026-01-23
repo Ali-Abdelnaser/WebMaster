@@ -1,0 +1,395 @@
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+/* Base Page */
+.track-page {
+  background: transparent;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Subtle Grid Pattern */
+.track-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(250, 164, 26, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(250, 164, 26, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 0;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Animated Tech Elements Container */
+.track-tech-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  will-change: contents;
+  transform: translateZ(0);
+}
+
+/* Floating Orange Orbs */
+.track-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.3;
+  animation: orb-float 20s ease-in-out infinite;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.track-orb-1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(250, 164, 26, 0.6), transparent);
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.track-orb-2 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(255, 187, 82, 0.5), transparent);
+  top: 60%;
+  right: 15%;
+  animation-delay: 3s;
+}
+
+.track-orb-3 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(230, 145, 16, 0.5), transparent);
+  bottom: 20%;
+  left: 20%;
+  animation-delay: 6s;
+}
+
+
+@keyframes orb-float {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  25% {
+    transform: translate(30px, -40px) scale(1.1);
+  }
+
+  50% {
+    transform: translate(-20px, 30px) scale(0.9);
+  }
+
+  75% {
+    transform: translate(40px, 20px) scale(1.05);
+  }
+}
+
+
+
+/* Circuit Lines */
+.track-circuit-line {
+  position: absolute;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(250, 164, 26, 0.2),
+      rgba(250, 164, 26, 0.4),
+      rgba(250, 164, 26, 0.2),
+      transparent);
+  height: 2px;
+  width: 200px;
+  opacity: 0.6;
+  animation: circuit-flow 6s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.track-circuit-line-h {
+  top: 25%;
+  left: 0;
+  transform: rotate(0deg);
+}
+
+.track-circuit-line-v {
+  width: 2px;
+  height: 200px;
+  background: linear-gradient(0deg,
+      transparent,
+      rgba(250, 164, 26, 0.2),
+      rgba(250, 164, 26, 0.4),
+      rgba(250, 164, 26, 0.2),
+      transparent);
+  top: 0;
+  right: 30%;
+  animation: circuit-flow-vertical 8s linear infinite;
+}
+
+@keyframes circuit-flow {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateX(200vw);
+    opacity: 0;
+  }
+}
+
+@keyframes circuit-flow-vertical {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateY(200vh);
+    opacity: 0;
+  }
+}
+
+/* Floating Code Symbols */
+.track-code-symbol {
+  position: absolute;
+  color: rgba(250, 164, 26, 0.2);
+  font-family: 'Courier New', monospace;
+  font-size: 3rem;
+  font-weight: bold;
+  animation: code-float 20s ease-in-out infinite;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.track-code-symbol-1 {
+  top: 15%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.track-code-symbol-2 {
+  top: 45%;
+  right: 8%;
+  animation-delay: 5s;
+}
+
+
+@keyframes code-float {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 0.15;
+  }
+
+  25% {
+    transform: translateY(-20px) rotate(90deg) scale(1.2);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: translateY(-40px) rotate(180deg) scale(0.9);
+    opacity: 0.25;
+  }
+
+  75% {
+    transform: translateY(-20px) rotate(270deg) scale(1.1);
+    opacity: 0.3;
+  }
+}
+
+/* Glowing Particles */
+.track-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #faa41a;
+  border-radius: 50%;
+  box-shadow:
+    0 0 10px rgba(250, 164, 26, 0.8),
+    0 0 20px rgba(250, 164, 26, 0.6),
+    0 0 30px rgba(250, 164, 26, 0.4);
+  animation: particle-pulse 3s ease-in-out infinite;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+.track-particle-1 {
+  top: 20%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.track-particle-2 {
+  top: 50%;
+  right: 20%;
+  animation-delay: 1s;
+}
+
+.track-particle-3 {
+  bottom: 30%;
+  left: 25%;
+  animation-delay: 2s;
+}
+
+
+@keyframes particle-pulse {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+/* Animated Dots Pattern */
+.track-dots-pattern {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(250, 164, 26, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.3;
+  animation: dots-move 20s linear infinite;
+}
+
+@keyframes dots-move {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
+/* Scan Line */
+.track-scan-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(250, 164, 26, 0.4),
+      rgba(255, 187, 82, 0.4),
+      rgba(250, 164, 26, 0.4),
+      transparent);
+  z-index: 1;
+  animation: scan-sweep 10s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  pointer-events: none;
+  box-shadow: 0 0 20px rgba(250, 164, 26, 0.3);
+}
+
+@keyframes scan-sweep {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.8;
+  }
+
+  90% {
+    opacity: 0.8;
+  }
+
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+/* Geometric Shapes */
+.track-geometric {
+  position: absolute;
+  border: 2px solid rgba(250, 164, 26, 0.2);
+  opacity: 0.15;
+  animation: geometric-rotate 25s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.track-geometric-1 {
+  width: 150px;
+  height: 150px;
+  top: 20%;
+  left: 8%;
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+
+
+@keyframes geometric-rotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.1;
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.2);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 0.1;
+  }
+}
+
+/* Content Z-Index */
+.track-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .track-orb {
+    filter: blur(30px);
+  }
+
+  .track-orb-1,
+  .track-orb-2,
+  .track-orb-3,
+  .track-orb-4,
+  .track-orb-5 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .track-code-symbol {
+    font-size: 2rem;
+  }
+
+  .track-geometric {
+    width: 80px;
+    height: 80px;
+  }
+}

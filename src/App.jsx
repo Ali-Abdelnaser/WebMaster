@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import { Analytics } from "@vercel/analytics/react"
 import CommitteePage from "./pages/CommitteePage";
+import TrackPage from "./pages/TrackPage";
 // Pages
 import Home from "./pages/Home";
 import JoinUs from "./pages/JoinUs";
@@ -52,6 +53,7 @@ function AnimatedRoutes() {
         <Route path="/AESS" element={<AESS />} />
         <Route path="/about" element={<About />} />
         <Route path="/committee/:name" element={<CommitteePage />} />
+        <Route path="/track/:name" element={<TrackPage />} />
       </Routes>
     </AnimatePresence>
   );

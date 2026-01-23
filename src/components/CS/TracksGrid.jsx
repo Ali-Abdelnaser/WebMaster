@@ -14,6 +14,7 @@ import {
 } from "react-icons/fa";
 import "./TracksGrid.css";
 import data from "../../data/tracks.json";
+import { Link } from "react-router-dom";
 
 // أيقونات الخلفية
 const bgIcons = [
@@ -86,8 +87,11 @@ export default function TracksGrid() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
           >
-            <img src={track.image} alt={track.name} />
-            <h3>{track.name}</h3>
+            <Link to={`/track/${track.name}`}>
+              <img src={track.image} alt={track.name} />
+              <h3>{track.name}</h3>
+            </Link>
+            
           </motion.div>
         ))}
       </div>
