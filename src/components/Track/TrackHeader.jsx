@@ -141,6 +141,7 @@ export default function TrackHeader({ image, name }) {
                 ease: "easeInOut"
               }
             }}
+            
           />
           <motion.div
             className="track-ring track-ring-2"
@@ -160,6 +161,7 @@ export default function TrackHeader({ image, name }) {
                 ease: "easeInOut"
               }
             }}
+            
           />
         </motion.div>
 

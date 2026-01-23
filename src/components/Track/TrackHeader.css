@@ -42,7 +42,7 @@
   text-align: center;
   padding: 40px 20px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 30px auto 0;
 }
 
 .track-hero-image-wrapper {
@@ -137,7 +137,6 @@
 .track-scroll-indicator {
   position: absolute;
   bottom: 40px;
-  left: 50%;
   transform: translateX(-50%);
   z-index: 3;
 }
@@ -148,7 +147,6 @@
   border-right: 3px solid #faa41a;
   border-bottom: 3px solid #faa41a;
   transform: rotate(45deg);
-  opacity: 0.7;
   filter: drop-shadow(0 0 10px rgba(250, 164, 26, 0.5));
 }
 
