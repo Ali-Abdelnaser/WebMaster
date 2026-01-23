@@ -19,7 +19,7 @@
   border-radius: 30px;
   padding: 60px 50px;
   border: 1px solid rgba(250, 164, 26, 0.2);
-  box-shadow: 
+  box-shadow:
     0 20px 60px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
   overflow: hidden;
@@ -28,7 +28,7 @@
 
 .track-desc-card:hover {
   border-color: rgba(250, 164, 26, 0.4);
-  box-shadow: 
+  box-shadow:
     0 25px 80px rgba(250, 164, 26, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   transform: translateY(-5px);
@@ -76,8 +76,8 @@
   font-size: 1.15rem;
   line-height: 2;
   color: #d1cfcf;
-  text-align: justify;
-  text-align-last: center;
+  text-align: center;
+  /* Changed from justify to center for better readability */
   margin: 0;
   transition: color 0.3s ease;
 }
@@ -115,41 +115,67 @@
 }
 
 @keyframes float-decor-1 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
+
   50% {
     transform: translate(-30px, 30px) scale(1.1);
   }
 }
 
 @keyframes float-decor-2 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
+
   50% {
     transform: translate(30px, -30px) scale(1.1);
   }
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .track-desc-card {
+    padding: 50px 40px;
+  }
+}
+
 @media (max-width: 768px) {
   .track-desc-section {
-    padding: 80px 20px;
+    padding: 60px 20px;
   }
 
   .track-desc-card {
-    padding: 40px 30px;
-    border-radius: 20px;
+    padding: 40px 25px;
+    border-radius: 24px;
+  }
+
+  .track-desc-title {
+    margin-bottom: 25px;
+  }
+
+  .track-desc-title::after {
+    width: 40px;
   }
 
   .track-desc-content p {
     font-size: 1rem;
-    line-height: 1.8;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 480px) {
+  .track-desc-card {
+    padding: 35px 20px;
   }
 
-  .track-desc-divider {
-    width: 150px;
+  .track-desc-content p {
+    font-size: 0.95rem;
   }
 }
 

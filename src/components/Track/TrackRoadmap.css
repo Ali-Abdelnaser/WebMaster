@@ -1,0 +1,344 @@
+.track-roadmap-section {
+    position: relative;
+    padding: 100px 20px;
+    background-color: #0a0a0a;
+    /* Near black */
+    color: #fff;
+    overflow: hidden;
+}
+
+.track-roadmap-container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.track-roadmap-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* Left Column Styling */
+.roadmap-left .roadmap-eyebrow {
+    display: inline-block;
+    color: #faa41a;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 45px;
+}
+
+.roadmap-left .roadmap-eyebrow::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 35px;
+    height: 2px;
+    background: #faa41a;
+}
+
+.roadmap-left .roadmap-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+.roadmap-left .roadmap-title .highlight {
+    color: #faa41a;
+    text-shadow: 0 0 20px rgba(250, 164, 26, 0.3);
+}
+
+.roadmap-left .roadmap-description {
+    font-size: 1.1rem;
+    color: #b0b0b0;
+    line-height: 1.6;
+    max-width: 550px;
+    margin-bottom: 40px;
+}
+
+.roadmap-steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 45px;
+}
+
+.roadmap-step-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.roadmap-step-item .step-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(250, 164, 26, 0.1);
+    border: 1px solid rgba(250, 164, 26, 0.3);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #faa41a;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.roadmap-step-item:hover .step-icon {
+    background: #faa41a;
+    color: #000;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(250, 164, 26, 0.4);
+}
+
+.roadmap-step-item .step-info h3 {
+    font-size: 1.25rem;
+    margin: 0 0 5px 0;
+    font-weight: 600;
+}
+
+.roadmap-step-item .step-info p {
+    color: #888;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.roadmap-actions {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.primary-cta {
+    background: #faa41a;
+    color: #000;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(250, 164, 26, 0.2);
+}
+
+.primary-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(250, 164, 26, 0.4);
+    background: #ffb84d;
+}
+
+.secondary-link {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.secondary-link:hover {
+    opacity: 1;
+    color: #faa41a;
+}
+
+/* Right Column Styling */
+.roadmap-visual-container {
+    position: relative;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.roadmap-timeline-line {
+    position: absolute;
+    left: 65px;
+    /* Reduced from 60px */
+    top: 40px;
+    bottom: 40px;
+    width: 3px;
+    background: linear-gradient(to bottom, transparent, rgba(250, 164, 26, 0.5), transparent);
+    z-index: 1;
+}
+
+.phases-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    width: 100%;
+    padding-left: 50px;
+    /* Adjusted to balance with line */
+    z-index: 2;
+}
+
+.phase-card {
+    position: relative;
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 20px 25px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.phase-card:hover {
+    border-color: rgba(250, 164, 26, 0.4);
+    background: rgba(30, 30, 30, 0.9);
+}
+
+.phase-range {
+    font-size: 0.8rem;
+    color: #faa41a;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.phase-title {
+    font-size: 1.1rem;
+    margin: 5px 0;
+    font-weight: 600;
+}
+
+.phase-detail {
+    font-size: 0.9rem;
+    color: #777;
+    margin: 0;
+}
+
+.phase-dot {
+    position: absolute;
+    left: -26px;
+    /* Centered on the line (50px padding - 30px line pos = 20px offset + dot half width) */
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background: #faa41a;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #faa41a;
+    z-index: 3;
+}
+
+/* Decorative Glows */
+.roadmap-glow-1 {
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(250, 164, 26, 0.15) 0%, transparent 70%);
+    filter: blur(50px);
+    pointer-events: none;
+}
+
+.roadmap-glow-2 {
+    position: absolute;
+    bottom: -10%;
+    left: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(250, 164, 26, 0.1) 0%, transparent 70%);
+    filter: blur(50px);
+    pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .track-roadmap-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .roadmap-visual-container {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .roadmap-left {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .roadmap-left .roadmap-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .roadmap-left .roadmap-eyebrow {
+        padding-left: 0;
+    }
+
+    .roadmap-left .roadmap-eyebrow::before {
+        display: none;
+    }
+
+    .roadmap-step-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .roadmap-actions {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .roadmap-timeline-line {
+        left: 29px;
+    }
+
+    .phases-grid {
+        padding-left: 40px;
+    }
+
+    .phase-dot {
+        left: -26px;
+    }
+}
+
+@media (max-width: 640px) {
+    .track-roadmap-section {
+        padding: 60px 20px;
+    }
+
+    .roadmap-left .roadmap-title {
+        font-size: 2.2rem;
+    }
+
+    .roadmap-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .primary-cta {
+        text-align: center;
+    }
+
+    .secondary-link {
+        justify-content: center;
+    }
+
+    .roadmap-visual-container {
+        padding: 30px 15px;
+    }
+}

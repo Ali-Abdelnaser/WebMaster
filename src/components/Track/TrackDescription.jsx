@@ -14,7 +14,6 @@ export default function TrackDescription({ title, description }) {
         >
           <div className="track-desc-header">
             <h2 className="track-desc-title">{title}</h2>
-            <img src="img/CS/CS-hr.svg" alt="Divider" className="track-desc-divider" />
           </div>
           
           <div className="track-desc-content">

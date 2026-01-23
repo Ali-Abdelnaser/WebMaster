@@ -33,6 +33,7 @@
   0% {
     background-position: 0% center;
   }
+
   100% {
     background-position: 200% center;
   }
@@ -64,20 +65,18 @@
 }
 
 .track-board-head-card .track-board-card-inner {
-  background: linear-gradient(
-    135deg,
-    rgba(250, 164, 26, 0.15) 0%,
-    rgba(255, 187, 82, 0.1) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(250, 164, 26, 0.15) 0%,
+      rgba(255, 187, 82, 0.1) 100%);
   border: 2px solid rgba(250, 164, 26, 0.4);
-  box-shadow: 
+  box-shadow:
     0 20px 60px rgba(250, 164, 26, 0.3),
     0 0 80px rgba(250, 164, 26, 0.1);
 }
 
 .track-board-head-card:hover .track-board-card-inner {
   border-color: rgba(250, 164, 26, 0.7);
-  box-shadow: 
+  box-shadow:
     0 25px 80px rgba(250, 164, 26, 0.4),
     0 0 100px rgba(250, 164, 26, 0.2);
 }
@@ -138,12 +137,10 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(250, 164, 26, 0.1) 0%,
-    transparent 50%,
-    rgba(255, 187, 82, 0.1) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(250, 164, 26, 0.1) 0%,
+      transparent 50%,
+      rgba(255, 187, 82, 0.1) 100%);
   opacity: 0;
   transition: opacity 0.4s ease;
   border-radius: 25px;
@@ -155,7 +152,7 @@
 
 .track-board-card:hover .track-board-card-inner {
   border-color: rgba(250, 164, 26, 0.6);
-  box-shadow: 
+  box-shadow:
     0 25px 80px rgba(250, 164, 26, 0.4),
     0 0 60px rgba(250, 164, 26, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -179,11 +176,9 @@
 .track-board-image-glow {
   position: absolute;
   inset: -20px;
-  background: radial-gradient(
-    circle,
-    rgba(250, 164, 26, 0.6) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle,
+      rgba(250, 164, 26, 0.6) 0%,
+      transparent 70%);
   border-radius: 50%;
   filter: blur(25px);
   animation: image-glow-pulse 4s ease-in-out infinite;
@@ -192,10 +187,13 @@
 }
 
 @keyframes image-glow-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.5;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.9;
     transform: scale(1.15);
@@ -217,7 +215,7 @@
 .track-board-card:hover .track-board-image-wrapper img {
   border-color: rgba(250, 164, 26, 0.8);
   transform: scale(1.08) rotate(2deg);
-  box-shadow: 
+  box-shadow:
     0 0 40px rgba(250, 164, 26, 0.6),
     0 0 60px rgba(250, 164, 26, 0.3);
   filter: brightness(1.1);
@@ -292,42 +290,87 @@
   border-color: rgba(250, 164, 26, 0.9);
   color: #ffbb52;
   transform: scale(1.2) rotate(10deg) translateY(-3px);
-  box-shadow: 
+  box-shadow:
     0 0 30px rgba(250, 164, 26, 0.7),
     0 5px 15px rgba(250, 164, 26, 0.3);
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .track-board-grid {
+    gap: 25px;
+  }
+
+  .track-board-card {
+    width: 280px;
+  }
+}
+
 @media (max-width: 768px) {
   .track-board-section {
     padding: 80px 20px;
   }
 
-  .track-board-grid {
-    gap: 30px;
+  .track-board-header {
+    margin-bottom: 50px;
   }
-  
+
+  .track-board-grid {
+    gap: 20px;
+    padding: 0 10px;
+  }
+
   .track-board-card {
     width: 100%;
-    max-width: 400px;
+    max-width: 320px;
+    height: auto;
+    margin-bottom: 30px;
   }
 
   .track-board-head-card {
-    max-width: 100%;
+    max-width: 350px;
+    margin-bottom: 50px;
   }
 
   .track-board-head-image {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
+    margin-bottom: 20px;
   }
 
   .track-board-image-wrapper {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
+    margin-bottom: 20px;
   }
 
   .track-board-card-inner {
     padding: 30px 20px;
+    height: auto;
+    min-height: 380px;
+  }
+
+  .track-board-name {
+    font-size: 1.25rem;
+  }
+
+  .track-board-position {
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+  }
+
+  .track-board-head-badge {
+    font-size: 0.9rem;
+    padding: 6px 16px;
   }
 }
 
+@media (max-width: 480px) {
+  .track-board-card {
+    max-width: 100%;
+  }
+
+  .track-board-title {
+    font-size: 2.2rem;
+  }
+}

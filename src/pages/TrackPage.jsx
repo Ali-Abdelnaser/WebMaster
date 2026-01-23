@@ -6,6 +6,7 @@ import TrackHeader from "../components/Track/TrackHeader";
 import TrackDescription from "../components/Track/TrackDescription";
 import TrackBoard from "../components/Track/TrackBoard";
 import TrackTopics from "../components/Track/TrackTopics";
+import TrackRoadmap from "../components/Track/TrackRoadmap";
 import TrackTechBackground from "../components/Track/TrackTechBackground";
 import HeaderCS from "../components/CS/HeaderCS";
 import FooterCS from "../components/CS/FooterCS";
@@ -111,10 +112,10 @@ export default function TrackPage() {
         {/* Board Section */}
         <TrackBoard trackName={track.name} />
 
-        {/* Topics Section */}
-        <TrackTopics
-          topics={track.topics}
-        />
+      
+
+        {/* Roadmap Section */}
+        <TrackRoadmap trackName={track.name} />
       </main>
       <FooterCS />
     </motion.div>

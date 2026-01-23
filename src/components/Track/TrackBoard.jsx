@@ -52,8 +52,7 @@ export default memo(function TrackBoard({ trackName }) {
           transition={{ duration: 0.6 }}
         >
           <h2 className="track-board-title">Track Board</h2>
-          <img src="img\CS\CS-hr.svg" alt="Divider" className="track-board-divider" />
-          <p className="track-board-subtitle">Meet the amazing team leading this track</p>
+         <p className="track-board-subtitle">Meet the amazing team leading this track</p>
         </motion.div>
 
         <motion.div

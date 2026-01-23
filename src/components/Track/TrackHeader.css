@@ -11,12 +11,10 @@
 .track-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    185deg,
-    rgba(230, 145, 16, 0.15) 0%,
-    rgba(250, 164, 26, 0.1) 50%,
-    rgba(255, 187, 82, 0.15) 100%
-  );
+  background: linear-gradient(185deg,
+      rgba(230, 145, 16, 0.15) 0%,
+      rgba(250, 164, 26, 0.1) 50%,
+      rgba(255, 187, 82, 0.15) 100%);
   z-index: 1;
 }
 
@@ -54,10 +52,13 @@
 
 
 @keyframes pulse-glow {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.6;
     transform: scale(1);
   }
+
   50% {
     opacity: 1;
     transform: scale(1.1);
@@ -102,6 +103,7 @@
   0% {
     background-position: 0% center;
   }
+
   100% {
     background-position: 200% center;
   }
@@ -186,21 +188,55 @@
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .track-hero-content {
+    max-width: 900px;
+  }
+}
+
 @media (max-width: 768px) {
+  .track-hero-section {
+    min-height: auto;
+    padding: 140px 20px 80px;
+  }
+
+  .track-hero-content {
+    padding: 20px 0;
+    margin: 0;
+  }
+
   .track-hero-image {
-    max-width: 90%;
+    max-width: 85%;
+    border-radius: 20px;
+  }
+
+  .track-hero-title {
+    font-size: clamp(2.2rem, 12vw, 3.5rem);
+    margin-bottom: 15px;
   }
 
   .track-title-sub {
     font-size: 0.35em;
     letter-spacing: 4px;
+    margin-top: 5px;
   }
 
   .track-hero-badge {
-    padding: 10px 20px;
+    padding: 8px 18px;
+    margin-top: 20px;
   }
 
   .track-hero-badge span {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .track-scroll-indicator {
+    bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .track-hero-title {
+    font-size: 2.2rem;
   }
 }
