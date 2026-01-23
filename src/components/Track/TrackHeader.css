@@ -136,7 +136,7 @@
 
 .track-scroll-indicator {
   position: absolute;
-  bottom: 40px;
+  bottom: 50px;
   transform: translateX(-50%);
   z-index: 3;
 }

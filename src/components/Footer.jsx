@@ -107,7 +107,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>© 2025 IEEE MET SB. All rights reserved.</p>
+        <p>© 2026 IEEE MET SB. All rights reserved.</p>
       </div>
     </footer>
   );
