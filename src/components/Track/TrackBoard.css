@@ -288,7 +288,7 @@
 .track-board-social-link:hover {
   background: rgba(250, 164, 26, 0.5);
   border-color: rgba(250, 164, 26, 0.9);
-  color: #ffbb52;
+  color: #ffffff;
   transform: scale(1.2) rotate(10deg) translateY(-3px);
   box-shadow:
     0 0 30px rgba(250, 164, 26, 0.7),
@@ -333,35 +333,45 @@
   }
 
   .track-board-head-image {
-    width: 160px;
-    height: 160px;
-    margin-bottom: 20px;
+    width: 180px;
+    height: 180px;
+    margin-bottom: 25px;
   }
 
   .track-board-image-wrapper {
-    width: 140px;
-    height: 140px;
-    margin-bottom: 20px;
+    width: 160px;
+    height: 160px;
+    margin-bottom: 25px;
   }
 
   .track-board-card-inner {
-    padding: 30px 20px;
+    padding: 25px 20px;
     height: auto;
-    min-height: 380px;
+    min-height: auto;
   }
 
   .track-board-name {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+    line-height: 1.2;
   }
 
   .track-board-position {
-    font-size: 0.85rem;
-    margin-bottom: 15px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  .track-board-social-link {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
   }
 
   .track-board-head-badge {
-    font-size: 0.9rem;
-    padding: 6px 16px;
+    font-size: 0.85rem;
+    padding: 5px 14px;
+    top: 15px;
   }
 }
 

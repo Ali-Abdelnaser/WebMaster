@@ -14,8 +14,8 @@ export default memo(function TrackBoard({ trackName }) {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
       },
     },
   };
@@ -23,9 +23,9 @@ export default memo(function TrackBoard({ trackName }) {
   const cardVariants = {
     hidden: { 
       opacity: 0, 
-      y: 50,
-      scale: 0.8,
-      rotateX: -15
+      y: 40,
+      scale: 0.9,
+      rotateX: -10
     },
     visible: { 
       opacity: 1, 
@@ -34,9 +34,9 @@ export default memo(function TrackBoard({ trackName }) {
       rotateX: 0,
       transition: {
         type: "spring",
-        stiffness: 100,
-        damping: 15,
-        mass: 0.8
+        stiffness: 150,
+        damping: 20,
+        mass: 0.6
       }
     },
   };
@@ -46,10 +46,10 @@ export default memo(function TrackBoard({ trackName }) {
       <div className="track-board-container">
         <motion.div
           className="track-board-header"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
         >
           <h2 className="track-board-title">Track Board</h2>
          <p className="track-board-subtitle">Meet the amazing team leading this track</p>
@@ -60,7 +60,7 @@ export default memo(function TrackBoard({ trackName }) {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
         >
           {/* Head */}
           <motion.div
