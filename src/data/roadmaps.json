@@ -5,7 +5,7 @@
         "titleHighlight": "Journey",
         "description": "Embark on a comprehensive path from coding fundamentals to advanced AI. Learn Python, Data Analysis, Machine Learning, and Deep Learning through real-world projects.",
         "fullRoadmapLink": "https://github.com/ieeemetcsc/roadmaps-2025-2026/blob/main/ai-ml/README.md",
-        "joinLink": "/join-cs",
+        "joinLink": "/join",
         "steps": [
             {
                 "icon": "FaPython",
@@ -57,7 +57,7 @@
         "titleHighlight": "Shield",
         "description": "Learn to defend digital systems. From networking fundamentals to advanced ethical hacking and enterprise security strategies.",
         "fullRoadmapLink": "https://github.com/ieeemetcsc/roadmaps-2025-2026/blob/main/cybersecurity/README.md",
-        "joinLink": "/join-cs",
+        "joinLink": "/join",
         "steps": [
             {
                 "icon": "FaNetworkWired",
@@ -109,7 +109,7 @@
         "titleHighlight": "Development",
         "description": "Master cross-platform mobile development. Build stunning apps for iOS and Android using a single codebase with Flutter and Dart.",
         "fullRoadmapLink": "https://github.com/ieeemetcsc/roadmaps-2025-2026/blob/main/flutter/README.md",
-        "joinLink": "/join-cs",
+        "joinLink": "/join",
         "steps": [
             {
                 "icon": "FaCode",
@@ -161,7 +161,7 @@
         "titleHighlight": "Experience",
         "description": "Craft beautiful user interfaces. Master the art of web development from basic HTML/CSS to advanced React hooks and state.",
         "fullRoadmapLink": "https://github.com/ieeemetcsc/roadmaps-2025-2026/blob/main/frontend/README.md",
-        "joinLink": "/join-cs",
+        "joinLink": "/join",
         "steps": [
             {
                 "icon": "FaHtml5",
@@ -213,7 +213,7 @@
         "titleHighlight": "Back End",
         "description": "Build high-performance servers. Master scalable backend development using JavaScript, Node.js, and modern database patterns.",
         "fullRoadmapLink": "https://github.com/ieeemetcsc/roadmaps-2025-2026/blob/main/backend/Backend%20nodeJs%20Roadmap%20.md",
-        "joinLink": "/join-cs",
+        "joinLink": "/join",
         "steps": [
             {
                 "icon": "FaJs",
@@ -265,7 +265,7 @@
         "titleHighlight": "Back End",
         "description": "Professional backend engineering. Develop secure, scalable enterprise applications with C#, ASP.NET Core, and Azure.",
         "fullRoadmapLink": "https://github.com/ieeemetcsc/roadmaps-2025-2026/blob/main/backend/Backend%20.NET%20Roadmap%20.md",
-        "joinLink": "/join-cs",
+        "joinLink": "/join",
         "steps": [
             {
                 "icon": "FaCode",
@@ -317,7 +317,7 @@
         "titleHighlight": "Experience",
         "description": "Design with empathy. Understand users through research and create impactful interfaces that balance beauty and function.",
         "fullRoadmapLink": "https://github.com/ieeemetcsc/roadmaps-2025-2026/blob/main/ui-ux/UIUX_Roadmap.md",
-        "joinLink": "/join-cs",
+        "joinLink": "/join",
         "steps": [
             {
                 "icon": "FaSearch",
@@ -369,7 +369,7 @@
         "titleHighlight": "Systems",
         "description": "Bring ideas to life. Learn to integrate software with physical components through microcontrollers, sensors, and PCB design.",
         "fullRoadmapLink": "https://github.com/ieeemetcsc/roadmaps-2025-2026",
-        "joinLink": "/join-cs",
+        "joinLink": "/join",
         "steps": [
             {
                 "icon": "FaMicrochip",

@@ -97,6 +97,7 @@
   background-clip: text;
   animation: gradient-shift 3s linear infinite;
   text-shadow: 0 0 40px rgba(250, 164, 26, 0.5);
+  margin-top: 60px;
 }
 
 @keyframes gradient-shift {
@@ -188,20 +189,13 @@
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
-  .track-hero-content {
-    max-width: 900px;
-  }
-}
+
 
 @media (max-width: 768px) {
-  .track-hero-section {
-    min-height: auto;
-    padding: 140px 20px 80px;
-  }
+
 
   .track-hero-content {
-    padding: 20px 0;
+    padding: 0 50px ;
     margin: 0;
   }
 

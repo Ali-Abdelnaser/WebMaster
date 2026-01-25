@@ -42,7 +42,7 @@ const iconMap = {
 
 export default function TrackRoadmap({ trackName }) {
   const data = roadmapsData[trackName] || roadmapsData["AI"]; // Fallback to AI if not found
-
+  
   return (
     <section className="track-roadmap-section">
       <div className="track-roadmap-container">
@@ -85,7 +85,7 @@ export default function TrackRoadmap({ trackName }) {
             </div>
 
             <div className="roadmap-actions">
-              <Link to={data.joinLink || "/join-cs"} className="primary-cta">
+              <Link to={data.joinLink || "/join"} className="primary-cta">
                 Join the Track
               </Link>
               <a 
