@@ -94,7 +94,7 @@
       }
     ]
   },
-  "Back End-Node": {
+  "Back End Node.js": {
     "head": {
       "name": "Mohamed rabee",
       "position": "Track Head",
@@ -102,10 +102,12 @@
       "linkedin": "https://www.linkedin.com/in/mohamed-rabee-66bb03278/",
       "email": "mrabee083@gmail.com"
     },
-    "vice": [],
+    "vice": [
+      
+    ],
     "members": []
   },
-  "Back End-Net": {
+  "Back End .NET": {
     "head": {
       "name": "Mohamed kabeel ",
       "position": "Track Head",
@@ -113,7 +115,15 @@
       "linkedin": "http://www.linkedin.com/in/mohamed-kabil1",
       "email": "kabeelmohamed22@gmail.com"
     },
-    "vice": [],
+    "vice": [
+      {
+        "name": "Khalid Mohamed",
+        "position": "Vice Head",
+        "image": "/img/CS/Board/backend-net-vice.webp",
+        "linkedin": "http://www.linkedin.com/in/mohamed-kabil1",
+        "email": "kabeelmohamed22@gmail.com"
+      }
+    ],
     "members": []
   },
   "UI-UX": {
