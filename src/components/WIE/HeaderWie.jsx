@@ -1,54 +1,55 @@
-// src/components/Header.js
 import { useState, useEffect } from "react";
 import "./HeaderWie.css";
 import SmartLink from "../SmartLink";
-import eventsData from "../../data/upcomingEvent.json"; // ملف JSON بتاع الأحداث
+import eventsData from "../../data/upcomingEvent.json";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTiktok,
+  FaWhatsapp,
+  FaEnvelope,
+} from "react-icons/fa";
 
-export default function Header() {
+export default function HeaderWie() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [liveEvent, setLiveEvent] = useState(false);
 
-  // scroll effect
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) setScrolled(true);
-      else setScrolled(false);
+      setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // check live events
   useEffect(() => {
     setLiveEvent(eventsData.status === "on");
   }, []);
 
-  // toggle drawer
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
 
   return (
     <>
-      <header className={`wie-header ${scrolled ? "wie-scrolled" : ""}`}>
+      <header className={`wie-header ${scrolled ? "scrolled" : ""}`}>
         <nav className="wie-navbar">
           {/* Logo */}
           <div className="wie-logo">
             <img
-              src={scrolled ? "/img/WIE/wie-white.svg": "/img/WIE/wie-purple.svg"  }
+              src={scrolled ? "/img/WIE/wie-white.svg": "/img/WIE/wie-purple.svg" }
               alt="WIE Logo"
-              id="wie-logo"
+              id="logo"
             />
           </div>
 
-          {/* <div className="wie-nav-button">
-            <SmartLink  to="/join-cs" id="wie-join-btn"></SmartLink >
-          </div> */}
+          {/* Join button */}
           <div className="wie-nav-button">
-            <SmartLink  to="/join" id="wie-join-btn"></SmartLink >
+            <SmartLink to="/join" id="join-btn"></SmartLink>
           </div>
 
-          {/* Menu toggle (hamburger) */}
+          {/* Menu toggle */}
           <div
             className={`wie-menu-toggle ${menuOpen ? "active" : ""}`}
             onClick={toggleMenu}
@@ -60,23 +61,51 @@ export default function Header() {
           {/* Links */}
           <ul className={`wie-nav-links ${menuOpen ? "show" : ""}`}>
             <li>
-              <SmartLink  to="/">Home</SmartLink >
-            </li>
-                        <li>
-              <SmartLink  to="/about">About</SmartLink >
-            </li>
-            <li className={`wie-events-item ${liveEvent ? "wie-live" : ""}`}>
-              <SmartLink  to="/events">Events</SmartLink >
+              <SmartLink to="/" onClick={closeMenu}>Home</SmartLink>
             </li>
             <li>
-              <SmartLink  to="/wie">WIE</SmartLink >
+              <SmartLink to="/about" onClick={closeMenu}>About</SmartLink>
+            </li>
+            <li className={`wie-events-item ${liveEvent ? "live" : ""}`}>
+              <SmartLink to="/events" onClick={closeMenu}>Events</SmartLink>
             </li>
             <li>
-              <SmartLink  to="/CS">CS</SmartLink >
+              <SmartLink to="/wie" onClick={closeMenu}>WIE</SmartLink>
             </li>
             <li>
-              <SmartLink to="/ieee">IEEE</SmartLink>
+              <SmartLink to="/CS" onClick={closeMenu}>CS</SmartLink>
             </li>
+            <li>
+              <SmartLink to="/ieee" onClick={closeMenu}>IEEE</SmartLink>
+            </li>
+
+            {/* Mobile Social + Copyright */}
+            {menuOpen && (
+              <>
+                <li className="wie-mobile-join-btn">
+                  <SmartLink to="/join" onClick={closeMenu}>
+                    Join WIE
+                  </SmartLink>
+                </li>
+                <div className="wie-social-icons">
+                  <a href="https://www.facebook.com/profile.php?id=61560937966305" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
+                  <a href="https://www.instagram.com/ieeemetsb/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+                  <a href="https://www.linkedin.com/company/ieee-met-sb-pioneers/posts/?feedView=all" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
+                  <a href="https://www.tiktok.com/@ieee.met" target="_blank" rel="noopener noreferrer"><FaTiktok /></a>
+                  <a href="https://wa.me/201068643407" target="_blank" rel="noopener noreferrer"><FaWhatsapp /></a>
+                  <a href="mailto:ali.abdelnaser@ieee.org" target="_blank" rel="noopener noreferrer"><FaEnvelope /></a>
+                </div>
+
+                <li className="wie-mobile-copyright">
+                  <div className="wie-copyright-content">
+                    <span className="wie-copyright-year">2026</span>
+                    <span className="wie-copyright-divider">•</span>
+                    <span className="wie-copyright-text">WIE Affinity Group</span>
+                  </div>
+                  <div className="wie-copyright-subtitle">Innovation & Excellence</div>
+                </li>
+              </>
+            )}
           </ul>
         </nav>
       </header>

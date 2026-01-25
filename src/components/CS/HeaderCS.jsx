@@ -1,10 +1,20 @@
 import { useState, useEffect } from "react";
 import "./HeaderCS.css";
 import SmartLink from "../SmartLink";
+import eventsData from "../../data/upcomingEvent.json";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTiktok,
+  FaWhatsapp,
+  FaEnvelope,
+} from "react-icons/fa";
 
 export default function HeaderCS() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [liveEvent, setLiveEvent] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,6 +22,10 @@ export default function HeaderCS() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setLiveEvent(eventsData.status === "on");
   }, []);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -31,9 +45,6 @@ export default function HeaderCS() {
           </div>
 
           {/* Join button */}
-          {/* <div className="cs-nav-button">
-            <SmartLink to="/join" id="join-btn"></SmartLink>
-          </div> */}
           <div className="cs-nav-button">
             <SmartLink to="/join" id="join-btn"></SmartLink>
           </div>
@@ -50,23 +61,51 @@ export default function HeaderCS() {
           {/* Links */}
           <ul className={`cs-nav-links ${menuOpen ? "show" : ""}`}>
             <li>
-              <SmartLink to="/">Home</SmartLink>
+              <SmartLink to="/" onClick={closeMenu}>Home</SmartLink>
             </li>
             <li>
-              <SmartLink to="/about">About</SmartLink>
+              <SmartLink to="/about" onClick={closeMenu}>About</SmartLink>
+            </li>
+            <li className={`cs-events-item ${liveEvent ? "live" : ""}`}>
+              <SmartLink to="/events" onClick={closeMenu}>Events</SmartLink>
             </li>
             <li>
-              <SmartLink to="/events">Events</SmartLink>
+              <SmartLink to="/wie" onClick={closeMenu}>WIE</SmartLink>
             </li>
             <li>
-              <SmartLink to="/wie">WIE</SmartLink>
+              <SmartLink to="/CS" onClick={closeMenu}>CS</SmartLink>
             </li>
             <li>
-              <SmartLink to="/CS">CS</SmartLink>
+              <SmartLink to="/ieee" onClick={closeMenu}>IEEE</SmartLink>
             </li>
-            <li>
-              <SmartLink to="/ieee">IEEE</SmartLink>
-            </li>
+
+            {/* Mobile Social + Copyright */}
+            {menuOpen && (
+              <>
+                <li className="cs-mobile-join-btn">
+                  <SmartLink to="/join" onClick={closeMenu}>
+                    Join CS
+                  </SmartLink>
+                </li>
+                <div className="cs-social-icons">
+                  <a href="https://www.facebook.com/profile.php?id=61560937966305" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
+                  <a href="https://www.instagram.com/ieeemetsb/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+                  <a href="https://www.linkedin.com/company/ieee-met-sb-pioneers/posts/?feedView=all" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
+                  <a href="https://www.tiktok.com/@ieee.met" target="_blank" rel="noopener noreferrer"><FaTiktok /></a>
+                  <a href="https://wa.me/201068643407" target="_blank" rel="noopener noreferrer"><FaWhatsapp /></a>
+                  <a href="mailto:ali.abdelnaser@ieee.org" target="_blank" rel="noopener noreferrer"><FaEnvelope /></a>
+                </div>
+
+                <li className="cs-mobile-copyright">
+                  <div className="cs-copyright-content">
+                    <span className="cs-copyright-year">2026</span>
+                    <span className="cs-copyright-divider">•</span>
+                    <span className="cs-copyright-text">CS Chapter</span>
+                  </div>
+                  <div className="cs-copyright-subtitle">Innovation & Excellence</div>
+                </li>
+              </>
+            )}
           </ul>
         </nav>
       </header>
