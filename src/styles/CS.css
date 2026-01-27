@@ -1,96 +1,618 @@
-body {
-  font-family: 'Poppins', Arial, sans-serif;
-}
-.Cs-hero {
-  height: 100vh;               /* طول الشاشة بالكامل */
-  width: 100%;                
-  display: flex;
-  align-items: center;         /* عمودي */
-  justify-content: center;     /* أفقي */
-  text-align: center;
-  background: #0000004f;            /* خلفية سوداء */
+/* ==================== CS HERO VORTEX - SUPERCHARGED ==================== */
+.cs-hero-vortex {
   position: relative;
-  background-image: url("https://www.transparenttextures.com/patterns/dark-mosaic.png");
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
-}
-/* ==================== Animated Background ==================== */
-.cs-animated-bg { 
-  position: absolute; 
-  inset: 0; 
-  z-index: -10; 
-  overflow: hidden; 
+  color: #fff;
+  perspective: 1500px;
 }
 
-.cs-blob { 
-  position: absolute; 
-  filter: blur(20px); 
-  opacity: 0.38; 
-  border-radius: 50%; 
+/* Horizontal Scan Line Effect */
+.cs-hero-vortex::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(250, 164, 26, 0.8), transparent);
+  box-shadow: 0 0 20px rgba(250, 164, 26, 0.6);
+  animation: scan-horizontal 4s linear infinite;
+  z-index: 50;
+  pointer-events: none;
 }
 
-/* Blobs */
-.cs-b1 {
-  width: 380px;
-  height: 380px;
-  background: #e69110;
-  top: -100px;
-  left: -120px;
-  animation: cs-move1 7s infinite alternate;
+@keyframes scan-horizontal {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
 }
 
-.cs-b2 {
-  width: 300px;
-  height: 300px;
-  background: #faa41a;
-  top: -80px;
-  right: -120px;
-  animation: cs-move2 6s infinite alternate;
+/* 1. Vortex Tunnel Background */
+.vortex-container {
+  position: absolute;
+  inset: -60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  z-index: 0;
 }
 
-.cs-b3 {
-  width: 220px;
-  height: 220px;
-  background: #ffbb52;
-  top: 25%;
-  right: -100px;
-  animation: cs-move3 8s infinite alternate;
+.vortex-core-glow {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(250, 164, 26, 0.4) 0%, transparent 70%);
+  filter: blur(40px);
+  z-index: 1;
+  animation: core-pulse 3s infinite ease-in-out;
 }
 
-.cs-b4 {
-  width: 260px;
-  height: 260px;
-  background: #faa41a;
-  top: 30%;
-  left: -100px;
-  animation: cs-move1 9s infinite alternate;
+@keyframes core-pulse {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.5);
+  }
 }
 
-.cs-b5 {
-  width: 200px;
-  height: 200px;
-  background: #e69110;
-  bottom: 30%;
-  right: 15%;
-  animation: cs-move2 7s infinite alternate;
+.vortex-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(250, 164, 26, 0.08);
+  box-shadow: 0 0 15px rgba(250, 164, 26, 0.02);
 }
 
-.cs-b6 {
+.ring-1 {
+  width: 35vw;
+  height: 35vw;
+  animation: spin 25s linear infinite;
+  border-width: 1px;
+  opacity: 0.8;
+}
+
+.ring-2 {
+  width: 50vw;
+  height: 50vw;
+  animation: spin-rev 40s linear infinite;
+  border-style: dashed;
+  border-color: rgba(97, 218, 251, 0.15);
+}
+
+.ring-3 {
+  width: 65vw;
+  height: 65vw;
+  animation: spin 55s linear infinite;
+  border-style: dotted;
+  border-color: rgba(255, 222, 87, 0.1);
+}
+
+.ring-4 {
+  width: 85vw;
+  height: 85vw;
+  animation: spin-rev 70s linear infinite;
+  opacity: 0.4;
+  border-width: 2px;
+}
+
+.ring-5 {
+  width: 110vw;
+  height: 110vw;
+  animation: spin 90s linear infinite;
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.ring-6 {
+  width: 140vw;
+  height: 140vw;
+  animation: spin-rev 120s linear infinite;
+  opacity: 0.3;
+}
+
+.ring-7 {
+  width: 180vw;
+  height: 180vw;
+  animation: spin 150s linear infinite;
+  border-style: double;
+  opacity: 0.2;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate3d(0, 0, 1, 360deg);
+  }
+}
+
+@keyframes spin-rev {
+  100% {
+    transform: rotate3d(0, 0, 1, -360deg);
+  }
+}
+
+/* 2. Floating Tech Shards */
+.tech-shards {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  transform-style: preserve-3d;
+}
+
+.shard {
+  position: absolute;
+  font-size: 2.5rem;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 15;
+  color: #faa41a;
+  filter: drop-shadow(0 0 12px rgba(250, 164, 26, 0.6));
+  opacity: 0.15;
+  /* Reduced opacity for subtlety */
+}
+
+.s1 {
+  margin: -180px 0 0 -220px;
+  font-size: 3rem;
+}
+
+.s2 {
+  margin: 150px 0 0 200px;
+  font-size: 2.8rem;
+}
+
+.s3 {
+  margin: 100px 0 0 -250px;
+  font-size: 2.5rem;
+}
+
+.s4 {
+  margin: -120px 0 0 180px;
+  font-size: 2.2rem;
+}
+
+.s5 {
+  margin: 200px 0 0 0;
+  font-size: 2.6rem;
+}
+
+.s6 {
+  margin: -220px 0 0 -50px;
+  font-size: 2.4rem;
+}
+
+.s7 {
+  margin: 0 0 0 300px;
+  font-size: 2.5rem;
+}
+
+.s8 {
+  margin: -250px 0 0 100px;
+  font-size: 2.3rem;
+}
+
+.s9 {
+  margin: 180px 0 0 -200px;
+  font-size: 2.7rem;
+}
+
+.s10 {
+  margin: -50px 0 0 280px;
+  font-size: 2.4rem;
+}
+
+/* 3. Reactor Core */
+.hero-reactor-core {
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.reactor-housing {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 0 60px rgba(0, 0, 0, 0.8),
+    inset 0 0 30px rgba(250, 164, 26, 0.1);
+  margin-bottom: 30px;
+}
+
+.reactor-energy-field {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+
+.reactor-energy-field.outer {
+  inset: -15px;
+  border-top-color: #faa41a;
+  border-bottom-color: #faa41a;
+  filter: drop-shadow(0 0 10px #faa41a);
+  animation: reactor-spin 8s linear infinite;
+  opacity: 0.8;
+}
+
+.reactor-energy-field.inner {
+  inset: -5px;
+  border-left-color: rgba(255, 255, 255, 0.5);
+  border-right-color: rgba(255, 255, 255, 0.5);
+  animation: reactor-spin-rev 6s linear infinite;
+}
+
+@keyframes reactor-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes reactor-spin-rev {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.reactor-logo-wrapper {
+  position: relative;
+  z-index: 21;
+  filter: drop-shadow(0 0 35px rgba(250, 164, 26, 0.5));
+  transition: transform 0.3s ease;
+  transform: scale(1.3);
+}
+
+.cs-branch-logo {
   width: 180px;
-  height: 180px;
-  background: #ffbb52;
-  bottom: 35%;
-  left: 20%;
-  animation: cs-move3 10s infinite alternate;
+  height: auto;
+  object-fit: contain;
+  animation: logo-pulse 3s ease-in-out infinite;
 }
 
-/* Animations */
-@keyframes cs-move1 {
-  to { transform: translate(40px, 30px) scale(1.05); }
-}
-@keyframes cs-move2 {
-  to { transform: translate(-40px, -30px) scale(1.08); }
-}
-@keyframes cs-move3 {
-  to { transform: translate(-20px, 50px) scale(.98); }
+@keyframes logo-pulse {
+
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
+/* Text Panel */
+.reactor-text-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.holographic-plate {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140%;
+  height: 120%;
+  transform: translate(-50%, -50%);
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(250, 164, 26, 0.05) 50%, transparent 100%);
+  z-index: -1;
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.reactor-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  line-height: 1;
+}
+
+.reactor-title .static {
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  letter-spacing: 6px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 8px;
+}
+
+.reactor-title .glitch-text {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -2px;
+  text-shadow: 0 0 30px rgba(250, 164, 26, 0.4);
+  position: relative;
+  animation: text-flicker 5s infinite;
+}
+
+/* Glitch Effect */
+.reactor-title .glitch-text::before,
+.reactor-title .glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.reactor-title .glitch-text::before {
+  color: #0ff;
+  z-index: -1;
+  animation: glitch-1 2s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.reactor-title .glitch-text::after {
+  color: #f0f;
+  z-index: -2;
+  animation: glitch-2 3s infinite;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+@keyframes glitch-1 {
+
+  0%,
+  100% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-3px, 3px);
+  }
+
+  40% {
+    transform: translate(-3px, -3px);
+  }
+
+  60% {
+    transform: translate(3px, 3px);
+  }
+
+  80% {
+    transform: translate(3px, -3px);
+  }
+}
+
+@keyframes glitch-2 {
+
+  0%,
+  100% {
+    transform: translate(0);
+  }
+
+  25% {
+    transform: translate(3px, -3px);
+  }
+
+  50% {
+    transform: translate(-3px, 3px);
+  }
+
+  75% {
+    transform: translate(-3px, -3px);
+  }
+}
+
+@keyframes text-flicker {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  41.99% {
+    opacity: 1;
+  }
+
+  42% {
+    opacity: 0.8;
+  }
+
+  43% {
+    opacity: 1;
+  }
+
+  45.99% {
+    opacity: 1;
+  }
+
+  46% {
+    opacity: 0.6;
+  }
+
+  46.5% {
+    opacity: 1;
+  }
+}
+
+/* Track Badges */
+.track-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 25px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #a0a0a0;
+  letter-spacing: 2px;
+  max-width: 500px;
+}
+
+.track-badges span:nth-child(even) {
+  opacity: 0.4;
+  font-size: 0.6rem;
+}
+
+.track-badges span:nth-child(odd) {
+  color: #faa41a;
+  background: rgba(250, 164, 26, 0.1);
+  padding: 4px 10px;
+  border-radius: 3px;
+  border: 1px solid rgba(250, 164, 26, 0.2);
+  transition: all 0.3s ease;
+}
+
+.track-badges span:nth-child(odd):hover {
+  background: rgba(250, 164, 26, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(250, 164, 26, 0.2);
+}
+
+/* Cinematic Overlays */
+.vortex-overlay-noise {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 30;
+  opacity: 0.4;
+}
+
+.vortex-overlay-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 40%, #000 100%);
+  pointer-events: none;
+  z-index: 31;
+}
+
+/* Enhanced Button */
+.reactor-btn {
+  margin-top: 35px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(250, 164, 26, 0.5);
+  padding: 14px 40px;
+  color: #faa41a;
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  overflow: hidden;
+  clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+  transition: all 0.3s ease;
+}
+
+.reactor-btn:hover {
+  background: rgba(250, 164, 26, 0.1);
+  box-shadow: 0 0 30px rgba(250, 164, 26, 0.2);
+  border-color: #faa41a;
+}
+
+.btn-glare {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: skewX(-20deg);
+  transition: 0.5s;
+}
+
+.reactor-btn:hover .btn-glare {
+  left: 150%;
+  transition: 0.7s ease-in-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cs-hero-vortex {
+    padding-top: 50px;
+  }
+
+  .hero-reactor-core {
+    margin-top: 40px;
+    /* Shift content down on mobile */
+  }
+
+  .vortex-container {
+    inset: -40%;
+  }
+
+  .reactor-housing {
+    width: 220px;
+    height: 220px;
+    margin-bottom: 20px;
+  }
+
+  .reactor-title .glitch-text {
+    font-size: 3rem;
+  }
+
+  .tech-shards .shard {
+    transform: scale(0.6);
+  }
+
+  /* Retarget shard positions for mobile if needed */
+  .s1 {
+    margin: -140px 0 0 -120px;
+  }
+
+  .s2 {
+    margin: 120px 0 0 100px;
+  }
+
+  .s3 {
+    margin: 100px 0 0 -120px;
+  }
+
+  .s4 {
+    margin: -100px 0 0 120px;
+  }
+
+  .s5,
+  .s6,
+  .s7,
+  .s8,
+  .s9,
+  .s10 {
+    display: none;
+  }
+
+  /* Hide some shards on mobile to reduce clutter */
+}

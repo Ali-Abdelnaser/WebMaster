@@ -11,13 +11,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.014);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 0 0 16px 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.336);
+  background: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 0 0 24px 24px;
+  border-bottom: 1px solid rgba(250, 164, 26, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   z-index: 1000;
-  transition: background-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cs-header.scrolled {
@@ -250,9 +251,9 @@
     height: 100vh;
     margin: 0;
     padding: 80px 20px;
-    background: rgba(250, 164, 26, 0.23);
-    backdrop-filter: blur(60px) saturate(180%);
-    -webkit-backdrop-filter: blur(60px) saturate(180%);
+    background: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     display: flex;
     flex-direction: column;

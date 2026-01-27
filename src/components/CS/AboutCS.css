@@ -1,103 +1,274 @@
-.cs-about {
-  color: #d1cfcf;
-  padding: 100px 20px;
-  text-align: center;
+/* ==================== CS ABOUT EPIC - TERMINAL EDITION ==================== */
+
+.cs-about-epic {
   position: relative;
-  
-  
+  padding: 40px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
 }
 
-.cs-about-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  animation: fadeInUp 1.2s ease;
+/* Section Header */
+.about-header {
+  position: relative;
+  z-index: 10;
+  margin-bottom: 60px;
+  width: 100%;
 }
 
 .cs-about-title {
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: #faa41a; /* برتقاني */
-  margin-bottom: -10px;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 20px rgba(250, 164, 26, 0.3);
+}
+
+.about-divider {
+  display: block;
+  margin: 0 auto 30px auto;
+  width: min(100%, 400px);
+  filter: drop-shadow(0 0 5px #faa41a);
+  z-index: 1;
   position: relative;
 }
 
-.cs-about-text p {
+.about-subtitle {
   font-size: 1.1rem;
+  color: #a0a0a0;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  line-height: 1.6;
+}
+
+/* Main Wrapper */
+.cs-about-wrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ==================== TERMINAL WINDOW ==================== */
+.terminal-window {
+  background: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 12px;
+  border: 1px solid rgba(250, 164, 26, 0.2);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(250, 164, 26, 0.1);
+  overflow: hidden;
+}
+
+/* Terminal Header (VS Code Style) */
+.terminal-header {
+  background: linear-gradient(180deg, #2d2d2d 0%, #252525 100%);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(250, 164, 26, 0.15);
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.terminal-buttons span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: block;
+}
+
+.btn-close {
+  background: #ff5f57;
+  box-shadow: 0 0 8px rgba(255, 95, 87, 0.4);
+}
+
+.btn-minimize {
+  background: #ffbd2e;
+  box-shadow: 0 0 8px rgba(255, 189, 46, 0.4);
+}
+
+.btn-maximize {
+  background: #28ca42;
+  box-shadow: 0 0 8px rgba(40, 202, 66, 0.4);
+}
+
+.terminal-title {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.terminal-title svg {
+  color: #faa41a;
+}
+
+/* Terminal Body */
+.terminal-body {
+  padding: 40px;
+  font-family: 'Courier New', monospace;
+  color: #d1cfcf;
+  min-height: auto;
+}
+
+.terminal-prompt {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.prompt-symbol {
+  color: #28ca42;
+  font-weight: bold;
+}
+
+.prompt-command {
+  color: #61dafb;
+}
+
+/* Terminal Output */
+.terminal-output {
+  margin-top: 20px;
+}
+
+.output-title {
+  font-size: 2.5rem;
+  color: #faa41a;
+  margin-bottom: 30px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hash {
+  color: #888;
+  font-size: 2rem;
+}
+
+.output-text p {
+  font-size: 1.05rem;
   line-height: 1.9;
   margin-bottom: 20px;
-  color: #d1cfcf; /* أبيض مائل */
-  text-align: justify;
-  text-align-last: center;
-  transition: color 0.3s ease;
+  color: #d1cfcf;
+  position: relative;
+  padding-left: 50px;
+  transition: all 0.3s ease;
+  text-align: left;
 }
 
-.cs-about-text p:hover {
-  color: #faa41a; /* عند hover */
+.output-text p:hover {
+  color: #fff;
+  transform: translateX(5px);
 }
 
-/* Animation */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+.line-number {
+  position: absolute;
+  left: 0;
+  color: #555;
+  font-size: 0.85rem;
+  user-select: none;
+  width: 35px;
+  text-align: right;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .cs-about-title {
-    font-size: 2.2rem;
+/* ==================== RESPONSIVE ==================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .terminal-body {
+    padding: 30px;
   }
-  .cs-about-text p {
-    font-size: 1rem;
-     text-align: justify;
 
-  }
-}
-
-  .cs-about-divider {
-  display: block;
-  margin: 0 auto 40px auto; 
-  width: 200px; 
-}
-
-/* 🖥️ شاشات كبيرة (أكتر من 1200px) */
-@media (min-width: 1200px) {
-  .Home-title {
-    font-size: 4rem; /* كبير وواضح */
-  }
-}
-/* 📱 تابلت (768px – 1023px) */
-@media (max-width: 1023px) and (min-width: 768px) {
-  .Home-title {
-    font-size: 3rem;
-  }
-  .cs-about-divider {
-  display: block;
-  margin: 0 auto 40px auto; 
-  width: 210px; 
-}
-
-}
-
-/* 📱 موبايل متوسط (481px – 767px) */
-@media (max-width: 767px) and (min-width: 481px) {
-  .Home-title {
-    font-size: 2.5rem;
-  }
-    .cs-about-divider {
-  display: block;
-  margin: 0 auto 40px auto; 
-  width: 170px; 
-}
-}
-
-/* 📱 موبايل صغير (≤480px) */
-@media (max-width: 480px) {
-  .Home-title {
+  .output-title {
     font-size: 2rem;
   }
-    .cs-about-divider {
-  display: block;
-  margin: 0 auto 40px auto; 
-  width: 170px; 
+
+  .output-text p {
+    font-size: 1rem;
+    padding-left: 40px;
+  }
 }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .cs-about-epic {
+    padding: 60px 20px 80px;
+  }
+
+  .about-header {
+    margin-bottom: 40px;
+  }
+
+  .about-subtitle {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .terminal-header {
+    padding: 10px 12px;
+  }
+
+  .terminal-title {
+    font-size: 0.75rem;
+  }
+
+  .terminal-body {
+    padding: 25px 15px;
+  }
+
+  .output-title {
+    font-size: 1.8rem;
+  }
+
+  .output-text p {
+    font-size: 0.95rem;
+    padding-left: 35px;
+  }
+
+  .line-number {
+    width: 30px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .cs-about-epic {
+    padding: 40px 15px 60px;
+  }
+
+  .terminal-buttons span {
+    width: 10px;
+    height: 10px;
+  }
+
+  .output-title {
+    font-size: 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .output-text p {
+    font-size: 0.9rem;
+  }
 }

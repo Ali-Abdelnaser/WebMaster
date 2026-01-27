@@ -27,3 +27,4 @@ node_modules
 
 # Optional npm cache directory
 .npm
+src/data/

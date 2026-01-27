@@ -4,7 +4,7 @@ import Hero from "../components/CS/HeroCS";
 import AboutCS from "../components/CS/AboutCS";
 import TracksCircle from "../components/CS/TracksGrid";
 import OfficersCS from "../components/CS/OfficersCS";
-import AnimatedBackgroundCS from "../components/CS/AnimatedBackgroundCS";
+import TrackTechBackground from "../components/Track/TrackTechBackground";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 
@@ -39,9 +39,6 @@ const containerVariants = {
   return (
     <motion.div
       className="cs-page"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
     >
       <Helmet>
         <title>Computer Society | IEEE MET SB</title>
@@ -73,7 +70,7 @@ const containerVariants = {
       </Helmet>
 
       <HeaderCS />
-      <AnimatedBackgroundCS />
+      <TrackTechBackground />
       <Hero />
       <AboutCS />
       <TracksCircle />
