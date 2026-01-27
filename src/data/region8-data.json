@@ -1,0 +1,29 @@
+{
+  "title": "IEEE Region 8",
+  "image": "img/ieee/region8.webp",
+  "description": "IEEE Region 8 is your professional hub for Europe, Middle East & Africa — a vibrant home to technology professionals, academics & students. As one of ten global IEEE regions, its mission is advancing innovation and knowledge through collaboration, professional development, and global networking. Region 8 supports over 80 active sections, organizes impactful conferences and competitions, and empowers cross-cultural engagement between academia and industry. Egypt is an important part of this region and a gateway to inspiring student leadership stories.",
+  "highlights": [
+    {
+      "icon": "🌍",
+      "title": "Geographic Diversity",
+      "desc": "Connects Europe, Middle East & Africa — over 80 spirited sections."
+    },
+    {
+      "icon": "🔬",
+      "title": "Innovation",
+      "desc": "Promotes cutting-edge research and technology excellence."
+    },
+    {
+      "icon": "🎓",
+      "title": "Student Power",
+      "desc": "International competitions and conferences for young leaders."
+    },
+    {
+      "icon": "🤝",
+      "title": "Networking",
+      "desc": "Bridges academia & industry, fostering global exchanges."
+    }
+  ],
+  "egyptFact": "Egypt is an active member of the IEEE Region 8 community, leading initiatives and student engagement all over the country.",
+  "website": "https://ieeer8.org/"
+}

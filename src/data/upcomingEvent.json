@@ -1,0 +1,16 @@
+{
+  "status": "off",
+  "event": {
+    "title": "Tech Talk: Future of AI",
+    "date": "25 Sept 2025",
+    "location": "Hall A, MET",
+    "description": "Join us for an engaging session on the future of Artificial Intelligence.",
+    "image": "/img/home.jpg",
+    "link": "#",
+    "socials": {
+      "facebook": "https://facebook.com/eventpage",
+      "instagram": "https://instagram.com/eventpage",
+      "linkedin": "https://linkedin.com/eventpage"
+    }
+  }
+}

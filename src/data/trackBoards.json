@@ -1,0 +1,216 @@
+{
+  "Cyber Security": {
+    "head": {
+      "name": "Mohammed Atia",
+      "position": "Track Head",
+      "image": "/img/CS/Board/cyber-security-head.webp",
+      "linkedin": "https://www.linkedin.com/in/mohammed-atia-b5b2ba331/",
+      "email": "mohammed50atia@gmail.com"
+    },
+    "vice": [
+      {
+        "name": "Moharam Essam ",
+        "position": "Vice Head",
+        "image": "/img/CS/Board/cyber-security-vice.webp",
+        "linkedin": "https://www.linkedin.com/in/moharam-essam-a7a035314",
+        "email": "moharmessam353@gmail.com"
+      }
+    ],
+    "members": [
+      {
+        "name": "Karim Roshdy",
+        "position": "Board Advisor",
+        "image": "/img/CS/Board/cyber-security-advisor.webp",
+        "linkedin": "https://www.linkedin.com/in/karim-roshdy-0716a4323?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        "email": "karimroshdyyy22@gmail.com"
+      },
+      {
+        "name": "Ahmed Ashraf",
+        "position": "Board MD ",
+        "image": "/img/CS/Board/cyber-security-MD.webp",
+        "linkedin": "https://www.linkedin.com/in/ahmedashraf-cyber",
+        "email": "ahmedxshade@gmail.com"
+      }
+    ]
+  },
+  "Flutter": {
+    "head": {
+      "name": "Mohammed Elsayed",
+      "position": "Track Head",
+      "image": "/img/CS/Board/flutter-head.webp",
+      "linkedin": "https://www.linkedin.com/in/mosayyyed",
+      "email": "mosayyyed@gmail.com"
+    },
+    "vice": [
+      {
+        "name": "baraa mabrok",
+        "position": "Vice Head",
+        "image": "/img/CS/Board/flutter-vice.webp",
+        "linkedin": "https://www.linkedin.com/in/baraa-mabrok-6b15b1356?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "email": "baraa0email@gmail.com"
+      }
+    ],
+    "members": [
+      {
+        "name": "Ammar Ayman Mohamed",
+        "position": "Board Advisor",
+        "image": "/img/CS/Board/flutter-member1.webp",
+        "linkedin": "https://www.linkedin.com/in/ammar-ayman-279302247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        "email": "ammarayman3030810@gmail.com"
+      }
+    ]
+  },
+  "Front End": {
+    "head": {
+      "name": "Nagham Ahmed",
+      "position": "Track Head",
+      "image": "/img/CS/Board/frontend-head.webp",
+      "linkedin": "https://www.linkedin.com/in/nagham-ahmed-713b29295?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+      "email": "nagham.ahmed909@gmail.com"
+    },
+    "vice": [
+      {
+        "name": "Nourhan khaled",
+        "position": "Vice Head",
+        "image": "/img/CS/Board/frontend-vice.webp",
+        "linkedin": "https://www.linkedin.com/in/nourhan-khaled34?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        "email": "nkankakhaled@gmail.com"
+      }
+    ],
+    "members": [
+      {
+        "name": "Mohammad Abuoelezz",
+        "position": "Board Advisor",
+        "image": "/img/CS/Board/frontend-member1.webp",
+        "linkedin": "https://www.linkedin.com/in/mohammad-abuoelezz-530bba232?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        "email": "mabuoelezz@gmail.com"
+      },
+      {
+        "name": "Ziad Abdelatif",
+        "position": "Board Advisor",
+        "image": "/img/CS/Board/frontend-member2.webp",
+        "linkedin": "https://www.linkedin.com/in/ziad-emad2004/",
+        "email": "ziademad2023@gmail.com"
+      }
+    ]
+  },
+  "Back End Node.js": {
+    "head": {
+      "name": "Mohamed rabee",
+      "position": "Track Head",
+      "image": "/img/CS/Board/backend-node-head.webp",
+      "linkedin": "https://www.linkedin.com/in/mohamed-rabee-66bb03278/",
+      "email": "mrabee083@gmail.com"
+    },
+    "vice": [
+      
+    ],
+    "members": []
+  },
+  "Back End .NET": {
+    "head": {
+      "name": "Mohamed kabeel ",
+      "position": "Track Head",
+      "image": "/img/CS/Board/backend-net-head.webp",
+      "linkedin": "http://www.linkedin.com/in/mohamed-kabil1",
+      "email": "kabeelmohamed22@gmail.com"
+    },
+    "vice": [
+      {
+        "name": "Khalid Mohamed",
+        "position": "Vice Head",
+        "image": "/img/CS/Board/backend-net-vice.webp",
+        "linkedin": "https://www.linkedin.com/in/khaled-mohamed-goma?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        "email": "k7aledm0hamed15@gmail.com"
+      }
+    ],
+    "members": []
+  },
+  "UI-UX": {
+    "head": {
+      "name": "Mohamed Ayman",
+      "position": "Track Head",
+      "image": "/img/CS/Board/uiux-head.webp",
+      "linkedin": "https://www.linkedin.com/in/mohamed-ayman-6a2071324?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+      "email": "mohamed.ayman.dzn@gmail.com"
+    },
+    "vice": [
+      {
+        "name": "Sarah Yaser",
+        "position": "Vice Head",
+        "image": "/img/CS/Board/uiux-vice.webp",
+        "linkedin": "https://www.linkedin.com/in/sarahhusain502",
+        "email": "Sarahhusain502@gmail.com"
+      }
+    ],
+    "members": [
+      {
+        "name": "Yousef eleraky",
+        "position": "Board Advisor",
+        "image": "/img/CS/Board/uiux-member1.webp",
+        "linkedin": "https://www.linkedin.com/in/el3rakyyy?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        "email": "gooeleraky8@gmail.com"
+      }
+    ]
+  },
+  "Hardware": {
+    "head": {
+      "name": "Mostafa Loutfy",
+      "position": "Track Head",
+      "image": "/img/Team Management/Loutfy.webp",
+      "linkedin": "https://linkedin.com/in/khaled-reda",
+      "email": "khaled.reda@ieee.org"
+    },
+    "vice": [],
+    "members": []
+  },
+  "AI": {
+    "head": {
+      "name": "Ahmed Osama",
+      "position": "Track Head",
+      "image": "/img/CS/Board/ai-head.webp",
+      "linkedin": "http://www.linkedin.com/in/ahmed-osama-salah",
+      "email": "ahmedosama99a@gmail.com"
+    },
+    "vice": [
+      {
+        "name": "Ahmed Hassan",
+        "position": "Vice Head",
+        "image": "/img/CS/Board/ai-vice.webp",
+        "linkedin": "https://www.linkedin.com/in/ahmed-hassan-b37331320?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        "email": "ahmedassan559@gmail.com"
+      },
+      {
+        "name": "Mahmoud Mostafa",
+        "position": "Vice Head",
+        "image": "/img/CS/Board/ai-vice2.webp",
+        "linkedin": "https://www.linkedin.com/in/ma7moud-badr?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        "email": "ma7m0udbaadr@gmail.com"
+      }
+    ],
+    "members": [
+      {
+        "name": "Ahmed ElNahas",
+        "position": "Board MD",
+        "image": "/img/CS/Board/ai-member1.webp",
+        "linkedin": "http://www.linkedin.com/in/ahmedelnahhas",
+        "email": "nhassahmed1@gmail.com"
+      },
+      {
+        "name": "Ibrahim Alhosiny",
+        "position": "Board MD",
+        "image": "/img/CS/Board/ai-member2.webp",
+        "linkedin": "https://www.linkedin.com/in/ibrahim-alhosiny-b07024343/",
+        "email": "ialhosiny970@gmail.com"
+      },
+      
+      {
+        "name": "Mohamed Rajab",
+        "position": "Board Advisor",
+        "image": "/img/CS/Board/ai-member4.webp",
+        "linkedin": "https://www.linkedin.com/in/mohamed-rajab-3049831b1/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        "email": "mohamed.rajab@ieeeypegypt.org"
+      }
+    ]
+  }
+}

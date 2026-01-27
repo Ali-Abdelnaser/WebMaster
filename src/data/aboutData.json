@@ -1,0 +1,291 @@
+{
+  "hero": {
+    "title": "About IEEE MET SB",
+    "subtitle": "United by Vision, Not Location",
+    "background": "/img/mockup.svg"
+  },
+  "missionVision": {
+    "mission": "To inspire and empower students to innovate through technology, teamwork, and leadership.",
+    "vision": "To become a leading student branch recognized for its impact, inclusivity, and innovation."
+  },
+  "whatWeDo": [
+    {
+      "title": "Events",
+      "description": "We organize impactful technical and non-technical events.",
+      "icon": "fa-calendar-check"
+    },
+    {
+      "title": "Workshops",
+      "description": "Hands-on sessions to develop technical and soft skills.",
+      "icon": "fa-chalkboard-teacher"
+    },
+    {
+      "title": "Competitions",
+      "description": "Hackathons, coding challenges, and innovation contests.",
+      "icon": "fa-trophy"
+    }
+  ],
+  "images": [
+    {
+      "src": "/img/Gallary/1.webp",
+      "alt": "Event 1"
+    },
+    {
+      "src": "/img/Gallary/2.webp",
+      "alt": "Event 2"
+    },
+    {
+      "src": "/img/Gallary/3.webp",
+      "alt": "Event 3"
+    },
+    {
+      "src": "/img/Gallary/4.webp",
+      "alt": "Event 4"
+    },
+    {
+      "src": "/img/Gallary/5.webp",
+      "alt": "Event 5"
+    },
+    {
+      "src": "/img/Gallary/6.webp",
+      "alt": "Event 6"
+    },
+    {
+      "src": "/img/Gallary/7.webp",
+      "alt": "Event 7"
+    },
+    {
+      "src": "/img/Gallary/8.webp",
+      "alt": "Event 8"
+    },
+    {
+      "src": "/img/Gallary/9.webp",
+      "alt": "Event 9"
+    },
+    {
+      "src": "/img/Gallary/10.webp",
+      "alt": "Event 10"
+    },
+    {
+      "src": "/img/Gallary/11.webp",
+      "alt": "Event 11"
+    },
+    {
+      "src": "/img/Gallary/12.webp",
+      "alt": "Event 12"
+    },
+    {
+      "src": "/img/Gallary/13.webp",
+      "alt": "Event 13"
+    },
+    {
+      "src": "/img/Gallary/14.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/15.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/16.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/17.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/18.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/19.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/20.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/21.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/22.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/23.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/24.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/25.webp",
+      "alt": "Event 14"
+    },
+    {
+      "src": "/img/Gallary/26.webp",
+      "alt": "Event 14"
+    }
+  ],
+  "summary": {
+    "title": "About IEEE MET SB",
+    "description": "IEEE MET Student Branch is a vibrant community of passionate students who aim to promote technological innovation, leadership, and professional development. As part of the IEEE global network, our branch organizes events, workshops, and activities that empower students to learn, grow, and make an impact in engineering and technology. We also collaborate with different IEEE societies such as WiE (Women in Engineering), technical chapters, and regional initiatives.",
+    "highlights": [
+      {
+        "icon": "fas fa-bolt",
+        "heading": "Innovation",
+        "text": "Driving creativity and new ideas through projects and competitions."
+      },
+      {
+        "icon": "fas fa-users",
+        "heading": "Community",
+        "text": "Bringing together diverse students and fostering collaboration."
+      },
+      {
+        "icon": "fas fa-globe",
+        "heading": "Global Reach",
+        "text": "Connected with IEEE worldwide to expand opportunities."
+      }
+    ]
+  },
+  "storyData": [
+    {
+      "year": "Oct 2023",
+      "title": "The Idea is Born",
+      "text": "A group of passionate students came together with one vision: to establish IEEE MET SB.",
+      "details": "W ith the beginning of the academic year, students spread the idea among friends and colleagues, encouraging them to join and gather memberships."
+    },
+    {
+      "year": "Nov 2023",
+      "title": "Facing Challenges",
+      "text": "The first submission for approval was rejected, but the team didn’t give up.",
+      "details": "I nstead, they worked together, solved the issues, and prepared a stronger application for IEEE."
+    },
+    {
+      "year": "April 2024",
+      "title": "Official Approval",
+      "text": "IEEE officially recognized MET Student Branch.",
+      "details": "T his milestone marked the true beginning of our journey, full of passion, teamwork, and ambition to build a vibrant community of engineers."
+    },
+    {
+      "year": "July 2024",
+      "title": "Awareness Bites",
+      "text": "Our journey took its first big step with Awareness Bites, an online project of 6 sessions.",
+      "details": "E ach session included technical and soft-skills parts, delivered by MET graduates working abroad. The project attracted 500+ students from across Egypt."
+    },
+    {
+      "year": "Aug 2024",
+      "title": "Social Media Campaign",
+      "text": "We launched a creative social media campaign introducing branch cycles.",
+      "details": "P roduced 5 videos and a series of posts introducing Media, HR, Assistant, Business, and Logistics to help members understand the branch structure."
+    },
+    {
+      "year": "Sep 2024",
+      "title": "First Recruitment Drive",
+      "text": "We officially opened doors for new members to join.",
+      "details": "R ecruitment took place over four days: 4 & 5 Sep 2024 (online interviews) and 9 & 10 Sep 2024 (offline interviews & activities). Candidates went through screening interviews and interactive tasks to prepare them for branch roles."
+    },
+    {
+      "year": "Sep 2024",
+      "title": "First Offline Project",
+      "text": "Our first offline project at Creativa Mansoura ran for a whole week.",
+      "details": "P articipants engaged in Project Management and Design Thinking sessions focused on self-development and enhancing branch growth. This marked a shift from online activities to professional offline training."
+    },
+    {
+      "year": "Oct 2024",
+      "title": "First Orientation Day",
+      "text": "Our first Orientation Day at Creativa Mansoura.",
+      "details": "A n informative and fun day that introduced the branch to new members and strengthened community spirit. It helped members learn more about the branch and each other while breaking the ice."
+    },
+    {
+      "year": "Nov 2024",
+      "title": "First College Booth",
+      "text": "Our first booth inside MET campus increased visibility of IEEE MET SB.",
+      "details": "M embers visited lectures and classrooms to introduce the branch, talk with students, and invite them to join IEEE MET SB."
+    },
+    {
+      "year": "Feb 2025",
+      "title": "Second Recruitment Drive",
+      "text": "Recruitment designed as a Project Management experience.",
+      "details": "A dedicated Project Manager led the process at Creativa Mansoura. New members joined through tasks and interviews, marking the beginning of structured leadership and scaling."
+    },
+    {
+      "year": "March 2025",
+      "title": "Project R&D ",
+      "text": "To prepare new members, we launched Project R&D at Creativa Mansoura.",
+      "details": "T his project was fully organized and delivered by IEEE MET members. Sessions focused on skills development, teamwork, and practical training — representing the shift from learning to leading."
+    }
+  ],
+  "stats": [
+    {
+      "number": 140,
+      "label": "Members",
+      "icon": "fas fa-user-friends"
+    },
+    {
+      "number": 19,
+      "label": "Events & Workshops",
+      "icon": "fas fa-calendar-alt"
+    },
+    {
+      "number": 25,
+      "label": "Partners",
+      "icon": "fas fa-handshake"
+    },
+    {
+      "number": "0",
+      "label": "Competitions",
+      "icon": "fas fa-trophy"
+    }
+  ],
+  "founding": [
+    {
+      "name": "Mohamed Rajab",
+      "role": "Founding Chair",
+      "image": "img/officers/rajab.webp",
+      "socials": [
+        {
+          "icon": "fab fa-linkedin",
+          "link": "https://www.linkedin.com/in/mohamed-rajab-3049831b1/"
+        },
+        {
+          "icon": "fas fa-envelope",
+          "link": "mailto:mohamed.rajab@ieeeypegypt.org"
+        }
+      ]
+    },
+    {
+      "name": "Nancy Hosny",
+      "role": "Founding Vice Chair",
+      "image": "img/officers/Nancy.webp",
+      "socials": [
+        {
+          "icon": "fab fa-linkedin",
+          "link": "https://www.linkedin.com/in/nancyhosny/"
+        },
+        {
+          "icon": "fas fa-envelope",
+          "link": "mailto:nancyhosny8@gmail.com"
+        }
+      ]
+    },{
+      "name": "Doha Elmonzer",
+      "role": "Founding Secretary",
+      "image": "img/officers/Doha.webp",
+      "socials": [
+        {
+          "icon": "fab fa-linkedin",
+          "link": "https://www.linkedin.com/in/nancyhosny/"
+        },
+        {
+          "icon": "fas fa-envelope",
+          "link": "mailto:dohaelmonzer@gmail.com"
+        }
+      ]
+    }
+  ]
+}

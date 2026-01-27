@@ -1,0 +1,26 @@
+{
+  "title": "What Are IEEE Student Activities?",
+  "description": "IEEE Student Activities empower university students to take part in technical, professional, and leadership opportunities through local student branches, technical workshops, conferences, competitions, and social impact events. By participating, students build networks, develop teamwork and management skills, and engage with the global IEEE community.",
+  "highlights": [
+    {
+      "icon": "🎓",
+      "title": "Student Branches",
+      "desc": "Active IEEE communities at universities; learn, collaborate, and lead locally."
+    },
+    {
+      "icon": "🛠️",
+      "title": "Technical Events & Workshops",
+      "desc": "Expand technical knowledge and hands-on experience through STEM programs."
+    },
+    {
+      "icon": "🔗",
+      "title": "Competitions & Hackathons",
+      "desc": "Solve challenges, develop solutions, and earn recognition."
+    },
+    {
+      "icon": "🌟",
+      "title": "Leadership & Teamwork",
+      "desc": "Develop management skills, organize major events, and represent your peers."
+    }
+  ]
+}

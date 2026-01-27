@@ -1,0 +1,587 @@
+{
+  "HR": [
+    {
+      "name": "hrRole",
+      "label": "What do you know about the role of HR?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain your understanding of HR responsibilities..."
+    },
+    {
+      "name": "hrDifference",
+      "label": "What makes you different from other applicants for the HR team?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Highlight what makes you unique for this role..."
+    },
+    {
+      "name": "hrCommitment",
+      "label": "How many hours per week can you commit to HR work?",
+      "type": "text",
+      "required": true,
+      "placeholder": "e.g. 10-15 hours"
+    },
+    {
+      "name": "hrGoogleTools",
+      "label": "Have you ever used any Google tools before (Google Sheets, Forms, Meet)?",
+      "type": "text",
+      "required": true,
+      "placeholder": "Mention which tools you've used and your experience..."
+    },
+    {
+      "name": "hrSoftSkills",
+      "label": "What soft skills do you consider your strongest?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "List your strongest soft skills..."
+    },
+    {
+      "name": "hrStrength",
+      "label": "What is your main strength that you think will be useful in HR?",
+      "type": "text",
+      "required": true,
+      "placeholder": "Describe your key strength relevant to HR..."
+    },
+    {
+      "name": "hrWeakness",
+      "label": "What is your main weakness that might affect your work, and how do you deal with it?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain your weakness and coping strategies..."
+    },
+    {
+      "name": "hrDeadline",
+      "label": "When you have a task with a tight deadline, how do you usually manage it?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Describe your approach to managing tight deadlines..."
+    },
+    {
+      "name": "hrWillingToLearn",
+      "label": "Are you willing to learn new things if needed?",
+      "type": "text",
+      "required": true,
+      "placeholder": "Yes / No / Explain"
+    },
+    {
+      "name": "hrProblemSolving",
+      "label": "When you face a problem or time pressure, do you prefer to solve it alone or ask for help?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain how you handle problems under pressure..."
+    },
+    {
+      "name": "hrUnknownTask",
+      "label": "If you are assigned a task and you don’t know the tool or method to complete it, what would you do?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain your approach to unfamiliar tasks..."
+    }
+  ],
+  "Logistics": [
+    {
+      "name": "logWhyJoin",
+      "label": "Why do you want to join the Logistics Cycle?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Share your motivation for joining Logistics..."
+    },
+    {
+      "name": "logExp",
+      "label": "Do you have any previous experience in organizing or managing events? (If yes, please mention it)",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Describe your relevant experience..."
+    },
+    {
+      "name": "logCommStyle",
+      "label": "How would you describe your communication style?",
+      "type": "text",
+      "required": true,
+      "placeholder": "e.g. Clear, assertive, collaborative..."
+    },
+    {
+      "name": "logReaction",
+      "label": "If something goes wrong at the last minute during an event, what would be your first reaction?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain how you handle last-minute issues..."
+    },
+    {
+      "name": "logTimeMgmt",
+      "label": "When you have other tasks besides Logistics, how do you ensure you complete your tasks on time?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Describe your time management strategy..."
+    },
+    {
+      "name": "logOnSite",
+      "label": "Are you willing to attend on-site preparations and events?",
+      "type": "text",
+      "required": true,
+      "placeholder": "Yes / No / Explain"
+    },
+    {
+      "name": "logStrength",
+      "label": "What do you think is your biggest strength that can help the Logistics team?",
+      "type": "text",
+      "required": true,
+      "placeholder": "Describe your key strength for Logistics..."
+    },
+    {
+      "name": "logSkills",
+      "label": "What skills do you hope to develop by joining the Logistics team?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Share skills you want to learn or improve..."
+    }
+  ],
+  "Media": [
+    {
+      "name": "mediaDesignProcess",
+      "label": "Where do you usually start your design process? (sketches, colors, references…etc.)",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Describe your starting point in the design process..."
+    },
+    {
+      "name": "mediaColorsFonts",
+      "label": "How do you choose colors and fonts to match the target audience?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain your method for selecting colors and fonts..."
+    },
+    {
+      "name": "mediaBadDesignExample",
+      "label": "Give an example of a famous design you don’t like, and tell us how you’d improve it.",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Provide an example and improvement suggestions..."
+    },
+    {
+      "name": "mediaFeedbackResponse",
+      "label": "If you received vague feedback like “the design is weak,” how would you respond?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain your response to unclear feedback..."
+    },
+    {
+      "name": "mediaFavoriteDesigns",
+      "label": "Which type of designs do you enjoy the most: social media posts, logos, posters? Why?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Share your favorite design types and reasons..."
+    },
+    {
+      "name": "mediaBrandingExperience",
+      "label": "Do you have experience with branding guidelines? (If yes, explain.)",
+      "type": "textarea",
+      "required": false,
+      "placeholder": "Describe any experience with branding rules..."
+    },
+    {
+      "name": "mediaRevisions",
+      "label": "How do you handle receiving too many revisions from the team?",
+      "type": "textarea",
+      "required": false,
+      "placeholder": "Explain your approach to multiple revisions..."
+    },
+    {
+      "name": "mediaPortfolioLink",
+      "label": "Share a link or image of a design you’re really proud of.",
+      "type": "url",
+      "required": false,
+      "placeholder": "Provide a URL or upload your best work..."
+    },
+    {
+      "name": "mediaTools",
+      "label": "Which design tools do you usually use? (e.g., Photoshop, Illustrator, Figma, Canva, others…)",
+      "type": "text",
+      "required": true,
+      "placeholder": "List the design tools you use..."
+    }
+  ],
+  "VideoEditing": [
+    {
+      "name": "videoDesignProcess",
+      "label": "Where do you usually start your video editing process? (storyboarding, footage selection, references…etc.)",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain your video editing workflow..."
+    },
+    {
+      "name": "videoTools",
+      "label": "Which video editing tools do you usually use? (e.g., Premiere Pro, After Effects, Final Cut, DaVinci Resolve, others…) ",
+      "type": "text",
+      "required": true,
+      "placeholder": "List the video editing tools you use..."
+    },
+    {
+      "name": "videoPortfolio",
+      "label": "Share a link or file of a video project you’re really proud of.",
+      "type": "url",
+      "required": false,
+      "placeholder": "Provide a link or file to your best video work..."
+    },
+    {
+      "name": "videoFeedbackResponse",
+      "label": "If you received vague feedback like 'the video feels weak,' how would you respond?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain your approach to vague feedback..."
+    },
+    {
+      "name": "videoColorAndSound",
+      "label": "How do you choose colors, effects, and sound to match the target audience?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Describe your selection process for visuals and audio..."
+    },
+    {
+      "name": "videoRevisions",
+      "label": "How do you handle receiving too many revisions from the team?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain how you manage multiple revisions..."
+    },
+    {
+      "name": "videoFavoriteType",
+      "label": "Which type of videos do you enjoy editing the most: social media clips, short films, or promotional videos? Why?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Share your preferred video types and reasons..."
+    },
+    {
+      "name": "videoBrandingExperience",
+      "label": "Do you have experience following branding guidelines in video projects? If yes, explain.",
+      "type": "textarea",
+      "required": false,
+      "placeholder": "Describe any branding experience in video projects..."
+    },
+    {
+      "name": "videoProblemSolving",
+      "label": "Describe a time you faced technical or creative challenges in a video project. How did you solve it?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain a challenge you overcame in video editing..."
+    },
+    {
+      "name": "videoCreativeInspiration",
+      "label": "How do you get inspired or generate creative ideas for your video projects?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Share your methods for creative inspiration..."
+    }
+  ],
+  "Marketing": [
+    {
+      "name": "mktWhyJoin",
+      "label": "Why did you choose to join the Marketing team and not another team?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain why you chose Marketing..."
+    },
+    {
+      "name": "mktPlatform",
+      "label": "Which social media platform do you think is best for reaching university students, and why?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Share your preferred platform and reasoning..."
+    },
+    {
+      "name": "mktEngagement",
+      "label": "If people are not engaging with our posts, what could be the reason?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain possible causes for low engagement..."
+    },
+    {
+      "name": "mktNegative",
+      "label": "If someone writes a negative comment on our post, how would you respond?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Describe your response to criticism..."
+    },
+    {
+      "name": "mktProject",
+      "label": "If we give you a small project, would you prefer to work on planning or content?",
+      "type": "text",
+      "required": true,
+      "placeholder": "Choose Planning / Content / Both"
+    },
+    {
+      "name": "mktTrend",
+      "label": "If there is a trend, how would you use it without copying others?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain your approach to trends creatively..."
+    },
+    {
+      "name": "mktExtraWork",
+      "label": "If we need you to work extra hard a day before an event, what would you do?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain how you would handle extra work..."
+    },
+    {
+      "name": "mktTools",
+      "label": "Have you ever used tools like Canva or Photoshop, or made a quick story video?",
+      "type": "text",
+      "required": true,
+      "placeholder": "List tools you've used and experience..."
+    },
+    {
+      "name": "mktFeedback",
+      "label": "How do you accept feedback if your idea is not suitable?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Describe your approach to feedback..."
+    },
+    {
+      "name": "mktCaption",
+      "label": "We’ll give you some photos from a Recruiting event like last season. Suggest a caption that fits all the photos creatively.",
+      "type": "slider",
+      "images": [
+        "/img/Marketing/1.webp",
+        "/img/Marketing/2.webp",
+        "/img/Marketing/3.webp",
+        "/img/Marketing/4.webp",
+        "/img/Marketing/5.webp",
+        "/img/Marketing/6.webp",
+        "/img/Marketing/7.webp"
+      ],
+      "required": true,
+      "placeholder": "Write a creative caption for the images..."
+    },
+    {
+      "name": "mktImpact",
+      "label": "How would you like to leave your mark on the Marketing team after the season ends?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain your desired impact in the team..."
+    }
+  ],
+  "EventManagement": [
+    {
+      "name": "eventWhyThis",
+      "label": "What made you choose Event Management instead of any other committee?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain your motivation for Event Management..."
+    },
+    {
+      "name": "eventUnknowns",
+      "label": "How do you deal with things you don’t know or have no prior experience in?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain your approach to unfamiliar tasks..."
+    },
+    {
+      "name": "eventTimePressure",
+      "label": "Tell me about a situation where you faced time pressure and many tasks. How did you handle it?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Describe a high-pressure situation and your response..."
+    },
+    {
+      "name": "eventTeamwork",
+      "label": "In your opinion, what’s the difference between working individually and working in a team? Which do you prefer?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Share your thoughts on teamwork vs individual work..."
+    },
+    {
+      "name": "eventShortPrep",
+      "label": "If you have an event that must be prepared in a very short time (for example, 3 days), what are the first three steps you would take to ensure its success?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Describe your plan for short-prep events..."
+    },
+    {
+      "name": "eventMotivation",
+      "label": "What keeps you going when something is difficult? Or do you decide it’s not worth the effort if it feels too hard?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain your motivation and perseverance..."
+    },
+    {
+      "name": "eventAchievement",
+      "label": "Tell me about a moment when you felt you achieved a small accomplishment that made a big difference and taught you something new.",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Describe a meaningful achievement and its lesson..."
+    },
+    {
+      "name": "eventMistake",
+      "label": "If you make a mistake in your work, what’s the best decision you take to fix it?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain how you handle mistakes..."
+    },
+    {
+      "name": "eventConflict",
+      "label": "How would you handle any conflict or misunderstanding that happens within the team?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Describe your approach to team conflicts..."
+    },
+    {
+      "name": "eventQuickLearn",
+      "label": "Tell me about a time when you learned a new skill quickly. How did you do it?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain how you quickly learned a new skill..."
+    }
+  ],
+  "FR": [
+    {
+      "name": "frWhyJoin",
+      "label": "Why did you choose the FR Committee?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Share your motivation for joining FR..."
+    },
+    {
+      "name": "frMeaning",
+      "label": "What does Fundraising mean to you in the context of a Student Activity or Organization?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain your understanding of fundraising..."
+    },
+    {
+      "name": "frSkills",
+      "label": "In your opinion, what are the top 3 skills that any FR member should have?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "List the top 3 skills for FR members..."
+    },
+    {
+      "name": "frStrongSkill",
+      "label": "Which skill do you think is your strongest when it comes to FR?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Describe your strongest skill in fundraising..."
+    },
+    {
+      "name": "frEvents",
+      "label": "Which type of event do you think needs sponsors the most?",
+      "type": "text",
+      "required": true,
+      "placeholder": "Specify which events require sponsors..."
+    },
+    {
+      "name": "frPreparation",
+      "label": "Imagine you are meeting a sponsor for the first time — what are the three things you must know about them beforehand?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "List the key information to know before meeting a sponsor..."
+    },
+    {
+      "name": "frPressure",
+      "label": "If a sponsor pressures you with tough questions, how would you handle it?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain your approach to handling sponsor pressure..."
+    },
+    {
+      "name": "frRejection",
+      "label": "If a sponsor rejects you the first time, how would you try again to convince them?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Describe your strategy to handle rejection..."
+    },
+    {
+      "name": "frProductCondition",
+      "label": "If a sponsor insists on promoting their product in exchange for support, how would you deal with this situation?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain how you handle sponsor conditions..."
+    },
+    {
+      "name": "frCompareSponsors",
+      "label": "Imagine you have three sponsors — how would you differentiate between them and decide which is most beneficial?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Describe your method to compare sponsors..."
+    },
+    {
+      "name": "frSpecializedSponsor",
+      "label": "If a sponsor comes from a specialized field (e.g., Medical Devices, AI), how would you approach them and show that you understand their domain?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain your approach to specialized sponsors..."
+    }
+  ],
+  "PR": [
+    {
+      "name": "prRole",
+      "label": "What do you think is the role of PR in the cycle?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain the role of PR in the cycle..."
+    },
+    {
+      "name": "prWhyJoin",
+      "label": "Why do you want to join PR?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Share your motivation for joining PR..."
+    },
+    {
+      "name": "prLearn",
+      "label": "What new thing do you want to learn if you join PR?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Describe what skills or knowledge you want to gain..."
+    },
+    {
+      "name": "prComfortZone",
+      "label": "Tell us about the last time you tried something outside your comfort zone. What was it?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Share an experience where you stepped out of your comfort zone..."
+    },
+    {
+      "name": "prMeetPeople",
+      "label": "Do you like to meet new people, even if you don’t know them before? Why / why not?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain your attitude towards meeting new people..."
+    },
+    {
+      "name": "prRepresentEvent",
+      "label": "Imagine you represent the cycle in a small event at college. What is the first thing you will do?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Describe your first steps in representing the cycle..."
+    },
+    {
+      "name": "prBreakIce",
+      "label": "If you are in a new team and don’t know anyone, how will you break the ice?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain how you would introduce yourself and engage with new team members..."
+    },
+    {
+      "name": "prFaceVsSocial",
+      "label": "Do you prefer talking to people face-to-face or using social media? Why?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Explain your preference for face-to-face or online communication..."
+    },
+    {
+      "name": "prNegativeFeedback",
+      "label": "If someone gives negative feedback about the cycle, how will you react?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Describe how you handle negative feedback..."
+    },
+    {
+      "name": "prQualities",
+      "label": "What personal qualities do you have that can help you be a good member in the cycle?",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "List qualities that make you a strong PR team member..."
+    }
+  ]
+}

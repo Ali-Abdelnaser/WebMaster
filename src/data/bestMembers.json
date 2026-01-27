@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Mostafa Mohamed",
+    "team": "HR ",
+    "img": "/img/HR/Mostafa.webp"
+  },
+  {
+    "name": "Yassmena Abdullah",
+    "team": "HR ",
+    "img": "/img/HR/Yassmena.webp"
+  },
+  {
+    "name": "Mohamed Osama",
+    "team": "Video Editing",
+    "img": "/img/Media/Osama.webp"
+  },
+  {
+    "name": "Nagham Ahmed",
+    "team": "Graphic Design",
+    "img": "/img/Team Management/Nagham.webp"
+  },
+  {
+    "name": "Nada Kandil",
+    "team": "Logistics ",
+    "img": "/img/Logistice/Nada.webp"
+  },
+  {
+    "name": "Jana Hazem",
+    "team": "Event Managment ",
+    "img": "/img/Team Management/Jana.webp"
+  },
+  {
+    "name": "Mirna Mohamed",
+    "team": "Marketing ",
+    "img": "/img/Marketing/Mirna.webp"
+  },
+  {
+    "name": "Hanin Ashraf",
+    "team": "PR ",
+    "img": "/img/PR/Hanin.webp"
+  },
+  {
+    "name": "Rana Ashraf",
+    "team": " PR ",
+    "img": "/img/PR/Rana Ashraf.webp"
+  },
+  {
+    "name": "Mariam Maged",
+    "team": "FR ",
+    "img": "/img/FR/Mariam.webp"
+  }
+]

@@ -1,0 +1,42 @@
+{
+    "logo": "/img/ieee/IEEE Egypt Section.webp",
+    "title": "IEEE EGY-Section organizations",
+    "about": "IEEE Egypt Section brings together engineers, students, and organizations to promote technology, leadership, and innovation nationwide.",
+    "organizations": [
+        {
+            "name": "IEEE SAC Egypt",
+            "image": "/img/ieee/IEEE SAC Egypt.webp",
+            "readMoreUrl": "https://ieee.org.eg/sac/"
+        },
+        {
+            "name": "IEEE YP Egypt",
+            "image": "/img/ieee/org-yp.webp",
+            "readMoreUrl": "http://ieeeypegypt.org/"
+        },
+        {
+            "name": "IEEE Sight Egypt",
+            "image": "/img/ieee/org-sight.webp",
+            "readMoreUrl": "https://ieee.org.eg/sight/"
+        },
+        {
+            "name": "IEEE RAS Egypt",
+            "image": "/img/ieee/org-ras.webp",
+            "readMoreUrl": "http://www.ras-egypt.org/"
+        },
+        {
+            "name": "IEEE SSCS Egypt",
+            "image": "/img/ieee/org-sscs.png",
+            "readMoreUrl": "https://ieee.org.eg/sscs/"
+        },
+        {
+            "name": "IEEE VTC Egypt",
+            "image": "/img/ieee/org-vtc.webp",
+            "readMoreUrl": "https://ieee.org.eg/vtc/"
+        },
+        {
+            "name": "IEEE Industry Egypt",
+            "image": "/img/ieee/org-industry.webp",
+            "readMoreUrl": "https://ieee.org.eg/industry/"
+        }
+    ]
+}

@@ -1,0 +1,418 @@
+{
+    "AI": {
+        "eyebrow": "Roadmap Track",
+        "titlePrefix": "AI & Machine Learning",
+        "titleHighlight": "Journey",
+        "description": "Embark on a comprehensive path from coding fundamentals to advanced AI. Learn Python, Data Analysis, Machine Learning, and Deep Learning through real-world projects.",
+        "fullRoadmapLink": "https://github.com/ieeemetcsc/roadmaps-2025-2026/blob/main/ai-ml/README.md",
+        "joinLink": "/join",
+        "steps": [
+            {
+                "icon": "FaPython",
+                "title": "Python Basics",
+                "description": "Master core syntax, logic, and data structures for AI."
+            },
+            {
+                "icon": "FaChartBar",
+                "title": "Data Analysis",
+                "description": "Process and visualize complex data with NumPy & Pandas."
+            },
+            {
+                "icon": "FaBrain",
+                "title": "Machine Learning",
+                "description": "Build and train predictive models and algorithms."
+            },
+            {
+                "icon": "FaProjectDiagram",
+                "title": "Deep Learning",
+                "description": "Explore neural networks and advanced AI projects."
+            }
+        ],
+        "phases": [
+            {
+                "range": "Weeks 1–3",
+                "title": "Fundamentals",
+                "detail": "Python & Logic Foundations"
+            },
+            {
+                "range": "Weeks 4–6",
+                "title": "Data Science",
+                "detail": "Analysis & Visualization"
+            },
+            {
+                "range": "Weeks 7–14",
+                "title": "ML Core",
+                "detail": "Supervised & Unsupervised"
+            },
+            {
+                "range": "Weeks 15–26",
+                "title": "DL Mastery",
+                "detail": "Neural Networks & Projects"
+            }
+        ]
+    },
+    "Cyber Security": {
+        "eyebrow": "Security Track",
+        "titlePrefix": "Cyber Security",
+        "titleHighlight": "Shield",
+        "description": "Learn to defend digital systems. From networking fundamentals to advanced ethical hacking and enterprise security strategies.",
+        "fullRoadmapLink": "https://github.com/ieeemetcsc/roadmaps-2025-2026/blob/main/cybersecurity/README.md",
+        "joinLink": "/join",
+        "steps": [
+            {
+                "icon": "FaNetworkWired",
+                "title": "Networking & Linux",
+                "description": "Foundation of systems and network connectivity."
+            },
+            {
+                "icon": "FaLock",
+                "title": "Cryptography",
+                "description": "Protecting data through advanced encryption."
+            },
+            {
+                "icon": "FaGlobe",
+                "title": "Web Security",
+                "description": "Exploiting and securing web vulnerabilities."
+            },
+            {
+                "icon": "FaShieldAlt",
+                "title": "Enterprise Security",
+                "description": "Active Directory and internal network defense."
+            }
+        ],
+        "phases": [
+            {
+                "range": "Weeks 1–6",
+                "title": "Systems",
+                "detail": "Networking & Linux Basics"
+            },
+            {
+                "range": "Weeks 7–12",
+                "title": "Crypto & HTTP",
+                "detail": "Security Foundations"
+            },
+            {
+                "range": "Weeks 13–19",
+                "title": "Web & DB",
+                "detail": "Full Project Defense"
+            },
+            {
+                "range": "Weeks 20–22",
+                "title": "AD Core",
+                "detail": "Enterprise Infrastructure"
+            }
+        ]
+    },
+    "Flutter": {
+        "eyebrow": "Mobile Track",
+        "titlePrefix": "Flutter App",
+        "titleHighlight": "Development",
+        "description": "Master cross-platform mobile development. Build stunning apps for iOS and Android using a single codebase with Flutter and Dart.",
+        "fullRoadmapLink": "https://github.com/ieeemetcsc/roadmaps-2025-2026/blob/main/flutter/README.md",
+        "joinLink": "/join",
+        "steps": [
+            {
+                "icon": "FaCode",
+                "title": "Dart Foundations",
+                "description": "Learn OOP and functional programming in Dart."
+            },
+            {
+                "icon": "FaMobileAlt",
+                "title": "UI & Widgets",
+                "description": "Master material design and custom layouts."
+            },
+            {
+                "icon": "FaDatabase",
+                "title": "Data & APIs",
+                "description": "Integrate REST APIs and local persistence."
+            },
+            {
+                "icon": "FaRocket",
+                "title": "Clean Architecture",
+                "description": "Build scalable apps and deploy to stores."
+            }
+        ],
+        "phases": [
+            {
+                "range": "Weeks 1–4",
+                "title": "Dart Path",
+                "detail": "Syntax & OOP Concepts"
+            },
+            {
+                "range": "Weeks 5–8",
+                "title": "Widgetry",
+                "detail": "UI & State Management"
+            },
+            {
+                "range": "Weeks 9–12",
+                "title": "Connectivity",
+                "detail": "APIs & Local Data"
+            },
+            {
+                "range": "Weeks 13-16",
+                "title": "Scaling",
+                "detail": "Architecture & CI/CD"
+            }
+        ]
+    },
+    "Front End": {
+        "eyebrow": "Web Track",
+        "titlePrefix": "Front End",
+        "titleHighlight": "Experience",
+        "description": "Craft beautiful user interfaces. Master the art of web development from basic HTML/CSS to advanced React hooks and state.",
+        "fullRoadmapLink": "https://github.com/ieeemetcsc/roadmaps-2025-2026/blob/main/frontend/README.md",
+        "joinLink": "/join",
+        "steps": [
+            {
+                "icon": "FaHtml5",
+                "title": "HTML & Basic CSS",
+                "description": "Structure and simple styling of web pages."
+            },
+            {
+                "icon": "FaCss3Alt",
+                "title": "Layout & Design",
+                "description": "Responsive design with Flexbox and Grid."
+            },
+            {
+                "icon": "FaJsSquare",
+                "title": "Logic & DOM",
+                "description": "Dynamic behavior using JavaScript ES6+."
+            },
+            {
+                "icon": "FaReact",
+                "title": "React Mastery",
+                "description": "Building modern SPAs with hooks and state."
+            }
+        ],
+        "phases": [
+            {
+                "range": "Weeks 1–3",
+                "title": "Structure",
+                "detail": "HTML & CSS Basics"
+            },
+            {
+                "range": "Weeks 4–6",
+                "title": "Visuals",
+                "detail": "Animations & Layout"
+            },
+            {
+                "range": "Weeks 7–10",
+                "title": "Logic",
+                "detail": "JS Foundations & DOM"
+            },
+            {
+                "range": "Weeks 11–14",
+                "title": "React",
+                "detail": "Modern Framework Core"
+            }
+        ]
+    },
+    "Back End Node.js": {
+        "eyebrow": "Server Track",
+        "titlePrefix": "Node.js",
+        "titleHighlight": "Back End",
+        "description": "Build high-performance servers. Master scalable backend development using JavaScript, Node.js, and modern database patterns.",
+        "fullRoadmapLink": "https://github.com/ieeemetcsc/roadmaps-2025-2026/blob/main/backend/Backend%20nodeJs%20Roadmap%20.md",
+        "joinLink": "/join",
+        "steps": [
+            {
+                "icon": "FaJs",
+                "title": "JS Mastery",
+                "description": "Deep dive into JS and ES6 features."
+            },
+            {
+                "icon": "FaNodeJs",
+                "title": "Server Logic",
+                "description": "Building APIs with Express and Node."
+            },
+            {
+                "icon": "FaDatabase",
+                "title": "Data Storage",
+                "description": "SQL and NoSQL database management."
+            },
+            {
+                "icon": "FaServer",
+                "title": "Ops & Deploy",
+                "description": "Authentication and cloud deployment."
+            }
+        ],
+        "phases": [
+            {
+                "range": "Weeks 1–4",
+                "title": "JS Core",
+                "detail": "Logic & Async Mastery"
+            },
+            {
+                "range": "Weeks 5–8",
+                "title": "API Build",
+                "detail": "Express & CRUD Ops"
+            },
+            {
+                "range": "Weeks 9–12",
+                "title": "Storage",
+                "detail": "DB Design & Auth"
+            },
+            {
+                "range": "Weeks 13-16",
+                "title": "Cloud",
+                "detail": "Docker & Deployment"
+            }
+        ]
+    },
+    "Back End .NET": {
+        "eyebrow": "Enterprise Track",
+        "titlePrefix": ".NET",
+        "titleHighlight": "Back End",
+        "description": "Professional backend engineering. Develop secure, scalable enterprise applications with C#, ASP.NET Core, and Azure.",
+        "fullRoadmapLink": "https://github.com/ieeemetcsc/roadmaps-2025-2026/blob/main/backend/Backend%20.NET%20Roadmap%20.md",
+        "joinLink": "/join",
+        "steps": [
+            {
+                "icon": "FaCode",
+                "title": "C# & OOP",
+                "description": "Master C# syntax and design patterns."
+            },
+            {
+                "icon": "FaServer",
+                "title": "ASP.NET Core",
+                "description": "Build robust APIs and middleware."
+            },
+            {
+                "icon": "FaDatabase",
+                "title": "EF Core & SQL",
+                "description": "Manage database models and queries."
+            },
+            {
+                "icon": "FaCogs",
+                "title": "DevOps Flow",
+                "description": "CI/CD, Docker, and Cloud hosting."
+            }
+        ],
+        "phases": [
+            {
+                "range": "Weeks 1–7",
+                "title": "Foundations",
+                "detail": "C# & OOP Mastery"
+            },
+            {
+                "range": "Weeks 8–14",
+                "title": "Backend",
+                "detail": "API & EF Core Essentials"
+            },
+            {
+                "range": "Weeks 15–18",
+                "title": "Polishing",
+                "detail": "Testing & Performance"
+            },
+            {
+                "range": "Weeks 19–21",
+                "title": "Ops",
+                "detail": "Docker & Final Project"
+            }
+        ]
+    },
+    "UI-UX": {
+        "eyebrow": "Design Track",
+        "titlePrefix": "UI/UX",
+        "titleHighlight": "Experience",
+        "description": "Design with empathy. Understand users through research and create impactful interfaces that balance beauty and function.",
+        "fullRoadmapLink": "https://github.com/ieeemetcsc/roadmaps-2025-2026/blob/main/ui-ux/UIUX_Roadmap.md",
+        "joinLink": "/join",
+        "steps": [
+            {
+                "icon": "FaSearch",
+                "title": "UX Research",
+                "description": "Understand users and problem solving."
+            },
+            {
+                "icon": "FaVectorSquare",
+                "title": "Wireframing",
+                "description": "Structure and flow of digital products."
+            },
+            {
+                "icon": "FaPalette",
+                "title": "UI Design",
+                "description": "Colors, typography, and systems."
+            },
+            {
+                "icon": "FaIterate",
+                "title": "Prototyping",
+                "description": "Interactive simulations and testing."
+            }
+        ],
+        "phases": [
+            {
+                "range": "Weeks 1–4",
+                "title": "Research",
+                "detail": "Thinking & User Needs"
+            },
+            {
+                "range": "Weeks 5–7",
+                "title": "Structure",
+                "detail": "Systems & Components"
+            },
+            {
+                "range": "Weeks 8–11",
+                "title": "Design",
+                "detail": "Styling & Interaction"
+            },
+            {
+                "range": "Weeks 12-14",
+                "title": "Launch",
+                "detail": "Portfolio & Final Case"
+            }
+        ]
+    },
+    "Hardware": {
+        "eyebrow": "Hardware Track",
+        "titlePrefix": "Embedded",
+        "titleHighlight": "Systems",
+        "description": "Bring ideas to life. Learn to integrate software with physical components through microcontrollers, sensors, and PCB design.",
+        "fullRoadmapLink": "https://github.com/ieeemetcsc/roadmaps-2025-2026",
+        "joinLink": "/join",
+        "steps": [
+            {
+                "icon": "FaMicrochip",
+                "title": "Electronics",
+                "description": "Basic circuit theory and components."
+            },
+            {
+                "icon": "FaTools",
+                "title": "Embedded C",
+                "description": "Coding for Arduino and microchips."
+            },
+            {
+                "icon": "FaWifi",
+                "title": "IoT & Net",
+                "description": "Connecting devices to the internet."
+            },
+            {
+                "icon": "FaProjectDiagram",
+                "title": "PCB Design",
+                "description": "Designing production-ready boards."
+            }
+        ],
+        "phases": [
+            {
+                "range": "Weeks 1–4",
+                "title": "Analog",
+                "detail": "Circuits & Components"
+            },
+            {
+                "range": "Weeks 5–8",
+                "title": "Logic",
+                "detail": "Microcontroller Coding"
+            },
+            {
+                "range": "Weeks 9–12",
+                "title": "Connect",
+                "detail": "Sensors & Wireless"
+            },
+            {
+                "range": "Weeks 13-15",
+                "title": "Build",
+                "detail": "PCB & Final Robot"
+            }
+        ]
+    }
+}
