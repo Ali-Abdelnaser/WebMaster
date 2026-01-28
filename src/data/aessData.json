@@ -118,6 +118,32 @@
         ],
         "joinLink": "/join"
     },
+    "counselor": {
+        "name": "Abdelrahman Metwally",
+        "role": "AESS MET SB Counselor",
+        "title": "IEEE AESS International Director R8 || Sr. Territory Sales Manager @ Oracle",
+        "img": "img/counselor-img.jpg",
+        "bio": "A distinguished tech leader and Senior Member of IEEE (SMIEEE) specializing in Cloud, Data, and AI solutions for the Financial Services Industry (FSI). As the IEEE AESS International Director for Region 8 and a Senior Territory Sales Manager at Oracle, he bridges business objectives with technical architectures, driving digital transformation and large-scale modernization projects.",
+        "stats": [
+            {
+                "label": "Membership Level",
+                "value": "Senior Member IEEE"
+            },
+            {
+                "label": "Regional Leadership",
+                "value": "AESS Director R8"
+            },
+            {
+                "label": "Industry Domain",
+                "value": "Cloud, AI & Oracle"
+            }
+        ],
+        "social": {
+            "linkedin": "https://www.linkedin.com/in/abdelrahman-metwally-42b0a971/",
+            "whatsapp": "https://wa.me/201222923382",
+            "email": "abdelrahmantarek.metwally@gmail.com"
+        }
+    },
     "footer": {
         "tagline": "IEEE MET SB — Innovating the Future",
         "contact": {

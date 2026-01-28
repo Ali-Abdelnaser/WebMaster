@@ -45,10 +45,10 @@
       ]
     },
     {
-      "name": "Back End Node.js",
-      "title": "Why is the Back End - Node.js (JavaScript) track essential?",
+      "name": "Back End Node - js",
+      "title": "Why is the Back End - Node-js (JavaScript) track essential?",
       "image": "/img/CS/tracks/backend.webp",
-      "description": "The Back End - Node.js track teaches you how to build fast, scalable server-side applications using JavaScript. You will work with Node.js and frameworks like Express, connect to SQL and NoSQL databases, and build APIs that power modern web and mobile apps.",
+      "description": "The Back End - Node-js track teaches you how to build fast, scalable server-side applications using JavaScript. You will work with Node.js and frameworks like Express, connect to SQL and NoSQL databases, and build APIs that power modern web and mobile apps.",
       "topics": [
         "Server-side development with Node.js and Express",
         "Database design and integration with MongoDB and SQL databases",

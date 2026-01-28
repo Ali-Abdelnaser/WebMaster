@@ -55,7 +55,7 @@
 /* يغير لون الثام والمسار (لا يدعم التدرجات أو الراديوس الفردي) */
 * {
   scrollbar-width: thin; /* auto | thin | none */
-  scrollbar-color: var(--scroll-thumb) var(--scroll-track); /* thumb then track */
+ /* thumb then track */
 }
 
 /* ===========================

@@ -1,0 +1,427 @@
+/* CounselorAESS.css - Commander's Terminal UI */
+
+.aess-terminal-section {
+    position: relative;
+    padding: 50px 5%;
+    background: transparent;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.terminal-bg-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(28, 118, 174, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Header UI */
+.terminal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 229, 255, 0.2);
+    padding-bottom: 15px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.9rem;
+    color: rgba(0, 229, 255, 0.6);
+}
+
+.terminal-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #00e5ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00e5ff;
+    animation: pulse-terminal 2s infinite;
+}
+
+/* Main Container */
+.terminal-container {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* Visual Side */
+.terminal-visual-side {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.profile-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 0.85;
+    background: rgba(5, 8, 10, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+}
+
+.frame-corners span {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: #00e5ff;
+    border-style: solid;
+    opacity: 0.5;
+}
+
+.frame-corners span:nth-child(1) {
+    top: -2px;
+    left: -2px;
+    border-width: 2px 0 0 2px;
+}
+
+.frame-corners span:nth-child(2) {
+    top: -2px;
+    right: -2px;
+    border-width: 2px 2px 0 0;
+}
+
+.frame-corners span:nth-child(3) {
+    bottom: -2px;
+    left: -2px;
+    border-width: 0 0 2px 2px;
+}
+
+.frame-corners span:nth-child(4) {
+    bottom: -2px;
+    right: -2px;
+    border-width: 0 2px 2px 0;
+}
+
+.img-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(40%) brightness(1.1);
+    transition: transform 0.5s ease;
+}
+
+.profile-frame:hover .img-wrapper img {
+    transform: scale(1.05);
+}
+
+.scan-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0, 229, 255, 0.1) 50%);
+    background-size: 100% 4px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.biometric-tag {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #00e5ff;
+    color: #000;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    white-space: nowrap;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0, 229, 255, 0.3);
+}
+
+/* Stats Modules */
+.quick-stats-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.stat-module {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 12px 15px;
+    border-left: 3px solid #00e5ff;
+}
+
+.stat-module .stat-label {
+    display: block;
+    font-size: 0.7rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.stat-module .stat-value {
+    display: block;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Content Side */
+.terminal-content-side {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.info-role {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(0, 229, 255, 0.1);
+    color: #00e5ff;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    border: 1px solid rgba(0, 229, 255, 0.2);
+}
+
+.info-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #fff, #00e5ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.info-rank-bar {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.info-rank-bar::after {
+    content: '';
+    flex-grow: 1;
+    height: 1px;
+    background: linear-gradient(90deg, #00e5ff, transparent);
+}
+
+.rank-text {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.info-bio-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    position: relative;
+    clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+}
+
+.bio-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.8rem;
+    color: #00e5ff;
+    margin-bottom: 15px;
+    opacity: 0.7;
+}
+
+.bio-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+.info-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    /* Center the label and buttons wrapper */
+    text-align: center;
+}
+
+.action-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 1px;
+}
+
+.btns-wrapper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Center the buttons within the wrapper */
+}
+
+.tech-btn {
+    position: relative;
+    padding: 12px 30px;
+    background: transparent;
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+}
+
+.tech-btn:hover {
+    background: #00e5ff;
+    color: #000;
+    border-color: #00e5ff;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+}
+
+.tech-btn.whatsapp {
+    border-color: rgba(37, 211, 102, 0.3);
+    color: #25D366;
+}
+
+.tech-btn.whatsapp:hover {
+    background: #25D366;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+}
+
+.tech-btn.email {
+    border-color: rgba(251, 188, 5, 0.3);
+    color: #fbbc05;
+}
+
+.tech-btn.email:hover {
+    background: #fbbc05;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(251, 188, 5, 0.4);
+}
+
+@keyframes pulse-terminal {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .terminal-container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .terminal-visual-side {
+        max-width: 900px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        /* Increased gap */
+        align-items: center;
+    }
+
+    .quick-stats-sidebar {
+        gap: 20px;
+    }
+
+    .info-name {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .aess-terminal-section {
+        padding: 40px 4%;
+    }
+
+    .terminal-visual-side {
+        grid-template-columns: 1fr 1fr;
+        gap: 65px;
+        /* Pronounced gap for smaller screens */
+    }
+
+    .profile-frame {
+        padding: 10px;
+    }
+
+    .stat-module {
+        padding: 10px;
+    }
+
+    .stat-module .stat-value {
+        font-size: 0.8rem;
+    }
+
+    .info-name {
+        font-size: 2.8rem;
+    }
+
+    .info-rank-bar {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 580px) {
+    .terminal-visual-side {
+        grid-template-columns: 1fr;
+        /* Stack on very small devices if needed, but keeping side-by-side as requested */
+        gap: 30px;
+    }
+
+    .info-name {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-name {
+        font-size: 2.5rem;
+    }
+
+    .btns-wrapper {
+        flex-direction: column;
+    }
+
+    .tech-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

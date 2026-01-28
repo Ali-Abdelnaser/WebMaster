@@ -1,6 +1,7 @@
 import HeaderAESS from "../components/AESS/HeaderAESS";
 import HeroAESS from "../components/AESS/HeroAESS";
 import AboutAESS from "../components/AESS/AboutAESS";
+import CounselorAESS from "../components/AESS/CounselorAESS";
 import OfficersAESS from "../components/AESS/OfficersAESS";
 import "../styles/AESS.css";
 // import AnimatedBackgroundAESS from "../components/AESS/AnimatedBackgroundAESS"; // Todo: Create if needed
@@ -65,6 +66,7 @@ export default function AESS() {
       {/* <AnimatedBackgroundAESS /> */}
       <HeroAESS />
       <AboutAESS />
+      <CounselorAESS />
       <OfficersAESS />
       <FooterAESS />
     </motion.div>

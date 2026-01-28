@@ -2,7 +2,7 @@
   "Cyber Security": {
     "head": {
       "name": "Mohammed Atia",
-      "position": "Track Head",
+      "position": "Head",
       "image": "/img/CS/Board/cyber-security-head.webp",
       "linkedin": "https://www.linkedin.com/in/mohammed-atia-b5b2ba331/",
       "email": "mohammed50atia@gmail.com"
@@ -36,7 +36,7 @@
   "Flutter": {
     "head": {
       "name": "Mohammed Elsayed",
-      "position": "Track Head",
+      "position": "Head",
       "image": "/img/CS/Board/flutter-head.webp",
       "linkedin": "https://www.linkedin.com/in/mosayyyed",
       "email": "mosayyyed@gmail.com"
@@ -63,7 +63,7 @@
   "Front End": {
     "head": {
       "name": "Nagham Ahmed",
-      "position": "Track Head",
+      "position": "Head",
       "image": "/img/CS/Board/frontend-head.webp",
       "linkedin": "https://www.linkedin.com/in/nagham-ahmed-713b29295?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
       "email": "nagham.ahmed909@gmail.com"
@@ -94,10 +94,10 @@
       }
     ]
   },
-  "Back End Node.js": {
+  "Back End Node - js": {
     "head": {
       "name": "Mohamed rabee",
-      "position": "Track Head",
+      "position": "Head",
       "image": "/img/CS/Board/backend-node-head.webp",
       "linkedin": "https://www.linkedin.com/in/mohamed-rabee-66bb03278/",
       "email": "mrabee083@gmail.com"
@@ -110,7 +110,7 @@
   "Back End .NET": {
     "head": {
       "name": "Mohamed kabeel ",
-      "position": "Track Head",
+      "position": "Head",
       "image": "/img/CS/Board/backend-net-head.webp",
       "linkedin": "http://www.linkedin.com/in/mohamed-kabil1",
       "email": "kabeelmohamed22@gmail.com"
@@ -129,7 +129,7 @@
   "UI-UX": {
     "head": {
       "name": "Mohamed Ayman",
-      "position": "Track Head",
+      "position": "Head",
       "image": "/img/CS/Board/uiux-head.webp",
       "linkedin": "https://www.linkedin.com/in/mohamed-ayman-6a2071324?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
       "email": "mohamed.ayman.dzn@gmail.com"
@@ -156,7 +156,7 @@
   "Hardware": {
     "head": {
       "name": "Mostafa Loutfy",
-      "position": "Track Head",
+      "position": "Head",
       "image": "/img/Team Management/Loutfy.webp",
       "linkedin": "https://linkedin.com/in/khaled-reda",
       "email": "khaled.reda@ieee.org"
@@ -167,7 +167,7 @@
   "AI": {
     "head": {
       "name": "Ahmed Osama",
-      "position": "Track Head",
+      "position": "Head",
       "image": "/img/CS/Board/ai-head.webp",
       "linkedin": "http://www.linkedin.com/in/ahmed-osama-salah",
       "email": "ahmedosama99a@gmail.com"

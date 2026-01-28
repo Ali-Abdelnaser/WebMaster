@@ -207,9 +207,9 @@
             }
         ]
     },
-    "Back End Node.js": {
+    "Back End Node - js": {
         "eyebrow": "Server Track",
-        "titlePrefix": "Node.js",
+        "titlePrefix": "Node - js",
         "titleHighlight": "Back End",
         "description": "Build high-performance servers. Master scalable backend development using JavaScript, Node.js, and modern database patterns.",
         "fullRoadmapLink": "https://github.com/ieeemetcsc/roadmaps-2025-2026/blob/main/backend/Backend%20nodeJs%20Roadmap%20.md",
