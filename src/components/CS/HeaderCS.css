@@ -88,12 +88,7 @@
   width: 100%;
 }
 
-.cs-nav-button a:hover::after,
-.cs-mobile-join-btn a:hover::after,
-#join-btn:hover::after {
-  display: none !important;
-  width: 0 !important;
-}
+
 
 .cs-nav-links li a:hover {
   color: #fff;

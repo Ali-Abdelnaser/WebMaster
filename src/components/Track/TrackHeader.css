@@ -139,7 +139,7 @@
 
 .track-scroll-indicator {
   position: absolute;
-  bottom: 50px;
+  bottom: 15px;
   transform: translateX(-50%);
   z-index: 3;
 }
@@ -195,7 +195,7 @@
 
 
   .track-hero-content {
-    padding: 0 50px ;
+    padding: 0 50px;
     margin: 0;
   }
 

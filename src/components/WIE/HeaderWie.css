@@ -58,14 +58,14 @@
 .wie-nav-links li a {
   position: relative;
   text-decoration: none;
-  color: #702082;
+  color: #ffffff !important;
   font-weight: 500;
   transition: color 0.3s ease, text-shadow 0.3s ease;
   padding: 5px 0;
 }
 
 .wie-header.scrolled .wie-nav-links li a {
-  color: #fff;
+  color: #fff !important;
 }
 
 .wie-nav-links li a::after {
@@ -87,12 +87,7 @@
   width: 100%;
 }
 
-.wie-nav-button a:hover::after,
-.wie-mobile-join-btn a:hover::after,
-#join-btn:hover::after {
-  display: none !important;
-  width: 0 !important;
-}
+
 
 .wie-nav-links li a:hover {
   color: #fff;

@@ -615,4 +615,35 @@
   }
 
   /* Hide some shards on mobile to reduce clutter */
+
+}
+
+/* ==================== CS SPECIFIC GLOBAL STYLES (THEME) ==================== */
+body.cs-theme::-webkit-scrollbar {
+  width: 10px;
+}
+
+body.cs-theme::-webkit-scrollbar-track {
+  background: #111;
+}
+
+body.cs-theme::-webkit-scrollbar-thumb {
+  background: #faa41a;
+  border-radius: 5px;
+}
+
+body.cs-theme::-webkit-scrollbar-thumb:hover {
+  background: #e59416;
+}
+
+/* Scroll To Top Button Overrides for CS */
+body.cs-theme .scroll-to-top {
+  background: linear-gradient(135deg, #faa41a, #f7941d);
+  box-shadow: 0 0 15px rgba(250, 164, 26, 0.4);
+}
+
+body.cs-theme .scroll-to-top:hover {
+  background: #fff;
+  color: #faa41a;
+  box-shadow: 0 0 25px rgba(250, 164, 26, 0.6);
 }

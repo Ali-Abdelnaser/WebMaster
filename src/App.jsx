@@ -29,6 +29,16 @@ function ScrollToTop() {
     // كل ما يتغير الراوت نرجع لأعلى الصفحة
     window.history.scrollRestoration = "manual";
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+
+    // إضافة كلاس للبودي بناءً على الصفحة الحالية لتغيير الثيم (الاسكرول والباتون)
+    const body = document.body;
+    body.className = ""; // مسح الكلاسات القديمة
+    const path = pathname.toLowerCase();
+    if (path.includes("/cs") || path.includes("/track")) {
+      body.classList.add("cs-theme");
+    } else if (path.includes("/wie")) {
+      body.classList.add("wie-theme");
+    }
   }, [pathname]);
 
   return null;
