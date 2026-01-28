@@ -13,108 +13,138 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -100;
-    background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+    z-index: -1;
+    /* Changed from -100 to -1 to avoid getting lost behind body */
+    background: radial-gradient(ellipse at bottom, #0d1d31 0%, #000000 100%);
     overflow: hidden;
 }
 
-/* 1. Nebula Clouds - The Magic Layer */
+/* 1. Nebula Clouds */
 .space-nebula {
     position: absolute;
-    inset: -50%;
-    background:
-        radial-gradient(circle at 20% 30%, rgba(28, 118, 174, 0.15), transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(14, 110, 169, 0.12), transparent 45%),
-        radial-gradient(circle at 50% 50%, rgba(75, 0, 130, 0.08), transparent 55%);
-    filter: blur(100px);
-    animation: nebula-float 40s ease-in-out infinite alternate;
-    z-index: 1;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 50% 50%, rgba(28, 118, 174, 0.2), transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(14, 110, 169, 0.15), transparent 40%),
+        radial-gradient(circle at 20% 80%, rgba(146, 189, 215, 0.1), transparent 40%);
+    filter: blur(60px);
+    animation: nebula-pulse 10s ease-in-out infinite alternate;
+    z-index: 0;
 }
 
-/* 2. Star Fields using box-shadow (Multiple Layers) */
+/* 2. Star Fields (Using Gradients for automatic repeating) */
 .space-stars-1,
 .space-stars-2,
 .space-stars-3 {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 2px;
-    height: 2px;
-    background: transparent;
+    inset: 0;
+    background-repeat: repeat;
+    z-index: 1;
+}
+
+/* Small Stars */
+.space-stars-1 {
+    background-image:
+        radial-gradient(1px 1px at 10px 10px, #fff 100%, transparent),
+        radial-gradient(1px 1px at 150px 250px, #fff 100%, transparent),
+        radial-gradient(1px 1px at 300px 50px, #fff 100%, transparent),
+        radial-gradient(1px 1px at 450px 350px, #fff 100%, transparent);
+    background-size: 500px 500px;
+    animation: stars-drift-slow 60s linear infinite;
+    opacity: 0.8;
+}
+
+/* Medium Stars */
+.space-stars-2 {
+    background-image:
+        radial-gradient(2px 2px at 50px 150px, rgba(146, 189, 215, 0.8) 100%, transparent),
+        radial-gradient(2px 2px at 250px 50px, rgba(146, 189, 215, 0.8) 100%, transparent),
+        radial-gradient(2px 2px at 450px 450px, rgba(146, 189, 215, 0.8) 100%, transparent);
+    background-size: 600px 600px;
+    animation: stars-drift-medium 80s linear infinite;
+    opacity: 0.6;
+}
+
+/* ==================== ACTIVE SPACE TRAFFIC (COMETS & SATELLITES) ==================== */
+
+/* Comets - Multiple Instances */
+.space-comets {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
     z-index: 2;
 }
 
-/* Layers of stars with different density and speed */
-.space-stars-1 {
-    width: 1px;
-    height: 1px;
-    box-shadow:
-        144px 445px #FFF, 893px 921px #FFF, 234px 12px #FFF, 672px 456px #FFF,
-        120px 890px #FFF, 543px 213px #FFF, 912px 67px #FFF, 345px 567px #FFF,
-        765px 321px #FFF, 12px 456px #FFF, 890px 123px #FFF, 456px 789px #FFF,
-        321px 654px #FFF, 987px 345px #FFF, 654px 987px #FFF, 123px 456px #FFF;
-    /* Repeated shadows for density */
-    animation: space-drift 150s linear infinite;
-}
-
-.space-stars-2 {
-    width: 1.5px;
-    height: 1.5px;
-    box-shadow:
-        244px 545px #92BDD7, 793px 821px #FFF, 134px 112px #1C76AE, 572px 356px #FFF,
-        220px 790px #FFF, 443px 113px #92BDD7, 812px 167px #FFF, 245px 467px #FFF;
-    animation: space-drift 100s linear infinite;
-    opacity: 0.7;
-}
-
-.space-stars-3 {
+.comet {
+    position: absolute;
     width: 2px;
     height: 2px;
-    box-shadow:
-        344px 645px #FFF, 693px 721px #FFF, 34px 212px #FFF, 472px 256px #FFF,
-        320px 690px #FFF, 343px 313px #FFF, 712px 267px #FFF, 145px 367px #FFF;
-    animation: space-drift 70s linear infinite;
-    opacity: 0.5;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 1);
+    opacity: 0;
 }
 
-/* 3. Shooting Stars (Comets) */
-.space-void::after {
+.comet::after {
     content: "";
     position: absolute;
-    top: -100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(90deg, white, transparent);
+    filter: blur(1px);
+}
+
+/* Comet 1 - Fast diagonal */
+.c1 {
+    top: 20%;
+    left: -10%;
+    animation: comet-pass-1 7s infinite ease-in;
+}
+
+/* Comet 2 - Slow crossing */
+.c2 {
+    top: 60%;
+    left: -10%;
+    animation: comet-pass-2 15s infinite 2s linear;
+}
+
+/* Comet 3 - Distant flash */
+.c3 {
+    top: -10%;
+    left: 50%;
+    animation: comet-pass-3 10s infinite 5s ease-out;
+}
+
+/* Satellite Animation */
+.space-satellite {
+    position: absolute;
+    top: 15%;
     left: -100px;
-    width: 2px;
-    height: 100px;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
-    transform: rotate(45deg);
-    animation: comet 10s linear infinite;
-    animation-delay: 5s;
+    width: 4px;
+    height: 4px;
+    background: #00B3FF;
+    box-shadow: 0 0 15px #00B3FF, 0 0 30px #00B3FF;
+    border-radius: 50%;
     z-index: 3;
+    animation: satellite-orbit 45s linear infinite;
 }
 
-@keyframes nebula-float {
+.space-satellite::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 1px;
+    background: rgba(0, 179, 255, 0.5);
+    top: 50%;
+    left: -10px;
+}
+
+@keyframes comet-pass-1 {
     0% {
-        transform: scale(1) translate(0, 0);
-    }
-
-    100% {
-        transform: scale(1.1) translate(2% 2%);
-    }
-}
-
-@keyframes space-drift {
-    from {
-        transform: translateY(0);
-    }
-
-    to {
-        transform: translateY(-1000px);
-    }
-}
-
-@keyframes comet {
-    0% {
-        transform: rotate(45deg) translateX(0);
+        transform: translate(0, 0) rotate(25deg) scale(0.5);
         opacity: 0;
     }
 
@@ -122,13 +152,103 @@
         opacity: 1;
     }
 
+    100% {
+        transform: translate(120vw, 40vh) rotate(25deg) scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes comet-pass-2 {
+    0% {
+        transform: translate(0, 0) rotate(15deg);
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(120vw, 15vh) rotate(15deg);
+        opacity: 0;
+    }
+}
+
+@keyframes comet-pass-3 {
+    0% {
+        transform: translate(0, 0) rotate(65deg);
+        opacity: 0;
+    }
+
     20% {
-        transform: rotate(45deg) translateX(120vw);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(30vw, 120vh) rotate(65deg);
+        opacity: 0;
+    }
+}
+
+@keyframes satellite-orbit {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(120vw, 20px);
+    }
+}
+
+@keyframes nebula-pulse {
+    0% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes stars-drift-slow {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 500px;
+    }
+}
+
+@keyframes stars-drift-medium {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 600px;
+    }
+}
+
+@keyframes comet-pass {
+    0% {
+        transform: translate(-50vw, -50vh) rotate(45deg) scale(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+        scale: 1;
+    }
+
+    20% {
+        transform: translate(50vw, 50vh) rotate(45deg) scale(0);
         opacity: 0;
     }
 
     100% {
-        transform: rotate(45deg) translateX(120vw);
         opacity: 0;
     }
 }
@@ -141,7 +261,8 @@
 .aess-hero-hud,
 .aess-global-infographic,
 .met-aess-dashboard,
-.aess-personnel-dossier {
+.aess-personnel-dossier,
+.aess-footer {
     background: transparent !important;
 }
 
@@ -150,13 +271,13 @@
     background: transparent !important;
 }
 
-/* ==================== AESS SPECIFIC SCROLLBAR ==================== */
+/* ==================== AESS SCROLLBAR ==================== */
 body.aess-theme::-webkit-scrollbar {
     width: 10px;
 }
 
 body.aess-theme::-webkit-scrollbar-track {
-    background: var(--aess-bg);
+    background: #000;
 }
 
 body.aess-theme::-webkit-scrollbar-thumb {

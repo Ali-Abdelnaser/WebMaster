@@ -11,6 +11,8 @@
     justify-content: center;
     color: #1C76AE;
     font-family: 'Share Tech Mono', monospace;
+    background: transparent !important;
+    /* Explicitly force transparent */
 }
 
 /* HUD Grid */

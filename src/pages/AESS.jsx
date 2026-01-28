@@ -54,6 +54,12 @@ export default function AESS() {
         <div className="space-stars-2"></div>
         <div className="space-stars-3"></div>
         <div className="space-nebula"></div>
+        <div className="space-comets">
+          <div className="comet c1"></div>
+          <div className="comet c2"></div>
+          <div className="comet c3"></div>
+        </div>
+        <div className="space-satellite"></div>
       </div>
       <HeaderAESS />
       {/* <AnimatedBackgroundAESS /> */}
