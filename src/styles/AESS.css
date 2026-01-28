@@ -1,0 +1,170 @@
+:root {
+    --aess-primary: #1C76AE;
+    --aess-secondary: #0066A4;
+    --aess-accent: #92BDD7;
+    --aess-dark: #0E6EA9;
+    --aess-bg: #05080a;
+}
+
+/* ==================== SUPERCHARGED SPACE BACKGROUND ==================== */
+.aess-space-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -100;
+    background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+    overflow: hidden;
+}
+
+/* 1. Nebula Clouds - The Magic Layer */
+.space-nebula {
+    position: absolute;
+    inset: -50%;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(28, 118, 174, 0.15), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(14, 110, 169, 0.12), transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(75, 0, 130, 0.08), transparent 55%);
+    filter: blur(100px);
+    animation: nebula-float 40s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+/* 2. Star Fields using box-shadow (Multiple Layers) */
+.space-stars-1,
+.space-stars-2,
+.space-stars-3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    z-index: 2;
+}
+
+/* Layers of stars with different density and speed */
+.space-stars-1 {
+    width: 1px;
+    height: 1px;
+    box-shadow:
+        144px 445px #FFF, 893px 921px #FFF, 234px 12px #FFF, 672px 456px #FFF,
+        120px 890px #FFF, 543px 213px #FFF, 912px 67px #FFF, 345px 567px #FFF,
+        765px 321px #FFF, 12px 456px #FFF, 890px 123px #FFF, 456px 789px #FFF,
+        321px 654px #FFF, 987px 345px #FFF, 654px 987px #FFF, 123px 456px #FFF;
+    /* Repeated shadows for density */
+    animation: space-drift 150s linear infinite;
+}
+
+.space-stars-2 {
+    width: 1.5px;
+    height: 1.5px;
+    box-shadow:
+        244px 545px #92BDD7, 793px 821px #FFF, 134px 112px #1C76AE, 572px 356px #FFF,
+        220px 790px #FFF, 443px 113px #92BDD7, 812px 167px #FFF, 245px 467px #FFF;
+    animation: space-drift 100s linear infinite;
+    opacity: 0.7;
+}
+
+.space-stars-3 {
+    width: 2px;
+    height: 2px;
+    box-shadow:
+        344px 645px #FFF, 693px 721px #FFF, 34px 212px #FFF, 472px 256px #FFF,
+        320px 690px #FFF, 343px 313px #FFF, 712px 267px #FFF, 145px 367px #FFF;
+    animation: space-drift 70s linear infinite;
+    opacity: 0.5;
+}
+
+/* 3. Shooting Stars (Comets) */
+.space-void::after {
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    transform: rotate(45deg);
+    animation: comet 10s linear infinite;
+    animation-delay: 5s;
+    z-index: 3;
+}
+
+@keyframes nebula-float {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+
+    100% {
+        transform: scale(1.1) translate(2% 2%);
+    }
+}
+
+@keyframes space-drift {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-1000px);
+    }
+}
+
+@keyframes comet {
+    0% {
+        transform: rotate(45deg) translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    20% {
+        transform: rotate(45deg) translateX(120vw);
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotate(45deg) translateX(120vw);
+        opacity: 0;
+    }
+}
+
+/* ==================== SECTION TRANSPARENCY ==================== */
+.aess-page {
+    background: transparent !important;
+}
+
+.aess-hero-hud,
+.aess-global-infographic,
+.met-aess-dashboard,
+.aess-personnel-dossier {
+    background: transparent !important;
+}
+
+/* Ensure no other layers block the view */
+.aess-about-page-wrapper {
+    background: transparent !important;
+}
+
+/* ==================== AESS SPECIFIC SCROLLBAR ==================== */
+body.aess-theme::-webkit-scrollbar {
+    width: 10px;
+}
+
+body.aess-theme::-webkit-scrollbar-track {
+    background: var(--aess-bg);
+}
+
+body.aess-theme::-webkit-scrollbar-thumb {
+    background: var(--aess-primary);
+    border-radius: 5px;
+}
+
+body.aess-theme .scroll-to-top {
+    background: linear-gradient(135deg, var(--aess-primary), var(--aess-dark));
+    box-shadow: 0 0 15px rgba(28, 118, 174, 0.4);
+}

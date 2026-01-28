@@ -78,6 +78,9 @@ export default function HeaderCS() {
             <li>
               <SmartLink to="/ieee" onClick={closeMenu}>IEEE</SmartLink>
             </li>
+            <li>
+              <SmartLink to="/AESS" onClick={closeMenu}>AESS</SmartLink>
+            </li>
 
             {/* Mobile Social + Copyright */}
             {menuOpen && (

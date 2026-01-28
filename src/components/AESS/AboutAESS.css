@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap');
+
+/* ==================== GLOBAL AESS (3D SCANNER STYLE) ==================== */
+.aess-global-infographic {
+    background: transparent;
+    padding: 120px 20px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.global-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.scanner-visual {
+    position: relative;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scanner-ring {
+    position: absolute;
+    border: 1px solid rgba(28, 118, 174, 0.2);
+    border-radius: 50%;
+    animation: scan-pulse 4s ease-in-out infinite;
+}
+
+.scanner-ring.r1 {
+    width: 100%;
+    height: 100%;
+    animation-delay: 0s;
+}
+
+.scanner-ring.r2 {
+    width: 80%;
+    height: 80%;
+    animation-delay: 1s;
+}
+
+.scanner-ring.r3 {
+    width: 60%;
+    height: 60%;
+    animation-delay: 2s;
+}
+
+.scanner-logo-img {
+    max-width: 70%;
+    max-height: 70%;
+    object-fit: contain;
+    z-index: 5;
+    filter: drop-shadow(0 0 20px rgba(28, 118, 174, 0.5));
+    animation: floating-logo 4s ease-in-out infinite;
+}
+
+@keyframes floating-logo {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-10px) scale(1.05);
+    }
+}
+
+@keyframes scan-pulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+.global-text-content h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.global-text-content p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 20px;
+    border-left: 2px solid #1C76AE;
+}
+
+/* ==================== MET AESS (COCKPIT DASHBOARD STYLE) ==================== */
+.met-aess-dashboard {
+    padding: 120px 20px;
+    color: #fff;
+    position: relative;
+    border-top: 1px solid rgba(28, 118, 174, 0.1);
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.badge-egypt {
+    display: inline-block;
+    background: #1C76AE;
+    color: #fff;
+    padding: 5px 15px;
+    font-family: 'Share Tech Mono', monospace;
+    font-weight: 700;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    transform: skewX(-15deg);
+}
+
+.dashboard-header h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.dashboard-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 30px;
+}
+
+.dashboard-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(28, 118, 174, 0.1);
+    padding: 40px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.dashboard-item:hover {
+    background: rgba(28, 118, 174, 0.05);
+    border-color: #1C76AE;
+    transform: scale(1.02);
+}
+
+.dashboard-item::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 5px;
+    height: 5px;
+    background: #1C76AE;
+    box-shadow: 0 0 10px #1C76AE;
+    border-radius: 50%;
+}
+
+.item-label {
+    display: block;
+    font-family: 'Share Tech Mono', monospace;
+    color: #92BDD7;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    opacity: 0.6;
+}
+
+.dashboard-item h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.dashboard-item.mission-box {
+    grid-column: 1;
+}
+
+.dashboard-item.vision-box {
+    grid-column: 2;
+}
+
+.dashboard-item.objectives-box {
+    grid-column: 1 / -1;
+}
+
+.objectives-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.objective-entry {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.entry-point {
+    width: 10px;
+    height: 10px;
+    border: 2px solid #1C76AE;
+    transform: rotate(45deg);
+}
+
+@media (max-width: 900px) {
+    .global-container {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-item.mission-box,
+    .dashboard-item.vision-box {
+        grid-column: 1;
+    }
+
+    .objectives-list {
+        grid-template-columns: 1fr;
+    }
+}

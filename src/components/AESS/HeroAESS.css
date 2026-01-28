@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap');
+
+.aess-hero-hud {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    /* .aess-stars removed */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1C76AE;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+/* HUD Grid */
+.hud-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(28, 118, 174, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(28, 118, 174, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: center;
+    mask-image: radial-gradient(circle, black 30%, transparent 70%);
+}
+
+/* HUD Elements - Decorative */
+.hud-corner {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-color: rgba(146, 189, 215, 0.4);
+    border-style: solid;
+    pointer-events: none;
+}
+
+.corner-tl {
+    top: 40px;
+    left: 40px;
+    border-width: 2px 0 0 2px;
+}
+
+.corner-tr {
+    top: 40px;
+    right: 40px;
+    border-width: 2px 2px 0 0;
+}
+
+.corner-bl {
+    bottom: 40px;
+    left: 40px;
+    border-width: 0 0 2px 2px;
+}
+
+.corner-br {
+    bottom: 40px;
+    right: 40px;
+    border-width: 0 2px 2px 0;
+}
+
+/* Central Target */
+.hud-target-circle {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border: 1px solid rgba(28, 118, 174, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hud-target-inner {
+    width: 80%;
+    height: 80%;
+    border: 4px solid rgba(28, 118, 174, 0.1);
+    border-style: double;
+    border-radius: 50%;
+    animation: rotate-hud 20s linear infinite;
+}
+
+.hud-crosshair {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+}
+
+.hud-crosshair::before,
+.hud-crosshair::after {
+    content: "";
+    position: absolute;
+    background: #1C76AE;
+    box-shadow: 0 0 10px #1C76AE;
+}
+
+.hud-crosshair::before {
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.hud-crosshair::after {
+    height: 100%;
+    width: 2px;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
+
+/* Main Content Wrapper */
+.hud-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 800px;
+}
+
+.hud-mission-id {
+    font-size: 0.9rem;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+    color: rgba(146, 189, 215, 0.6);
+    display: block;
+}
+
+.hud-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+    color: #fff;
+    text-shadow:
+        0 0 20px rgba(28, 118, 174, 0.5),
+        0 0 40px rgba(28, 118, 174, 0.3);
+}
+
+.hud-title span {
+    display: block;
+}
+
+.hud-title .outline {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.7);
+}
+
+/* Track HUD List */
+.hud-tracks-list {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.hud-track-item {
+    background: rgba(28, 118, 174, 0.1);
+    border: 1px solid rgba(28, 118, 174, 0.3);
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.hud-track-item:hover {
+    background: rgba(28, 118, 174, 0.2);
+    border-color: #1C76AE;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(28, 118, 174, 0.2);
+}
+
+/* HUD Button */
+.hud-launch-btn {
+    background: transparent;
+    border: 1px solid #1C76AE;
+    padding: 15px 40px;
+    color: #1C76AE;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 15% 100%, 0 75%);
+}
+
+.hud-launch-btn:hover {
+    background: #1C76AE;
+    color: #000;
+    box-shadow: 0 0 30px rgba(28, 118, 174, 0.5);
+}
+
+/* Side Info Panels */
+.hud-side-panel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    pointer-events: none;
+}
+
+.panel-left {
+    left: 60px;
+    text-align: left;
+}
+
+.panel-right {
+    right: 60px;
+    text-align: right;
+}
+
+.hud-stat {
+    margin-bottom: 15px;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    opacity: 0.5;
+    display: block;
+}
+
+.stat-value {
+    font-size: 1rem;
+    color: #fff;
+}
+
+@keyframes rotate-hud {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 1024px) {
+    .hud-side-panel {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .hud-target-circle {
+        width: 300px;
+        height: 300px;
+    }
+
+    .hud-title {
+        font-size: 3rem;
+    }
+
+    .corner-tl,
+    .corner-tr,
+    .corner-bl,
+    .corner-br {
+        width: 50px;
+        height: 50px;
+    }
+}

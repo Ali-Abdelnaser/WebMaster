@@ -1,0 +1,136 @@
+{
+    "hero": {
+        "title": "AESS CHAPTER",
+        "subtitle": "IEEE MET SB",
+        "glitchText": "AESS CHAPTER",
+        "tracks": [
+            "RADAR SYSTEMS",
+            "SPACE SYSTEMS",
+            "AVIONICS",
+            "NAVIGATION",
+            "UNMANNED SYSTEMS",
+            "SYSTEMS ENGINEERING"
+        ],
+        "ctaText": "LAUNCH MISSION",
+        "branchLogo": "/img/logo-1.png"
+    },
+    "globalAESS": {
+        "title": "IEEE Aerospace & Electronic Systems Society",
+        "globalLogo": "/img/global-logo.png",
+        "description": [
+            "The IEEE Aerospace and Electronic Systems Society (AESS) is a leading global professional society focusing on complex systems for space, air, ocean, and ground environments.",
+            "AESS is unique for its focus on the 'Big Picture' of electronic systems, emphasizing the integration of diverse technologies into high-reliability solutions for extreme environments.",
+            "From deep-sea exploration to the farthest reaches of space, AESS provides the technical foundation for navigation, radar, avionics, and autonomous control systems that move our world forward."
+        ],
+        "fields": [
+            {
+                "name": "Radar",
+                "icon": "FaWaveSquare"
+            },
+            {
+                "name": "Avionics",
+                "icon": "FaPlane"
+            },
+            {
+                "name": "Space Systems",
+                "icon": "FaSatellite"
+            },
+            {
+                "name": "Navigation",
+                "icon": "FaLocationArrow"
+            }
+        ]
+    },
+    "metAESS": {
+        "title": "AESS MET Student Chapter",
+        "subtitle": "The First AESS Chapter in Egypt",
+        "content": "We are proud to establish the AESS Student Chapter at MET SB, the first of its kind in Egypt. This chapter serves as a pioneering hub for students interested in aerospace engineering, electronics, and complex systems integration in the region.",
+        "mission": "To empower MET students with cutting-edge aerospace knowledge and practical skills, fostering a new generation of engineers capable of innovating in Egypt's growing space and aviation sectors.",
+        "vision": "To become the premier destination for aerospace electronics education and research in Egypt, bridging the gap between academic theory and aerospace industry reality.",
+        "goals": [
+            "Organizing Hands-on Drone & UAV Workshops",
+            "Hosting Space Industry Experts & Seminars",
+            "Participating in Global Aerospace Competitions",
+            "Fostering Innovation in Avionics & Satellite Tech"
+        ]
+    },
+    "officers": [
+        {
+            "name": "Mahmoud Amer",
+            "role": "Chairman",
+            "img": "img/officers/amer.svg",
+            "linkedin": "https://www.linkedin.com/in/mahmoud-amer-5070ab296/",
+            "email": "mahmoudassy279@gmail.com"
+        },
+        {
+            "name": "Amr Mohamed",
+            "role": "Vice Chair",
+            "img": "img/officers/amr.svg",
+            "linkedin": "https://www.linkedin.com/in/amr-mohamed-0620b6336/",
+            "email": "amr@gmail.com"
+        },
+        {
+            "name": "Mai Salah",
+            "role": "Secretary",
+            "img": "img/officers/mai.svg",
+            "linkedin": "https://www.linkedin.com/in/mai-salah-5945b8322/",
+            "email": "maisalah24320005@gmail.com"
+        },
+        {
+            "name": "Shahd Elhoseny",
+            "role": "Treasurer",
+            "img": "img/officers/shahd.svg",
+            "linkedin": "https://www.linkedin.com/in/shahd-elhosiny-4672a72a6/",
+            "email": "shahdelhosiny21@gmail.com"
+        }
+    ],
+    "header": {
+        "logo": "/img/met-logo.png",
+        "links": [
+            {
+                "name": "Home",
+                "path": "/"
+            },
+            {
+                "name": "About",
+                "path": "/about"
+            },
+            {
+                "name": "Events",
+                "path": "/events"
+            },
+            {
+                "name": "WIE",
+                "path": "/wie"
+            },
+            {
+                "name": "CS",
+                "path": "/CS"
+            },
+            {
+                "name": "IEEE",
+                "path": "/ieee"
+            },
+            {
+                "name": "AESS",
+                "path": "/AESS"
+            }
+        ],
+        "joinLink": "/join"
+    },
+    "footer": {
+        "tagline": "IEEE MET SB — Innovating the Future",
+        "contact": {
+            "email": "ali.abdelnaser@ieee.org",
+            "phone": "+20 1068643407",
+            "location": "Mansoura, Egypt"
+        },
+        "social": {
+            "facebook": "https://www.facebook.com/profile.php?id=61560937966305",
+            "instagram": "https://www.instagram.com/ieeemetsb/",
+            "linkedin": "https://www.linkedin.com/company/ieee-met-sb-pioneers/posts/?feedView=all",
+            "tiktok": "https://www.tiktok.com/@ieee.met",
+            "whatsapp": "https://wa.me/201068643407"
+        }
+    }
+}

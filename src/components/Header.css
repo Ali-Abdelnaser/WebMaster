@@ -59,7 +59,7 @@ header.scrolled .logo img {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 12px;
   margin: 0;
   padding: 0;
 }

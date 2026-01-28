@@ -38,6 +38,8 @@ function ScrollToTop() {
       body.classList.add("cs-theme");
     } else if (path.includes("/wie")) {
       body.classList.add("wie-theme");
+    } else if (path.includes("/aess")) {
+      body.classList.add("aess-theme");
     }
   }, [pathname]);
 
