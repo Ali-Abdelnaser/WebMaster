@@ -87,7 +87,7 @@ export default function HeaderCS() {
             <li>
               <SmartLink to="/ieee" onClick={closeMenu}>IEEE</SmartLink>
             </li>
-                        <li>
+            <li className="mobile-only-item">
               <SmartLink to="/join" onClick={closeMenu}>
                 Join CS
               </SmartLink>

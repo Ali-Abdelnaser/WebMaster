@@ -208,6 +208,7 @@
     text-transform: uppercase;
     background: linear-gradient(to right, #fff, #00e5ff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -262,71 +263,84 @@
 .info-actions {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     align-items: center;
-    /* Center the label and buttons wrapper */
+    /* Center align */
     text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(0, 229, 255, 0.3);
+    width: 100%;
 }
 
 .action-label {
     font-family: 'Share Tech Mono', monospace;
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.4);
-    letter-spacing: 1px;
+    font-size: 0.75rem;
+    color: #00e5ff;
+    opacity: 0.8;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .btns-wrapper {
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 15px;
     justify-content: center;
-    /* Center the buttons within the wrapper */
+    width: 90%;
 }
 
 .tech-btn {
     position: relative;
-    padding: 12px 30px;
-    background: transparent;
-    border: 1px solid rgba(0, 229, 255, 0.3);
+    padding: 10px 24px;
+    background: rgba(0, 229, 255, 0.05);
+    border: 1px solid rgba(0, 229, 255, 0.4);
     color: #fff;
     text-decoration: none;
     font-family: 'Share Tech Mono', monospace;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     gap: 10px;
-    overflow: hidden;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+.tech-btn svg {
+    font-size: 1.1em;
+    color: #00e5ff;
+    transition: all 0.3s ease;
 }
 
 .tech-btn:hover {
-    background: #00408a;
-    color: #ffffff;
-    border-color: #ffffff;
-    box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+    background: rgba(0, 229, 255, 0.15);
+    border-color: #00e5ff;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+    transform: translateY(-2px);
 }
 
-.tech-btn.whatsapp {
-    border-color: rgba(37, 211, 102, 0.3);
-    color: #25D366;
+.tech-btn:hover svg {
+    filter: drop-shadow(0 0 5px #00e5ff);
 }
 
-.tech-btn.whatsapp:hover {
-    background: #25D366;
-    color: #fff;
-    box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
-}
-
+/* Unified look - override individual colors for a strict terminal theme */
+.tech-btn.whatsapp,
 .tech-btn.email {
-    border-color: rgba(251, 188, 5, 0.3);
-    color: #fbbc05;
+    border-color: rgba(0, 229, 255, 0.4);
+    color: #fff;
 }
 
+.tech-btn.whatsapp svg,
+.tech-btn.email svg {
+    color: #00e5ff;
+}
+
+.tech-btn.whatsapp:hover,
 .tech-btn.email:hover {
-    background: #fbbc05;
+    background: rgba(0, 229, 255, 0.15);
+    border-color: #00e5ff;
     color: #fff;
-    box-shadow: 0 0 20px rgba(251, 188, 5, 0.4);
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
 }
 
 @keyframes pulse-terminal {
@@ -458,7 +472,16 @@
 
     .btns-wrapper {
         flex-direction: column;
-        width: 100%;
+        width: 90%;
+        align-items: center;
+        /* Force center items */
+        justify-content: center;
+    }
+
+    .info-actions {
+        align-items: center !important;
+        /* Force center alignment */
+        text-align: center !important;
     }
 
     .tech-btn {

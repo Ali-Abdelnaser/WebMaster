@@ -51,7 +51,7 @@ export default function HeaderWie() {
           {/* Logo */}
           <div className="wie-logo">
             <img
-              src={scrolled ? "/img/WIE/wie-white.svg": "/img/WIE/wie-purple.svg" }
+              src="/img/WIE/wie-white.svg"
               alt="WIE Logo"
               id="logo"
             />
@@ -87,7 +87,7 @@ export default function HeaderWie() {
             <li>
               <SmartLink to="/ieee" onClick={closeMenu}>IEEE</SmartLink>
             </li>
-                        <li >
+            <li className="mobile-only-item">
               <SmartLink to="/join" onClick={closeMenu}>
                 Join WIE
               </SmartLink>

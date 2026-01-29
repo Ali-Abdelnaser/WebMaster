@@ -9,7 +9,7 @@
     margin: 0 auto;
     /* removed transform to prevent creating a containing block for fixed children */
     width: min(94%, 1200px);
-    height: 75px;
+    height: 85px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,9 +27,8 @@
 @media (min-width: 769px) {
     .aess-header.scrolled {
         top: 10px;
-        width: min(85%, 1100px);
-        height: 65px;
-        border-radius: 50px;
+        width: min(88.5%, 1500px);
+        height: 75px;
         background: rgba(10, 10, 10, 0.9);
         border-color: #1C76AE;
     }
@@ -178,7 +177,8 @@
 /* Hide these on Desktop */
 .aess-social-icons,
 .aess-mobile-copyright,
-.aess-mobile-join-btn {
+.aess-mobile-join-btn,
+.mobile-only-item {
     display: none !important;
 }
 
@@ -444,6 +444,10 @@
         border-top: 1px solid rgba(255, 255, 255, 0.05);
         color: rgba(255, 255, 255, 0.3);
         font-size: 0.75rem;
+    }
+
+    .mobile-only-item {
+        display: block !important;
     }
 
     .aess-drawer-overlay {

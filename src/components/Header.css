@@ -18,7 +18,7 @@ header {
   margin: 0 auto;
   /* removed transform to prevent creating a containing block for fixed children */
   width: min(94%, 1300px);
-  height: 75px;
+  height: 85px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,9 +36,9 @@ header {
 @media (min-width: 769px) {
   header.scrolled {
     top: 10px;
-    width: min(85%, 1300px);
-    height: 65px;
-    border-radius: 50px;
+    width: min(88%, 1500px);
+    height: 75px;
+
     background: rgba(10, 10, 10, 0.418);
     border-color: var(--nav-accent);
   }
@@ -178,7 +178,8 @@ header.scrolled .logo img {
 /* Hide these on Desktop */
 .social-icons,
 .mobile-copyright,
-.mobile-join-btn {
+.mobile-join-btn,
+.mobile-only-item {
   display: none !important;
 }
 
@@ -253,7 +254,7 @@ header.scrolled .logo img {
   .menu-toggle.active span:nth-child(2) {
     opacity: 1;
     width: 32px;
-    transform:  rotate(-45deg);
+    transform: rotate(-45deg);
     background: #fff;
     /* Fly out */
   }
@@ -293,7 +294,7 @@ header.scrolled .logo img {
   }
 
   .nav-links.show {
-    bottom: -705px;
+    bottom: -720px;
     visibility: visible;
     opacity: 1;
   }
@@ -449,6 +450,10 @@ header.scrolled .logo img {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     color: rgba(255, 255, 255, 0.3);
     font-size: 0.75rem;
+  }
+
+  .mobile-only-item {
+    display: block !important;
   }
 
   .drawer-overlay {

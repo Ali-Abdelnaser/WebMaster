@@ -80,7 +80,7 @@ export default function HeaderAESS() {
                 <SmartLink to={link.path} onClick={closeMenu}>{link.name}</SmartLink>
               </li>
             ))}
-              <li >
+            <li className="mobile-only-item">
               <SmartLink to="/join" onClick={closeMenu}>
                 Join AESS
               </SmartLink>

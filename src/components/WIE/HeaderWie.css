@@ -11,17 +11,16 @@
   margin: 0 auto;
   /* removed transform to prevent creating a containing block for fixed children */
   width: min(94%, 1200px);
-  height: 75px;
+  height: 85px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.03);
-  /* Much cleaner glass */
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(10, 10, 10, 0.65);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(112, 32, 130, 0.2);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
   z-index: 1000;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -30,11 +29,10 @@
 @media (min-width: 769px) {
   .wie-header.scrolled {
     top: 10px;
-    width: min(85%, 1100px);
-    height: 65px;
-    border-radius: 50px;
-    background: rgba(112, 32, 130, 0.85);
-    /* Darker purple when scrolled */
+    width: min(88%, 1100px);
+    height: 75px;
+    background: rgba(10, 10, 10, 0.285);
+    /* Dark glass to match others */
     border-color: #702082;
   }
 }
@@ -55,8 +53,8 @@
 }
 
 .wie-logo img {
-  width: 100px;
-  /* Restored correct small size for WIE logo */
+  width: 90px;
+  /* Increased size */
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -183,7 +181,8 @@
 /* Hide these on Desktop */
 .wie-social-icons,
 .wie-mobile-copyright,
-.wie-mobile-join-btn {
+.wie-mobile-join-btn,
+.mobile-only-item {
   display: none !important;
 }
 
@@ -449,6 +448,10 @@
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     color: rgba(255, 255, 255, 0.3);
     font-size: 0.75rem;
+  }
+
+  .mobile-only-item {
+    display: block !important;
   }
 
   .wie-drawer-overlay {

@@ -102,7 +102,7 @@ export default function Header() {
                 IEEE
               </SmartLink>
             </li>
-                        <li>
+                        <li className="mobile-only-item">
               <SmartLink to="/join" onClick={closeMenu}>
                 Join IEEE
               </SmartLink>
