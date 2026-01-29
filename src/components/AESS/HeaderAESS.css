@@ -27,9 +27,9 @@
 @media (min-width: 769px) {
     .aess-header.scrolled {
         top: 10px;
-        width: min(88.5%, 1500px);
+        width: min(88.5%, 1100px);
         height: 75px;
-        background: rgba(10, 10, 10, 0.9);
+        background: rgba(28, 118, 174, 0.1);
         border-color: #1C76AE;
     }
 }
