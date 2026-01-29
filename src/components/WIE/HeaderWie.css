@@ -1,126 +1,163 @@
-/* ==================== WIE NAVBAR ==================== */
+/* ==================== WIE NAVBAR (Refined Copy of Main Header) ==================== */
 
+
+
+/* ==================== DESKTOP HEADER ==================== */
 .wie-header {
   position: fixed;
-  top: 0;
+  top: 15px;
   left: 0;
   right: 0;
   margin: 0 auto;
-  width: min(90%, 1200px);
-  height: 90px;
+  /* removed transform to prevent creating a containing block for fixed children */
+  width: min(94%, 1200px);
+  height: 75px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.014);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 0 0 16px 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.336);
+  background: rgba(255, 255, 255, 0.03);
+  /* Much cleaner glass */
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
   z-index: 1000;
-  transition: background-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.wie-header.scrolled {
-  background: rgba(112, 32, 130, 0.85);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-  transform: translateY(-2px);
+/* Apply scrolled header styles ONLY on desktop to prevent mobile sidebar from breaking */
+@media (min-width: 769px) {
+  .wie-header.scrolled {
+    top: 10px;
+    width: min(85%, 1100px);
+    height: 65px;
+    border-radius: 50px;
+    background: rgba(112, 32, 130, 0.85);
+    /* Darker purple when scrolled */
+    border-color: #702082;
+  }
 }
 
-/* ==================== NAVBAR INNER ==================== */
+.wie-header.scrolled .wie-nav-links li a,
+.wie-header.scrolled .wie-dropdown-trigger,
+.wie-header.scrolled .wie-dropdown-icon {
+  color: #fff !important;
+}
+
+/* ==================== NAVBAR CONTENT ==================== */
 .wie-navbar {
   width: 100%;
-  padding: 0 20px;
+  padding: 0 35px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Logo */
 .wie-logo img {
   width: 100px;
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  /* Restored correct small size for WIE logo */
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .wie-header.scrolled .wie-logo img {
-  transform: scale(0.95);
-  opacity: 0.9;
+  width: 90px;
 }
 
-/* Links (Desktop) */
 .wie-nav-links {
-  list-style: none;
+  order: 2;
+  flex: 1;
   display: flex;
-  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .wie-nav-links li a {
-  position: relative;
+  padding: 10px 18px;
+  color: #fff;
   text-decoration: none;
-  color: #ffffff !important;
   font-weight: 500;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-  padding: 5px 0;
+  font-size: 0.92rem;
+  border-radius: 12px;
+  transition: 0.3s;
 }
-
-.wie-header.scrolled .wie-nav-links li a {
-  color: #fff !important;
-}
-
-.wie-nav-links li a::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  left: 0;
-  bottom: -4px;
-  background-color: #702082;
-  transition: width 0.3s ease;
-}
-
-.wie-header.scrolled .wie-nav-links li a::after {
-  background-color: #fff;
-}
-
-.wie-nav-links li a:hover::after {
-  width: 100%;
-}
-
-
 
 .wie-nav-links li a:hover {
-  color: #fff;
-  text-shadow: 0 0 6px rgba(112, 32, 130, 0.6);
-}
-
-.wie-header.scrolled .wie-nav-links li a:hover {
+  background: rgba(255, 255, 255, 0.05);
   color: #f1b4d1;
 }
 
-/* Events Item Glow */
-.wie-events-item.live a {
-  position: relative;
-  color: #ffffff;
-  font-weight: 700;
-  animation: wie-glowPulse 0.8s infinite;
+.wie-nav-links li a.active {
+  background: #702082;
+  color: #fff !important;
 }
 
-@keyframes wie-glowPulse {
-  0% {
-    transform: scale(1);
-    text-shadow: 0 0 20px #e87db0, 0 0 40px #e87db0;
-  }
+/* Dropdown (Desktop) */
+.wie-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 
-  50% {
-    transform: scale(1.1);
-    text-shadow: 0 0 30px #e87db0, 0 0 60px #e87db0;
-  }
+.wie-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.92rem;
+}
 
-  100% {
-    transform: scale(1);
-    text-shadow: 0 0 20px #e87db0, 0 0 40px #e87db0;
-  }
+.wie-dropdown-icon {
+  font-size: 0.65rem;
+  transition: 0.4s;
+}
+
+.wie-dropdown:hover .wie-dropdown-icon {
+  transform: rotate(180deg);
+}
+
+.wie-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 15px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(112, 32, 130, 0.9);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  min-width: 220px;
+  padding: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  list-style: none;
+}
+
+.wie-dropdown:hover .wie-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.wie-dropdown-menu li a {
+  display: flex !important;
+  padding: 12px 18px !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  border-radius: 20px !important;
+  margin-bottom: 2px;
+}
+
+.wie-dropdown-menu li a:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
 }
 
 /* Join Button */
@@ -128,212 +165,309 @@
   order: 3;
 }
 
-#join-btn::after {
-  content: "Join US";
-}
-
 .wie-nav-button a {
-  padding: 6px 14px;
-  border: 1px solid #702082;
-  border-radius: 6px;
-  color: #702082;
-  text-decoration: none;
-  transition: all 0.3s ease;
+  padding: 10px 25px;
   background: transparent;
+  border: 1px solid #702082;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 14px;
+  transition: 0.3s;
 }
 
 .wie-nav-button a:hover {
   background: #702082;
   color: #fff;
-  border-color: #702082;
-  box-shadow: 0 0 10px rgba(112, 32, 130, 0.5);
 }
 
-.wie-header.scrolled .wie-nav-button a {
-  background: #fff;
-  border-color: #fff;
-  color: #702082;
+/* Hide these on Desktop */
+.wie-social-icons,
+.wie-mobile-copyright,
+.wie-mobile-join-btn {
+  display: none !important;
 }
 
-/* ==================== MENU TOGGLE ==================== */
-.wie-menu-toggle {
-  display: none;
-  position: relative;
-  width: 30px;
-  height: 22px;
-  cursor: pointer;
-  z-index: 1300;
-}
-
-.wie-menu-toggle span {
-  position: absolute;
-  right: 0;
-  height: 2.5px;
-  border-radius: 2px;
-  background: #702082;
-  transition: all 0.35s ease;
-}
-
-.wie-menu-toggle span:nth-child(1) {
-  width: 18px;
-  top: 6px;
-}
-
-.wie-menu-toggle span:nth-child(2) {
-  width: 28px;
-  top: 14px;
-}
-
-.wie-header.scrolled .wie-menu-toggle span {
-  background: #fff;
-}
-
-.wie-menu-toggle.active span:nth-child(1) {
-  width: 24px;
-  top: 10px;
-  transform: rotate(45deg);
-  background: #702082;
-}
-
-.wie-menu-toggle.active span:nth-child(2) {
-  width: 24px;
-  top: 10px;
-  transform: rotate(-45deg);
-  background: #702082;
-}
-
-/* ==================== OVERLAY ==================== */
-.wie-drawer-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.4s ease;
-  z-index: 900;
-}
-
-.wie-drawer-overlay.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* ==================== MOBILE MENU ==================== */
+/* ==================== 🛠️ RESTORED BASIC STYLE (BOTTOM SLIDE) 🛠️ ==================== */
 @media (max-width: 768px) {
-  #join-btn::after {
-    content: "Join";
+  .wie-header {
+    width: 95%;
+    top: 10px;
+    height: 65px;
+    border-radius: 15px;
   }
 
+  .wie-nav-button {
+    display: none;
+  }
+
+  /* ✨ CLASSY STAGGERED TOGGLE ✨ */
   .wie-menu-toggle {
-    display: block;
-    order: 3;
-  }
-
-  .wie-nav-links {
-    position: fixed;
-    top: 0;
-    right: -120%;
-    width: 320px;
-    height: 100vh;
-    margin: 0;
-    padding: 80px 20px;
-    background: rgba(112, 32, 130, 0.4);
-    backdrop-filter: blur(60px) saturate(180%);
-    -webkit-backdrop-filter: blur(60px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.15);
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    z-index: 1000;
-    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.12);
-    gap: 12px;
-    border-radius: 20px 0 0 20px;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 6px;
+    z-index: 5000;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding-right: 5px;
+  }
+
+  .wie-menu-toggle span {
+    height: 3px;
+    background: #fff;
+    border-radius: 10px;
+    transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  }
+
+  .wie-menu-toggle span:nth-child(1) {
+    width: 32px;
+  }
+
+  .wie-menu-toggle span:nth-child(2) {
+    width: 22px;
+  }
+
+  .wie-menu-toggle span:nth-child(3) {
+    width: 32px;
+  }
+
+  /* Hover */
+  .wie-menu-toggle:hover span:nth-child(2) {
+    background: #e87db0;
+    /* Pink glow on hover */
+  }
+
+  /* Active */
+  .wie-menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+    width: 32px;
+    background: #fff;
+  }
+
+  .wie-menu-toggle.active span:nth-child(2) {
+    opacity: 1;
+    width: 32px;
+    transform: rotate(-45deg);
+    background: #fff;
+  }
+
+  .wie-menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+    width: 32px;
+    background: #fff;
+  }
+
+  /* 🌌 THE SLIDE-UP PANEL (Basic Style like CS/WIE) 🌌 */
+  .wie-nav-links {
+    position: fixed;
+    bottom: 100%;
+    left: -20px;
+    width: 100%;
+    height: auto;
+    max-height: 75vh;
+    background: rgba(40, 10, 50, 0.95);
+    /* Deep purple glass for mobile menu */
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    z-index: 4000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center the buttons */
+    padding: 90px 20px 35px;
+    transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.8);
+    overflow-y: auto;
+    scrollbar-width: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 35px 35px 25px 25px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
   }
 
   .wie-nav-links.show {
-    right: -40px;
+    bottom: -705px;
+    visibility: visible;
+    opacity: 1;
   }
 
-  .wie-nav-links li a {
-    display: block;
-    width: 100%;
-    padding: 14px 20px;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-  }
-
+  /* Navigation Item Style */
   .wie-nav-links li {
+    width: 90%;
     list-style: none;
-    opacity: 0;
-    transform: translateX(20px);
-    animation: wie-slideIn 0.5s forwards;
+    margin: 8px 0;
   }
 
-  @keyframes wie-slideIn {
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  .wie-nav-links li a:hover {
-    background: rgba(112, 32, 130, 0.5);
-    transform: translateX(-5px);
-  }
-
-  .wie-social-icons {
+  .wie-nav-links li a:not(.wie-dropdown-menu li a):not(.wie-mobile-join-btn a),
+  .wie-mobile-join-btn a,
+  .wie-dropdown-trigger {
     display: flex;
     justify-content: center;
-    gap: 12px;
-    margin: 12px 0;
+    align-items: center;
+    width: 89%;
+    max-width: 350px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    color: #fff !important;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+  }
+
+  .wie-nav-links li a:active,
+  .wie-nav-links li a.active,
+  .wie-mobile-join-btn a:active {
+    background: #e87db0;
+    /* WIE Pink/Purple lighter accent */
+    border-color: #e87db0;
+    transform: scale(0.98);
+    color: #000 !important;
+    /* Black text on pink button */
+  }
+
+  /* 🚀 BASIC ACCORDION CHAPTERS 🚀 */
+  .wie-dropdown {
+    width: 100% !important;
+    margin: 4px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wie-dropdown-trigger {
+    gap: 10px;
+    width: 82%;
+    margin: 0 10px 0 17px;
+  }
+
+  .wie-dropdown-icon {
+    font-size: 0.7rem;
+    transition: 0.4s ease;
+    opacity: 0.7;
+  }
+
+  .wie-dropdown.mobile-active .wie-dropdown-icon {
+    transform: rotate(180deg);
+    opacity: 1;
+  }
+
+  .wie-dropdown-menu {
+    position: relative;
+    max-height: 0;
+    opacity: 0;
+    visibility: visible;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center the items if they aren't full width, but we want them full width */
+    padding: 0 !important;
+    background: rgba(255, 255, 255, 0) !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin-top: 8px;
+    border-radius: 12px;
+    width: 90%;
+    /* Fill the dropdown container */
+  }
+
+  .wie-dropdown.mobile-active .wie-dropdown-menu {
+    max-height: 250px;
+    opacity: 1;
+    padding: 10px 0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  }
+
+  .wie-dropdown-menu li {
+    margin: 0;
+    padding: 0;
+    width: 90%;
+    /* Ensure li takes full width of dropdown-menu */
+    display: flex;
+    justify-content: center;
+  }
+
+  .wie-dropdown-menu li a {
+    height: 55px !important;
+    /* Slightly taller for better touch target and centering */
+    width: 90%;
+    background: rgba(255, 255, 255, 0.03) !important;
+    /* Subtle background for visibility */
+    border: none !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-weight: 500 !important;
+    font-size: 1rem !important;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center;
+    border-radius: 40px;
+    margin-bottom: 5px;
+  }
+
+  /* JOIN BUTTON  */
+  .wie-mobile-join-btn {
+    display: block !important;
+    margin-top: 10px !important;
+    order: -1;
+  }
+
+  /* SOCIAL ICONS */
+  .wie-social-icons {
+    display: flex !important;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0 10px;
+    width: 100%;
   }
 
   .wie-social-icons a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    color: white;
-    background: rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-  }
-
-  .wie-social-icons a:hover {
-    background: #bd467f;
+    color: #fff;
+    font-size: 1.1rem;
   }
 
   .wie-mobile-copyright {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: block !important;
     text-align: center;
-    color: #fff;
-  }
-
-  .wie-copyright-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-size: 0.85rem;
-  }
-
-  .wie-copyright-subtitle {
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.3);
     font-size: 0.75rem;
-    opacity: 0.8;
-    font-style: italic;
+  }
+
+  .wie-drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(15px);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+    z-index: 900;
+    /* Must be lower than header context for visibility */
+  }
+
+  .wie-drawer-overlay.show {
+    opacity: 1;
+    visibility: visible;
   }
 }

@@ -14,6 +14,7 @@ import {
 export default function HeaderWie() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const [liveEvent, setLiveEvent] = useState(false);
 
   useEffect(() => {
@@ -28,8 +29,20 @@ export default function HeaderWie() {
     setLiveEvent(eventsData.status === "on");
   }, []);
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-  const closeMenu = () => setMenuOpen(false);
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+    if (menuOpen) setMobileDropdownOpen(false);
+  };
+  
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setMobileDropdownOpen(false);
+  };
+
+  const toggleMobileChapters = (e) => {
+    e.stopPropagation();
+    setMobileDropdownOpen((prev) => !prev);
+  };
 
   return (
     <>
@@ -46,7 +59,9 @@ export default function HeaderWie() {
 
           {/* Join button */}
           <div className="wie-nav-button">
-            <SmartLink to="/join" id="join-btn"></SmartLink>
+            <SmartLink to="/join" id="join-btn">
+              Join WIE
+            </SmartLink>
           </div>
 
           {/* Menu toggle */}
@@ -70,45 +85,44 @@ export default function HeaderWie() {
               <SmartLink to="/events" onClick={closeMenu}>Events</SmartLink>
             </li>
             <li>
-              <SmartLink to="/wie" onClick={closeMenu}>WIE</SmartLink>
-            </li>
-            <li>
-              <SmartLink to="/CS" onClick={closeMenu}>CS</SmartLink>
-            </li>
-            <li>
               <SmartLink to="/ieee" onClick={closeMenu}>IEEE</SmartLink>
             </li>
-						<li>
-              <SmartLink to="/AESS" onClick={closeMenu}>AESS</SmartLink>
+                        <li >
+              <SmartLink to="/join" onClick={closeMenu}>
+                Join WIE
+              </SmartLink>
+            </li>
+            <li className={`wie-dropdown ${mobileDropdownOpen ? "mobile-active" : ""}`}>
+              <div className="wie-dropdown-trigger" onClick={toggleMobileChapters}>
+                <span>Chapters</span>
+                <i className="wie-dropdown-icon">▼</i>
+              </div>
+              <ul className="wie-dropdown-menu">
+                <li><SmartLink to="/wie" onClick={closeMenu}>WIE Chapter</SmartLink></li>
+                <li><SmartLink to="/CS" onClick={closeMenu}>CS Chapter</SmartLink></li>
+                <li><SmartLink to="/AESS" onClick={closeMenu}>AESS Chapter</SmartLink></li>
+              </ul>
             </li>
 
             {/* Mobile Social + Copyright */}
-            {menuOpen && (
-              <>
-                <li className="wie-mobile-join-btn">
-                  <SmartLink to="/join" onClick={closeMenu}>
-                    Join WIE
-                  </SmartLink>
-                </li>
-                <div className="wie-social-icons">
-                  <a href="https://www.facebook.com/profile.php?id=61560937966305" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
-                  <a href="https://www.instagram.com/ieeemetsb/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-                  <a href="https://www.linkedin.com/company/ieee-met-sb-pioneers/posts/?feedView=all" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
-                  <a href="https://www.tiktok.com/@ieee.met" target="_blank" rel="noopener noreferrer"><FaTiktok /></a>
-                  <a href="https://wa.me/201068643407" target="_blank" rel="noopener noreferrer"><FaWhatsapp /></a>
-                  <a href="mailto:ali.abdelnaser@ieee.org" target="_blank" rel="noopener noreferrer"><FaEnvelope /></a>
-                </div>
 
-                <li className="wie-mobile-copyright">
-                  <div className="wie-copyright-content">
-                    <span className="wie-copyright-year">2026</span>
-                    <span className="wie-copyright-divider">•</span>
-                    <span className="wie-copyright-text">WIE Affinity Group</span>
-                  </div>
-                  <div className="wie-copyright-subtitle">Innovation & Excellence</div>
-                </li>
-              </>
-            )}
+            <div className="wie-social-icons">
+              <a href="https://www.facebook.com/profile.php?id=61560937966305" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
+              <a href="https://www.instagram.com/ieeemetsb/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+              <a href="https://www.linkedin.com/company/ieee-met-sb-pioneers/posts/?feedView=all" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
+              <a href="https://www.tiktok.com/@ieee.met" target="_blank" rel="noopener noreferrer"><FaTiktok /></a>
+              <a href="https://wa.me/201068643407" target="_blank" rel="noopener noreferrer"><FaWhatsapp /></a>
+              <a href="mailto:ali.abdelnaser@ieee.org" target="_blank" rel="noopener noreferrer"><FaEnvelope /></a>
+            </div>
+
+            <li className="wie-mobile-copyright">
+              <div className="wie-copyright-content">
+                <span className="wie-copyright-year">2026</span>
+                <span className="wie-copyright-divider">•</span>
+                <span className="wie-copyright-text">WIE Affinity Group</span>
+              </div>
+              <div className="wie-copyright-subtitle">Innovation & Excellence</div>
+            </li>
           </ul>
         </nav>
       </header>

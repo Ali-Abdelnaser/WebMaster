@@ -14,6 +14,7 @@ import {
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const [liveEvent, setLiveEvent] = useState(false);
 
   // scroll effect
@@ -32,8 +33,20 @@ export default function Header() {
   }, []);
 
   // toggle drawer
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-  const closeMenu = () => setMenuOpen(false);
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+    if (menuOpen) setMobileDropdownOpen(false);
+  };
+  
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setMobileDropdownOpen(false);
+  };
+
+  const toggleMobileChapters = (e) => {
+    e.stopPropagation();
+    setMobileDropdownOpen((prev) => !prev);
+  };
 
   return (
     <>
@@ -42,7 +55,7 @@ export default function Header() {
           {/* Logo */}
           <div className="logo">
             <img
-              src={scrolled ? "/img/logo-1.png" : "/img/logo-2.png"}
+              src={scrolled ? "/img/logo-2.png" : "/img/logo-2.png"}
               alt="IEEE Logo"
               id="logo"
             />
@@ -50,7 +63,9 @@ export default function Header() {
 
           {/* Join button */}
           <div className="nav-button">
-            <SmartLink to="/join" id="join-btn"></SmartLink>
+            <SmartLink to="/join" id="join-btn">
+              Join US
+            </SmartLink>
           </div>
           {/* <div className="nav-button">
             <SmartLink to="/join-cs" id="join-btn"></SmartLink>
@@ -83,99 +98,86 @@ export default function Header() {
               </SmartLink>
             </li>
             <li>
-              <SmartLink to="/wie" onClick={closeMenu}>
-                WIE
-              </SmartLink>
-            </li>
-            <li>
-              <SmartLink to="/CS" onClick={closeMenu}>
-                CS
-              </SmartLink>
-            </li>
-            <li>
               <SmartLink to="/ieee" onClick={closeMenu}>
                 IEEE
               </SmartLink>
             </li>
-						<li>
-              <SmartLink to="/AESS" onClick={closeMenu}>
-                AESS
-              </SmartLink>
-            </li>
-
-            
-
-            {/* Mobile Social + Copyright - يظهروا بس مع فتح المنيو */}
-            {menuOpen && (
-              <>
-                {/* Mobile Join Button */}
-            <li className="mobile-join-btn">
+                        <li>
               <SmartLink to="/join" onClick={closeMenu}>
                 Join IEEE
               </SmartLink>
             </li>
-                  <div className="social-icons">
-                    <a
-                      href="https://www.facebook.com/profile.php?id=61560937966305"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FaFacebookF />
-                    </a>
-                    <a
-                      href="https://www.instagram.com/ieeemetsb/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FaInstagram />
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/company/ieee-met-sb-pioneers/posts/?feedView=all"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FaLinkedinIn />
-                    </a>
-                    <a
-                      href="https://www.tiktok.com/@ieee.met"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FaTiktok />
-                    </a>
-                    <a
-                      href="https://wa.me/201068643407"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FaWhatsapp />
-                    </a>
-                    <a
-                      href="mailto:ali.abdelnaser@ieee.org"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FaEnvelope />
-                    </a>
-                  </div>
-                
- 
-                <li className="mobile-copyright">
-                  <div className="copyright-content">
-                    <span className="copyright-year">
-                      2026
-                    </span>
-                    <span className="copyright-divider">•</span>
-                    <span className="copyright-text">
-                      IEEE Student Branch
-                    </span>
-                  </div>
-                  <div className="copyright-subtitle">
-                    Innovation & Excellence
-                  </div>
-                </li>
-              </>
-            )}
+
+            <li className={`dropdown ${mobileDropdownOpen ? "mobile-active" : ""}`}>
+              <div className="dropdown-trigger" onClick={toggleMobileChapters}>
+                <span>Chapters</span>
+                <i className="dropdown-icon">▼</i>
+              </div>
+              <ul className="dropdown-menu">
+                <li><SmartLink to="/wie"  onClick={closeMenu}>WIE Chapter</SmartLink></li>
+                <li><SmartLink to="/CS"   onClick={closeMenu}>CS Chapter</SmartLink></li>
+                <li><SmartLink to="/AESS" onClick={closeMenu}>AESS Chapter</SmartLink></li>
+              </ul>
+            </li>
+
+            
+
+            {/* Mobile Social + Copyright */}
+
+
+            <div className="social-icons">
+              <a
+                href="https://www.facebook.com/profile.php?id=61560937966305"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaFacebookF />
+              </a>
+              <a
+                href="https://www.instagram.com/ieeemetsb/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaInstagram />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/ieee-met-sb-pioneers/posts/?feedView=all"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedinIn />
+              </a>
+              <a
+                href="https://www.tiktok.com/@ieee.met"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaTiktok />
+              </a>
+              <a
+                href="https://wa.me/201068643407"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaWhatsapp />
+              </a>
+              <a
+                href="mailto:ali.abdelnaser@ieee.org"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaEnvelope />
+              </a>
+            </div>
+
+            <li className="mobile-copyright">
+              <div className="copyright-content">
+                <span className="copyright-year">2026</span>
+                <span className="copyright-divider">•</span>
+                <span className="copyright-text">IEEE Student Branch</span>
+              </div>
+              <div className="copyright-subtitle">Innovation & Excellence</div>
+            </li>
           </ul>
         </nav>
       </header>
