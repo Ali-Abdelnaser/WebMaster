@@ -7,7 +7,13 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+.pnpm-store
+
+# Build artifacts
+dist
+dist-ssr
 *.local
 
 # Editor directories and files
@@ -20,10 +26,17 @@ node_modules
 *.njsproj
 *.sln
 *.sw?
-# Env files
+
+# Env files (CRITICAL: Do not commit secrets)
 .env
 .env.local
-.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# lockfile backups/temps
+pnpm-lock.yaml.*
 
 # Optional npm cache directory
 .npm
