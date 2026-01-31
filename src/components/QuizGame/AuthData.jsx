@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useQuiz } from '../../context/QuizContext';
 import { auth, googleProvider, db, storage } from '../../config/firebase';
-import { signInWithPopup } from 'firebase/auth';
+import { signInWithPopup, signInWithRedirect, isSignInWithEmailLink, getRedirectResult } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -57,10 +57,30 @@ const AuthData = () => {
     const handleLogin = async () => {
         setLoading(true);
         try {
-            await signInWithPopup(auth, googleProvider);
+            // Optimization for Mobile: Check if user is on mobile/tablet
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+            if (isMobile) {
+                // signInWithRedirect is much more reliable on mobile browsers
+                await signInWithRedirect(auth, googleProvider);
+            } else {
+                try {
+                    await signInWithPopup(auth, googleProvider);
+                } catch (popupError) {
+                    // Fallback to redirect if popup is blocked
+                    if (popupError.code === 'auth/popup-blocked' || popupError.code === 'auth/cancelled-popup-request') {
+                        await signInWithRedirect(auth, googleProvider);
+                    } else {
+                        throw popupError;
+                    }
+                }
+            }
         } catch (error) {
             console.error("Login failed", error);
-            alert(`Login failed: ${error.message}`);
+            // Use the global modal for error display
+            if (error.code !== 'auth/cancelled-popup-request') {
+                alert(`Login failed: ${error.message}. Please try again or check your connection.`);
+            }
         } finally {
             setLoading(false);
         }
