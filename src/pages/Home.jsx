@@ -6,7 +6,9 @@ import Partners from "../components/Home/Partners";
 import BestMembers from "../components/Home/BestMembers";
 import OfficersCarousel from "../components/Home/OfficersCarousel";
 import FoundingSection from "../components/Home/FoundingSection";
+import QuizPromo from "../components/Home/QuizPromo";
 import data from "../data/aboutData.json";
+
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AnimatedBackground from "../components/join/AnimatedBackground";
@@ -50,11 +52,13 @@ function Home() {
       <Header />
       <Hero />
       <AnimatedBackground />
+
       <SummarySection data={data.summary} />
       <OurCycle />
       <BestMembers />
       <DrSallySection />
       <OfficersCarousel />
+      {/* <QuizPromo /> */}
       <FoundingSection data={data.founding} />
       <Partners />
       <Footer />

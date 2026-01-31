@@ -1,0 +1,920 @@
+/* ===================================
+   ENTRY ARENA - COSMIC DESIGN
+   =================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+.entry-arena-wrapper {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+}
+
+/* ===================================
+   SPACE BACKGROUND
+   =================================== */
+
+.arena-space-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #0a0e27 0%, #16213e 50%, #0a0e27 100%);
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* Stars */
+.stars-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle, #ffffff 1px, transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 0.5px, transparent 0.5px);
+    background-size: 200px 200px, 100px 100px;
+    background-position: 0 0, 50px 50px;
+    animation: starsMove 120s linear infinite;
+}
+
+.stars-layer-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle, rgba(0, 210, 255, 0.6) 1.5px, transparent 1.5px),
+        radial-gradient(circle, rgba(138, 43, 226, 0.4) 1px, transparent 1px);
+    background-size: 300px 300px, 250px 250px;
+    background-position: 100px 100px, 200px 50px;
+    animation: starsMove 180s linear infinite reverse;
+}
+
+.stars-layer-3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.3) 0.5px, transparent 0.5px);
+    background-size: 80px 80px;
+    animation: starsMove 90s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes starsMove {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-1000px);
+    }
+}
+
+/* Galaxy Nebulas */
+.nebula-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(ellipse 600px 300px at 20% 30%, rgba(138, 43, 226, 0.2) 0%, transparent 60%),
+        radial-gradient(ellipse 500px 400px at 80% 70%, rgba(0, 210, 255, 0.15) 0%, transparent 60%);
+    filter: blur(60px);
+    animation: nebulaPulse 15s ease-in-out infinite;
+}
+
+@keyframes nebulaPulse {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Shooting Stars */
+.arena-space-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(90deg, transparent 0%, transparent 40%, rgba(255, 255, 255, 0.8) 50%, transparent 60%, transparent 100%);
+    background-size: 200px 2px;
+    background-position: -200px 20%, -200px 60%, -200px 80%;
+    background-repeat: no-repeat;
+    animation: shootingStar 8s linear infinite;
+    opacity: 0;
+}
+
+@keyframes shootingStar {
+    0% {
+        background-position: -200px 20%, -200px 60%, -200px 80%;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    20% {
+        background-position: calc(100% + 200px) 25%, calc(100% + 200px) 65%, calc(100% + 200px) 85%;
+        opacity: 0;
+    }
+
+    100% {
+        background-position: calc(100% + 200px) 25%, calc(100% + 200px) 65%, calc(100% + 200px) 85%;
+        opacity: 0;
+    }
+}
+
+/* Floating Cosmic Particles */
+.arena-space-bg::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle, rgba(0, 210, 255, 0.3) 2px, transparent 2px),
+        radial-gradient(circle, rgba(138, 43, 226, 0.25) 3px, transparent 3px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.2) 1.5px, transparent 1.5px);
+    background-size: 600px 600px, 800px 800px, 400px 400px;
+    background-position: 0 0, 300px 200px, 150px 400px;
+    animation: particlesFloat 40s linear infinite;
+    opacity: 0.4;
+}
+
+@keyframes particlesFloat {
+    from {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50px, -600px) rotate(360deg);
+    }
+}
+
+/* Distant Planets */
+.distant-planet {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(2px);
+    opacity: 0.6;
+    animation: planetFloat 20s ease-in-out infinite;
+}
+
+.planet-1 {
+    width: 80px;
+    height: 80px;
+    top: 15%;
+    right: 10%;
+    background: radial-gradient(circle at 30% 30%, rgba(138, 43, 226, 0.4), rgba(58, 123, 213, 0.2));
+    box-shadow: 0 0 40px rgba(138, 43, 226, 0.3);
+}
+
+.planet-2 {
+    width: 60px;
+    height: 60px;
+    bottom: 20%;
+    left: 8%;
+    background: radial-gradient(circle at 30% 30%, rgba(0, 210, 255, 0.4), rgba(58, 123, 213, 0.2));
+    box-shadow: 0 0 30px rgba(0, 210, 255, 0.3);
+    animation-delay: -10s;
+}
+
+@keyframes planetFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+
+    50% {
+        transform: translateY(-30px) translateX(20px);
+    }
+}
+
+/* Cosmic Rings */
+.cosmic-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid;
+    opacity: 0.15;
+    animation: ringRotate 30s linear infinite;
+}
+
+.ring-1 {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: 5%;
+    border-color: rgba(0, 210, 255, 0.3);
+    transform: rotate(45deg);
+}
+
+.ring-2 {
+    width: 250px;
+    height: 250px;
+    bottom: 15%;
+    right: 8%;
+    border-color: rgba(138, 43, 226, 0.3);
+    transform: rotate(-30deg);
+    animation-direction: reverse;
+}
+
+@keyframes ringRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===================================
+   CONTENT CONTAINER
+   =================================== */
+
+.entry-content-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+/* ===================================
+   HEADER SECTION
+   =================================== */
+
+.arena-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.floating-logo {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 0 25px rgba(0, 210, 255, 0.7));
+    animation: logoFloat 4s ease-in-out infinite;
+    position: relative;
+}
+
+@keyframes logoFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.floating-logo::before {
+    content: '';
+    position: absolute;
+    width: 130%;
+    height: 130%;
+    border: 2px solid rgba(0, 210, 255, 0.3);
+    border-radius: 50%;
+    animation: ringPulse 3s ease-in-out infinite;
+}
+
+@keyframes ringPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+.floating-logo img {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.arena-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+}
+
+.title-gradient {
+    background: linear-gradient(135deg, #00d2ff 0%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 40px rgba(0, 210, 255, 0.6));
+}
+
+.title-challenge {
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.45em;
+    letter-spacing: 12px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.arena-tagline {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.tagline-icon {
+    color: #FFD700;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+    animation: iconBlink 2s ease-in-out infinite;
+}
+
+@keyframes iconBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* ===================================
+   MOTIVATION CARD
+   =================================== */
+
+.motivation-card {
+    background: rgba(10, 14, 39, 0.5);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(0, 210, 255, 0.25);
+    border-radius: 12px;
+    padding: 1.8rem 2.5rem;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Corner brackets */
+.motivation-card::before,
+.motivation-card::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #00d2ff;
+}
+
+.motivation-card::before {
+    top: 8px;
+    left: 8px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.motivation-card::after {
+    bottom: 8px;
+    right: 8px;
+    border-left: none;
+    border-top: none;
+}
+
+.quote-icon {
+    font-size: 2rem;
+    color: #FFD700;
+    margin-bottom: 0.8rem;
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.7));
+}
+
+.motivation-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #fff;
+    font-style: italic;
+    margin: 0.8rem 0;
+    line-height: 1.6;
+}
+
+.motivation-stats {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.motivation-stats span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 700;
+    padding: 0.6rem 1.2rem;
+    background: rgba(0, 210, 255, 0.15);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 210, 255, 0.3);
+}
+
+.motivation-stats span svg {
+    color: #00d2ff;
+}
+
+/* ===================================
+   PODIUM SECTION
+   =================================== */
+
+.podium-section {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.podium-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.podium-trophy-icon {
+    font-size: 2.5rem;
+    color: #FFD700;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+    animation: trophyBounce 3s ease-in-out infinite;
+}
+
+@keyframes trophyBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.podium-header h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 0;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
+}
+
+.podium-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    min-height: 380px;
+}
+
+/* ===================================
+   PODIUM PLAYERS
+   =================================== */
+
+.podium-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.podium-player:hover {
+    transform: translateY(-8px);
+}
+
+.podium-player.rank-1 {
+    order: 2;
+    z-index: 3;
+}
+
+.podium-player.rank-2 {
+    order: 1;
+    z-index: 2;
+}
+
+.podium-player.rank-3 {
+    order: 3;
+    z-index: 1;
+}
+
+/* Medal Badge */
+.medal-badge {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0a0e27;
+    font-weight: 900;
+    z-index: 10;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    animation: medalGlow 3s ease-in-out infinite;
+}
+
+.rank-1 .medal-badge {
+    width: 65px;
+    height: 65px;
+}
+
+@keyframes medalGlow {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+/* Player Avatar */
+.player-avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 4px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(10, 14, 39, 0.9), rgba(22, 33, 62, 0.9));
+    backdrop-filter: blur(10px);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.rank-1 .player-avatar {
+    width: 135px;
+    height: 135px;
+    border-width: 5px;
+}
+
+.player-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    object-position: top;
+}
+
+.avatar-emoji {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 3.5rem;
+}
+
+.rank-1 .avatar-emoji {
+    font-size: 4.5rem;
+}
+
+/* Player Info Card */
+.player-info {
+    text-align: center;
+    padding: 1.3rem;
+    background: rgba(10, 14, 39, 0.6);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    margin-bottom: 1rem;
+    min-width: 180px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Corner brackets for player info */
+.player-info::before,
+.player-info::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 2px solid currentColor;
+    opacity: 0.4;
+}
+
+.player-info::before {
+    top: 4px;
+    left: 4px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.player-info::after {
+    bottom: 4px;
+    right: 4px;
+    border-left: none;
+    border-top: none;
+}
+
+.rank-1 .player-info {
+    min-width: 220px;
+    padding: 1.6rem;
+}
+
+.player-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 0.4rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.rank-1 .player-name {
+    font-size: 1.5rem;
+}
+
+.player-branch {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 0.8rem 0;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.player-score {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow: 0 0 25px currentColor;
+}
+
+.rank-1 .player-score {
+    font-size: 2.1rem;
+}
+
+/* Podium Base */
+.podium-base {
+    width: 180px;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 1rem;
+    position: relative;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-bottom: none;
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.rank-1 .podium-base {
+    width: 220px;
+}
+
+.podium-rank {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.15);
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
+}
+
+.rank-1 .podium-rank {
+    font-size: 3.8rem;
+}
+
+/* Loading State */
+.loading-podium {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 3rem;
+}
+
+.loading-podium p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* ===================================
+   CTA BUTTONS
+   =================================== */
+
+.arena-actions {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.arena-cta-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.2rem 3rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.arena-cta-btn.primary {
+    background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+    color: #fff;
+    box-shadow: 0 10px 35px rgba(0, 210, 255, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.arena-cta-btn.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 45px rgba(0, 210, 255, 0.6);
+}
+
+.btn-glow {
+    display: none;
+}
+
+.arena-cta-btn.secondary {
+    background: rgba(255, 107, 107, 0.1);
+    color: #ff6b6b;
+    border: 2px solid #ff6b6b;
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+}
+
+.arena-cta-btn.secondary:hover {
+    background: rgba(255, 107, 107, 0.2);
+    box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+    transform: translateY(-3px);
+}
+
+.arena-cta-btn svg {
+    font-size: 1.3rem;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+@media (max-width: 1024px) {
+    .podium-container {
+        gap: 1.5rem;
+    }
+
+    .podium-base {
+        width: 150px;
+    }
+
+    .rank-1 .podium-base {
+        width: 190px;
+    }
+}
+
+@media (max-width: 768px) {
+    .entry-arena-wrapper {
+        padding: 1rem;
+    }
+
+    .entry-content-container {
+        gap: 2rem;
+    }
+
+    .motivation-card {
+        padding: 1.5rem;
+    }
+
+    .podium-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        min-height: auto;
+    }
+
+    .podium-player {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .podium-player.rank-1 {
+        order: 1;
+    }
+
+    .podium-player.rank-2 {
+        order: 2;
+    }
+
+    .podium-player.rank-3 {
+        order: 3;
+    }
+
+    .podium-base {
+        width: 100%;
+        height: 70px !important;
+    }
+
+    .arena-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .arena-cta-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .arena-title {
+        font-size: 2rem;
+    }
+
+    .player-avatar {
+        width: 90px;
+        height: 90px;
+    }
+
+    .rank-1 .player-avatar {
+        width: 110px;
+        height: 110px;
+    }
+
+    .avatar-emoji {
+        font-size: 3rem;
+    }
+
+    .rank-1 .avatar-emoji {
+        font-size: 3.8rem;
+    }
+}

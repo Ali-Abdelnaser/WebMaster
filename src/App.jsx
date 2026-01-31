@@ -20,7 +20,9 @@ import Wie from "./pages/Wie";
 import CS from "./pages/CS";
 import About from "./pages/About";
 import AESS from "./pages/AESS";
+import QuizPage from "./pages/QuizPage";
 import ScrollToTopButton from "./components/ScrollToTopButton";
+
 // ScrollToTop component
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -66,6 +68,7 @@ function AnimatedRoutes() {
         <Route path="/about" element={<About />} />
         <Route path="/committee/:name" element={<CommitteePage />} />
         <Route path="/track/:name" element={<TrackPage />} />
+        <Route path="/quiz" element={<QuizPage />} />
       </Routes>
     </AnimatePresence>
   );
