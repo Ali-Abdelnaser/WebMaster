@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { auth, db } from "../config/firebase";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut, getRedirectResult } from "firebase/auth";
 import { doc, getDoc, setDoc, updateDoc, arrayUnion, increment, serverTimestamp, collection, query, where, getCountFromServer, deleteDoc } from "firebase/firestore";
 
 const QuizContext = createContext();
@@ -51,52 +51,88 @@ export const QuizProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-      setUser(currentUser);
-      if (currentUser) {
-        // Fetch user profile from Firestore
-        const docRef = doc(db, "users", currentUser.email);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-            const data = docSnap.data();
-            
-            // Calculate Rank and Total Players
-            const playersRef = collection(db, "users");
-            const qRank = query(playersRef, where("totalScore", ">", data.totalScore || 0));
-            const [rankSnap, totalSnap] = await Promise.all([
-                getCountFromServer(qRank),
-                getCountFromServer(playersRef)
-            ]);
-            
-            const rank = rankSnap.data().count + 1;
-            const totalPlayers = totalSnap.data().count;
-            
-            setUserProfile({ ...data, rank, totalPlayers });
-            
-            // Track login session
-            await updateDoc(docRef, {
-              'analytics.loginSessions': arrayUnion({
-                timestamp: new Date().toISOString(),
-                device: navigator.userAgent
-              }),
-              'analytics.totalLogins': increment(1),
-              lastLogin: serverTimestamp()
-            });
-            
-            // Pre-load progress data and advance to the NEXT stage if available
-            if (data.lastCompletedStage !== undefined) {
-                const lastStage = data.lastCompletedStage;
-                // If they finished stage X, the next stage to play is X + 1 (max 3)
-                const nextStage = lastStage >= 3 ? 3 : lastStage + 1;
-                setCurrentStage(nextStage);
-            } else {
-                setCurrentStage(1);
+    // 1. Handle redirect result first (crucial for mobile/Auth redirect flow)
+    const handleRedirect = async () => {
+        try {
+            const result = await getRedirectResult(auth);
+            if (result) {
+                console.log("Redirect login successful", result.user.email);
+            }
+        } catch (error) {
+            console.error("Auth redirect error:", error);
+            if (error.code === 'auth/internal-error' || error.code === 'auth/network-request-failed') {
+                showAlert({
+                    title: 'Connection Issue',
+                    message: 'Could not connect to authentication server. Please check your internet and try again.',
+                    type: 'danger'
+                });
             }
         }
-      } else {
-        setUserProfile(null);
-      }
-      setLoading(false);
+    };
+    handleRedirect();
+
+    // 2. Main Auth Listener
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+        try {
+            setUser(currentUser);
+            if (currentUser) {
+                // Fetch user profile from Firestore
+                const docRef = doc(db, "users", currentUser.email);
+                const docSnap = await getDoc(docRef);
+                
+                if (docSnap.exists()) {
+                    const data = docSnap.data();
+                    
+                    // Calculate Rank and Total Players
+                    const playersRef = collection(db, "users");
+                    const qRank = query(playersRef, where("totalScore", ">", data.totalScore || 0));
+                    
+                    try {
+                        const [rankSnap, totalSnap] = await Promise.all([
+                            getCountFromServer(qRank),
+                            getCountFromServer(playersRef)
+                        ]);
+                        
+                        const rank = rankSnap.data().count + 1;
+                        const totalPlayers = totalSnap.data().count;
+                        setUserProfile({ ...data, rank, totalPlayers });
+                    } catch (statError) {
+                        console.error("Error fetching stats:", statError);
+                        // Fallback if stats fail
+                        setUserProfile({ ...data, rank: '---', totalPlayers: '---' });
+                    }
+                    
+                    // Track login session (don't block UI if this fails)
+                    updateDoc(docRef, {
+                      'analytics.loginSessions': arrayUnion({
+                        timestamp: new Date().toISOString(),
+                        device: navigator.userAgent
+                      }),
+                      'analytics.totalLogins': increment(1),
+                      lastLogin: serverTimestamp()
+                    }).catch(err => console.error("Session track error:", err));
+                    
+                    // Pre-load progress data
+                    if (data.lastCompletedStage !== undefined) {
+                        const lastStage = data.lastCompletedStage;
+                        const nextStage = lastStage >= 3 ? 3 : lastStage + 1;
+                        setCurrentStage(nextStage);
+                    } else {
+                        setCurrentStage(1);
+                    }
+                } else {
+                    // New User or hasn't setup profile yet
+                    setUserProfile(null);
+                    setGameState('auth'); // Show profile setup
+                }
+            } else {
+                setUserProfile(null);
+            }
+        } catch (error) {
+            console.error("Auth context error:", error);
+        } finally {
+            setLoading(false);
+        }
     });
     return unsubscribe;
   }, []);
