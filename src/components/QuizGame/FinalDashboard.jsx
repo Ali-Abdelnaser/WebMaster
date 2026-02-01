@@ -3,7 +3,7 @@ import { useQuiz } from '../../context/QuizContext';
 import { motion } from 'framer-motion';
 import { 
     FaShareAlt, FaCertificate, FaHome, FaUserEdit, FaDownload, 
-    FaRocket, FaTools, FaCrown, FaBolt, FaBullseye, FaTrophy, FaRedo 
+    FaRocket, FaTools, FaCrown, FaBolt, FaBullseye, FaTrophy, FaRedo, FaMedal 
 } from 'react-icons/fa';
 import html2canvas from 'html2canvas';
 
