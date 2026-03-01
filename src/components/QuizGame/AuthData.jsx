@@ -15,6 +15,54 @@ const characters = [
     { id: 'female2', name: 'Security Ghost', icon: '/img/avatars/female2.png', description: 'Encryption Master' }
 ];
 
+const convertToWebP = (file) => {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = (event) => {
+            const img = new Image();
+            img.src = event.target.result;
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                const MAX_SIZE = 800; // Optimal size for avatars
+                let width = img.width;
+                let height = img.height;
+                
+                if (width > height) {
+                    if (width > MAX_SIZE) {
+                        height *= MAX_SIZE / width;
+                        width = MAX_SIZE;
+                    }
+                } else {
+                    if (height > MAX_SIZE) {
+                        width *= MAX_SIZE / height;
+                        height = MAX_SIZE;
+                    }
+                }
+                
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, width, height);
+                
+                canvas.toBlob((blob) => {
+                    if (blob) {
+                        const webpFile = new File([blob], file.name.replace(/\.[^/.]+$/, "") + ".webp", {
+                            type: 'image/webp',
+                            lastModified: Date.now()
+                        });
+                        resolve(webpFile);
+                    } else {
+                        reject(new Error("Canvas toBlob failed"));
+                    }
+                }, 'image/webp', 0.8); 
+            };
+            img.onerror = (err) => reject(new Error("Image loading failed"));
+        };
+        reader.onerror = (err) => reject(new Error("File reading failed"));
+    });
+};
+
 const AuthData = () => {
     const { 
         user, 
@@ -90,14 +138,18 @@ const AuthData = () => {
         const file = e.target.files[0];
         if (!file) return;
 
-        // Check file size (max 2MB)
-        if (file.size > 2 * 1024 * 1024) {
-            alert("Image size should be less than 2MB");
-            return;
-        }
-
         setUploading(true);
         try {
+            // Convert to WebP first
+            const webpFile = await convertToWebP(file);
+            
+            // Check file size after conversion (max 1MB for optimized webp)
+            if (webpFile.size > 1 * 1024 * 1024) {
+                alert("Image size is too large even after optimization.");
+                setUploading(false);
+                return;
+            }
+
             // Delete old photo if exists in storage
             if (formData.photoURL && formData.photoURL.includes('firebasestorage')) {
                 try {
@@ -108,13 +160,13 @@ const AuthData = () => {
                 }
             }
 
-            const storageRef = ref(storage, `avatars/${user.email}_${Date.now()}`);
-            await uploadBytes(storageRef, file);
+            const storageRef = ref(storage, `avatars/${user.email}_${Date.now()}.webp`);
+            await uploadBytes(storageRef, webpFile);
             const downloadURL = await getDownloadURL(storageRef);
             setFormData(prev => ({ ...prev, photoURL: downloadURL }));
         } catch (error) {
-            console.error("Upload failed", error);
-            alert("Upload failed. Make sure you have storage enabled.");
+            console.error("Upload/Optimization failed", error);
+            alert("Upload failed. Could not optimize image.");
         } finally {
             setUploading(false);
         }

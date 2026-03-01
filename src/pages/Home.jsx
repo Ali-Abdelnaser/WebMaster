@@ -12,7 +12,7 @@ import data from "../data/aboutData.json";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AnimatedBackground from "../components/join/AnimatedBackground";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 function Home() {
   return (
     <>
@@ -58,7 +58,7 @@ function Home() {
       <BestMembers />
       <DrSallySection />
       <OfficersCarousel />
-      {/* <QuizPromo /> */}
+      <QuizPromo />
       <FoundingSection data={data.founding} />
       <Partners />
       <Footer />

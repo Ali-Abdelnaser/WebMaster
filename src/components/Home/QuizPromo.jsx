@@ -1,14 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaGamepad, FaTrophy, FaBolt, FaShieldAlt, FaRocket, FaTerminal } from 'react-icons/fa';
+import { FaGamepad, FaTrophy, FaBolt, FaShieldAlt, FaRocket, FaTerminal, FaExclamationTriangle, FaPowerOff } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useQuiz } from '../../context/QuizContext';
 import './QuizPromo.css';
 
 const QuizPromo = () => {
     const navigate = useNavigate();
+    const { gameLive } = useQuiz();
 
     return (
-        <section className="quiz-promo-section">
+        <section className={`quiz-promo-section ${!gameLive ? 'offline' : ''}`}>
             {/* Background Architecture */}
             <div className="quiz-promo-grid"></div>
             
@@ -44,39 +46,64 @@ const QuizPromo = () => {
                 </div>
                 
                 <h2 className="promo-title">
-                    The <span>IEEE MET SB</span> Challenge
+                    {gameLive ? (
+                        <>The <span>IEEE MET SB</span> Challenge</>
+                    ) : (
+                        <>SYSTEM <span>MAINTENANCE</span> MODE</>
+                    )}
                 </h2>
                 
                 <p className="promo-desc">
-                    Ignite your cognitive pathways. Master 3 tactical phases, decrypt complex challenges, 
-                    and secure your legacy on the global leaderboard.
+                    {gameLive ? (
+                        "Ignite your cognitive pathways. Master 3 tactical phases, decrypt complex challenges, and secure your legacy on the global leaderboard."
+                    ) : (
+                        "The central server is currently undergoing technical upgrades. HQ has temporarily suspended all field operations. Check back soon for deployment."
+                    )}
                 </p>
                 
                 <div className="promo-features">
-                    <motion.div className="feature-pill" whileHover={{ scale: 1.05 }}>
-                        <FaShieldAlt style={{ color: '#00d2ff' }} />
-                        <span>Advanced Security</span>
-                    </motion.div>
-                    
-                    <motion.div className="feature-pill" whileHover={{ scale: 1.05 }}>
-                        <FaTrophy style={{ color: '#ffcf4b' }} />
-                        <span>Rank Recognition</span>
-                    </motion.div>
+                    {gameLive ? (
+                        <>
+                            <motion.div className="feature-pill" whileHover={{ scale: 1.05 }}>
+                                <FaShieldAlt style={{ color: '#00d2ff' }} />
+                                <span>Advanced Security</span>
+                            </motion.div>
+                            
+                            <motion.div className="feature-pill" whileHover={{ scale: 1.05 }}>
+                                <FaTrophy style={{ color: '#ffcf4b' }} />
+                                <span>Rank Recognition</span>
+                            </motion.div>
 
-                    <motion.div className="feature-pill" whileHover={{ scale: 1.05 }}>
-                        <FaTerminal style={{ color: '#bd93f9' }} />
-                        <span>Tactical Interface</span>
-                    </motion.div>
+                            <motion.div className="feature-pill" whileHover={{ scale: 1.05 }}>
+                                <FaTerminal style={{ color: '#bd93f9' }} />
+                                <span>Tactical Interface</span>
+                            </motion.div>
+                        </>
+                    ) : (
+                        <div className="offline-warning">
+                            <FaExclamationTriangle /> ALL SYSTEMS ARE CURRENTLY SUSPENDED
+                        </div>
+                    )}
                 </div>
                 
                 <motion.button 
-                    onClick={() => navigate('/quiz')}
-                    whileHover={{ scale: 1.05, boxShadow: '0 0 50px rgba(0,210,255,0.4)' }}
-                    whileTap={{ scale: 0.95 }}
-                    className="launch-button"
+                    onClick={() => gameLive && navigate('/quiz')}
+                    whileHover={gameLive ? { scale: 1.05, boxShadow: '0 0 50px rgba(0,210,255,0.4)' } : {}}
+                    whileTap={gameLive ? { scale: 0.95 } : {}}
+                    className={`launch-button ${!gameLive ? 'disabled' : ''}`}
+                    disabled={!gameLive}
                 >
-                    <FaRocket style={{ marginRight: '15px' }} />
-                    START MISSION
+                    {gameLive ? (
+                        <>
+                            <FaRocket style={{ marginRight: '15px' }} />
+                            START MISSION
+                        </>
+                    ) : (
+                        <>
+                            <FaPowerOff style={{ marginRight: '15px' }} />
+                            OFFLINE
+                        </>
+                    )}
                 </motion.button>
             </motion.div>
         </section>

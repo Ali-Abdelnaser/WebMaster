@@ -17,7 +17,7 @@ const FinalDashboard = () => {
     // Convert external image to Base64 to bypass CORS issues for canvas capture
     useEffect(() => {
         const convertToBase64 = async () => {
-            const originalURL = userProfile?.photoURL || '/img/avatars/male1.png';
+            const originalURL = userProfile?.photoURL || `/img/avatars/${userProfile?.selectedCharacter || 'male1'}.png`;
             
             // Try fetching first (works for local and CORS-enabled remote)
             try {
@@ -206,7 +206,7 @@ const FinalDashboard = () => {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '25px', marginBottom: '2.5rem' }}>
                         <div className="avatar-large" style={{ width: '110px', height: '110px', minWidth: '110px', flexShrink: 0, border: '4px solid rgba(255,255,255,0.2)', boxShadow: '0 0 30px rgba(0,0,0,0.3)' }}>
                             <img 
-                                src={safePhotoURL || '/img/avatars/male1.png'} 
+                                src={safePhotoURL || `/img/avatars/${userProfile?.selectedCharacter || 'male1'}.png`} 
                                 alt="Hero" 
                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                             />

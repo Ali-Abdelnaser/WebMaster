@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { auth, db } from "../config/firebase";
 import { onAuthStateChanged, signOut, getRedirectResult } from "firebase/auth";
-import { doc, getDoc, setDoc, updateDoc, arrayUnion, increment, serverTimestamp, collection, query, where, getCountFromServer, deleteDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc, arrayUnion, increment, serverTimestamp, collection, query, where, getCountFromServer, deleteDoc, onSnapshot } from "firebase/firestore";
 
 const QuizContext = createContext();
 
@@ -12,13 +12,14 @@ export const QuizProvider = ({ children }) => {
   const [userProfile, setUserProfile] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Game State
+  // Game State 
   const [gameState, setGameState] = useState("entry"); // entry, rules, playing, interStage, final
   const [currentStage, setCurrentStage] = useState(1);
   const [stageScore, setStageScore] = useState(0);
   const [totalScore, setTotalScore] = useState(0);
   const [confidenceBonus, setConfidenceBonus] = useState(0);
   const [lifelines, setLifelines] = useState({}); // { removeTwo: true, skip: true, hint: true }
+  const [gameLive, setGameLive] = useState(true);
 
   // Global Modal/Alert State
   const [modalConfig, setModalConfig] = useState({
@@ -75,7 +76,7 @@ export const QuizProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
         try {
             setUser(currentUser);
-            if (currentUser) {
+            if (currentUser && currentUser.email) {
                 // Fetch user profile from Firestore
                 const docRef = doc(db, "users", currentUser.email);
                 const docSnap = await getDoc(docRef);
@@ -134,7 +135,30 @@ export const QuizProvider = ({ children }) => {
             setLoading(false);
         }
     });
-    return unsubscribe;
+
+    // 3. Game Settings Listener
+    const configRef = doc(db, "config", "gameSettings");
+    const unsubConfig = onSnapshot(configRef, (doc) => {
+        if (doc.exists()) {
+            const isLive = doc.data().isActive;
+            setGameLive(isLive);
+            
+            // If game is turned off while user is playing, boot them
+            if (!isLive && window.location.pathname.includes('/quiz')) {
+                setGameState("entry");
+                showAlert({
+                    title: "SYSTEM MAINTENANCE",
+                    message: "The mission has been temporarily suspended by HQ for maintenance. Please wait for the green light.",
+                    type: "warning"
+                });
+            }
+        }
+    });
+
+    return () => {
+        unsubscribe();
+        unsubConfig();
+    };
   }, []);
 
   const logout = async () => {
@@ -322,6 +346,7 @@ export const QuizProvider = ({ children }) => {
     setConfidenceBonus,
     lifelines,
     setLifelines,
+    gameLive,
     saveProgress,
     startGame,
     logout,

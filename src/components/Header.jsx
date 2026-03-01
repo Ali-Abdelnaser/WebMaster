@@ -16,6 +16,14 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const [liveEvent, setLiveEvent] = useState(false);
+  const [logoClicks, setLogoClicks] = useState(0);
+  
+  useEffect(() => {
+    if (logoClicks > 0) {
+      const timer = setTimeout(() => setLogoClicks(0), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [logoClicks]);
 
   // scroll effect
   useEffect(() => {
@@ -53,11 +61,20 @@ export default function Header() {
       <header className={scrolled ? "scrolled" : ""}>
         <nav className="navbar">
           {/* Logo */}
-          <div className="logo">
+          <div className="logo" onClick={() => {
+            setLogoClicks(prev => {
+              if (prev + 1 >= 5) {
+                window.location.href = '/admin-login';
+                return 0;
+              }
+              return prev + 1;
+            });
+          }}>
             <img
               src={scrolled ? "/img/logo-2.png" : "/img/logo-2.png"}
               alt="IEEE Logo"
               id="logo"
+              style={{ cursor: 'pointer' }}
             />
           </div>
 

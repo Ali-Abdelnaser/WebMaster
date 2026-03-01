@@ -21,6 +21,8 @@ import CS from "./pages/CS";
 import About from "./pages/About";
 import AESS from "./pages/AESS";
 import QuizPage from "./pages/QuizPage";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 
 // ScrollToTop component
@@ -47,7 +49,7 @@ function ScrollToTop() {
 
   return null;
 }
-import { HelmetProvider } from "react-helmet-async";
+
 
 
 // AnimatedRoutes component
@@ -69,21 +71,30 @@ function AnimatedRoutes() {
         <Route path="/committee/:name" element={<CommitteePage />} />
         <Route path="/track/:name" element={<TrackPage />} />
         <Route path="/quiz" element={<QuizPage />} />
+        <Route path="/admin-login" element={<AdminLogin />} />
+        <Route path="/admin-control" element={<AdminDashboard />} />
       </Routes>
     </AnimatePresence>
   );
 }
 
+import { HelmetProvider } from "react-helmet-async";
+import { QuizProvider } from "./context/QuizContext";
+
 // App component
 function App() {
   return (
-    <Router>
-      <Analytics/>
-      <SpeedInsights/>
-      <ScrollToTop />
-      <ScrollToTopButton />
-      <AnimatedRoutes />
-    </Router>
+    <HelmetProvider>
+      <QuizProvider>
+        <Router>
+          <Analytics/>
+          <SpeedInsights/>
+          <ScrollToTop />
+          <ScrollToTopButton />
+          <AnimatedRoutes />
+        </Router>
+      </QuizProvider>
+    </HelmetProvider>
   );
 }
 

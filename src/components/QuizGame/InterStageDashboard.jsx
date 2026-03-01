@@ -56,7 +56,7 @@ const InterStageDashboard = () => {
             {/* Header Section */}
             <motion.div variants={itemVariants} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
                 <div className="avatar-large floating-soft" style={{  border: '4px solid var(--success)', boxShadow: '0 0 30px rgba(46, 204, 113, 0.3)' }}>
-                    <img src={userProfile?.photoURL || '/img/avatars/male1.png'} alt="Player" />
+                    <img src={userProfile?.photoURL || `/img/avatars/${userProfile?.selectedCharacter || 'male1'}.png`} alt="Player" />
                 </div>
                 <div style={{ textAlign: 'center' }}>
                     <h2 className="game-title" style={{ fontSize: '2.8rem', margin: 0 }}>Stage {currentStage} Secured!</h2>

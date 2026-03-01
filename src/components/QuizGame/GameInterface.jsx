@@ -120,9 +120,12 @@ const GameInterface = () => {
     const timerRef = useRef(null);
 
     useEffect(() => {
-        const q = getQuestionsForStage(currentStage);
-        setQuestions(q);
-        setCurrentIndex(0);
+        const fetchQuestions = async () => {
+            const q = await getQuestionsForStage(currentStage);
+            setQuestions(q);
+            setCurrentIndex(0);
+        };
+        fetchQuestions();
     }, [currentStage]);
 
     useEffect(() => {

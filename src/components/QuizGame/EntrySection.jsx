@@ -7,10 +7,10 @@ import { collection, query, orderBy, limit, getDocs } from 'firebase/firestore';
 import './EntryArena.css';
 
 const characters = [
-    { id: 'techy', name: 'Cyber Hero', icon: '🤖', description: 'Master of code' },
-    { id: 'spark', name: 'Volt Walker', icon: '⚡', description: 'Power master' },
-    { id: 'brainy', name: 'Logic Sage', icon: '🧠', description: 'Deep analyst' },
-    { id: 'quantum', name: 'Data Ghost', icon: '⚛️', description: 'Tech ghost' }
+    { id: 'male1', name: 'Cyber Specialist', icon: '/img/avatars/male1.png' },
+    { id: 'female1', name: 'Logic Architect', icon: '/img/avatars/female1.png' },
+    { id: 'male2', name: 'Data Commander', icon: '/img/avatars/male2.png' },
+    { id: 'female2', name: 'Security Ghost', icon: '/img/avatars/female2.png' }
 ];
 
 const EntrySection = () => {
@@ -201,9 +201,11 @@ const EntrySection = () => {
                                                     {player.photoURL ? (
                                                         <img src={player.photoURL} alt={player.fullName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                                     ) : (
-                                                        <span className="avatar-emoji">
-                                                            {player.selectedCharacter ? (characters.find(c => c.id === player.selectedCharacter)?.icon.length > 5 ? <img src={characters.find(c => c.id === player.selectedCharacter).icon} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : characters.find(c => c.id === player.selectedCharacter)?.icon) : (player.character || '🤖')}
-                                                        </span>
+                                                        <img 
+                                                            src={characters.find(c => c.id === (player.selectedCharacter || player.character))?.icon || '/img/avatars/male1.png'} 
+                                                            alt="Avatar" 
+                                                            style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                                                        />
                                                     )}
                                                 </div>
                                             </div>
