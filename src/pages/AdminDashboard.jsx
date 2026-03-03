@@ -7,8 +7,14 @@ import {
     FaPlus, FaCrown, FaFire, FaChartPie, FaChevronRight, FaPowerOff, FaTerminal 
 } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import { db } from '../config/firebase';
-import { collection, onSnapshot, doc, updateDoc, deleteDoc, addDoc, writeBatch, getDocs, setDoc } from 'firebase/firestore';
+import { db, storage } from '../config/firebase';
+import { collection, onSnapshot, doc, updateDoc, deleteDoc, addDoc, writeBatch, getDocs, setDoc, serverTimestamp, getDoc } from 'firebase/firestore';
+import { ref, uploadBytes, getDownloadURL, deleteObject, uploadString, uploadBytesResumable } from 'firebase/storage';
+import { supabase } from '../config/supabase';
+import committeesData from '../data/committees.json';
+import bestMembersData from '../data/bestMembers.json';
+import eventsData from '../data/events.json';
+import { FaFolder, FaFileAlt, FaChevronDown, FaUpload, FaUserPlus, FaImage, FaTrashAlt } from 'react-icons/fa';
 
 const dashboardStyle = {};
 
@@ -40,6 +46,25 @@ const AdminDashboard = () => {
     const [isAddingNew, setIsAddingNew] = useState(false);
     const [gameLive, setGameLive] = useState(true);
     const [isResetting, setIsResetting] = useState(false);
+    
+    // Site Data Editor Local States
+    const [siteExplorer, setSiteExplorer] = useState({
+        currentView: 'root', // root, committee_list, events, best_members
+        selectedCommittee: null, // the name of the committee being viewed
+        selectedSubView: 'data', // data, members
+        isMigrating: false
+    });
+    const [siteData, setSiteData] = useState({
+        committees: [],
+        committeeDetails: null,
+        members: [],
+        csBestMembers: []
+    });
+    const [editingMember, setEditingMember] = useState(null);
+    const [editingCSMember, setEditingCSMember] = useState(null);
+    const [isSavingSite, setIsSavingSite] = useState(false);
+    const [promoModal, setPromoModal] = useState({ show: false, step: 'committees', selectedCommittee: null, committeeMembers: [] });
+    const [promoSearch, setPromoSearch] = useState('');
 
     useEffect(() => {
         // Simple auth check
@@ -77,7 +102,7 @@ const AdminDashboard = () => {
                 totalUsers: snapshot.size,
                 activeStage3: finishedAll,
                 totalPoints: totalPts,
-                avgScore: playerList.length > 0 ? Math.floor(totalPts / playerList.length) : 0,
+                avgScore: snapshot.size > 0 ? (totalPts / snapshot.size).toFixed(1) : 0,
                 totalAttempts: totalAttempts
             });
             setLoading(false);
@@ -255,6 +280,255 @@ const AdminDashboard = () => {
             }
         });
     };
+
+
+    const handleUpdateCommitteeGeneral = async () => {
+        if (!siteExplorer.selectedCommittee) return;
+        setIsSavingSite(true);
+        const { error } = await supabase
+            .from('committees')
+            .update({
+                title: siteData.committeeDetails.title,
+                description: siteData.committeeDetails.description,
+                responsibilities: siteData.committeeDetails.responsibilities
+            })
+            .eq('name', siteExplorer.selectedCommittee);
+
+        if (!error) triggerAlert('success', "ARCHIVES UPDATED.");
+        else triggerAlert('error', error.message);
+        setIsSavingSite(false);
+    };
+
+    const handleDeleteMember = async (memberId) => {
+        if (!window.confirm("ARE YOU SURE? ARCHIVE FOR THIS MEMBER WILL BE DELETED.")) return;
+        const { error } = await supabase.from('committee_members').delete().eq('id', memberId);
+        if (!error) {
+            setSiteData(prev => ({ ...prev, members: prev.members.filter(m => m.id !== memberId) }));
+            triggerAlert('success', "AGENT UNLINKED.");
+        } else {
+            triggerAlert('error', "UNLINK FAILED: " + error.message);
+        }
+    };
+
+    const handleSaveMember = async (e) => {
+        e.preventDefault();
+        setIsSavingSite(true);
+        const memberData = { ...editingMember };
+
+        try {
+            // Asset Upload if changed
+            if (memberData.imageFile) {
+                // 1. Convert to .webp for optimization
+                const convertToWebp = (file) => {
+                    return new Promise((resolve) => {
+                        const reader = new FileReader();
+                        reader.readAsDataURL(file);
+                        reader.onload = (event) => {
+                            const img = new Image();
+                            img.src = event.target.result;
+                            img.onload = () => {
+                                const canvas = document.createElement('canvas');
+                                canvas.width = img.width;
+                                canvas.height = img.height;
+                                const ctx = canvas.getContext('2d');
+                                ctx.drawImage(img, 0, 0);
+                                canvas.toBlob((blob) => {
+                                    const baseName = file.name.replace(/\.[^/.]+$/, "");
+                                    const newFile = new File([blob], `${baseName}.webp`, { type: 'image/webp' });
+                                    resolve(newFile);
+                                }, 'image/webp', 0.8);
+                            };
+                        };
+                    });
+                };
+
+                const webpFile = await convertToWebp(memberData.imageFile);
+
+                const fileName = `${Date.now()}_${webpFile.name}`;
+                const { data, error: upErr } = await supabase.storage
+                    .from('assets')
+                    .upload(`members/${siteExplorer.selectedCommittee}/${fileName}`, webpFile, {
+                        contentType: 'image/webp',
+                        upsert: true
+                    });
+                
+                if (upErr) throw upErr;
+                const { data: { publicUrl } } = supabase.storage.from('assets').getPublicUrl(data.path);
+                memberData.image = publicUrl;
+            }
+
+            const { id, imageFile, ...finalData } = memberData;
+            
+            const payload = {
+                ...finalData,
+                committee_name: memberData.committee_name || siteExplorer.selectedCommittee
+            };
+
+            const { error: saveErr } = await supabase.from('committee_members').upsert({
+                id: id || undefined,
+                ...payload
+            });
+
+            if (saveErr) throw saveErr;
+
+            triggerAlert('success', "MEMBER ARCHIVE UPDATED.");
+            setEditingMember(null);
+            
+            // Refresh members list
+            const { data: updatedMembers } = await supabase
+                .from('committee_members')
+                .select('*')
+                .eq('committee_name', siteExplorer.selectedCommittee);
+            setSiteData(prev => ({ ...prev, members: updatedMembers }));
+        } catch (err) {
+            console.error(err);
+            triggerAlert('error', "ARCHIVE FAILED: " + err.message);
+        } finally {
+            setIsSavingSite(false);
+        }
+    };
+
+    const handleDeleteBestMember = async (id) => {
+        triggerAlert('confirm', "ARCHIVE TERMINATION: REMOVE FROM HALL OF FAME?", async () => {
+            const { error } = await supabase.from('best_members').delete().eq('id', id);
+            if (!error) {
+                setSiteData(prev => ({ ...prev, bestMembers: prev.bestMembers.filter(m => m.id !== id) }));
+                triggerAlert('success', "ARCHIVE REMOVED.");
+            } else {
+                triggerAlert('error', error.message);
+            }
+        });
+    };
+
+    const handlePromoteMember = async (member) => {
+        setIsSavingSite(true);
+        try {
+            const { error } = await supabase.from('best_members').insert({
+                name: member.name,
+                team: member.committee_name,
+                image: member.image,
+                college: member.college,
+                level: member.level
+            });
+
+            if (error) throw error;
+
+            triggerAlert('success', `${member.name.toUpperCase()} PROMOTED TO HALL OF FAME!`);
+            setPromoModal({ show: false, step: 'committees', selectedCommittee: null, committeeMembers: [] });
+            
+            // Refresh best members list
+            const { data } = await supabase.from('best_members').select('*');
+            if (data) setSiteData(prev => ({ ...prev, bestMembers: data }));
+        } catch (err) {
+            triggerAlert('error', "PROMOTION FAILED: " + err.message);
+        } finally {
+            setIsSavingSite(false);
+        }
+    };
+
+    // --- SITE DATA FETCHERS ---
+    useEffect(() => {
+        if (activeTab === 'site') {
+            const fetchCommittees = async () => {
+                const { data } = await supabase.from('committees').select('*');
+                if (data) setSiteData(prev => ({ ...prev, committees: data }));
+            };
+            fetchCommittees();
+
+            if (siteExplorer.currentView === 'events_list') {
+                const fetchEvents = async () => {
+                    const { data } = await supabase.from('events').select('*');
+                    if (data) setSiteData(prev => ({ ...prev, events: data }));
+                };
+                fetchEvents();
+            }
+            if (siteExplorer.currentView === 'best_members') {
+                const fetchBestMembers = async () => {
+                    const { data } = await supabase.from('best_members').select('*');
+                    if (data) setSiteData(prev => ({ ...prev, bestMembers: data }));
+                };
+                fetchBestMembers();
+            }
+            if (siteExplorer.currentView === 'cs_best_members') {
+                const fetchCSBestMembers = async () => {
+                    const { data } = await supabase.from('cs_best_members').select('*');
+                    if (data) setSiteData(prev => ({ ...prev, csBestMembers: data }));
+                };
+                fetchCSBestMembers();
+            }
+        }
+    }, [activeTab, siteExplorer.currentView]);
+
+    const csTracks = ["Cyber Security", "Flutter", "Front End", "Back End Node - js", "Back End .NET", "UI-UX", "Hardware", "AI"];
+
+    const handleSaveCSMember = async (e) => {
+        e.preventDefault();
+        setIsSavingSite(true);
+        try {
+            const memberData = { ...editingCSMember };
+            
+            // Image Upload
+            if (memberData.imageFile) {
+                const fileName = `${Date.now()}_cs_${memberData.imageFile.name}`;
+                const { data, error: upErr } = await supabase.storage
+                    .from('assets')
+                    .upload(`cs_members/${fileName}`, memberData.imageFile, {
+                        upsert: true
+                    });
+                
+                if (upErr) throw upErr;
+                const { data: { publicUrl } } = supabase.storage.from('assets').getPublicUrl(data.path);
+                memberData.image = publicUrl;
+            }
+
+            const { id, imageFile, ...finalData } = memberData;
+            let error;
+            if (id) {
+                const { error: err } = await supabase.from('cs_best_members').update(finalData).eq('id', id);
+                error = err;
+            } else {
+                const { error: err } = await supabase.from('cs_best_members').insert(finalData);
+                error = err;
+            }
+
+            if (error) throw error;
+
+            triggerAlert('success', id ? "CS PERSONNEL LOG UPDATED." : "CS AGENT RECRUITED.");
+            setEditingCSMember(null);
+            
+            const { data: refreshed } = await supabase.from('cs_best_members').select('*');
+            if (refreshed) setSiteData(prev => ({ ...prev, csBestMembers: refreshed }));
+        } catch (err) {
+            triggerAlert('error', "CS TRANS-SERVER ERROR: " + err.message);
+        } finally {
+            setIsSavingSite(false);
+        }
+    };
+
+    const handleDeleteCSMember = async (id) => {
+        triggerAlert('confirm', "TERMINATE CS AGENT RECORDS?", async () => {
+            const { error } = await supabase.from('cs_best_members').delete().eq('id', id);
+            if (!error) {
+                setSiteData(prev => ({ ...prev, csBestMembers: prev.csBestMembers.filter(m => m.id !== id) }));
+                triggerAlert('success', "ARCHIVE WIPED.");
+            } else {
+                triggerAlert('error', error.message);
+            }
+        });
+    };
+
+    useEffect(() => {
+        if (activeTab === 'site' && siteExplorer.selectedCommittee && siteExplorer.selectedSubView === 'members') {
+            const fetchMembers = async () => {
+                const { data } = await supabase
+                    .from('committee_members')
+                    .select('*')
+                    .eq('committee_name', siteExplorer.selectedCommittee);
+                if (data) setSiteData(prev => ({ ...prev, members: data }));
+            };
+            fetchMembers();
+        }
+    }, [activeTab, siteExplorer.selectedCommittee, siteExplorer.selectedSubView]);
 
     const filteredPlayers = players.filter(p => {
         const matchesSearch = (p.fullName || '').toLowerCase().includes(searchTerm.toLowerCase()) || 
@@ -623,34 +897,288 @@ const AdminDashboard = () => {
                                 </div>
                             </motion.div>
                         ) : (
-                        <motion.div 
-                            key="site"
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -20 }}
-                            className="site-data-section"
-                        >
-                            <div className="placeholder-msg">
-                                <FaDatabase size={60} style={{ opacity: 0.1, marginBottom: '1.5rem' }} />
-                                <h3>ENCRYPTED MODULE: SITE DATA EDITOR</h3>
-                                <p>Integration with JSON/Firebase static files planned for Phase 2 Deployment.</p>
-                                <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem' }}>
-                                    <div className="data-node">
-                                        <FaEdit />
-                                        <span>Committees</span>
+                            <div className="site-view-wrapper" style={{ minHeight: '600px' }}>
+                                {siteExplorer.currentView === 'root' ? (
+                                    <motion.div 
+                                        key="site-root"
+                                        initial={{ opacity: 0, x: 20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: -20 }}
+                                        className="site-data-section"
+                                    >
+                                        <div className="placeholder-msg">
+                                            <FaDatabase size={60} style={{ opacity: 0.1, marginBottom: '1.5rem' }} />
+                                            <h3>ENCRYPTED MODULE: SITE DATA EDITOR</h3>
+                                            <p>Select a node to begin modification of archived records.</p>
+                                            <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem' }}>
+                                                <div className="data-node" onClick={() => setSiteExplorer(prev => ({ ...prev, currentView: 'committee_list' }))}>
+                                                    <FaFolder />
+                                                    <span>Committees</span>
+                                                </div>
+                                                <div className="data-node" onClick={() => setSiteExplorer(prev => ({ ...prev, currentView: 'best_members' }))}>
+                                                    <FaMedal />
+                                                    <span>Best Members</span>
+                                                </div>
+                                                <div className="data-node" onClick={() => setSiteExplorer(prev => ({ ...prev, currentView: 'cs_best_members' }))}>
+                                                    <FaTerminal />
+                                                    <span>CS Best Members</span>
+                                                </div>
+                                                <div className="data-node" onClick={() => setSiteExplorer(prev => ({ ...prev, currentView: 'events_list' }))}>
+                                                    <FaDatabase />
+                                                    <span>Events</span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </motion.div>
+                                ) : siteExplorer.currentView === 'committee_list' ? (
+                                    <div className="site-explorer-view">
+                                        <div className="explorer-header">
+                                            <button className="back-crumb" onClick={() => setSiteExplorer(prev => ({ ...prev, currentView: 'root' }))}>Root</button>
+                                            <span style={{ opacity: 0.3 }}>/</span>
+                                            <span>Committees</span>
+                                        </div>
+                                        <div className="folder-grid">
+                                            {siteData.committees.map(comm => (
+                                                <div 
+                                                    key={comm.name} 
+                                                    className="folder-item" 
+                                                    onClick={() => {
+                                                        setSiteExplorer(prev => ({ ...prev, selectedCommittee: comm.name, currentView: 'committee_detail' }));
+                                                        setSiteData(prev => ({ ...prev, committeeDetails: comm }));
+                                                    }}
+                                                >
+                                                    <FaFolder size={40} className="icon-folder" />
+                                                    <span>{comm.name}</span>
+                                                </div>
+                                            ))}
+                                            <div className="folder-item add-new">
+                                                <FaPlus size={20} />
+                                                <span>Add New</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="data-node">
-                                        <FaEdit />
-                                        <span>Members</span>
+                                ) : siteExplorer.currentView === 'committee_detail' ? (
+                                    <div className="site-explorer-view detail">
+                                        <div className="explorer-header">
+                                            <button className="back-crumb" onClick={() => setSiteExplorer(prev => ({ ...prev, currentView: 'root' }))}>Root</button>
+                                            <span style={{ opacity: 0.3 }}>/</span>
+                                            <button className="back-crumb" onClick={() => setSiteExplorer(prev => ({ ...prev, currentView: 'committee_list' }))}>Committees</button>
+                                            <span style={{ opacity: 0.3 }}>/</span>
+                                            <span style={{ color: 'var(--primary)' }}>{siteExplorer.selectedCommittee}</span>
+                                        </div>
+
+                                        <div className="tab-switcher-mini">
+                                            <button className={siteExplorer.selectedSubView === 'data' ? 'active' : ''} onClick={() => setSiteExplorer(prev => ({ ...prev, selectedSubView: 'data' }))}>GENERAL DATA</button>
+                                            <button className={siteExplorer.selectedSubView === 'members' ? 'active' : ''} onClick={() => setSiteExplorer(prev => ({ ...prev, selectedSubView: 'members' }))}>TEAM MEMBERS</button>
+                                        </div>
+
+                                        <div className="explorer-content">
+                                            {siteExplorer.selectedSubView === 'data' ? (
+                                                <div className="data-form">
+                                                    <div className="form-group">
+                                                        <label>Primary Title</label>
+                                                        <input 
+                                                            type="text" 
+                                                            value={siteData.committeeDetails?.title || ''} 
+                                                            onChange={e => setSiteData(prev => ({ ...prev, committeeDetails: { ...prev.committeeDetails, title: e.target.value } }))} 
+                                                        />
+                                                    </div>
+                                                    <div className="form-group">
+                                                        <label>Operational Description</label>
+                                                        <textarea 
+                                                            rows="8" 
+                                                            value={siteData.committeeDetails?.description || ''} 
+                                                            onChange={e => setSiteData(prev => ({ ...prev, committeeDetails: { ...prev.committeeDetails, description: e.target.value } }))}
+                                                        ></textarea>
+                                                    </div>
+                                                    <button className="primary-btn-mini" onClick={handleUpdateCommitteeGeneral} disabled={isSavingSite}>
+                                                        <FaSave /> {isSavingSite ? 'ENCRYPTING...' : 'COMMIT CHANGES'}
+                                                    </button>
+                                                </div>
+                                            ) : (
+                                                <div className="members-list-view">
+                                                    <div className="members-actions-bar">
+                                                        <button className="tactical-btn" onClick={() => setEditingMember({ name: '', role: 'member', level: '1st Year', college: '', cycle: '2024-2025', image: '/img/PR/woman.png', committee_name: siteExplorer.selectedCommittee })}>
+                                                            <FaUserPlus /> Deploy New Agent
+                                                        </button>
+                                                    </div>
+                                                    
+                                                    <div className="members-grid-view">
+                                                        {siteData.members.map((m, idx) => (
+                                                            <motion.div 
+                                                                key={m.id} 
+                                                                className="member-profile-card"
+                                                                layout
+                                                                initial={{ opacity: 0, y: 20 }}
+                                                                animate={{ opacity: 1, y: 0 }}
+                                                                transition={{ delay: idx * 0.05 }}
+                                                            >
+                                                                <div className="member-card-header">
+                                                                    <div className={`status-badge ${m.role}`} title={m.role.toUpperCase()}></div>
+                                                                    <div className="card-actions">
+                                                                        <button onClick={() => setEditingMember(m)}><FaEdit /></button>
+                                                                        <button className="delete" onClick={() => handleDeleteMember(m.id)}><FaTrashAlt /></button>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div className="member-avatar-wrapper">
+                                                                    <img src={m.image} alt={m.name} />
+                                                                </div>
+                                                                
+                                                                <div className="member-details">
+                                                                    <span className={`role-tag ${m.role}`} style={{ marginBottom: '8px', display: 'inline-block' }}>{m.role}</span>
+                                                                    <h3>{m.name}</h3>
+                                                                    <div className="member-meta-info">
+                                                                        <span><FaTerminal size={10} /> {m.level}</span>
+                                                                        <span><FaDatabase size={10} /> {m.cycle}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </motion.div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
                                     </div>
-                                    <div className="data-node">
-                                        <FaEdit />
-                                        <span>Events</span>
+                                ) : siteExplorer.currentView === 'events_list' ? (
+                                    <div className="site-explorer-view">
+                                        <div className="explorer-header">
+                                            <button className="back-crumb" onClick={() => setSiteExplorer(prev => ({ ...prev, currentView: 'root' }))}>Root</button>
+                                            <span style={{ opacity: 0.3 }}>/</span>
+                                            <span>Events</span>
+                                        </div>
+                                        <div className="folder-grid">
+                                            {siteData.events?.map(ev => (
+                                                <div 
+                                                    key={ev.id} 
+                                                    className="folder-item event" 
+                                                    onClick={() => {
+                                                        setSiteExplorer(prev => ({ ...prev, selectedEvent: ev.id, currentView: 'event_detail' }));
+                                                        setSiteData(prev => ({ ...prev, eventDetails: ev }));
+                                                    }}
+                                                >
+                                                    <FaFileAlt size={40} className="icon-file" />
+                                                    <span>{ev.title}</span>
+                                                    <em style={{ fontSize: '0.6rem', opacity: 0.4 }}>{ev.date}</em>
+                                                </div>
+                                            ))}
+                                            <div className="folder-item add-new">
+                                                <FaPlus size={20} />
+                                                <span>New Event</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                ) : siteExplorer.currentView === 'best_members' ? (
+                                    <div className="site-explorer-view">
+                                        <div className="explorer-header">
+                                            <button className="back-crumb" onClick={() => setSiteExplorer(prev => ({ ...prev, currentView: 'root' }))}>Root</button>
+                                            <span style={{ opacity: 0.3 }}>/</span>
+                                            <span>Best Members</span>
+                                        </div>
+
+                                        <div className="members-actions-bar" style={{ marginBottom: '2rem' }}>
+                                            <button className="tactical-btn" onClick={() => setPromoModal({ ...promoModal, show: true })}>
+                                                <FaCrown color="gold" /> PROMOTE NEW BEST MEMBER
+                                            </button>
+                                        </div>
+
+                                        <div className="members-grid-view">
+                                            {siteData.bestMembers?.map((m, idx) => (
+                                                <motion.div 
+                                                    key={m.id} 
+                                                    className="member-profile-card best-member"
+                                                    initial={{ opacity: 0, scale: 0.9 }}
+                                                    animate={{ opacity: 1, scale: 1 }}
+                                                    transition={{ delay: idx * 0.05 }}
+                                                >
+                                                    <div className="member-card-header">
+                                                        <div className="status-badge head" title="BEST MEMBER"></div>
+                                                        <div className="card-actions">
+                                                            <button className="delete" onClick={() => handleDeleteBestMember(m.id)}><FaTrashAlt /></button>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div className="member-avatar-wrapper">
+                                                        <div className="crown-mini"><FaCrown /></div>
+                                                        <img src={m.image} alt={m.name} />
+                                                    </div>
+                                                    
+                                                    <div className="member-details">
+                                                        <span className="role-tag head" style={{ marginBottom: '8px', display: 'inline-block' }}>{m.team}</span>
+                                                        <h3>{m.name}</h3>
+                                                        <div className="member-meta-info">
+                                                            <span><FaTerminal size={10} /> {m.level}</span>
+                                                            {m.college && <span><FaDatabase size={10} /> {m.college}</span>}
+                                                        </div>
+                                                    </div>
+                                                </motion.div>
+                                            ))}
+                                            {(!siteData.bestMembers || siteData.bestMembers.length === 0) && (
+                                                <div className="placeholder-msg" style={{ gridColumn: '1 / -1' }}>
+                                                    <FaTrophy size={40} style={{ opacity: 0.1, marginBottom: '1rem' }} />
+                                                    <p>THE HALL OF FAME IS CURRENTLY EMPTY.</p>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                ) : siteExplorer.currentView === 'cs_best_members' ? (
+                                    <div className="site-explorer-view">
+                                        <div className="explorer-header">
+                                            <button className="back-crumb" onClick={() => setSiteExplorer(prev => ({ ...prev, currentView: 'root' }))}>Root</button>
+                                            <span style={{ opacity: 0.3 }}>/</span>
+                                            <span>CS Best Members</span>
+                                        </div>
+
+                                        <div className="members-actions-bar" style={{ marginBottom: '2rem' }}>
+                                            <button className="tactical-btn" onClick={() => setEditingCSMember({ name: '', role: '', image: '', linkedin: '', email: '' })}>
+                                                <FaPlus /> RECRUIT CS PERSONNEL
+                                            </button>
+                                        </div>
+
+                                        <div className="members-grid-view">
+                                            {siteData.csBestMembers?.map((m, idx) => (
+                                                <motion.div 
+                                                    key={m.id} 
+                                                    className="member-profile-card cs-member"
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    style={{ borderLeft: '4px solid #faa41a' }}
+                                                >
+                                                    <div className="member-card-header">
+                                                        <div className="status-badge head" style={{ background: '#faa41a' }}></div>
+                                                        <div className="card-actions">
+                                                            <button onClick={() => setEditingCSMember(m)}><FaEdit /></button>
+                                                            <button className="delete" onClick={() => handleDeleteCSMember(m.id)}><FaTrashAlt /></button>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div className="member-avatar-wrapper" style={{ width: '80px', height: '80px', borderRadius: '15px', overflow: 'hidden', margin: '0 auto 1.5rem', border: '1px solid rgba(250, 164, 26, 0.3)' }}>
+                                                        <img src={m.image || '/img/CS/default.svg'} alt={m.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+                                                    </div>
+                                                    
+                                                    <div className="member-details" style={{ textAlign: 'center' }}>
+                                                        <p style={{ color: '#faa41a', fontSize: '0.6rem', fontWeight: '800', letterSpacing: '1px', marginBottom: '4px' }}>{m.role ? m.role.toUpperCase() : 'NO TRACK'}</p>
+                                                        <h3 style={{ fontSize: '1.1rem', margin: 0 }}>{m.name}</h3>
+                                                    </div>
+                                                </motion.div>
+                                            ))}
+                                            {(!siteData.csBestMembers || siteData.csBestMembers.length === 0) && (
+                                                <div className="placeholder-msg" style={{ gridColumn: '1 / -1' }}>
+                                                    <FaTerminal size={40} style={{ opacity: 0.1, marginBottom: '1rem' }} />
+                                                    <p>CS DATABASE IS EMPTY. INITIATE RECRUITMENT.</p>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="placeholder-msg">
+                                        <FaDatabase size={60} style={{ opacity: 0.1, marginBottom: '1.5rem' }} />
+                                        <p>Select a node to begin modification of archived records.</p>
+                                    </div>
+                                )}
                             </div>
-                        </motion.div>
-                    )}
+                        )}
                 </AnimatePresence>
             </div>
 
@@ -756,6 +1284,135 @@ const AdminDashboard = () => {
                             <div className="modal-footer">
                                 <p>DATA INTEGRITY: VERIFIED BY IEEE MET SB SYSTEM</p>
                             </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Member Record Modal */}
+            <AnimatePresence>
+                {editingMember && (
+                    <motion.div 
+                        className="modal-overlay"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                    >
+                        <motion.div 
+                            className="player-detail-card"
+                            style={{ maxWidth: '600px' }}
+                            initial={{ scale: 0.9, opacity: 0, y: 50 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.9, opacity: 0, y: 50 }}
+                        >
+                            <button className="close-modal" onClick={() => setEditingMember(null)}>&times;</button>
+                            
+                            <h2 style={{ fontFamily: 'Orbitron', letterSpacing: '4px', marginBottom: '2.5rem', fontSize: '1rem', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase' }}>
+                                <span style={{ color: 'var(--primary)', marginRight: '10px' }}>//</span> PERSONNEL FILE_ {editingMember.id ? 'ENCRYPTED' : 'INITIALIZATION'}
+                            </h2>
+
+                            <form onSubmit={handleSaveMember} className="modal-form">
+                                <div className="form-group">
+                                    <label>Target Committee (Deployment Sector)</label>
+                                    <select 
+                                        value={editingMember.committee_name || siteExplorer.selectedCommittee} 
+                                        onChange={e => setEditingMember({...editingMember, committee_name: e.target.value})}
+                                    >
+                                        {siteData.committees.map(comm => (
+                                            <option key={comm.name} value={comm.name}>{comm.name.toUpperCase()}</option>
+                                        ))}
+                                    </select>
+                                </div>
+
+                                <div className="form-row">
+                                    <div className="form-group flex-1">
+                                        <label>Agent Name</label>
+                                        <input type="text" value={editingMember.name} onChange={e => setEditingMember({...editingMember, name: e.target.value})} required />
+                                    </div>
+                                    <div className="form-group flex-1">
+                                        <label>Operational Role</label>
+                                        <select value={editingMember.role} onChange={e => setEditingMember({...editingMember, role: e.target.value})}>
+                                            <option value="head">HEAD</option>
+                                            <option value="vice">VICE</option>
+                                            <option value="advisor">ADVISOR</option>
+                                            <option value="member">MEMBER</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div className="form-row">
+                                    <div className="form-group flex-1">
+                                        <label>Academic College</label>
+                                        <input type="text" value={editingMember.college} onChange={e => setEditingMember({...editingMember, college: e.target.value})} />
+                                    </div>
+                                    <div className="form-group flex-1">
+                                        <label>Academic Level</label>
+                                        <input type="text" value={editingMember.level} onChange={e => setEditingMember({...editingMember, level: e.target.value})} />
+                                    </div>
+                                </div>
+
+                                <div className="form-group">
+                                    <label>Agent Identification (Image)</label>
+                                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                                        {editingMember.image && (
+                                            <img src={editingMember.image} alt="" style={{ width: '60px', height: '60px', borderRadius: '12px', border: '2px solid var(--primary)' }} />
+                                        )}
+                                        <div style={{ flex: 1 }}>
+                                            <input 
+                                                type="text" 
+                                                placeholder="Direct URL or use upload button..." 
+                                                value={editingMember.image} 
+                                                onChange={e => setEditingMember({...editingMember, image: e.target.value})} 
+                                                style={{ marginBottom: '10px' }}
+                                            />
+                                            <input 
+                                                type="file" 
+                                                accept="image/*"
+                                                id="agent-file-upload"
+                                                style={{ display: 'none' }}
+                                                onChange={e => {
+                                                    const file = e.target.files[0];
+                                                    if (file) {
+                                                        const reader = new FileReader();
+                                                        reader.onloadend = () => {
+                                                            setEditingMember({
+                                                                ...editingMember,
+                                                                imageFile: file,
+                                                                image: reader.result // Preview
+                                                            });
+                                                        };
+                                                        reader.readAsDataURL(file);
+                                                    }
+                                                }}
+                                            />
+                                            <label htmlFor="agent-file-upload" className="tactical-btn" style={{ display: 'inline-flex', cursor: 'pointer' }}>
+                                                <FaImage style={{ marginRight: '8px' }} /> UPLOAD NEW ASSET
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="form-row">
+                                    <div className="form-group flex-1">
+                                        <label>Active Cycle</label>
+                                        <input type="text" value={editingMember.cycle} onChange={e => setEditingMember({...editingMember, cycle: e.target.value})} />
+                                    </div>
+                                    <div className="form-group flex-1">
+                                        <label>Optic Profile (URL)</label>
+                                        <div style={{ display: 'flex', gap: '10px' }}>
+                                            <input type="text" value={editingMember.image} onChange={e => setEditingMember({...editingMember, image: e.target.value})} />
+                                            <button type="button" className="action-icon-btn"><FaUpload /></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style={{ marginTop: '2.5rem', display: 'flex', gap: '1rem' }}>
+                                    <button type="submit" className="primary-btn-mini" style={{ flex: 1 }} disabled={isSavingSite}>
+                                        <FaSave /> {isSavingSite ? 'ENCRYPTING...' : 'ARCHIVE RECORD'}
+                                    </button>
+                                    <button type="button" className="a-btn cancel" onClick={() => setEditingMember(null)} style={{ flex: 0.5 }}>CANCEL</button>
+                                </div>
+                            </form>
                         </motion.div>
                     </motion.div>
                 )}
@@ -876,6 +1533,139 @@ const AdminDashboard = () => {
                                     <button className="a-btn ok" onClick={() => setAlertConfig({ ...alertConfig, show: false })}>UNDERSTOOD</button>
                                 )}
                             </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Promotion Selection Modal */}
+            <AnimatePresence>
+                {promoModal.show && (
+                    <motion.div className="modal-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                        <motion.div 
+                            className="player-detail-card" 
+                            style={{ maxWidth: '800px' }}
+                            initial={{ scale: 0.9, y: 50 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 50 }}
+                        >
+                            <button className="close-modal" onClick={() => setPromoModal({ ...promoModal, show: false })}>&times;</button>
+                            
+                            <h2 style={{ fontFamily: 'Orbitron', letterSpacing: '4px', marginBottom: '2rem', fontSize: '1rem', color: 'var(--primary)' }}>
+                                <FaCrown style={{ marginRight: '10px' }} /> HALL OF FAME SELECTION
+                            </h2>
+
+                            {promoModal.step === 'committees' ? (
+                                <div className="promo-selection-grid">
+                                    <p style={{ gridColumn: '1/-1', opacity: 0.5, marginBottom: '1rem' }}>SELECT COMMITTEE TO VIEW ELIGIBLE PERSONNEL:</p>
+                                    {siteData.committees.map(comm => (
+                                        <div 
+                                            key={comm.name} 
+                                            className="folder-item promo" 
+                                            onClick={async () => {
+                                                const { data } = await supabase.from('committee_members').select('*').eq('committee_name', comm.name);
+                                                setPromoModal({ ...promoModal, step: 'members', selectedCommittee: comm.name, committeeMembers: data || [] });
+                                            }}
+                                        >
+                                            <FaFolder size={30} />
+                                            <span>{comm.name}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            ) : (
+                                <div className="promo-members-grid">
+                                    <div style={{ gridColumn: '1/-1', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', gap: '20px' }}>
+                                        <button className="back-crumb" onClick={() => { setPromoModal({ ...promoModal, step: 'committees' }); setPromoSearch(''); }}>← BACK</button>
+                                        <div className="search-box mini" style={{ flex: 1, height: '40px' }}>
+                                            <FaSearch className="icon" />
+                                            <input 
+                                                type="text" 
+                                                placeholder="SEARCH PERSONNEL..." 
+                                                value={promoSearch}
+                                                onChange={e => setPromoSearch(e.target.value)}
+                                            />
+                                        </div>
+                                        <span style={{ color: 'var(--primary)', fontWeight: 'bold' }}>{promoModal.selectedCommittee.toUpperCase()}</span>
+                                    </div>
+                                    <div className="promo-scroll-container">
+                                        <div className="members-grid-view promo-grid">
+                                            {promoModal.committeeMembers
+                                                .filter(m => m.name.toLowerCase().includes(promoSearch.toLowerCase()))
+                                                .map(m => (
+                                                <div key={m.id} className="member-profile-card promo" onClick={() => handlePromoteMember(m)}>
+                                                    <div className="member-avatar-wrapper">
+                                                        <img src={m.image} alt="" />
+                                                    </div>
+                                                    <div className="member-details">
+                                                        <h4>{m.name}</h4>
+                                                        <p>{m.role.toUpperCase()}</p>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* CS Member Record Modal (Manual Entry) */}
+            <AnimatePresence>
+                {editingCSMember && (
+                    <motion.div className="modal-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                        <motion.div className="player-detail-card" style={{ maxWidth: '600px' }} initial={{ scale: 0.9 }} animate={{ scale: 1 }}>
+                            <button className="close-modal" onClick={() => setEditingCSMember(null)}>&times;</button>
+                            <h2 style={{ fontFamily: 'Orbitron', letterSpacing: '2px', marginBottom: '2rem', fontSize: '1rem', color: '#faa41a' }}>
+                                // CS_NODE: MANUAL_DATA_ENTRY
+                            </h2>
+
+                            <form onSubmit={handleSaveCSMember} className="modal-form">
+                                <div className="form-group">
+                                    <label>Agent Name</label>
+                                    <input type="text" value={editingCSMember.name} onChange={e => setEditingCSMember({...editingCSMember, name: e.target.value})} required />
+                                </div>
+                                <div className="form-group">
+                                    <label>Operational Track</label>
+                                    <select 
+                                        value={editingCSMember.role} 
+                                        onChange={e => setEditingCSMember({...editingCSMember, role: e.target.value})} 
+                                        required 
+                                        style={{ background: '#080808', color: 'white', border: '1px solid rgba(255,255,255,0.1)', padding: '10px', borderRadius: '4px' }}
+                                    >
+                                        <option value="">SELECT TRACK...</option>
+                                        {csTracks.map(t => <option key={t} value={t}>{t}</option>)}
+                                    </select>
+                                </div>
+                                <div className="form-group">
+                                    <label>Agent Portrait (Avatar)</label>
+                                    <div className="upload-btn-wrapper" style={{ position: 'relative', overflow: 'hidden', display: 'inline-block' }}>
+                                        <button className="tactical-btn-mini" type="button" onClick={() => document.getElementById('cs-img-up').click()}>
+                                            <FaUpload /> {editingCSMember.imageFile ? editingCSMember.imageFile.name : 'UPLOAD IMAGE'}
+                                        </button>
+                                        <input 
+                                            id="cs-img-up"
+                                            type="file" 
+                                            accept="image/*"
+                                            onChange={e => setEditingCSMember({...editingCSMember, imageFile: e.target.files[0]})} 
+                                            style={{ display: 'none' }}
+                                        />
+                                    </div>
+                                    {editingCSMember.image && !editingCSMember.imageFile && <p style={{ fontSize: '0.6rem', opacity: 0.5, marginTop: '5px' }}>Current: {editingCSMember.image}</p>}
+                                </div>
+                                <div className="form-row">
+                                    <div className="form-group flex-1">
+                                        <label>LinkedIn Protocol</label>
+                                        <input type="text" value={editingCSMember.linkedin} onChange={e => setEditingCSMember({...editingCSMember, linkedin: e.target.value})} />
+                                    </div>
+                                    <div className="form-group flex-1">
+                                        <label>Email ID</label>
+                                        <input type="email" value={editingCSMember.email} onChange={e => setEditingCSMember({...editingCSMember, email: e.target.value})} />
+                                    </div>
+                                </div>
+                                <button className="primary-btn-mini" style={{ background: '#faa41a' }} type="submit" disabled={isSavingSite}>
+                                    <FaSave /> {isSavingSite ? 'ENCRYPTING...' : 'SAVE TO CS LOGS'}
+                                </button>
+                            </form>
                         </motion.div>
                     </motion.div>
                 )}
@@ -1326,23 +2116,37 @@ const AdminDashboard = () => {
                     padding: 20px;
                 }
                 .player-detail-card {
-                    background: #0a0a0a;
+                    background: linear-gradient(165deg, #0b0b0b 0%, #050505 100%);
                     width: 100%;
-                    max-width: 800px;
-                    border-radius: 24px;
-                    border: 1px solid rgba(0, 255, 255, 0.1);
+                    max-width: 700px;
+                    border-radius: 32px;
+                    border: 1px solid rgba(255, 255, 255, 0.05);
                     position: relative;
-                    padding: 3rem;
-                    box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+                    padding: 3.5rem;
+                    box-shadow: 0 40px 100px rgba(0,0,0,0.9), inset 0 0 20px rgba(0, 255, 255, 0.02);
+                    overflow: hidden;
+                }
+                .player-detail-card::before {
+                    content: '';
+                    position: absolute;
+                    top: -100px; right: -100px; width: 200px; height: 200px;
+                    background: var(--primary);
+                    filter: blur(120px);
+                    opacity: 0.05;
+                    pointer-events: none;
                 }
                 .close-modal {
                     position: absolute;
-                    top: 20px; right: 20px;
-                    background: none; border: none;
-                    color: white; font-size: 2rem;
-                    cursor: pointer; opacity: 0.5;
+                    top: 25px; right: 25px;
+                    background: rgba(255,255,255,0.03); 
+                    border: 1px solid rgba(255,255,255,0.05);
+                    color: white; 
+                    width: 40px; height: 40px; border-radius: 12px;
+                    display: flex; align-items: center; justify-content: center;
+                    cursor: pointer; transition: 0.3s;
+                    font-size: 1.2rem;
                 }
-                .close-modal:hover { opacity: 1; color: var(--primary); }
+                .close-modal:hover { background: #f43f5e; color: white; border-color: #f43f5e; transform: rotate(90deg); }
 
                 .player-detail-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 3rem; }
                 .main-info { display: flex; gap: 2rem; align-items: center; }
@@ -1373,10 +2177,204 @@ const AdminDashboard = () => {
                 .modal-footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.03); text-align: center; font-size: 0.6rem; color: rgba(255,255,255,0.2); letter-spacing: 2px; }
 
                 /* Site Editor Nodes */
-                .site-data-section { height: 50vh; display: flex; align-items: center; justify-content: center; }
+                .site-data-section { height: 60vh; display: flex; align-items: center; justify-content: center; flex-direction: column; }
                 .placeholder-msg { text-align: center; }
-                .data-node { background: rgba(255,255,255,0.03); padding: 1.5rem 2.5rem; border-radius: 20px; display: flex; align-items: center; gap: 12px; border: 1px solid rgba(255,255,255,0.05); opacity: 0.6; transition: all 0.3s; }
-                .data-node:hover { opacity: 1; background: rgba(0, 255, 255, 0.05); border-color: var(--primary); }
+                .data-node { cursor: pointer; background: rgba(255,255,255,0.03); padding: 1.5rem 2.5rem; border-radius: 20px; display: flex; align-items: center; gap: 12px; border: 1px solid rgba(255,255,255,0.05); opacity: 0.6; transition: all 0.3s; }
+                .data-node:hover { opacity: 1; background: rgba(0, 255, 255, 0.05); border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 255, 255, 0.1); }
+                
+                /* Site Explorer Professional View */
+                .site-explorer-view { animation: fadeIn 0.4s ease; padding: 2rem; }
+                .explorer-header { display: flex; gap: 1rem; align-items: center; margin-bottom: 2rem; font-family: 'Orbitron'; font-size: 0.8rem; letter-spacing: 2px; }
+                .back-crumb { background: none; border: none; color: white; cursor: pointer; opacity: 0.5; transition: 0.3s; }
+                .back-crumb:hover { opacity: 1; color: var(--primary); }
+                
+                .folder-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1.5rem; }
+                .folder-item { 
+                    background: rgba(255,255,255,0.02); 
+                    border: 1px solid rgba(255,255,255,0.05); 
+                    border-radius: 16px; 
+                    padding: 2rem 1rem; 
+                    display: flex; 
+                    flex-direction: column; 
+                    align-items: center; 
+                    gap: 1rem; 
+                    cursor: pointer; 
+                    transition: all 0.3s;
+                }
+                .folder-item:hover { background: rgba(0, 255, 255, 0.05); border-color: var(--primary); transform: translateY(-5px); }
+                .folder-item span { font-weight: 800; font-size: 0.85rem; letter-spacing: 1px; color: rgba(255,255,255,0.7); }
+                .folder-item.add-new { border: 2px dashed rgba(255,255,255,0.1); background: none; opacity: 0.4; }
+                .folder-item.add-new:hover { opacity: 1; border-color: var(--primary); }
+                .icon-folder { color: var(--primary); filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.3)); }
+                .icon-file { color: #ff00ff; filter: drop-shadow(0 0 10px rgba(255, 0, 255, 0.3)); }
+                
+                .tab-switcher-mini { display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 1rem; }
+                .tab-switcher-mini button { 
+                    background: none; border: none; color: white; opacity: 0.4; font-family: 'Orbitron'; 
+                    font-size: 0.75rem; letter-spacing: 2px; cursor: pointer; transition: 0.3s; padding: 10px 0; position: relative;
+                }
+                .tab-switcher-mini button.active { opacity: 1; color: var(--primary); }
+                .tab-switcher-mini button.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2px; background: var(--primary); box-shadow: 0 0 10px var(--primary-glow); }
+
+                .data-form { max-width: 600px; display: flex; flex-direction: column; gap: 2rem; }
+                .form-group { display: flex; flex-direction: column; gap: 10px; }
+                .form-group label { font-family: 'Orbitron'; font-size: 0.7rem; color: rgba(255,255,255,0.4); letter-spacing: 2px; }
+                .form-group input, .form-group textarea { 
+                    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); 
+                    padding: 1rem; border-radius: 12px; color: white; outline: none; transition: 0.3s;
+                }
+                .form-group input:focus, .form-group textarea:focus { border-color: var(--primary); background: rgba(0, 255, 255, 0.03); }
+                .primary-btn-mini { 
+                    background: var(--primary); color: black; border: none; padding: 12px 24px; 
+                    border-radius: 10px; font-family: 'Orbitron'; font-weight: 800; cursor: pointer; align-self: flex-start;
+                    display: flex; align-items: center; gap: 10px; transition: 0.3s;
+                }
+                .primary-btn-mini:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--primary-glow); }
+
+                .members-list-view { animation: slideUp 0.4s ease; }
+                .members-actions-bar { margin-bottom: 2rem; }
+                .role-tag { font-size: 0.6rem; font-weight: 900; padding: 4px 8px; border-radius: 4px; text-transform: uppercase; }
+                .role-tag.head { background: #ffcf4b; color: black; }
+                .role-tag.vice { background: #00d2ff; color: black; }
+                .role-tag.advisor { background: #bd93f9; color: white; }
+                .role-tag.member { background: rgba(255,255,255,0.1); color: white; }
+
+                .action-icon-btn { background: rgba(255,255,255,0.05); border: none; color: white; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+                .action-icon-btn:hover { background: var(--primary); color: black; }
+                .action-icon-btn.delete:hover { background: #f43f5e; color: white; }
+                
+                @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+                @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+                .tactical-btn {
+                    background: rgba(255,255,255,0.03);
+                    border: 1px solid rgba(255,255,255,0.1);
+                    color: rgba(255,255,255,0.7);
+                    padding: 10px 20px;
+                    border-radius: 8px;
+                    font-family: 'Orbitron';
+                    font-size: 0.65rem;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    transition: 0.3s;
+                }
+                .tactical-btn:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.3); color: white; }
+
+                /* Member Cards Redesign */
+                .members-grid-view {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+                    gap: 1.5rem;
+                    animation: slideUp 0.5s ease;
+                }
+                .member-profile-card {
+                    background: rgba(255, 255, 255, 0.02);
+                    border: 1px solid rgba(255, 255, 255, 0.05);
+                    border-radius: 24px;
+                    padding: 1.5rem;
+                    position: relative;
+                    overflow: hidden;
+                    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                }
+                .member-profile-card:hover {
+                    background: rgba(0, 255, 255, 0.03);
+                    border-color: var(--primary);
+                    transform: translateY(-8px);
+                    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 255, 255, 0.05);
+                }
+                .member-card-header {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 0.5rem;
+                }
+                .status-badge {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    position: relative;
+                }
+                .status-badge::after {
+                    content: '';
+                    position: absolute;
+                    top: -2px; left: -2px; right: -2px; bottom: -2px;
+                    border-radius: 50%;
+                    border: 1px solid currentColor;
+                    opacity: 0.2;
+                }
+                .status-badge.head { background: #ffcf4b; color: #ffcf4b; box-shadow: 0 0 10px #ffcf4b; }
+                .status-badge.vice { background: #00d2ff; color: #00d2ff; box-shadow: 0 0 10px #00d2ff; }
+                .status-badge.advisor { background: #bd93f9; color: #bd93f9; box-shadow: 0 0 10px #bd93f9; }
+                .status-badge.member { background: rgba(255, 255, 255, 0.2); color: white; }
+                
+                .card-actions {
+                    display: flex;
+                    gap: 8px;
+                    opacity: 0;
+                    transform: translateX(10px);
+                    transition: all 0.3s ease;
+                }
+                .member-profile-card:hover .card-actions { opacity: 1; transform: translateX(0); }
+                .card-actions button {
+                    background: rgba(255, 255, 255, 0.05);
+                    border: none;
+                    color: white;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 0.8rem;
+                    transition: 0.3s;
+                }
+                .card-actions button:hover { background: var(--primary); color: black; }
+                .card-actions button.delete:hover { background: #f43f5e; color: white; }
+
+                .member-avatar-wrapper {
+                    position: relative;
+                    margin-bottom: 1.2rem;
+                }
+                .member-avatar-wrapper img {
+                    width: 90px;
+                    height: 90px;
+                    border-radius: 24px;
+                    object-fit: cover;
+                    border: 2px solid rgba(255, 255, 255, 0.05);
+                    background: #111;
+                    transition: 0.4s;
+                }
+                .member-profile-card:hover .member-avatar-wrapper img {
+                    border-color: var(--primary);
+                    transform: scale(1.08) rotate(3deg);
+                }
+                .member-details h3 {
+                    font-family: 'Inter';
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    margin: 0 0 0.4rem 0;
+                    color: white;
+                    letter-spacing: 0.5px;
+                }
+                .member-meta-info {
+                    display: flex;
+                    gap: 15px;
+                    margin-top: 0.8rem;
+                    opacity: 0.4;
+                    font-size: 0.7rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+                .member-meta-info span { display: flex; align-items: center; gap: 5px; }
 
                 /* Custom Alert Styles */
                 .custom-alert-overlay {
@@ -1426,10 +2424,144 @@ const AdminDashboard = () => {
                 .a-btn.confirm:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(212, 175, 55, 0.5); }
                 .a-btn.ok { background: var(--primary); color: black; }
 
+                .modal-form { display: flex; flex-direction: column; gap: 1.5rem; }
+                .form-row { display: flex; gap: 1.5rem; }
+                .flex-1 { flex: 1; }
+                .modal-form select { 
+                    appearance: none;
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2300ffff'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+                    background-repeat: no-repeat;
+                    background-position: right 1rem center;
+                    background-size: 1.2rem;
+                    background-color: rgba(255,255,255,0.02); 
+                    border: 1px solid rgba(255,255,255,0.07); 
+                    padding: 1rem 3rem 1rem 1.2rem; 
+                    border-radius: 16px; 
+                    color: white; 
+                    outline: none; 
+                    cursor: pointer;
+                    font-family: 'Inter';
+                    font-weight: 500;
+                    letter-spacing: 0.5px;
+                    transition: all 0.3s;
+                }
+                .modal-form select:focus {
+                    border-color: var(--primary);
+                    background-color: rgba(0, 255, 255, 0.04);
+                    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+                }
+                .modal-form select option {
+                    background: #0f0f0f;
+                    color: white;
+                    padding: 1rem;
+                }
                 @keyframes shake {
                     0%, 100% { transform: translateX(0); }
                     25% { transform: translateX(-10px); }
                     75% { transform: translateX(10px); }
+                }
+
+                /* Best Member Specifics */
+                .member-profile-card.best-member {
+                    border-color: rgba(255, 207, 75, 0.2);
+                    background: linear-gradient(145deg, rgba(255, 207, 75, 0.02) 0%, rgba(0, 0, 0, 0) 100%);
+                }
+                .member-profile-card.best-member:hover {
+                    border-color: #ffcf4b;
+                    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(255, 207, 75, 0.1);
+                }
+                .crown-mini {
+                    position: absolute;
+                    top: -10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    color: #ffcf4b;
+                    font-size: 1.2rem;
+                    filter: drop-shadow(0 0 8px rgba(255, 207, 75, 0.5));
+                    z-index: 2;
+                }
+
+                /* Promotion Modal Grids */
+                .promo-selection-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                    gap: 1.5rem;
+                    margin-top: 1rem;
+                }
+                .folder-item.promo {
+                    padding: 1.5rem 1rem;
+                    background: rgba(255,255,255,0.03);
+                }
+                .folder-item.promo:hover {
+                    background: rgba(255, 215, 0, 0.05);
+                    border-color: #ffd700;
+                }
+                .promo-members-grid {
+                    animation: fadeIn 0.3s ease;
+                }
+                .member-profile-card.promo {
+                    cursor: pointer;
+                    padding: 1.5rem 1rem;
+                    background: rgba(255,255,255,0.02);
+                    min-height: 180px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+                .member-profile-card.promo:hover {
+                    background: rgba(0, 255, 136, 0.05);
+                    border-color: #00ff88;
+                }
+                .member-profile-card.promo .member-avatar-wrapper {
+                    margin-bottom: 1rem;
+                }
+                .member-profile-card.promo .member-avatar-wrapper img {
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 18px;
+                }
+                .member-profile-card.promo h4 {
+                    font-size: 0.9rem;
+                    margin: 0;
+                    color: white;
+                }
+                .member-profile-card.promo p {
+                    font-size: 0.6rem;
+                    opacity: 0.5;
+                    margin: 5px 0 0 0;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+
+                .promo-scroll-container {
+                    max-height: 400px;
+                    overflow-y: auto;
+                    padding-right: 10px;
+                    margin-top: 1rem;
+                }
+                .promo-scroll-container::-webkit-scrollbar {
+                    width: 6px;
+                }
+                .promo-scroll-container::-webkit-scrollbar-track {
+                    background: rgba(255,255,255,0.02);
+                    border-radius: 10px;
+                }
+                .promo-scroll-container::-webkit-scrollbar-thumb {
+                    background: var(--primary);
+                    border-radius: 10px;
+                    box-shadow: 0 0 10px var(--primary-glow);
+                }
+                .promo-grid {
+                    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                    gap: 1rem;
+                }
+                .search-box.mini {
+                    background: rgba(255,255,255,0.03);
+                    border: 1px solid rgba(255,255,255,0.07);
+                    border-radius: 10px;
+                }
+                .search-box.mini input {
+                    font-size: 0.75rem;
                 }
 
                 /* --- MOBILE RESPONSIVENESS --- */

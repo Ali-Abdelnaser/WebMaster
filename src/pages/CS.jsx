@@ -4,6 +4,7 @@ import Hero from "../components/CS/HeroCS";
 import AboutCS from "../components/CS/AboutCS";
 import TracksCircle from "../components/CS/TracksGrid";
 import OfficersCS from "../components/CS/OfficersCS";
+import BestMembersCS from "../components/CS/BestMembersCS";
 import TrackTechBackground from "../components/Track/TrackTechBackground";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
@@ -14,8 +15,8 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: { 
-      staggerChildren: 0.35, // زيادة المدة بين ظهور العناصر
-      delayChildren: 0.3     // زيادة البداية لتكون أنعم
+      staggerChildren: 0.35,
+      delayChildren: 0.3
     },
   },
 };
@@ -30,9 +31,9 @@ const containerVariants = {
     scale: 1, 
     transition: { 
       type: "spring", 
-      stiffness: 50,  // أخف من 80 -> أبطأ حركة الارتداد
-      damping: 20,    // أخف damping -> حركة أبطأ وأقل حدة
-      mass: 1.2       // تزيد شعور بالثقل
+      stiffness: 50,  
+      damping: 20,    
+      mass: 1.2       
     } 
   },
 };
@@ -74,6 +75,7 @@ const containerVariants = {
       <Hero />
       <AboutCS />
       <TracksCircle />
+      <BestMembersCS />
       <OfficersCS />
       <FooterCS />
     </motion.div>

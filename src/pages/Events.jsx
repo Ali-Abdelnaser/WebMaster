@@ -1,93 +1,78 @@
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
+import { supabase } from "../config/supabase";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import EventCard from "../components/events/EventCard";
 import AnimatedBackground from "../components/join/AnimatedBackground";
-import UpcomingHero from "../components/events/UpcomingHero";
-import UpcomingSection from "../components/events/UpcomingSection";
-import OurEvents from "../components/events/OurEvents";
-import { motion } from "framer-motion";
-import { Helmet } from "react-helmet";
+import "../components/events/OurEvents.css";
 
-export default function CS() {
+const Events = () => {
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const { data, error } = await supabase
+        .from('events')
+        .select('*')
+        .order('date', { ascending: false });
+      
+      if (!error && data) {
+        setEvents(data);
+      }
+      setLoading(false);
+    };
+    fetchEvents();
+  }, []);
+
   const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { 
-      staggerChildren: 0.35, // زيادة المدة بين ظهور العناصر
-      delayChildren: 0.3     // زيادة البداية لتكون أنعم
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 },
     },
-  },
-};
+  };
 
+  if (loading) return null;
 
-  const itemVariants = {
-  hidden: { opacity: 0, y: 50, rotateX: 15, scale: 0.9 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    rotateX: 0, 
-    scale: 1, 
-    transition: { 
-      type: "spring", 
-      stiffness: 50,  // أخف من 80 -> أبطأ حركة الارتداد
-      damping: 20,    // أخف damping -> حركة أبطأ وأقل حدة
-      mass: 1.2       // تزيد شعور بالثقل
-    } 
-  },
-};
   return (
-    <motion.div
-      className="cs-page"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
+    <div className="events-page">
       <Helmet>
         <title>Events | IEEE MET SB</title>
-        <meta
-          name="description"
-          content="Explore IEEE MET SB events: workshops, hackathons, seminars, and networking opportunities for students."
-        />
-        <meta
-          name="keywords"
-          content="IEEE, MET SB, Events, Hackathon, Workshops, Seminars, Networking, Students, Egypt"
-        />
-
-        <meta property="og:title" content="Events | IEEE MET SB" />
-        <meta
-          property="og:description"
-          content="Check out IEEE MET SB’s events and activities that empower students with technology and innovation."
-        />
-        <meta
-          property="og:image"
-          content="/Social.png"/>
-        <meta property="og:url" content="https://ieeemet.org/events" />
-        <meta property="og:type" content="website" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Events | IEEE MET SB" />
-        <meta
-          name="twitter:description"
-          content="Join IEEE MET SB events: hackathons, workshops, and inspiring student activities."
-        />
-        <meta
-          name="twitter:image"
-          content="/Social.png"/>
+        <meta name="description" content="Explore IEEE MET SB events and workshops." />
       </Helmet>
+
       <Header />
       <AnimatedBackground />
-      <div className="about-container">
-        <motion.div variants={itemVariants}>
-          <UpcomingHero />
+
+      <main className="events-container">
+        <header className="events-header">
+          <motion.h1 
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            className="Home-title"
+          >
+            OUR EVENTS
+          </motion.h1>
+          <img src="img/hr.svg" alt="Divider" className="HR-divider" />
+        </header>
+
+        <motion.div 
+          className="events-grid"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {events.map((event) => (
+            <EventCard key={event.id} event={event} />
+          ))}
         </motion.div>
-        <motion.div variants={itemVariants}>
-          <UpcomingSection />
-        </motion.div>
-        <motion.div variants={itemVariants}>
-          <OurEvents />
-        </motion.div>
-      </div>
+      </main>
       <Footer />
-    </motion.div>
+    </div>
   );
-}
+};
+
+export default Events;
