@@ -35,7 +35,7 @@ export const QuizProvider = ({ children }) => {
 
   // Analytics Tracking Helper
   const trackActivity = async (activityType, metadata = {}) => {
-    if (!user) return;
+    if (!user || !user.email) return;
     try {
       const userRef = doc(db, "users", user.email);
       await updateDoc(userRef, {
@@ -182,7 +182,7 @@ export const QuizProvider = ({ children }) => {
   };
 
   const saveProgress = async (stage, score, bonus) => {
-      if (!user) return;
+      if (!user || !user.email) return;
       
       const newStageScore = score;
       const newStageBonus = bonus;
@@ -220,7 +220,10 @@ export const QuizProvider = ({ children }) => {
   };
 
   const updateUserProfile = async (newData) => {
-      if (!user) return;
+      if (!user || !user.email) {
+          console.warn("Attempted to update profile but user email is missing.");
+          return;
+      }
       const userRef = doc(db, "users", user.email);
       await setDoc(userRef, newData, { merge: true });
       

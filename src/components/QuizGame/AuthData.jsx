@@ -203,6 +203,10 @@ const AuthData = () => {
 
     const handleSaveProfile = async (e) => {
         e.preventDefault();
+        if (!user || !user.email) {
+            alert("Mission Intel Error: User email missing. Please re-sync with Google.");
+            return;
+        }
         setLoading(true);
         try {
             await updateUserProfile({
