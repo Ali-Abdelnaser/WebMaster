@@ -150,17 +150,37 @@ const AdminDashboard = () => {
         setAlertConfig({ show: true, type, message, onConfirm });
     };
 
+    const formatTimestamp = (ts) => {
+        if (!ts) return '---';
+        if (typeof ts.toDate === 'function') return ts.toDate().toLocaleString();
+        if (ts && ts.seconds) return new Date(ts.seconds * 1000).toLocaleString();
+        if (typeof ts === 'string') return new Date(ts).toLocaleString();
+        if (ts instanceof Date) return ts.toLocaleString();
+        return '---';
+    };
+
 
     const exportToCSV = () => {
-        const headers = ["Rank", "Agent Name", "Email", "Branch", "Phase", "XP", "Last Seen"];
+        const headers = ["Rank", "Agent Name", "Email", "Branch", "Phase", "XP", "Character", "Last Seen", "S1 SCORE", "S1 BONUS", "S2 SCORE", "S2 BONUS", "S3 SCORE", "S3 BONUS", "Total Logins", "S1 ATTEMPTS", "S2 ATTEMPTS", "S3 ATTEMPTS"];
         const rows = players.map((p, i) => [
             i + 1,
             p.fullName || 'Unknown',
-            p.id,
+            p.email || p.id,
             p.branch || '---',
             p.lastCompletedStage,
             p.totalScore || 0,
-            p.lastActivity && typeof p.lastActivity.toDate === 'function' ? p.lastActivity.toDate().toLocaleString() : '---'
+            p.selectedCharacter || '---',
+            formatTimestamp(p.lastActivity),
+            p.stage1Score || 0,
+            p.stage1Bonus || 0,
+            p.stage2Score || 0,
+            p.stage2Bonus || 0,
+            p.stage3Score || 0,
+            p.stage3Bonus || 0,
+            p.analytics?.totalLogins || 0,
+            p.analytics?.stage1Attempts || 0,
+            p.analytics?.stage2Attempts || 0,
+            p.analytics?.stage3Attempts || 0
         ]);
 
         // Safe CSV encoding with quotes for text fields
@@ -1239,6 +1259,24 @@ const AdminDashboard = () => {
                                             <span className="m-bonus">+{selectedPlayer.stage3Bonus || 0} Bonus</span>
                                         </div>
                                     </div>
+
+                                    <div style={{ marginTop: '2rem' }}>
+                                        <h3>CHARACTER INTEL</h3>
+                                        <div className="intel-list">
+                                            <div className="intel-item">
+                                                <span className="label">Agent Avatar</span>
+                                                <span className="val">{selectedPlayer.selectedCharacter || 'Default'}</span>
+                                            </div>
+                                            <div className="intel-item">
+                                                <span className="label">Email Archive</span>
+                                                <span className="val" style={{ textTransform: 'none' }}>{selectedPlayer.email || 'N/A'}</span>
+                                            </div>
+                                            <div className="intel-item">
+                                                <span className="label">Last Deployment</span>
+                                                <span className="val">{formatTimestamp(selectedPlayer.lastLogin)}</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div className="detail-section">
@@ -1249,20 +1287,87 @@ const AdminDashboard = () => {
                                             <span className="val">{selectedPlayer.analytics?.totalLogins || 0}</span>
                                         </div>
                                         <div className="intel-item">
-                                            <span className="label">S1 Attempts</span>
-                                            <span className="val">{selectedPlayer.analytics?.stage1Attempts || 0}</span>
+                                            <span className="label">S1 / S2 / S3 Attempts</span>
+                                            <span className="val">
+                                                {selectedPlayer.analytics?.stage1Attempts || 0} / {selectedPlayer.analytics?.stage2Attempts || 0} / {selectedPlayer.analytics?.stage3Attempts || 0}
+                                            </span>
                                         </div>
                                         <div className="intel-item">
-                                            <span className="label">S2 Attempts</span>
-                                            <span className="val">{selectedPlayer.analytics?.stage2Attempts || 0}</span>
+                                            <span className="label">Stage Starts</span>
+                                            <span className="val">{selectedPlayer.analytics?.stageStartsCount || selectedPlayer.analytics?.stageStarts?.length || 0}</span>
                                         </div>
                                         <div className="intel-item">
-                                            <span className="label">S3 Attempts</span>
-                                            <span className="val">{selectedPlayer.analytics?.stage3Attempts || 0}</span>
+                                            <span className="label">Stage Completions</span>
+                                            <span className="val">{selectedPlayer.analytics?.stageCompletionsCount || selectedPlayer.analytics?.stageCompletions?.length || 0}</span>
                                         </div>
                                         <div className="intel-item">
-                                            <span className="label">Last Interaction</span>
-                                            <span className="val">{selectedPlayer.lastActivity && typeof selectedPlayer.lastActivity.toDate === 'function' ? selectedPlayer.lastActivity.toDate().toLocaleString() : '---'}</span>
+                                            <span className="label">Game Exits</span>
+                                            <span className="val">{selectedPlayer.analytics?.gameExitsCount || selectedPlayer.analytics?.gameExits?.length || 0}</span>
+                                        </div>
+                                        <div className="intel-item">
+                                            <span className="label">Profile Edits</span>
+                                            <span className="val">{selectedPlayer.analytics?.profileEditsCount || selectedPlayer.analytics?.profileEdits?.length || 0}</span>
+                                        </div>
+                                        <div className="intel-item">
+                                            <span className="label">Last Active Pulse</span>
+                                            <span className="val">{formatTimestamp(selectedPlayer.lastActivity)}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Detailed Logs Section */}
+                            <div className="detailed-logs-section" style={{ marginTop: '3rem' }}>
+                                <h3 style={{ fontFamily: 'Orbitron', fontSize: '0.9rem', color: 'rgba(255,255,255,0.3)', marginBottom: '1.5rem', letterSpacing: '2px' }}>
+                                    ADVANCED OPERATIONAL LOGS
+                                </h3>
+                                
+                                <div className="logs-grid">
+                                    <div className="log-column">
+                                        <h4>LOGIN HISTORY</h4>
+                                        <div className="log-scroll">
+                                            {selectedPlayer.analytics?.loginSessions?.slice().reverse().map((session, i) => (
+                                                <div key={i} className="log-entry">
+                                                    <span className="time">{formatTimestamp(session.timestamp)}</span>
+                                                    <span className="desc" title={session.device}>{session.device?.substring(0, 30)}...</span>
+                                                </div>
+                                            )) || <p className="n-log">No login records found</p>}
+                                        </div>
+                                    </div>
+
+                                    <div className="log-column">
+                                        <h4>STAGE COMPLETIONS</h4>
+                                        <div className="log-scroll">
+                                            {selectedPlayer.analytics?.stageCompletions?.slice().reverse().map((comp, i) => (
+                                                <div key={i} className="log-entry highlight">
+                                                    <span className="time">{formatTimestamp(comp.timestamp)}</span>
+                                                    <span className="desc">S{comp.stage}: {comp.total} XP (B: {comp.bonus})</span>
+                                                </div>
+                                            )) || <p className="n-log">No completion records</p>}
+                                        </div>
+                                    </div>
+
+                                    <div className="log-column">
+                                        <h4>ABNORMAL TERMINATIONS (EXITS)</h4>
+                                        <div className="log-scroll">
+                                            {selectedPlayer.analytics?.gameExits?.slice().reverse().map((ex, i) => (
+                                                <div key={i} className="log-entry warning">
+                                                    <span className="time">{formatTimestamp(ex.timestamp)}</span>
+                                                    <span className="desc">S{ex.stage}: {ex.reason} (Score: {ex.score})</span>
+                                                </div>
+                                            )) || <p className="n-log">No exit records</p>}
+                                        </div>
+                                    </div>
+
+                                    <div className="log-column">
+                                        <h4>PROFILE & ARCHIVE MODS</h4>
+                                        <div className="log-scroll">
+                                            {selectedPlayer.analytics?.profileEdits?.slice().reverse().map((edit, i) => (
+                                                <div key={i} className="log-entry info">
+                                                    <span className="time">{formatTimestamp(edit.timestamp)}</span>
+                                                    <span className="desc">Edited: {edit.fields?.join(', ')}</span>
+                                                </div>
+                                            )) || <p className="n-log">No edit records</p>}
                                         </div>
                                     </div>
                                 </div>
@@ -2173,6 +2278,24 @@ const AdminDashboard = () => {
                 .intel-item:last-child { border: none; }
                 .intel-item .label { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
                 .intel-item .val { font-size: 0.75rem; font-weight: 700; color: white; }
+
+                .logs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+                .log-column h4 { font-family: 'Orbitron'; font-size: 0.6rem; color: var(--primary); margin-bottom: 0.8rem; letter-spacing: 1px; opacity: 0.8; }
+                .log-scroll { 
+                    max-height: 150px; overflow-y: auto; background: rgba(255,255,255,0.01); 
+                    border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); padding: 10px;
+                }
+                .log-scroll::-webkit-scrollbar { width: 4px; }
+                .log-scroll::-webkit-scrollbar-thumb { background: rgba(0, 255, 255, 0.1); border-radius: 10px; }
+                
+                .log-entry { margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.03); display: flex; flex-direction: column; gap: 2px; }
+                .log-entry:last-child { border: none; margin: 0; padding: 0; }
+                .log-entry .time { font-size: 0.55rem; color: rgba(255,255,255,0.3); font-weight: 800; }
+                .log-entry .desc { font-size: 0.65rem; color: rgba(255,255,255,0.7); font-weight: 500; }
+                .log-entry.highlight .desc { color: #00ff88; }
+                .log-entry.warning .desc { color: #f43f5e; }
+                .log-entry.info .desc { color: var(--primary); }
+                .n-log { font-size: 0.6rem; opacity: 0.3; font-style: italic; }
 
                 .modal-footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.03); text-align: center; font-size: 0.6rem; color: rgba(255,255,255,0.2); letter-spacing: 2px; }
 
