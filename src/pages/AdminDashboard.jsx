@@ -2223,14 +2223,20 @@ const AdminDashboard = () => {
                 .player-detail-card {
                     background: linear-gradient(165deg, #0b0b0b 0%, #050505 100%);
                     width: 100%;
-                    max-width: 700px;
+                    max-width: 650px;
+                    max-height: 85vh;
                     border-radius: 32px;
                     border: 1px solid rgba(255, 255, 255, 0.05);
                     position: relative;
-                    padding: 3.5rem;
+                    padding: 2.5rem;
                     box-shadow: 0 40px 100px rgba(0,0,0,0.9), inset 0 0 20px rgba(0, 255, 255, 0.02);
-                    overflow: hidden;
+                    overflow-y: auto;
+                    scrollbar-width: thin;
+                    scrollbar-color: var(--primary) transparent;
                 }
+                .player-detail-card::-webkit-scrollbar { width: 6px; }
+                .player-detail-card::-webkit-scrollbar-track { background: transparent; }
+                .player-detail-card::-webkit-scrollbar-thumb { background: rgba(0, 255, 255, 0.1); border-radius: 10px; }
                 .player-detail-card::before {
                     content: '';
                     position: absolute;
