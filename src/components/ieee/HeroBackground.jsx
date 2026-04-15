@@ -1,15 +1,22 @@
-import Particles from "react-tsparticles";
-import { loadLinksPreset } from "tsparticles-preset-links";
-import { useCallback, useMemo } from "react";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadLinksPreset } from "@tsparticles/preset-links";
+import { useEffect, useMemo, useState } from "react";
 
 export default function HeroBackground({ style }) {
-  const particlesInit = useCallback(async (engine) => {
-    await loadLinksPreset(engine);
+  const [init, setInit] = useState(false);
+
+  // this should be run only once per application lifetime
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadLinksPreset(engine);
+    }).then(() => {
+      setInit(true);
+    });
   }, []);
 
   // قوم بتحديد الـ options حسب حجم الشاشة
   const particleOptions = useMemo(() => {
-    const width = window.innerWidth;
+    const width = typeof window !== "undefined" ? window.innerWidth : 1200;
     if (width <= 700) {
       // موبايل
       return {
@@ -86,11 +93,12 @@ export default function HeroBackground({ style }) {
         ...style
       }}
     >
-      <Particles
-        id="hero-bg"
-        init={particlesInit}
-        options={particleOptions}
-      />
+      {init && (
+        <Particles
+          id="hero-bg"
+          options={particleOptions}
+        />
+      )}
     </div>
   );
 }
