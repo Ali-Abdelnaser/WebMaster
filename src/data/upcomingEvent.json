@@ -1,16 +1,14 @@
 {
-  "status": "off",
+  "status": "on",
   "event": {
-    "title": "Tech Talk: Future of AI",
-    "date": "25 Sept 2025",
-    "location": "Hall A, MET",
-    "description": "Join us for an engaging session on the future of Artificial Intelligence.",
-    "image": "/img/home.jpg",
-    "link": "#",
+    "title": "IEEE Quest Career 1.0",
+    "date": "Upcoming",
+    "location": "Magdy Abo Rayan",
+    "description": "The Gates Are Open, Your Quest Begins Here 🏰✨ Explore your potential and take real steps toward your future.",
+    "image": "/img/quest-career-event.webp",
+    "link": "/event-registration",
     "socials": {
-      "facebook": "https://facebook.com/eventpage",
-      "instagram": "https://instagram.com/eventpage",
-      "linkedin": "https://linkedin.com/eventpage"
-    }
+      "facebook": "https://www.facebook.com/share/p/14bkkPr8sdc/",
+      "instagram": "https://www.instagram.com/p/DXH0dy-jf3Q/?igsh=MTF6YnFnbndjMXUyeg=="    }
   }
 }

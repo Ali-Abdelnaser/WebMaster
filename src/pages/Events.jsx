@@ -6,6 +6,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import EventCard from "../components/events/EventCard";
 import AnimatedBackground from "../components/join/AnimatedBackground";
+import UpcomingHero from "../components/events/UpcomingHero";
+import UpcomingSection from "../components/events/UpcomingSection";
 import "../components/events/OurEvents.css";
 
 const Events = () => {
@@ -35,40 +37,60 @@ const Events = () => {
     },
   };
 
-  if (loading) return null;
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1 },
+  };
 
   return (
     <div className="events-page">
       <Helmet>
         <title>Events | IEEE MET SB</title>
-        <meta name="description" content="Explore IEEE MET SB events and workshops." />
       </Helmet>
 
-      <Header />
-      <AnimatedBackground />
+      <div className="events-navbar">
+        <Header />
+      </div>
+
+      <div className="events-bg-layer">
+        <AnimatedBackground />
+      </div>
 
       <main className="events-container">
-        <header className="events-header">
-          <motion.h1 
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            className="Home-title"
-          >
-            OUR EVENTS
-          </motion.h1>
-          <img src="img/hr.svg" alt="Divider" className="HR-divider" />
-        </header>
+        <UpcomingHero />
+        <UpcomingSection />
 
-        <motion.div 
-          className="events-grid"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {events.map((event) => (
-            <EventCard key={event.id} event={event} />
-          ))}
-        </motion.div>
+        <section className="our-events-section">
+          <div className="our-events-header">
+            <span className="our-events-kicker">Archive Highlights</span>
+            <h2 className="our-events-title">Past Events</h2>
+            <p className="our-events-description">
+              Browse some of our most impactful activities, workshops, and
+              sessions that shaped our journey.
+            </p>
+          </div>
+
+          {loading ? (
+            <p className="events-loading">Loading events...</p>
+          ) : (
+            <motion.div
+              className="our-events-grid"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {events.map((event) => (
+                <motion.div key={event.id} variants={itemVariants}>
+                  <EventCard event={event} />
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+
+          {!loading && events.length === 0 && (
+            <p className="events-empty">No past events found yet.</p>
+          )}
+        </section>
       </main>
       <Footer />
     </div>

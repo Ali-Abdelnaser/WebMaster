@@ -46,13 +46,33 @@ const EventCard = ({ event }) => {
         {event.socials && (
           <div className="social-links">
             {event.socials.facebook && (
-              <a href={event.socials.facebook} target="_blank" rel="noreferrer">
+              <a
+                href={event.socials.facebook}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Facebook"
+              >
                 <i className="fab fa-facebook-f"></i>
               </a>
             )}
             {event.socials.instagram && (
-              <a href={event.socials.instagram} target="_blank" rel="noreferrer">
+              <a
+                href={event.socials.instagram}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+              >
                 <i className="fab fa-instagram"></i>
+              </a>
+            )}
+            {event.socials.linkedin && (
+              <a
+                href={event.socials.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+              >
+                <i className="fab fa-linkedin-in"></i>
               </a>
             )}
           </div>

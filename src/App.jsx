@@ -21,6 +21,7 @@ import CS from "./pages/CS";
 import About from "./pages/About";
 import AESS from "./pages/AESS";
 import QuizPage from "./pages/QuizPage";
+import EventRegistration from "./pages/EventRegistration";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import ScrollToTopButton from "./components/ScrollToTopButton";
@@ -71,6 +72,7 @@ function AnimatedRoutes() {
         <Route path="/committee/:name" element={<CommitteePage />} />
         <Route path="/track/:name" element={<TrackPage />} />
         <Route path="/quiz" element={<QuizPage />} />
+        <Route path="/event-registration" element={<EventRegistration />} />
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin-control" element={<AdminDashboard />} />
       </Routes>

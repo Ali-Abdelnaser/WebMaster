@@ -1,67 +1,97 @@
 /* src/components/events/UpcomingHero.css */
 .upcoming-hero {
-  padding: 120px 20px 80px; /* مساحة كويسة من فوق */ /* لون فاتح للتمييز */
+  padding: 130px 20px 70px;
   text-align: center;
+  position: relative;
+}
+
+.upcoming-hero::before {
+  content: "";
+  position: absolute;
+  inset: 70px 10% auto;
+  height: 180px;
+  background: radial-gradient(circle at center, rgba(0, 153, 255, 0.2), transparent 70%);
+  filter: blur(25px);
+  pointer-events: none;
+}
+
+.upcoming-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-kicker {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 7px 16px;
+  border: 1px solid rgba(0, 153, 255, 0.45);
+  border-radius: 999px;
+  color: #9fd9ff;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  background: rgba(0, 24, 44, 0.65);
 }
 
 .upcoming-hero .hero-title {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 15px;
+  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  font-weight: 800;
+  color: #f6fbff;
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+  text-shadow: 0 10px 25px rgba(0, 0, 0, 0.55);
 }
+
 .upcoming-hero .hero-description {
-  font-size: 1.2rem;
-  color: #d1cfcf;
-  max-width: 700px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #d4e7f8;
+  max-width: 780px;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 .upcoming-divider {
   display: block;
-  margin: 0 auto 40px auto; 
-  width: 400px; 
+  margin: 0 auto 28px;
+  width: min(520px, 90%);
 }
 
-/* 🖥️ شاشات كبيرة (أكتر من 1200px) */
-@media (min-width: 1200px) {
-  .Home-title {
-    font-size: 4rem; /* كبير وواضح */
+@media (max-width: 860px) {
+  .upcoming-hero {
+    padding: 115px 16px 48px;
+  }
+
+  .upcoming-hero::before {
+    inset: 62px 2% auto;
+    height: 145px;
+  }
+
+  .upcoming-hero .hero-description {
+    line-height: 1.7;
   }
 }
-/* 📱 تابلت (768px – 1023px) */
-@media (max-width: 1023px) and (min-width: 768px) {
-  .Home-title {
-    font-size: 3rem;
+
+@media (max-width: 620px) {
+  .upcoming-hero {
+    padding: 102px 14px 36px;
   }
+
+  .hero-kicker {
+    font-size: 0.72rem;
+    padding: 6px 12px;
+    margin-bottom: 10px;
+  }
+
+  .upcoming-hero .hero-title {
+    margin-bottom: 10px;
+  }
+
   .upcoming-divider {
-  display: block;
-  margin: 0 auto 40px auto; 
-  width: 300px; 
-}
-
-}
-
-/* 📱 موبايل متوسط (481px – 767px) */
-@media (max-width: 767px) and (min-width: 481px) {
-  .Home-title {
-    font-size: 2.5rem;
+    margin-bottom: 16px;
+    width: min(380px, 90%);
   }
-    .upcoming-divider {
-  display: block;
-  margin: 0 auto 40px auto; 
-  width: 250px; 
-}
-}
 
-/* 📱 موبايل صغير (≤480px) */
-@media (max-width: 480px) {
-  .Home-title {
-    font-size: 2rem;
+  .upcoming-hero .hero-description {
+    font-size: 0.94rem;
   }
-    .upcoming-divider {
-  display: block;
-  margin: 0 auto 40px auto; 
-  width: 180px; 
-}
 }

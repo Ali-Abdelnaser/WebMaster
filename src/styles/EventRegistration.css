@@ -1,0 +1,540 @@
+/* ================================================================
+   EventRegistration.css — IEEE Quest Career 1.0 Registration Form
+   Matches IEEE MET SB dark design system
+   ================================================================ */
+
+/* ─── Page Layout ─────────────────────────────────────────────── */
+.event-reg-page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.event-reg-main {
+  padding: 100px 20px 60px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 80px);
+}
+
+/* ─── Form Container ─────────────────────────────────────────── */
+.event-reg-container {
+  width: 100%;
+  max-width: 640px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 153, 255, 0.25);
+  border-radius: 24px;
+  padding: 48px 40px;
+  position: relative;
+  z-index: 2;
+  box-shadow:
+    0 0 40px rgba(0, 153, 255, 0.08),
+    0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Glow accent on top */
+.event-reg-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #0099ff, #00d4ff, #0099ff, transparent);
+  border-radius: 0 0 4px 4px;
+}
+
+/* ─── Header Section ─────────────────────────────────────────── */
+.event-reg-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.event-reg-badge {
+  display: inline-block;
+  padding: 6px 18px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #0099ff;
+  border: 1px solid rgba(0, 153, 255, 0.3);
+  border-radius: 50px;
+  margin-bottom: 16px;
+  background: rgba(0, 153, 255, 0.06);
+}
+
+.event-reg-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 8px;
+  background: linear-gradient(135deg, #ffffff, #0099ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.event-reg-subtitle {
+  font-size: 1rem;
+  color: #a0b4c8;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ─── Form Fields ────────────────────────────────────────────── */
+.event-reg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.reg-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.reg-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #c8d8e8;
+  letter-spacing: 0.3px;
+}
+
+.reg-label .req {
+  color: #ff4d6a;
+  margin-left: 2px;
+}
+
+/* Input & Select shared styles */
+.reg-input,
+.reg-select {
+  width: 100%;
+  padding: 13px 16px;
+  font-size: 0.95rem;
+  font-family: "Poppins", Arial, sans-serif;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.reg-input::placeholder {
+  color: #5a7080;
+}
+
+.reg-input:focus,
+.reg-select:focus {
+  border-color: #0099ff;
+  background: rgba(0, 153, 255, 0.06);
+  box-shadow: 0 0 0 3px rgba(0, 153, 255, 0.12);
+}
+
+/* Error state */
+.reg-input.has-error,
+.reg-select.has-error {
+  border-color: #ff4d6a;
+  background: rgba(255, 77, 106, 0.04);
+}
+
+.reg-input.has-error:focus,
+.reg-select.has-error:focus {
+  box-shadow: 0 0 0 3px rgba(255, 77, 106, 0.15);
+}
+
+/* Select dropdown styling */
+.reg-select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2399aacc' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+.reg-select option {
+  background: #1a2332;
+  color: #fff;
+}
+
+/* "Other" sub-input */
+.reg-other-input {
+  margin-top: 8px;
+}
+
+/* ─── Radio Group ────────────────────────────────────────────── */
+.reg-radio-group {
+  display: flex;
+  gap: 14px;
+}
+
+.reg-radio-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #c8d8e8;
+  background: rgba(255, 255, 255, 0.04);
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.reg-radio-option:hover {
+  border-color: rgba(0, 153, 255, 0.35);
+  background: rgba(0, 153, 255, 0.04);
+}
+
+.reg-radio-option.selected {
+  border-color: #0099ff;
+  background: rgba(0, 153, 255, 0.1);
+  color: #ffffff;
+}
+
+.reg-radio-option input[type="radio"] {
+  display: none;
+}
+
+/* Custom radio checkmark */
+.radio-checkmark {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.reg-radio-option.selected .radio-checkmark {
+  border-color: #0099ff;
+}
+
+.reg-radio-option.selected .radio-checkmark::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: #0099ff;
+  border-radius: 50%;
+  animation: radioFadeIn 0.2s ease;
+}
+
+@keyframes radioFadeIn {
+  from { transform: translate(-50%, -50%) scale(0); }
+  to   { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* ─── Error Message ──────────────────────────────────────────── */
+.reg-error {
+  font-size: 0.8rem;
+  color: #ff4d6a;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  animation: errorSlideIn 0.3s ease;
+}
+
+@keyframes errorSlideIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Submit Button ──────────────────────────────────────────── */
+.reg-submit-btn {
+  margin-top: 12px;
+  padding: 16px 32px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-family: "Poppins", Arial, sans-serif;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0077cc, #0099ff, #00bbff);
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+}
+
+.reg-submit-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.5s ease;
+}
+
+.reg-submit-btn:hover::before {
+  left: 100%;
+}
+
+.reg-submit-btn:hover {
+  box-shadow: 0 6px 30px rgba(0, 153, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.reg-submit-btn:active {
+  transform: translateY(0);
+}
+
+.reg-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.reg-spinner-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.reg-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid #ffffff;
+  border-radius: 50%;
+  animation: spinAround 0.8s linear infinite;
+}
+
+@keyframes spinAround {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ─── Popup Modal ────────────────────────────────────────────── */
+.reg-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.reg-popup-box {
+  background: linear-gradient(145deg, #1a2a3a, #0f1a28);
+  border-radius: 24px;
+  padding: 40px 32px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+/* ─── Popup Icons (SVG Animations) ───────────────────────────── */
+.reg-popup-icon {
+  margin-bottom: 20px;
+}
+
+.reg-popup-icon svg {
+  width: 72px;
+  height: 72px;
+}
+
+/* Success checkmark */
+.reg-checkmark circle {
+  stroke: #00cc88;
+  stroke-width: 2;
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  animation: strokeDraw 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.reg-checkmark path {
+  stroke: #00cc88;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: strokeDraw 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.5s forwards;
+}
+
+/* Crossmark (duplicate / error) */
+.reg-crossmark circle {
+  stroke: #ff4d6a;
+  stroke-width: 2;
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  animation: strokeDraw 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.reg-crossmark path {
+  stroke: #ff4d6a;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: strokeDraw 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.5s forwards;
+}
+
+@keyframes strokeDraw {
+  100% { stroke-dashoffset: 0; }
+}
+
+/* Popup type accent borders */
+.reg-popup-success {
+  border-top: 3px solid #00cc88;
+}
+
+.reg-popup-duplicate {
+  border-top: 3px solid #ff4d6a;
+}
+
+.reg-popup-error {
+  border-top: 3px solid #ff8844;
+}
+
+.reg-popup-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px;
+}
+
+.reg-popup-message {
+  font-size: 1rem;
+  color: #a0b4c8;
+  margin: 0 0 24px;
+  line-height: 1.6;
+}
+
+.reg-popup-redirect {
+  font-size: 0.85rem;
+  color: #5a7a8a;
+  margin: 0;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 1; }
+}
+
+.reg-popup-btn {
+  padding: 12px 36px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: "Poppins", Arial, sans-serif;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0077cc, #0099ff);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reg-popup-btn:hover {
+  background: linear-gradient(135deg, #0088dd, #00aaff);
+  box-shadow: 0 4px 20px rgba(0, 153, 255, 0.3);
+}
+
+/* ================================================================
+   Responsive Design
+   ================================================================ */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .event-reg-main {
+    padding: 90px 16px 40px;
+  }
+
+  .event-reg-container {
+    padding: 36px 24px;
+    border-radius: 20px;
+  }
+
+  .event-reg-title {
+    font-size: 1.8rem;
+  }
+
+  .event-reg-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .reg-radio-group {
+    flex-direction: row;
+    gap: 10px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .event-reg-main {
+    padding: 80px 12px 30px;
+  }
+
+  .event-reg-container {
+    padding: 28px 18px;
+    border-radius: 16px;
+  }
+
+  .event-reg-title {
+    font-size: 1.5rem;
+  }
+
+  .event-reg-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .reg-label {
+    font-size: 0.85rem;
+  }
+
+  .reg-input,
+  .reg-select {
+    padding: 11px 14px;
+    font-size: 0.9rem;
+  }
+
+  .reg-radio-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .reg-submit-btn {
+    padding: 14px 24px;
+    font-size: 0.95rem;
+  }
+
+  .reg-popup-box {
+    padding: 30px 20px;
+  }
+
+  .reg-popup-title {
+    font-size: 1.3rem;
+  }
+}
