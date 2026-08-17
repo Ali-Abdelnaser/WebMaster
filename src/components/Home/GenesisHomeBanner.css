@@ -1,0 +1,341 @@
+/* src/components/Home/GenesisHomeBanner.css */
+/* Visual styling for Genesis Featured Campaign banner on the Home page */
+
+.genesis-home-section {
+  position: relative;
+  z-index: 5;
+  padding: 10px 20px 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.genesis-home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.genesis-home-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(8, 20, 38, 0.9), rgba(4, 12, 24, 0.96));
+  border: 1px solid rgba(0, 180, 255, 0.35);
+  border-radius: 24px;
+  padding: 36px 38px;
+  box-shadow: 
+    0 15px 45px rgba(0, 0, 0, 0.55),
+    0 0 35px rgba(0, 153, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 36px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.genesis-home-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #0099ff, #00d4ff, #0099ff, transparent);
+}
+
+.genesis-home-glow {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.15), transparent 70%);
+  pointer-events: none;
+}
+
+/* ─── Visual Side ────────────────────────────────────────────── */
+.genesis-home-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.genesis-home-image-frame {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  aspect-ratio: 16 / 9;
+}
+
+.genesis-home-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.genesis-home-card:hover .genesis-home-img {
+  transform: scale(1.04);
+}
+
+.genesis-home-status-chip {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(4, 15, 30, 0.85);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: #4ade80;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 5px 12px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(8px);
+}
+
+.genesis-home-status-chip.closed {
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #f87171;
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  animation: pulseDot 1.6s infinite ease-in-out;
+}
+
+.genesis-home-status-chip.closed .pulse-dot {
+  background: #ef4444;
+  box-shadow: none;
+  animation: none;
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.35); opacity: 0.5; }
+}
+
+/* ─── Content Side ───────────────────────────────────────────── */
+.genesis-home-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.genesis-home-header-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.genesis-home-badge {
+  background: rgba(0, 212, 255, 0.12);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  color: #00d4ff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 3px 10px;
+  border-radius: 50px;
+}
+
+.genesis-home-type {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 1px;
+}
+
+.genesis-home-title {
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 4px;
+  line-height: 1.15;
+}
+
+.genesis-version {
+  color: #00d4ff;
+  font-size: 0.85em;
+  font-weight: 700;
+}
+
+.genesis-home-tagline {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #38bdf8;
+  margin: 0 0 16px;
+}
+
+.genesis-home-meta {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.home-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #cbd5e1;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.home-meta-item i {
+  color: #00d4ff;
+  font-size: 0.95rem;
+}
+
+/* Track Pills */
+.genesis-home-tracks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.home-track-pill {
+  background: rgba(0, 153, 255, 0.1);
+  border: 1px solid rgba(0, 153, 255, 0.25);
+  color: #e0f2fe;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Timing Status */
+.genesis-home-timing {
+  margin-bottom: 22px;
+}
+
+.home-deadline-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 20, 42, 0.6);
+  border: 1px solid rgba(0, 180, 255, 0.25);
+  padding: 8px 14px;
+  border-radius: 10px;
+  color: #94a3b8;
+  font-size: 0.86rem;
+}
+
+.home-deadline-open i {
+  color: #38bdf8;
+}
+
+.home-deadline-open strong {
+  color: #38bdf8;
+  font-weight: 700;
+}
+
+.home-deadline-closed {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 8px 14px;
+  border-radius: 10px;
+  color: #fca5a5;
+  font-size: 0.86rem;
+}
+
+/* Action CTA */
+.genesis-home-actions {
+  display: flex;
+}
+
+.genesis-home-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #0077cc, #0099ff, #00d4ff);
+  color: #ffffff;
+  padding: 13px 28px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(0, 153, 255, 0.35);
+}
+
+.genesis-home-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 212, 255, 0.5);
+  color: #ffffff;
+}
+
+/* ─── Responsive Media Queries ───────────────────────────────── */
+@media (max-width: 960px) {
+  .genesis-home-card {
+    grid-template-columns: 1fr;
+    padding: 28px 24px;
+    gap: 24px;
+  }
+
+  .genesis-home-visual {
+    justify-content: flex-start;
+  }
+
+  .genesis-home-image-frame {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .genesis-home-section {
+    padding: 10px 14px 30px;
+  }
+
+  .genesis-home-card {
+    padding: 22px 18px;
+  }
+
+  .genesis-home-title {
+    font-size: 1.6rem;
+  }
+
+  .genesis-home-tagline {
+    font-size: 0.88rem;
+  }
+
+  .genesis-home-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .home-deadline-open,
+  .home-deadline-closed {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0.8rem;
+  }
+
+  .genesis-home-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

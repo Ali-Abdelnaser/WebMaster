@@ -6,8 +6,8 @@ import {
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
-import { SpeedInsights } from "@vercel/speed-insights/react"
-import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
 import CommitteePage from "./pages/CommitteePage";
 import TrackPage from "./pages/TrackPage";
 // Pages
@@ -22,6 +22,8 @@ import About from "./pages/About";
 import AESS from "./pages/AESS";
 import QuizPage from "./pages/QuizPage";
 import EventRegistration from "./pages/EventRegistration";
+import GenesisIntro from "./pages/GenesisIntro";
+import GenesisRegistration from "./pages/GenesisRegistration";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import ScrollToTopButton from "./components/ScrollToTopButton";
@@ -31,13 +33,13 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // كل ما يتغير الراوت نرجع لأعلى الصفحة
+    // Reset scroll on route change
     window.history.scrollRestoration = "manual";
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
 
-    // إضافة كلاس للبودي بناءً على الصفحة الحالية لتغيير الثيم (الاسكرول والباتون)
+    // Apply chapter/event theme class to body
     const body = document.body;
-    body.className = ""; // مسح الكلاسات القديمة
+    body.className = ""; // Clear existing classes
     const path = pathname.toLowerCase();
     if (path.includes("/cs") || path.includes("/track")) {
       body.classList.add("cs-theme");
@@ -45,13 +47,13 @@ function ScrollToTop() {
       body.classList.add("wie-theme");
     } else if (path.includes("/aess")) {
       body.classList.add("aess-theme");
+    } else if (path.includes("/genesis")) {
+      body.classList.add("genesis-theme");
     }
   }, [pathname]);
 
   return null;
 }
-
-
 
 // AnimatedRoutes component
 function AnimatedRoutes() {
@@ -73,6 +75,8 @@ function AnimatedRoutes() {
         <Route path="/track/:name" element={<TrackPage />} />
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/event-registration" element={<EventRegistration />} />
+        <Route path="/genesis" element={<GenesisIntro />} />
+        <Route path="/genesis/register" element={<GenesisRegistration />} />
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin-control" element={<AdminDashboard />} />
       </Routes>
@@ -89,8 +93,8 @@ function App() {
     <HelmetProvider>
       <QuizProvider>
         <Router>
-          <Analytics/>
-          <SpeedInsights/>
+          <Analytics />
+          <SpeedInsights />
           <ScrollToTop />
           <ScrollToTopButton />
           <AnimatedRoutes />

@@ -1,0 +1,1116 @@
+/* src/styles/GenesisRegistration.css */
+/* Redesigned Genesis Registration System: Minimal, Sleek, Futuristic & Uncluttered */
+
+.genesis-reg-page {
+  min-height: 100vh;
+  position: relative;
+  background-color: #020611;
+  color: #f8fafc;
+  overflow-x: hidden;
+}
+
+.genesis-reg-main {
+  padding: 135px 20px 90px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 120px);
+  position: relative;
+  z-index: 2;
+}
+
+/* ─── Main Glassmorphism Card Container ──────────────────────── */
+.genesis-reg-card {
+  width: 100%;
+  max-width: 860px;
+  margin-top: 15px;
+  background: linear-gradient(145deg, rgba(6, 18, 36, 0.94), rgba(2, 9, 22, 0.97));
+  border: 1px solid rgba(0, 180, 255, 0.3);
+  border-radius: 24px;
+  padding: 40px 36px;
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.75),
+    0 0 40px rgba(0, 153, 255, 0.1);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  position: relative;
+  overflow: hidden;
+}
+
+.genesis-reg-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #0099ff, #00d4ff, #0099ff, transparent);
+}
+
+/* ─── Header & Progress Bar ──────────────────────────────────── */
+.genesis-reg-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.genesis-reg-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #38bdf8;
+  background: rgba(0, 40, 80, 0.7);
+  border: 1px solid rgba(0, 153, 255, 0.35);
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+
+.genesis-reg-page-title {
+  font-size: clamp(2rem, 3.5vw, 2.6rem);
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 6px;
+  letter-spacing: 0.5px;
+}
+
+.genesis-reg-page-subtitle {
+  color: #94a3b8;
+  font-size: 0.92rem;
+  margin: 0 0 24px;
+}
+
+/* ─── Streamlined Multi-Step Progress Bar ────────────────────── */
+.genesis-progress-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  background: rgba(2, 10, 24, 0.7);
+  border: 1px solid rgba(0, 153, 255, 0.2);
+  border-radius: 50px;
+}
+
+.progress-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: default;
+  transition: all 0.3s ease;
+}
+
+.step-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1.5px solid rgba(148, 163, 184, 0.4);
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 800;
+  transition: all 0.3s ease;
+}
+
+.step-text {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #64748b;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.progress-step.active .step-circle {
+  border-color: #00d4ff;
+  background: #0284c7;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.5);
+}
+
+.progress-step.active .step-text {
+  color: #00d4ff;
+}
+
+.progress-step.completed .step-circle {
+  border-color: #22c55e;
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+}
+
+.progress-step.completed .step-text {
+  color: #94a3b8;
+}
+
+.progress-line {
+  flex: 1;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 10px;
+  min-width: 20px;
+  transition: background 0.3s ease;
+}
+
+.progress-line.active {
+  background: linear-gradient(90deg, #0284c7, #00d4ff);
+}
+
+/* ─── Step Content & Headers ─────────────────────────────────── */
+.genesis-step-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.step-header {
+  text-align: left;
+  border-bottom: 1px solid rgba(0, 180, 255, 0.15);
+  padding-bottom: 16px;
+}
+
+.step-kicker {
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #00d4ff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.step-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 4px;
+}
+
+.step-subtitle {
+  color: #94a3b8;
+  font-size: 0.88rem;
+  margin: 0;
+}
+
+/* ─── Form Fields & Layouts ──────────────────────────────────── */
+.genesis-form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.genesis-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.genesis-label {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.genesis-label .req {
+  color: #38bdf8;
+}
+
+.genesis-label .opt {
+  color: #64748b;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.field-inline-hint {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.genesis-input,
+.genesis-select,
+.genesis-textarea {
+  background: rgba(3, 14, 30, 0.85);
+  border: 1px solid rgba(0, 153, 255, 0.28);
+  border-radius: 10px;
+  padding: 11px 14px;
+  color: #ffffff;
+  font-size: 0.92rem;
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.genesis-input:focus,
+.genesis-select:focus,
+.genesis-textarea:focus {
+  border-color: #00d4ff;
+  background: rgba(4, 20, 42, 0.95);
+  box-shadow: 0 0 14px rgba(0, 212, 255, 0.25);
+}
+
+.genesis-input.has-error,
+.genesis-select.has-error,
+.genesis-textarea.has-error {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.06);
+}
+
+.genesis-textarea {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.5;
+}
+
+.genesis-error {
+  font-size: 0.78rem;
+  color: #f87171;
+  font-weight: 600;
+}
+
+/* ─── Team Size Segmented Control ────────────────────────────── */
+.team-size-selector {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  background: rgba(3, 14, 30, 0.85);
+  border: 1px solid rgba(0, 153, 255, 0.25);
+  border-radius: 10px;
+  padding: 4px;
+}
+
+.size-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 6px 2px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.size-num {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #94a3b8;
+  line-height: 1;
+}
+
+.size-lbl {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748b;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+.size-btn.active {
+  background: linear-gradient(135deg, #0284c7, #00d4ff);
+  border-color: #00d4ff;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+}
+
+.size-btn.active .size-num,
+.size-btn.active .size-lbl {
+  color: #ffffff;
+}
+
+/* ─── Compact Track Selection Grid ───────────────────────────── */
+.genesis-tracks-select-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px;
+}
+
+.track-select-card {
+  background: rgba(3, 14, 30, 0.8);
+  border: 1px solid rgba(0, 153, 255, 0.25);
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.track-select-card:hover {
+  border-color: rgba(0, 212, 255, 0.5);
+  background: rgba(4, 20, 42, 0.9);
+  transform: translateY(-1px);
+}
+
+.track-select-card.selected {
+  border-color: #00d4ff;
+  background: rgba(0, 153, 255, 0.15);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.2);
+}
+
+.track-select-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(0, 153, 255, 0.15);
+  border: 1px solid rgba(0, 153, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00d4ff;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.track-select-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.selected-check {
+  margin-left: auto;
+  color: #00d4ff;
+  font-size: 0.95rem;
+}
+
+/* ─── Step 2: Member Cards ───────────────────────────────────── */
+.members-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.genesis-member-card {
+  background: rgba(3, 12, 26, 0.7);
+  border: 1px solid rgba(0, 153, 255, 0.22);
+  border-radius: 16px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+  overflow: hidden;
+}
+
+.genesis-member-card.collapsed {
+  background: rgba(3, 10, 22, 0.6);
+}
+
+.genesis-member-card.expanded {
+  background: rgba(3, 12, 26, 0.85);
+  border-color: rgba(0, 180, 255, 0.35);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.genesis-member-card.leader-card {
+  border-color: rgba(0, 212, 255, 0.4);
+}
+
+.genesis-member-card.has-card-error {
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+/* Clickable Header */
+.member-card-header.clickable {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  cursor: pointer;
+  background: transparent;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.member-card-header.clickable:hover {
+  background: rgba(0, 153, 255, 0.08);
+}
+
+.genesis-member-card.expanded .member-card-header {
+  border-bottom: 1px solid rgba(0, 180, 255, 0.12);
+}
+
+.member-order-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.order-number {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: #0284c7;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.order-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.collapsed-name-preview {
+  color: #38bdf8;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.member-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.leader-tag {
+  background: rgba(0, 212, 255, 0.15);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  color: #38bdf8;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.member-status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.member-status-tag.complete {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #4ade80;
+}
+
+.member-status-tag.error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #f87171;
+}
+
+.collapse-chevron-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: rgba(0, 153, 255, 0.12);
+  border: 1px solid rgba(0, 153, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00d4ff;
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+/* Accordion Body */
+.member-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.member-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.next-member-btn,
+.collapse-done-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 153, 255, 0.12);
+  border: 1px solid rgba(0, 180, 255, 0.3);
+  color: #38bdf8;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.next-member-btn:hover,
+.collapse-done-btn:hover {
+  background: rgba(0, 153, 255, 0.22);
+  border-color: #00d4ff;
+  color: #ffffff;
+}
+
+.member-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.full-span {
+  grid-column: span 2;
+}
+
+/* ─── Compact ID Upload Dropzones ────────────────────────────── */
+.genesis-uploads-container {
+  background: rgba(2, 8, 18, 0.7);
+  border: 1px solid rgba(0, 153, 255, 0.2);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-top: 4px;
+}
+
+.uploads-header {
+  margin-bottom: 10px;
+}
+
+.uploads-title {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #00d4ff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.uploads-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.upload-box-wrapper {
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.upload-dropzone {
+  background: rgba(4, 18, 38, 0.85);
+  border: 1.5px dashed rgba(0, 153, 255, 0.35);
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  min-height: 64px;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.upload-dropzone:hover {
+  border-color: #00d4ff;
+  background: rgba(6, 26, 52, 0.9);
+}
+
+.upload-dropzone.file-selected {
+  border-style: solid;
+  border-color: rgba(34, 197, 94, 0.5);
+  background: rgba(34, 197, 94, 0.05);
+}
+
+.upload-dropzone.has-error {
+  border-color: #ef4444;
+}
+
+.upload-trigger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  width: 100%;
+  min-width: 0;
+}
+
+.upload-trigger i {
+  color: #00d4ff;
+  font-size: 1.1rem;
+}
+
+.trigger-main-text {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.upload-trigger small {
+  font-size: 0.68rem;
+  color: #64748b;
+}
+
+.selected-file-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.selected-file-info .file-icon {
+  color: #22c55e;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.file-text-details {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1 1 0%;
+  overflow: hidden;
+  text-align: left;
+}
+
+.file-text-details .filename {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.file-text-details .file-size {
+  display: inline-block;
+  font-size: 0.68rem;
+  color: #94a3b8;
+  margin-top: 1px;
+}
+
+.reupload-btn {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #38bdf8;
+  background: rgba(0, 153, 255, 0.15);
+  border: 1px solid rgba(0, 153, 255, 0.3);
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  flex-shrink: 0;
+  white-space: nowrap;
+  margin-left: auto;
+  transition: all 0.2s ease;
+}
+
+.reupload-btn:hover {
+  border-color: #00d4ff;
+  background: rgba(0, 153, 255, 0.28);
+  color: #ffffff;
+}
+
+/* ─── Step 3: Review Panels ──────────────────────────────────── */
+.review-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.review-panel {
+  background: rgba(3, 12, 26, 0.75);
+  border: 1px solid rgba(0, 153, 255, 0.22);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.review-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 180, 255, 0.12);
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+}
+
+.panel-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.panel-title-group i {
+  color: #00d4ff;
+}
+
+.review-track-pill {
+  background: rgba(0, 153, 255, 0.15);
+  border: 1px solid rgba(0, 153, 255, 0.35);
+  color: #38bdf8;
+  font-size: 0.74rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 50px;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  text-align: left;
+}
+
+.review-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.review-item.full-width {
+  grid-column: span 2;
+}
+
+.review-label {
+  font-size: 0.74rem;
+  color: #64748b;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.review-value {
+  font-size: 0.92rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.review-value.highlight {
+  color: #00d4ff;
+  font-weight: 800;
+}
+
+.review-value.link-value a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-size: 0.86rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.review-desc-text {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+/* Members Review List */
+.review-members-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.review-member-item {
+  background: rgba(2, 8, 18, 0.6);
+  border: 1px solid rgba(0, 153, 255, 0.15);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.review-member-item.is-leader {
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+.member-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.member-item-identity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.member-order-chip {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+.member-name {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.leader-pill {
+  background: rgba(0, 212, 255, 0.15);
+  border: 1px solid rgba(0, 212, 255, 0.35);
+  color: #38bdf8;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.masked-id {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  font-family: monospace;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.member-item-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  font-size: 0.82rem;
+  text-align: left;
+}
+
+.detail-lbl {
+  color: #64748b;
+  margin-right: 4px;
+}
+
+.detail-val {
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+.full-col {
+  grid-column: span 2;
+}
+
+.member-item-docs-status {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.doc-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.74rem;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.doc-pill.success {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #4ade80;
+}
+
+/* Security Notice */
+.review-security-notice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 153, 255, 0.08);
+  border: 1px solid rgba(0, 180, 255, 0.25);
+  border-radius: 12px;
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.review-security-notice i {
+  color: #00d4ff;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.review-security-notice strong {
+  color: #ffffff;
+  font-size: 0.85rem;
+  display: block;
+}
+
+.review-security-notice p {
+  margin: 2px 0 0;
+  font-size: 0.78rem;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+
+.review-error-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: #f87171;
+  text-align: left;
+}
+
+/* ─── Action Buttons ─────────────────────────────────────────── */
+.step-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.step-actions.dual {
+  justify-content: space-between;
+}
+
+.genesis-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 26px;
+  font-size: 0.94rem;
+  font-weight: 800;
+  border-radius: 12px;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: all 0.25s ease;
+  border: none;
+}
+
+.genesis-action-btn.primary {
+  background: linear-gradient(135deg, #0070d8, #0099ff, #00d4ff);
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 153, 255, 0.35);
+}
+
+.genesis-action-btn.primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 212, 255, 0.5);
+}
+
+.genesis-action-btn.secondary {
+  background: rgba(0, 20, 42, 0.7);
+  border: 1px solid rgba(0, 180, 255, 0.3);
+  color: #38bdf8;
+}
+
+.genesis-action-btn.secondary:hover:not(:disabled) {
+  background: rgba(0, 153, 255, 0.15);
+  border-color: #00d4ff;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.genesis-action-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.submit-spinner-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.submit-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spinBtn 0.8s infinite linear;
+}
+
+@keyframes spinBtn {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Footer Integration for Registration Page ──────────────── */
+.genesis-reg-page .footer {
+  position: relative;
+  z-index: 10;
+  background: linear-gradient(180deg, transparent 0%, rgba(2, 6, 17, 0.95) 20%, #020611 100%);
+  border-top: 1px solid rgba(0, 180, 255, 0.2);
+}
+
+/* ─── Responsive Queries ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .genesis-reg-main {
+    padding: 105px 14px 60px;
+  }
+
+  .genesis-reg-card {
+    margin-top: 10px;
+    padding: 28px 18px;
+    border-radius: 18px;
+  }
+
+  .form-two-col,
+  .member-form-grid,
+  .uploads-grid,
+  .review-grid,
+  .member-item-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full-span,
+  .review-item.full-width,
+  .full-col {
+    grid-column: span 1;
+  }
+
+  .step-actions.dual {
+    flex-direction: column-reverse;
+  }
+
+  .genesis-action-btn {
+    width: 100%;
+  }
+
+  .genesis-progress-bar {
+    padding: 6px 12px;
+  }
+
+  .step-text {
+    display: none;
+  }
+}

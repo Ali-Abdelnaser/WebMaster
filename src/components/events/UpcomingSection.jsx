@@ -3,11 +3,16 @@ import { useEffect, useRef, useState } from "react";
 import "./UpcomingSection.css";
 import { Link } from "react-router-dom";
 import data from "../../data/upcomingEvent.json";
+import { GENESIS_CONFIG } from "../../config/genesisConfig";
+import { useEventCountdown } from "../../hooks/useEventCountdown";
 
 export default function UpcomingSection() {
   const [status, setStatus] = useState("off");
   const [event, setEvent] = useState(null);
   const cardRef = useRef(null);
+
+  // Hook for live registration countdown driven by single source of truth
+  const countdown = useEventCountdown(GENESIS_CONFIG.registrationDeadline);
 
   useEffect(() => {
     setStatus(data.status);
@@ -31,15 +36,36 @@ export default function UpcomingSection() {
     }
   }, []);
 
+  const isGenesis = event?.title?.toLowerCase().includes("genesis");
   const isExternalLink = event?.link?.startsWith("http");
+
+  // Determine hero image with support for the Genesis asset
+  const displayImage = isGenesis ? GENESIS_CONFIG.heroImage : event?.image;
+
+  // Track icons map matching the design screenshot
+  const trackIcons = {
+    "AI": "fas fa-brain",
+    "Cybersecurity": "fas fa-shield-halved",
+    "Robotics": "fas fa-robot",
+    "Mobile Application": "fas fa-mobile-screen-button",
+    "IoT": "fas fa-wifi",
+    "Graduation Projects": "fas fa-graduation-cap",
+  };
 
   return (
     <section className="upcoming-section">
       {status === "on" && event ? (
         <div className="upcoming-header">
-          <span className="upcoming-kicker">Next Experience</span>
+          <span className="upcoming-kicker">NEXT EXPERIENCE</span>
           <h2 className="upcoming-title">Upcoming Event</h2>
-          <img src="img/hr.svg" alt="Divider" className="upcoming-section-divider" />
+          
+          {/* Cyber Geometric Diamond Divider */}
+          <div className="upcoming-cyber-divider">
+            <span className="divider-line left"></span>
+            <span className="divider-diamond"></span>
+            <span className="divider-line right"></span>
+          </div>
+
           <p className="upcoming-description">
             A new chapter is about to begin. Join us for a high-energy event
             crafted to inspire, connect, and level up your journey.
@@ -51,27 +77,93 @@ export default function UpcomingSection() {
 
       <div className="container">
         {status === "on" && event ? (
-          <article className="event-card-large" ref={cardRef}>
-            <div className="event-image-wrapper">
-              <span className="event-status-pill">Live Soon</span>
-              <img src={event.image} alt={event.title} className="event-img" />
-            </div>
-
+          <article className="event-card-large genesis-upcoming-theme" ref={cardRef}>
+            {/* Left Side: Content & Actions */}
             <div className="event-info">
-              <h2>{event.title}</h2>
-              <p className="event-subtitle">Your next opportunity starts here.</p>
+              <div className="event-title-badge-group">
+                <h2 className="event-main-title">{event.title}</h2>
+                {event.version && <span className="event-version-pill">{event.version}</span>}
+              </div>
+
+              {event.tagline ? (
+                <p className="event-subtitle event-tagline">{event.tagline}</p>
+              ) : (
+                <p className="event-subtitle">Your next opportunity starts here.</p>
+              )}
 
               <div className="event-meta">
-                <p className="event-date event-meta-item">
-                  <i className="far fa-calendar-alt"></i> {event.date}
+                <p className="event-meta-item">
+                  <i className="far fa-calendar-alt meta-icon"></i>
+                  <span className="meta-text">{event.date}</span>
                 </p>
-                <p className="event-location event-meta-item">
-                  <i className="fas fa-map-marker-alt"></i> {event.location}
+                <p className="event-meta-item">
+                  <i className="fas fa-map-marker-alt meta-icon"></i>
+                  <span className="meta-text">{event.location}</span>
                 </p>
               </div>
 
-              <p className="event-desc">{event.description}</p>
-              <p className="event-cta">Seats are limited - reserve your spot now.</p>
+              {/* 6 Technical Tracks Chips */}
+              {isGenesis && GENESIS_CONFIG.tracks && (
+                <div className="event-tracks-preview">
+                  <span className="tracks-label">6 TECHNICAL TRACKS:</span>
+                  <div className="tracks-chips">
+                    {GENESIS_CONFIG.tracks.map((track) => (
+                      <span key={track.id} className="track-chip">
+                        <i className={trackIcons[track.name] || `fas ${track.icon}`}></i>
+                        <span>{track.name}</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Live Registration Countdown & Deadline box */}
+              <div className="event-countdown-container">
+                <div className="countdown-header-row">
+                  <span className="countdown-title">
+                    <i className="fas fa-hourglass-half"></i> REGISTRATION DEADLINE
+                  </span>
+                  <span className="countdown-deadline-date">
+                    26 Aug 2026 (23:59 Egypt Time)
+                  </span>
+                </div>
+
+                {countdown.isOpen ? (
+                  <div className="countdown-timer-grid">
+                    <div className="time-block">
+                      <span className="time-val">{String(countdown.days).padStart(2, "0")}</span>
+                      <span className="time-lbl">DAYS</span>
+                    </div>
+                    <div className="time-colon">:</div>
+                    <div className="time-block">
+                      <span className="time-val">{String(countdown.hours).padStart(2, "0")}</span>
+                      <span className="time-lbl">HOURS</span>
+                    </div>
+                    <div className="time-colon">:</div>
+                    <div className="time-block">
+                      <span className="time-val">{String(countdown.minutes).padStart(2, "0")}</span>
+                      <span className="time-lbl">MINS</span>
+                    </div>
+                    <div className="time-colon">:</div>
+                    <div className="time-block">
+                      <span className="time-val">{String(countdown.seconds).padStart(2, "0")}</span>
+                      <span className="time-lbl">SECS</span>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="countdown-closed-notice">
+                    <i className="fas fa-lock"></i> Registration period has ended.
+                  </div>
+                )}
+              </div>
+
+              <div className="event-desc-wrapper">
+                <p className="event-desc">{event.description}</p>
+                <Link to={GENESIS_CONFIG.routes.intro} className="event-cta-link">
+                  <i className="fas fa-arrow-up-right-from-square"></i>
+                  <span>Explore the competition tracks & review rules before registering.</span>
+                </Link>
+              </div>
 
               <div className="event-actions">
                 <div className="social-links">
@@ -107,21 +199,41 @@ export default function UpcomingSection() {
                   )}
                 </div>
 
-                {isExternalLink ? (
+                {countdown.isClosed ? (
+                  <button className="event-btn disabled" disabled aria-disabled="true">
+                    <span>Registration Closed</span>
+                    <i className="fas fa-lock"></i>
+                  </button>
+                ) : isExternalLink ? (
                   <a
                     href={event.link}
                     className="event-btn"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Register Now
+                    <span>Register Now</span>
+                    <span className="btn-icon-circle">
+                      <i className="fas fa-arrow-right"></i>
+                    </span>
                   </a>
                 ) : (
-                  <Link to={event.link} className="event-btn">
-                    Register Now
+                  <Link to={event.link || "/genesis"} className="event-btn">
+                    <span>Register Now</span>
+                    <span className="btn-icon-circle">
+                      <i className="fas fa-arrow-right"></i>
+                    </span>
                   </Link>
                 )}
               </div>
+            </div>
+
+            {/* Right Side: Artwork with Registration Status Badge */}
+            <div className="event-image-wrapper">
+              <span className={`event-status-pill ${countdown.isClosed ? "closed" : ""}`}>
+                <span>{countdown.isClosed ? "REGISTRATION CLOSED" : "REGISTRATION OPEN"}</span>
+                <span className="pulse-dot"></span>
+              </span>
+              <img src={displayImage} alt={event.title} className="event-img" />
             </div>
           </article>
         ) : (

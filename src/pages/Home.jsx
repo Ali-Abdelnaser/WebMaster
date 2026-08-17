@@ -1,4 +1,5 @@
 import Hero from "../components/Home/Hero";
+import GenesisHomeBanner from "../components/Home/GenesisHomeBanner";
 import DrSallySection from "../components/Home/DrSallySection";
 import SummarySection from "../components/Home/SummarySection";
 import OurCycle from "../components/Home/OurCycle";
@@ -13,6 +14,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AnimatedBackground from "../components/join/AnimatedBackground";
 import { Helmet } from "react-helmet-async";
+
 function Home() {
   return (
     <>
@@ -51,6 +53,7 @@ function Home() {
 
       <Header />
       <Hero />
+      <GenesisHomeBanner />
       <AnimatedBackground />
 
       <SummarySection data={data.summary} />

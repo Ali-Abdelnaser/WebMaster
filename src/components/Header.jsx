@@ -1,7 +1,10 @@
+// src/components/Header.jsx
 import { useState, useEffect } from "react";
-import "../components/Header.css";
+import "./Header.css";
 import SmartLink from "./SmartLink";
 import eventsData from "../data/upcomingEvent.json";
+import { GENESIS_CONFIG } from "../config/genesisConfig";
+import { useEventCountdown } from "../hooks/useEventCountdown";
 import {
   FaFacebookF,
   FaInstagram,
@@ -15,8 +18,11 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
-  const [liveEvent, setLiveEvent] = useState(false);
   const [logoClicks, setLogoClicks] = useState(0);
+
+  // Hook for live registration status driven by single source of truth
+  const countdown = useEventCountdown(GENESIS_CONFIG.registrationDeadline);
+  const isEventLive = eventsData.status === "on" && countdown.isOpen;
   
   useEffect(() => {
     if (logoClicks > 0) {
@@ -33,11 +39,6 @@ export default function Header() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // check live events
-  useEffect(() => {
-    setLiveEvent(eventsData.status === "on");
   }, []);
 
   // toggle drawer
@@ -71,7 +72,7 @@ export default function Header() {
             });
           }}>
             <img
-              src={scrolled ? "/img/logo-2.png" : "/img/logo-2.png"}
+              src="/img/logo-2.png"
               alt="IEEE Logo"
               id="logo"
               style={{ cursor: 'pointer' }}
@@ -84,14 +85,12 @@ export default function Header() {
               Join US
             </SmartLink>
           </div>
-          {/* <div className="nav-button">
-            <SmartLink to="/join-cs" id="join-btn"></SmartLink>
-          </div> */}
 
           {/* Menu toggle (hamburger) */}
           <div
             className={`menu-toggle ${menuOpen ? "active" : ""}`}
             onClick={toggleMenu}
+            aria-label="Toggle navigation menu"
           >
             <span></span>
             <span></span>
@@ -109,9 +108,15 @@ export default function Header() {
                 About
               </SmartLink>
             </li>
-            <li className={`events-item ${liveEvent ? "live" : ""}`}>
+            <li className={`events-item ${isEventLive ? "live" : ""}`}>
               <SmartLink to="/events" onClick={closeMenu}>
-                Events
+                <span>Events</span>
+                {isEventLive && (
+                  <span className="nav-live-badge" title="Genesis Registration is Live">
+                    <span className="nav-live-dot"></span>
+                    <span className="nav-live-text">LIVE</span>
+                  </span>
+                )}
               </SmartLink>
             </li>
             <li>
@@ -119,7 +124,7 @@ export default function Header() {
                 IEEE
               </SmartLink>
             </li>
-                        <li className="mobile-only-item">
+            <li className="mobile-only-item">
               <SmartLink to="/join" onClick={closeMenu}>
                 Join IEEE
               </SmartLink>
@@ -137,16 +142,13 @@ export default function Header() {
               </ul>
             </li>
 
-            
-
             {/* Mobile Social + Copyright */}
-
-
             <div className="social-icons">
               <a
                 href="https://www.facebook.com/profile.php?id=61560937966305"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Facebook"
               >
                 <FaFacebookF />
               </a>
@@ -154,6 +156,7 @@ export default function Header() {
                 href="https://www.instagram.com/ieeemetsb/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Instagram"
               >
                 <FaInstagram />
               </a>
@@ -161,6 +164,7 @@ export default function Header() {
                 href="https://www.linkedin.com/company/ieee-met-sb-pioneers/posts/?feedView=all"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
               >
                 <FaLinkedinIn />
               </a>
@@ -168,6 +172,7 @@ export default function Header() {
                 href="https://www.tiktok.com/@ieee.met"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="TikTok"
               >
                 <FaTiktok />
               </a>
@@ -175,6 +180,7 @@ export default function Header() {
                 href="https://wa.me/201068643407"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="WhatsApp"
               >
                 <FaWhatsapp />
               </a>
@@ -182,6 +188,7 @@ export default function Header() {
                 href="mailto:ali.abdelnaser@ieee.org"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Email"
               >
                 <FaEnvelope />
               </a>

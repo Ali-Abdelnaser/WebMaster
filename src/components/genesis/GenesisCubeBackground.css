@@ -1,0 +1,358 @@
+/* src/components/genesis/GenesisCubeBackground.css */
+/* 3D Modular 9-Cell (3x3) Voxel / Rubik's Cube Theme for Genesis */
+
+.genesis-cube-bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+  background: radial-gradient(circle at 50% 15%, #051428 0%, #030814 55%, #01040a 100%);
+}
+
+/* Ambient Radial Light Glows */
+.cube-ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(85px);
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+.glow-top {
+  top: -10%;
+  right: 15%;
+  width: 55vw;
+  height: 55vw;
+  max-width: 700px;
+  max-height: 700px;
+  background: radial-gradient(circle, rgba(0, 180, 255, 0.45), transparent 70%);
+}
+
+.glow-bottom {
+  bottom: -15%;
+  left: 10%;
+  width: 60vw;
+  height: 60vw;
+  max-width: 750px;
+  max-height: 750px;
+  background: radial-gradient(circle, rgba(0, 102, 204, 0.38), transparent 70%);
+}
+
+.glow-center {
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75vw;
+  height: 45vw;
+  background: radial-gradient(ellipse, rgba(0, 212, 255, 0.16), transparent 70%);
+}
+
+.glow-accent {
+  top: 60%;
+  right: -5%;
+  width: 35vw;
+  height: 35vw;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.25), transparent 70%);
+}
+
+/* Perspective Grid */
+.cube-perspective-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(0, 153, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 153, 255, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(ellipse at 50% 40%, rgba(0,0,0,0.85) 0%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 40%, rgba(0,0,0,0.85) 0%, transparent 80%);
+}
+
+/* ─── 3D Scene & Perspective ─────────────────────────────────── */
+.cube-3d-scene {
+  position: absolute;
+  inset: 0;
+  perspective: 1100px;
+  perspective-origin: 50% 35%;
+}
+
+.cube-3d-wrapper {
+  position: absolute;
+  transform-style: preserve-3d;
+  animation: floatDriftDynamic 10s infinite ease-in-out alternate;
+}
+
+.cube-3d {
+  position: relative;
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── 9-Cell (3x3) Modular Face ──────────────────────────────── */
+.cube-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2.5px;
+  padding: 2.5px;
+  background: rgba(2, 10, 24, 0.55);
+  border: 1.5px solid rgba(0, 212, 255, 0.55);
+  box-shadow: 
+    0 0 12px rgba(0, 153, 255, 0.2),
+    inset 0 0 12px rgba(0, 153, 255, 0.15);
+  backface-visibility: visible;
+}
+
+/* Individual Cell (1 of 9 on each face) */
+.cube-cell {
+  position: relative;
+  background: rgba(0, 153, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.5);
+  border-radius: 1.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 5px rgba(0, 212, 255, 0.2);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.cell-inner-glow {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(0, 212, 255, 0.4);
+  box-shadow: 0 0 6px #00d4ff;
+}
+
+/* ─── Cube Sizes & 3D Offsets ────────────────────────────────── */
+
+/* Extra Large: 150px */
+.cube-xlarge {
+  width: 150px;
+  height: 150px;
+}
+.cube-xlarge .face-front  { transform: translateZ(75px); }
+.cube-xlarge .face-back   { transform: rotateY(180deg) translateZ(75px); }
+.cube-xlarge .face-right  { transform: rotateY(90deg) translateZ(75px); }
+.cube-xlarge .face-left   { transform: rotateY(-90deg) translateZ(75px); }
+.cube-xlarge .face-top    { transform: rotateX(90deg) translateZ(75px); }
+.cube-xlarge .face-bottom { transform: rotateX(-90deg) translateZ(75px); }
+
+/* Large: 110px */
+.cube-large {
+  width: 110px;
+  height: 110px;
+}
+.cube-large .face-front  { transform: translateZ(55px); }
+.cube-large .face-back   { transform: rotateY(180deg) translateZ(55px); }
+.cube-large .face-right  { transform: rotateY(90deg) translateZ(55px); }
+.cube-large .face-left   { transform: rotateY(-90deg) translateZ(55px); }
+.cube-large .face-top    { transform: rotateX(90deg) translateZ(55px); }
+.cube-large .face-bottom { transform: rotateX(-90deg) translateZ(55px); }
+
+/* Medium: 80px */
+.cube-medium {
+  width: 80px;
+  height: 80px;
+}
+.cube-medium .face-front  { transform: translateZ(40px); }
+.cube-medium .face-back   { transform: rotateY(180deg) translateZ(40px); }
+.cube-medium .face-right  { transform: rotateY(90deg) translateZ(40px); }
+.cube-medium .face-left   { transform: rotateY(-90deg) translateZ(40px); }
+.cube-medium .face-top    { transform: rotateX(90deg) translateZ(40px); }
+.cube-medium .face-bottom { transform: rotateX(-90deg) translateZ(40px); }
+
+/* Small: 50px */
+.cube-small {
+  width: 50px;
+  height: 50px;
+}
+.cube-small .face-front  { transform: translateZ(25px); }
+.cube-small .face-back   { transform: rotateY(180deg) translateZ(25px); }
+.cube-small .face-right  { transform: rotateY(90deg) translateZ(25px); }
+.cube-small .face-left   { transform: rotateY(-90deg) translateZ(25px); }
+.cube-small .face-top    { transform: rotateX(90deg) translateZ(25px); }
+.cube-small .face-bottom { transform: rotateX(-90deg) translateZ(25px); }
+
+/* ─── Positions Across Viewport ──────────────────────────────── */
+.cube-pos-top-right {
+  top: 10%;
+  right: 5%;
+  opacity: 0.55;
+  animation-duration: 12s;
+}
+
+.cube-pos-top-left {
+  top: 14%;
+  left: 4%;
+  opacity: 0.45;
+  animation-duration: 14s;
+  animation-delay: -3s;
+}
+
+.cube-pos-mid-left {
+  top: 44%;
+  left: 2%;
+  opacity: 0.48;
+  animation-duration: 11s;
+  animation-delay: -5s;
+}
+
+.cube-pos-mid-right {
+  top: 48%;
+  right: 4%;
+  opacity: 0.5;
+  animation-duration: 13s;
+  animation-delay: -2s;
+}
+
+.cube-pos-bottom-right {
+  bottom: 12%;
+  right: 8%;
+  opacity: 0.52;
+  animation-duration: 15s;
+  animation-delay: -7s;
+}
+
+.cube-pos-bottom-left {
+  bottom: 14%;
+  left: 6%;
+  opacity: 0.48;
+  animation-duration: 12s;
+  animation-delay: -4s;
+}
+
+.cube-pos-center-deep {
+  top: 68%;
+  left: 48%;
+  opacity: 0.35;
+  animation-duration: 16s;
+  animation-delay: -9s;
+}
+
+.cube-pos-upper-center {
+  top: 25%;
+  left: 42%;
+  opacity: 0.3;
+  animation-duration: 18s;
+  animation-delay: -6s;
+}
+
+/* ─── Dynamic 3D Rotation Keyframes ──────────────────────────── */
+.rotate-anim-dynamic-1 {
+  animation: rotateGenesisCube1 18s infinite linear;
+}
+
+.rotate-anim-dynamic-2 {
+  animation: rotateGenesisCube2 22s infinite linear reverse;
+}
+
+.rotate-anim-dynamic-3 {
+  animation: rotateGenesisCube3 16s infinite linear;
+}
+
+@keyframes rotateGenesisCube1 {
+  0% {
+    transform: rotateX(15deg) rotateY(0deg) rotateZ(0deg);
+  }
+  50% {
+    transform: rotateX(195deg) rotateY(180deg) rotateZ(45deg);
+  }
+  100% {
+    transform: rotateX(375deg) rotateY(360deg) rotateZ(0deg);
+  }
+}
+
+@keyframes rotateGenesisCube2 {
+  0% {
+    transform: rotateX(45deg) rotateY(30deg) rotateZ(10deg);
+  }
+  50% {
+    transform: rotateX(225deg) rotateY(210deg) rotateZ(190deg);
+  }
+  100% {
+    transform: rotateX(405deg) rotateY(390deg) rotateZ(370deg);
+  }
+}
+
+@keyframes rotateGenesisCube3 {
+  0% {
+    transform: rotateX(-20deg) rotateY(0deg) rotateZ(30deg);
+  }
+  50% {
+    transform: rotateX(160deg) rotateY(180deg) rotateZ(210deg);
+  }
+  100% {
+    transform: rotateX(340deg) rotateY(360deg) rotateZ(390deg);
+  }
+}
+
+@keyframes floatDriftDynamic {
+  0% {
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: translateY(-28px) rotateX(4deg) rotateY(6deg);
+  }
+  100% {
+    transform: translateY(18px) rotateX(-4deg) rotateY(-6deg);
+  }
+}
+
+/* ─── Reduced Motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .cube-3d-wrapper,
+  .cube-3d {
+    animation: none !important;
+  }
+}
+
+/* ─── Mobile Optimizations ───────────────────────────────────── */
+@media (max-width: 768px) {
+  .cube-pos-mid-left,
+  .cube-pos-upper-center,
+  .cube-pos-center-deep {
+    display: none;
+  }
+
+  .cube-pos-top-right {
+    top: 6%;
+    right: 2%;
+    opacity: 0.35;
+  }
+
+  .cube-pos-top-left {
+    top: 10%;
+    left: 2%;
+    opacity: 0.3;
+  }
+
+  .cube-xlarge {
+    width: 90px;
+    height: 90px;
+  }
+  .cube-xlarge .face-front  { transform: translateZ(45px); }
+  .cube-xlarge .face-back   { transform: rotateY(180deg) translateZ(45px); }
+  .cube-xlarge .face-right  { transform: rotateY(90deg) translateZ(45px); }
+  .cube-xlarge .face-left   { transform: rotateY(-90deg) translateZ(45px); }
+  .cube-xlarge .face-top    { transform: rotateX(90deg) translateZ(45px); }
+  .cube-xlarge .face-bottom { transform: rotateX(-90deg) translateZ(45px); }
+
+  .cube-large {
+    width: 70px;
+    height: 70px;
+  }
+  .cube-large .face-front  { transform: translateZ(35px); }
+  .cube-large .face-back   { transform: rotateY(180deg) translateZ(35px); }
+  .cube-large .face-right  { transform: rotateY(90deg) translateZ(35px); }
+  .cube-large .face-left   { transform: rotateY(-90deg) translateZ(35px); }
+  .cube-large .face-top    { transform: rotateX(90deg) translateZ(35px); }
+  .cube-large .face-bottom { transform: rotateX(-90deg) translateZ(35px); }
+}
