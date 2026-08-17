@@ -196,7 +196,7 @@ export default function GenesisRegistration() {
       const teamPayload = {
         team_name: team.team_name.trim(),
         project_idea: team.project_idea.trim(),
-        demo_video_url: team.demo_video_url?.trim() || null,
+        demo_video_url: team.demo_video_url?.trim() || "",
         track: team.track,
         team_size: Number(team.team_size),
       };
@@ -241,6 +241,12 @@ export default function GenesisRegistration() {
       } else if (msg.includes("GENESIS_REGISTRATION_CLOSED")) {
         userFriendlyMessage =
           "Genesis registration is now closed.";
+      } else if (msg.includes("VIDEO_REQUIRED")) {
+        userFriendlyMessage =
+          "Project explanation video link is required.";
+      } else if (msg.includes("INVALID_VIDEO_URL")) {
+        userFriendlyMessage =
+          "Please enter a valid public video URL (starting with http:// or https://).";
       } else if (
         msg.includes("Failed to fetch") ||
         msg.includes("NetworkError") ||

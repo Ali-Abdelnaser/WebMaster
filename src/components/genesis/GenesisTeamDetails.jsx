@@ -121,22 +121,46 @@ export default function GenesisTeamDetails({
           )}
         </div>
 
-        {/* Demo Video URL (Optional) */}
+        {/* Project Explanation Video URL (Required) */}
         <div className="genesis-form-field">
           <label htmlFor="demo_video_url" className="genesis-label">
-            Demo Video Link <span className="opt">(Optional)</span>
+            Project Explanation Video Link <span className="req">*</span>
           </label>
           <input
             id="demo_video_url"
             type="url"
             className={`genesis-input ${errors.demo_video_url ? "has-error" : ""}`}
-            placeholder="https://youtube.com/watch?v=... or Google Drive link"
+            placeholder="https://youtube.com/... or paste a public video link"
             value={team.demo_video_url || ""}
             onChange={(e) => onChange("demo_video_url", e.target.value)}
           />
           {errors.demo_video_url && (
             <span className="genesis-error">{errors.demo_video_url}</span>
           )}
+
+          {/* Important Video Requirement Guide Card */}
+          <div className="genesis-video-guide-card">
+            <div className="guide-card-header">
+              <div className="guide-icon-pill">
+                <i className="fas fa-video"></i>
+              </div>
+              <div className="guide-title-text">
+                <strong>Project Video Guidelines</strong>
+                <span className="guide-badge">Required</span>
+              </div>
+            </div>
+
+            <p className="guide-desc">
+              Submit a video clearly explaining the project idea described above. Any format is accepted (AI generation, screen recording, motion graphics, or team presentation).
+            </p>
+
+            <div className="guide-alert-strip">
+              <i className="fas fa-unlock-keyhole"></i>
+              <p>
+                <strong>Must be publicly accessible:</strong> The link must open without access requests (e.g. Unlisted/Public YouTube or Shared Google Drive).
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Navigation Button */}

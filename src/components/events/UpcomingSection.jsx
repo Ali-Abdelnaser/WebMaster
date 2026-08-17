@@ -199,31 +199,45 @@ export default function UpcomingSection() {
                   )}
                 </div>
 
-                {countdown.isClosed ? (
-                  <button className="event-btn disabled" disabled aria-disabled="true">
-                    <span>Registration Closed</span>
-                    <i className="fas fa-lock"></i>
-                  </button>
-                ) : isExternalLink ? (
-                  <a
-                    href={event.link}
-                    className="event-btn"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <span>Register Now</span>
-                    <span className="btn-icon-circle">
-                      <i className="fas fa-arrow-right"></i>
-                    </span>
-                  </a>
-                ) : (
-                  <Link to={event.link || "/genesis"} className="event-btn">
-                    <span>Register Now</span>
-                    <span className="btn-icon-circle">
-                      <i className="fas fa-arrow-right"></i>
-                    </span>
-                  </Link>
-                )}
+                <div className="event-btn-group">
+                  {isGenesis && (
+                    <a
+                      href={GENESIS_CONFIG.ruleBookUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="event-rulebook-btn"
+                    >
+                      <i className="fas fa-book-open"></i>
+                      <span>Rule Book</span>
+                    </a>
+                  )}
+
+                  {countdown.isClosed ? (
+                    <button className="event-btn disabled" disabled aria-disabled="true">
+                      <span>Registration Closed</span>
+                      <i className="fas fa-lock"></i>
+                    </button>
+                  ) : isExternalLink ? (
+                    <a
+                      href={event.link}
+                      className="event-btn primary"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span>Register Now</span>
+                      <span className="btn-icon-circle">
+                        <i className="fas fa-arrow-right"></i>
+                      </span>
+                    </a>
+                  ) : (
+                    <Link to={event.link || "/genesis"} className="event-btn primary">
+                      <span>Register Now</span>
+                      <span className="btn-icon-circle">
+                        <i className="fas fa-arrow-right"></i>
+                      </span>
+                    </Link>
+                  )}
+                </div>
               </div>
             </div>
 

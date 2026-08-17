@@ -531,7 +531,7 @@
 
   .genesis-hero-visual {
     order: -1;
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .artwork-ambient-frame {
@@ -543,30 +543,53 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .genesis-intro-main {
-    padding: 85px 16px 60px;
+    padding: 85px 16px 50px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .genesis-intro-wrapper {
+    gap: 48px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .genesis-hero-split {
+    gap: 28px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .genesis-brand-title {
-    font-size: 2.5rem;
+    font-size: clamp(2.3rem, 9vw, 3.2rem);
   }
 
   .genesis-brand-tagline {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
   }
 
   .genesis-quick-meta {
+    flex-direction: column;
+    width: 100%;
     gap: 8px;
   }
 
   .quick-meta-pill {
     width: 100%;
+    box-sizing: border-box;
     font-size: 0.86rem;
   }
 
   .genesis-hero-timer-strip {
     max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
     padding: 12px 14px;
   }
 
@@ -580,16 +603,62 @@
 
   .genesis-hero-actions,
   .cta-action-row {
+    display: flex;
     flex-direction: column;
     width: 100%;
+    box-sizing: border-box;
+    gap: 12px;
   }
 
   .genesis-glow-btn {
     width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+    padding: 13px 20px;
+    font-size: 0.94rem;
+    text-align: center;
+  }
+
+  .genesis-glow-btn.large {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 0.98rem;
+  }
+
+  .cta-inner-panel {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px 14px 16px;
   }
 
   .genesis-tracks-stream {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .genesis-intro-main {
+    padding: 75px 12px 40px;
+  }
+
+  .hero-countdown-digits {
+    gap: 4px;
+  }
+
+  .timer-unit {
+    padding: 4px 2px;
+  }
+
+  .timer-unit .digit {
+    font-size: 1rem;
+  }
+
+  .timer-unit .label {
+    font-size: 0.55rem;
+  }
+
+  .unit-sep {
+    font-size: 1rem;
   }
 }
 
@@ -600,3 +669,4 @@
   background: linear-gradient(180deg, transparent 0%, rgba(2, 6, 17, 0.95) 20%, #020611 100%);
   border-top: 1px solid rgba(0, 180, 255, 0.2);
 }
+

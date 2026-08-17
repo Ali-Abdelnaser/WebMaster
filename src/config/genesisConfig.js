@@ -9,7 +9,7 @@ export const GENESIS_CONFIG = {
   tagline: "Build. Solve. Create.",
   edition: "V1.0",
   date: "16 September 2026",
-  location: "The Slab",
+  location: "MET",
 
   // Single source of truth for the registration deadline:
   // Registration is open until the end of 26 August 2026 (Egypt Time / UTC+3)

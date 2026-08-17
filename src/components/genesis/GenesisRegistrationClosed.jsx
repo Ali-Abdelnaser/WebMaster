@@ -21,7 +21,7 @@ export default function GenesisRegistrationClosed() {
 
         <div className="closed-notice-box">
           <p>
-            The competition takes place on <strong>16 September 2026</strong> at <strong>The Slab</strong>.
+            The competition takes place on <strong>16 September 2026</strong> at <strong>MET</strong>.
           </p>
           <p>
             Thank you to all participating teams who registered! If your team is registered,

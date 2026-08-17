@@ -29,6 +29,8 @@
   max-width: 1320px;
   margin: 0 auto;
   padding: 40px 24px 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .our-events-header {
@@ -81,8 +83,10 @@
 
 .our-events-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 18px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .our-events-grid .event-card {

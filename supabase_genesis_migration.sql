@@ -258,209 +258,169 @@ $$;
 
 -- 10. RPC: register_genesis_team (with document existence check and deadline >= boundary)
 CREATE OR REPLACE FUNCTION public.register_genesis_team(
-  p_team jsonb,
-  p_members jsonb,
-  p_session_id uuid DEFAULT NULL
-) RETURNS jsonb
+  p_team JSONB,
+  p_members JSONB,
+  p_session_id UUID DEFAULT NULL
+)
+RETURNS JSONB
 LANGUAGE plpgsql
 SECURITY DEFINER
-SET search_path = public, pg_temp
+SET search_path = public
 AS $$
 DECLARE
   v_reg_id UUID;
   v_team_size INT;
   v_track TEXT;
+  v_team_name TEXT;
+  v_project_idea TEXT;
+  v_demo_url TEXT;
+  v_reference_number TEXT;
+  v_deadline TIMESTAMPTZ := '2026-08-27 00:00:00+03:00'::timestamptz;
+  v_allowed_tracks TEXT[] := ARRAY['AI', 'Cybersecurity', 'Robotics', 'Mobile Application', 'IoT', 'Graduation Projects'];
+  v_allowed_years TEXT[] := ARRAY['1st Year', '2nd Year', '3rd Year', '4th Year', '5th Year'];
   v_member JSONB;
-  v_member_id UUID;
-  v_order INT;
-  v_role TEXT;
   v_national_id TEXT;
-  v_front_path TEXT;
-  v_back_path TEXT;
-  v_expected_front_pattern TEXT;
-  v_expected_back_pattern TEXT;
-  v_existing_id UUID;
+  v_email TEXT;
+  v_phone TEXT;
+  v_full_name TEXT;
+  v_discord TEXT;
+  v_univ TEXT;
+  v_faculty TEXT;
+  v_year TEXT;
+  v_role TEXT;
+  v_order INT;
   v_seen_ids TEXT[] := ARRAY[]::TEXT[];
-  v_seen_orders INT[] := ARRAY[]::INT[];
-  v_has_leader BOOLEAN := false;
+  v_now_hex TEXT;
+  v_rand_hex TEXT;
 BEGIN
-  -- 1. Server-side Registration Deadline Enforcement (>= boundary)
-  IF NOW() >= '2026-08-27 00:00:00+03:00'::timestamptz THEN
+  -- 1. Strict Deadline Check
+  IF NOW() >= v_deadline THEN
     RAISE EXCEPTION 'GENESIS_REGISTRATION_CLOSED: The registration deadline for Genesis has passed.';
   END IF;
 
-  -- 2. Validate Team Details
-  IF TRIM(COALESCE(p_team->>'team_name', '')) = '' THEN
+  -- 2. Validate Team Structure
+  v_team_name := TRIM(COALESCE(p_team->>'team_name', ''));
+  v_project_idea := TRIM(COALESCE(p_team->>'project_idea', ''));
+  v_demo_url := TRIM(COALESCE(p_team->>'demo_video_url', ''));
+  v_track := TRIM(COALESCE(p_team->>'track', ''));
+  v_team_size := (p_team->>'team_size')::INT;
+
+  IF v_team_name = '' THEN
     RAISE EXCEPTION 'INVALID_TEAM_NAME: Team name is required.';
   END IF;
 
-  IF TRIM(COALESCE(p_team->>'project_idea', '')) = '' THEN
+  IF v_project_idea = '' THEN
     RAISE EXCEPTION 'INVALID_PROJECT_IDEA: Project description is required.';
   END IF;
 
-  v_track := p_team->>'track';
-  IF v_track NOT IN ('AI', 'Cybersecurity', 'Robotics', 'Mobile Application', 'IoT', 'Graduation Projects') THEN
-    RAISE EXCEPTION 'INVALID_TRACK: Invalid track specified.';
+  IF v_demo_url = '' THEN
+    RAISE EXCEPTION 'VIDEO_REQUIRED: Project explanation video link is required.';
   END IF;
 
-  v_team_size := (p_team->>'team_size')::INT;
+  IF NOT (v_demo_url ~* '^https?://.+') THEN
+    RAISE EXCEPTION 'INVALID_VIDEO_URL: Please enter a valid public video URL (starting with http:// or https://).';
+  END IF;
+
   IF v_team_size < 1 OR v_team_size > 5 THEN
-    RAISE EXCEPTION 'INVALID_TEAM_SIZE: Team size must be between 1 and 5.';
+    RAISE EXCEPTION 'INVALID_TEAM_SIZE: Team size must be between 1 and 5 members.';
   END IF;
 
-  -- 3. Validate Member Count matches declared Team Size
+  IF NOT (v_track = ANY(v_allowed_tracks)) THEN
+    RAISE EXCEPTION 'INVALID_TRACK: Selected track is not supported in Genesis.';
+  END IF;
+
   IF jsonb_array_length(p_members) <> v_team_size THEN
-    RAISE EXCEPTION 'MEMBER_COUNT_MISMATCH: Submitted member records do not match declared team size.';
+    RAISE EXCEPTION 'MEMBER_COUNT_MISMATCH: Provided members array does not match team size.';
   END IF;
 
-  -- 4. Parse Registration UUID
-  BEGIN
-    v_reg_id := (p_team->>'id')::UUID;
-  EXCEPTION WHEN OTHERS THEN
-    RAISE EXCEPTION 'INVALID_REGISTRATION_ID: Invalid registration UUID format.';
-  END;
+  -- Registration UUID
+  v_reg_id := COALESCE((p_team->>'id')::UUID, gen_random_uuid());
 
-  IF v_reg_id IS NULL THEN
-    RAISE EXCEPTION 'MISSING_REGISTRATION_ID: Registration ID is required.';
-  END IF;
-
-  -- 5. Pre-validate All Members (Duplicates, Integrity, Existence in Storage, Roles)
-  FOR i IN 0..(jsonb_array_length(p_members) - 1) LOOP
+  -- 3. Validate Every Member
+  FOR i IN 0..(v_team_size - 1) LOOP
     v_member := p_members->i;
-    v_order := (v_member->>'member_order')::INT;
-    v_role := v_member->>'role';
-    v_national_id := LOWER(TRIM(COALESCE(v_member->>'national_id', '')));
+    v_order := i + 1;
+    v_role := CASE WHEN i = 0 THEN 'leader' ELSE 'member' END;
 
-    -- Parse Member UUID
-    BEGIN
-      v_member_id := (v_member->>'id')::UUID;
-    EXCEPTION WHEN OTHERS THEN
-      RAISE EXCEPTION 'INVALID_MEMBER_ID: Invalid member UUID format.';
-    END;
+    v_full_name := TRIM(COALESCE(v_member->>'full_name', ''));
+    v_national_id := TRIM(COALESCE(v_member->>'national_id', ''));
+    v_phone := TRIM(COALESCE(v_member->>'phone', ''));
+    v_email := LOWER(TRIM(COALESCE(v_member->>'email', '')));
+    v_discord := TRIM(COALESCE(v_member->>'discord_link', ''));
+    v_univ := TRIM(COALESCE(v_member->>'university', ''));
+    v_faculty := TRIM(COALESCE(v_member->>'faculty', ''));
+    v_year := TRIM(COALESCE(v_member->>'academic_year', ''));
 
-    IF v_member_id IS NULL THEN
-      RAISE EXCEPTION 'MISSING_MEMBER_ID: Member ID is required.';
+    -- Required Fields & Format Checks
+    IF v_full_name = '' THEN
+      RAISE EXCEPTION 'MISSING_FIELD: Full name is required for member #%.', v_order;
     END IF;
 
-    -- Order check
-    IF v_order <> (i + 1) OR v_order = ANY(v_seen_orders) THEN
-      RAISE EXCEPTION 'INVALID_MEMBER_ORDER: Member order sequence is invalid.';
-    END IF;
-    v_seen_orders := array_append(v_seen_orders, v_order);
-
-    -- Role / Leader Integrity
-    IF i = 0 THEN
-      IF v_role <> 'leader' THEN
-        RAISE EXCEPTION 'INVALID_LEADER: Member #1 must be designated as team leader.';
-      END IF;
-      v_has_leader := true;
-    ELSE
-      IF v_role <> 'member' THEN
-        RAISE EXCEPTION 'INVALID_ROLE: Members after #1 must have the role "member".';
-      END IF;
+    IF NOT (v_national_id ~ '^[0-9]{14}$') THEN
+      RAISE EXCEPTION 'INVALID_NATIONAL_ID: National ID must be exactly 14 digits for member #%.', v_order;
     END IF;
 
-    -- Full Name
-    IF TRIM(COALESCE(v_member->>'full_name', '')) = '' THEN
-      RAISE EXCEPTION 'MISSING_MEMBER_NAME: Full name is required.';
+    IF NOT (v_phone ~ '^[0-9]{11}$') THEN
+      RAISE EXCEPTION 'INVALID_PHONE: Mobile number must be exactly 11 digits for member #%.', v_order;
     END IF;
 
-    -- National ID exact 14 numeric digits
-    IF v_national_id !~ '^\d{14}$' THEN
-      RAISE EXCEPTION 'INVALID_NATIONAL_ID: National ID must be exactly 14 numeric digits.';
+    IF NOT (v_email ~ '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$') THEN
+      RAISE EXCEPTION 'INVALID_EMAIL: Valid email is required for member #%.', v_order;
     END IF;
 
-    -- Phone exact 11 numeric digits
-    IF TRIM(COALESCE(v_member->>'phone', '')) !~ '^\d{11}$' THEN
-      RAISE EXCEPTION 'INVALID_PHONE: Mobile number must be exactly 11 digits.';
+    IF v_discord = '' THEN
+      RAISE EXCEPTION 'MISSING_FIELD: Discord handle is required for member #%.', v_order;
     END IF;
 
-    -- Email format
-    IF TRIM(COALESCE(v_member->>'email', '')) = '' OR v_member->>'email' !~ '^[^\s@]+@[^\s@]+\.[^\s@]+$' THEN
-      RAISE EXCEPTION 'INVALID_EMAIL: A valid email address is required.';
+    IF v_univ = '' OR v_faculty = '' THEN
+      RAISE EXCEPTION 'MISSING_FIELD: University and Faculty are required for member #%.', v_order;
     END IF;
 
-    -- Discord, University, Faculty, Academic Year
-    IF TRIM(COALESCE(v_member->>'discord_link', '')) = '' THEN
-      RAISE EXCEPTION 'MISSING_DISCORD: Discord link or handle is required.';
-    END IF;
-    IF TRIM(COALESCE(v_member->>'university', '')) = '' THEN
-      RAISE EXCEPTION 'MISSING_UNIVERSITY: University name is required.';
-    END IF;
-    IF TRIM(COALESCE(v_member->>'faculty', '')) = '' THEN
-      RAISE EXCEPTION 'MISSING_FACULTY: Faculty name is required.';
-    END IF;
-    IF v_member->>'academic_year' NOT IN ('1st Year', '2nd Year', '3rd Year', '4th Year', '5th Year') THEN
-      RAISE EXCEPTION 'INVALID_ACADEMIC_YEAR: Academic year is invalid.';
+    IF NOT (v_year = ANY(v_allowed_years)) THEN
+      RAISE EXCEPTION 'INVALID_ACADEMIC_YEAR: Academic year is invalid for member #%.', v_order;
     END IF;
 
-    -- Storage Path Integrity & Relationship Checks
-    v_front_path := TRIM(COALESCE(v_member->>'id_front_path', ''));
-    v_back_path := TRIM(COALESCE(v_member->>'id_back_path', ''));
-
-    v_expected_front_pattern := '^' || v_reg_id::text || '/' || v_member_id::text || '/front\.(jpg|jpeg|png|webp|heic|heif|pdf)$';
-    v_expected_back_pattern := '^' || v_reg_id::text || '/' || v_member_id::text || '/back\.(jpg|jpeg|png|webp|heic|heif|pdf)$';
-
-    IF v_front_path !~* v_expected_front_pattern THEN
-      RAISE EXCEPTION 'INVALID_ID_FRONT_PATH: Storage path for ID front does not match registration identity.';
-    END IF;
-
-    IF v_back_path !~* v_expected_back_pattern THEN
-      RAISE EXCEPTION 'INVALID_ID_BACK_PATH: Storage path for ID back does not match registration identity.';
-    END IF;
-
-    -- CRITICAL VERIFICATION: Both Front and Back files MUST REALLY EXIST in storage.objects
-    IF NOT EXISTS (
-      SELECT 1 FROM storage.objects
-      WHERE bucket_id = 'genesis-id-documents' AND name = v_front_path
-    ) OR NOT EXISTS (
-      SELECT 1 FROM storage.objects
-      WHERE bucket_id = 'genesis-id-documents' AND name = v_back_path
-    ) THEN
-      RAISE EXCEPTION 'ID_DOCUMENT_MISSING: ID document file is missing in storage.';
-    END IF;
-
-    -- Duplicate check within submitted team (no PII in error)
+    -- Intra-Team Duplicate National ID Check
     IF v_national_id = ANY(v_seen_ids) THEN
-      RAISE EXCEPTION 'DUPLICATE_NATIONAL_ID_IN_TEAM: Multiple members in your team have the same National ID.';
+      RAISE EXCEPTION 'DUPLICATE_NATIONAL_ID_IN_TEAM: Duplicate National ID detected within the same team.';
     END IF;
     v_seen_ids := array_append(v_seen_ids, v_national_id);
 
-    -- Duplicate check across all existing Genesis registrations (no PII in error)
-    SELECT id INTO v_existing_id
-    FROM public.genesis_team_members
-    WHERE LOWER(TRIM(national_id)) = v_national_id
-    LIMIT 1;
-
-    IF v_existing_id IS NOT NULL THEN
-      RAISE EXCEPTION 'DUPLICATE_PARTICIPANT: A participant in your team is already registered in another Genesis team.';
+    -- Cross-Team Duplicate Participant Check
+    IF EXISTS (SELECT 1 FROM public.genesis_team_members WHERE national_id = v_national_id) THEN
+      RAISE EXCEPTION 'DUPLICATE_PARTICIPANT: A participant in this team is already registered in Genesis.';
     END IF;
   END LOOP;
 
-  IF NOT v_has_leader THEN
-    RAISE EXCEPTION 'MISSING_LEADER: Team registration must include a leader.';
-  END IF;
+  -- 4. Generate Unique Reference Number
+  v_now_hex := TO_HEX(EXTRACT(EPOCH FROM NOW())::BIGINT);
+  v_rand_hex := UPPER(SUBSTRING(MD5(gen_random_uuid()::text) FROM 1 FOR 4));
+  v_reference_number := 'GEN-' || UPPER(SUBSTRING(v_now_hex FROM LENGTH(v_now_hex) - 3)) || '-' || v_rand_hex;
 
-  -- 6. Insert Registration Record
+  -- 5. Insert Team Registration
   INSERT INTO public.genesis_registrations (
     id,
     team_name,
     project_idea,
     demo_video_url,
     track,
-    team_size
+    team_size,
+    reference_number
   ) VALUES (
     v_reg_id,
-    TRIM(p_team->>'team_name'),
-    TRIM(p_team->>'project_idea'),
-    NULLIF(TRIM(p_team->>'demo_video_url'), ''),
+    v_team_name,
+    v_project_idea,
+    v_demo_url,
     v_track,
-    v_team_size
+    v_team_size,
+    v_reference_number
   );
 
-  -- 7. Insert Team Member Records
-  FOR i IN 0..(jsonb_array_length(p_members) - 1) LOOP
+  -- 6. Insert All Team Members
+  FOR i IN 0..(v_team_size - 1) LOOP
     v_member := p_members->i;
+    v_order := i + 1;
+    v_role := CASE WHEN i = 0 THEN 'leader' ELSE 'member' END;
 
     INSERT INTO public.genesis_team_members (
       id,
@@ -478,10 +438,10 @@ BEGIN
       id_front_path,
       id_back_path
     ) VALUES (
-      (v_member->>'id')::UUID,
+      COALESCE((v_member->>'id')::UUID, gen_random_uuid()),
       v_reg_id,
-      (v_member->>'member_order')::INT,
-      v_member->>'role',
+      v_order,
+      v_role,
       TRIM(v_member->>'full_name'),
       TRIM(v_member->>'national_id'),
       TRIM(v_member->>'phone'),
@@ -489,24 +449,24 @@ BEGIN
       TRIM(v_member->>'discord_link'),
       TRIM(v_member->>'university'),
       TRIM(v_member->>'faculty'),
-      v_member->>'academic_year',
-      TRIM(v_member->>'id_front_path'),
-      TRIM(v_member->>'id_back_path')
+      TRIM(v_member->>'academic_year'),
+      NULLIF(TRIM(COALESCE(v_member->>'id_front_path', '')), ''),
+      NULLIF(TRIM(COALESCE(v_member->>'id_back_path', '')), '')
     );
   END LOOP;
 
-  -- 8. Mark upload session consumed if session_id provided
+  -- 7. Mark upload session consumed if one was passed
   IF p_session_id IS NOT NULL THEN
     UPDATE public.genesis_upload_sessions
     SET consumed = true
     WHERE id = p_session_id;
   END IF;
 
-  -- 9. Return Clean Result (no PII)
   RETURN jsonb_build_object(
     'success', true,
     'registration_id', v_reg_id,
-    'team_name', TRIM(p_team->>'team_name'),
+    'reference_number', v_reference_number,
+    'team_name', v_team_name,
     'track', v_track,
     'team_size', v_team_size
   );

@@ -63,10 +63,10 @@ export default function GenesisReview({
 
             {team.demo_video_url && (
               <div className="review-item full-width">
-                <span className="review-label">Demo Video Link</span>
+                <span className="review-label">Project Explanation Video</span>
                 <span className="review-value link-value">
                   <a href={team.demo_video_url} target="_blank" rel="noreferrer">
-                    {team.demo_video_url} <i className="fas fa-arrow-up-right-from-square"></i>
+                    <span>View Video</span> <i className="fas fa-arrow-up-right-from-square"></i>
                   </a>
                 </span>
               </div>

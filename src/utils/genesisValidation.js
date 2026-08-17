@@ -84,10 +84,13 @@ export function validateTeamDetails(team) {
     errors.team_size = "Team size must be between 1 and 5";
   }
 
-  if (team.demo_video_url?.trim()) {
+  const videoUrl = team.demo_video_url?.trim() || "";
+  if (!videoUrl) {
+    errors.demo_video_url = "Project explanation video link is required.";
+  } else {
     const urlPattern = /^https?:\/\/.+/i;
-    if (!urlPattern.test(team.demo_video_url.trim())) {
-      errors.demo_video_url = "Please enter a valid URL (starting with http:// or https://)";
+    if (!urlPattern.test(videoUrl)) {
+      errors.demo_video_url = "Please enter a valid public video URL.";
     }
   }
 
