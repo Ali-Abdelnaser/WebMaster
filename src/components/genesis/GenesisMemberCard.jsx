@@ -9,7 +9,7 @@ export default function GenesisMemberCard({
   onChange,
 }) {
   const isLeader = index === 0;
-  const cardTitle = isLeader ? "Team Leader (Member #1)" : `Team Member #${index + 1}`;
+  const cardTitle = isLeader ? "Team Leader" : `Member #${index + 1}`;
 
   const academicYearOptions = [
     "1st Year",
@@ -66,22 +66,24 @@ export default function GenesisMemberCard({
         <div className="member-order-pill">
           <span className="order-number">{index + 1}</span>
           <span className="order-title">{cardTitle}</span>
-          {member.full_name && (
-            <span className="collapsed-name-preview">— {member.full_name}</span>
+          {!isExpanded && member.full_name && (
+            <span className="collapsed-name-preview" title={member.full_name}>
+              — {member.full_name}
+            </span>
           )}
         </div>
 
         <div className="member-header-actions">
-          {isLeader && <span className="leader-tag">Leader</span>}
-
           {/* Status Indicator */}
           {hasErrors ? (
-            <span className="member-status-tag error">
-              <i className="fas fa-circle-exclamation"></i> Incomplete
+            <span className="member-status-tag error" title="Incomplete member data">
+              <i className="fas fa-circle-exclamation"></i>
+              <span className="status-tag-text">Incomplete</span>
             </span>
           ) : isComplete ? (
-            <span className="member-status-tag complete">
-              <i className="fas fa-circle-check"></i> Ready
+            <span className="member-status-tag complete" title="Member data ready">
+              <i className="fas fa-circle-check"></i>
+              <span className="status-tag-text">Ready</span>
             </span>
           ) : null}
 
